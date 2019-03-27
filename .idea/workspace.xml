@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="408b3572-bbcc-467a-8ab9-86733664fcd0" name="Default" comment="2nd">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="408b3572-bbcc-467a-8ab9-86733664fcd0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ChartController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChartController.php" />
     </list>
@@ -29,8 +28,8 @@
       <file leaf-file-name="ChartController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+            <state relative-caret-position="425">
+              <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -293,12 +292,20 @@
       <workItem from="1553227165860" duration="21307000" />
       <workItem from="1553486489771" duration="7459000" />
       <workItem from="1553572617325" duration="13535000" />
-      <workItem from="1553658754606" duration="14117000" />
+      <workItem from="1553658754606" duration="14270000" />
     </task>
+    <task id="LOCAL-00001" summary="2nd">
+      <created>1553682099649</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553682099649</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76715000" />
+    <option name="totallyTimeSpent" value="76868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -733,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+        <state relative-caret-position="425">
+          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>

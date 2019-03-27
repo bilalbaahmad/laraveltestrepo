@@ -34,8 +34,8 @@ class ChartController extends Controller
         /*$pdf_role = Role::findByName('pdf downloader');
         auth()->user()->assignRole($pdf_role);*/
 
-        $permissions = auth()->user()->getAllPermissions();
-        return  $permissions->tojson();
+        /*$permissions = auth()->user()->getAllPermissions();
+        return  $permissions->tojson();*/
 
         return view('welcome');
     }

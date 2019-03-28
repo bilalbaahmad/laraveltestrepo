@@ -55,7 +55,6 @@
                     window.open(uri);
                 }
             }
-
         </script>
 
         <div id="wid" class="wid">
@@ -116,7 +115,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="col-md-12 row mt-3">
             @can('export pdf')
                 <div>
                     <button class="btn btn-success" id="export-pdf">Export to PDF</button>

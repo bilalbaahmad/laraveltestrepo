@@ -16,8 +16,18 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+    <script type='text/javascript' src="{{URL::asset('assets/jquery.js')}}"></script>
+    <script type='text/javascript' src="{{URL::asset('assets/highcharts.js')}}"></script>
+    <script type='text/javascript' src="{{URL::asset('assets/exporting.js')}}"></script>
+    <script type='text/javascript' src="{{URL::asset('assets/file.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

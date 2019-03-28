@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-        <title>Basic Report</title>
+@extends('layouts.app')
 
-        <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-
-        <script type='text/javascript' src="{{URL::asset('assets/jquery.js')}}"></script>
-        <script type='text/javascript' src="{{URL::asset('assets/highcharts.js')}}"></script>
-        <script type='text/javascript' src="{{URL::asset('assets/exporting.js')}}"></script>
-        <script type='text/javascript' src="{{URL::asset('assets/file.js')}}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-
-
+@section('content')
+    <div class="container">
         <style type='text/css'>
             .container {
                 max-width: 600px;
@@ -60,48 +49,48 @@
 
                     //remove the link when done
                     document.body.removeChild(link);
-                } else
+                }
+                else
                 {
                     window.open(uri);
                 }
             }
 
         </script>
-    </head>
 
-    <body>
-        <div style="display: table; table-layout: fixed; width: 100%;" id="wid" class="wid">
+        <div id="wid" class="wid">
             <div>
                 <img src="{{URL::asset('assets/images/test.jpg')}}"> <br>
 
                 <table class="table" style="margin-top: 20px;">
                     <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
+                        <tr class="red-color">
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
                     </thead>
+
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -125,24 +114,28 @@
                     <div id="container4" style="height: 400px"></div>
                 </div>
             </div>
+        </div>
 
+        <div class="row">
             @can('export pdf')
                 <div>
-                    <button id="export-pdf">Export to PDF</button>
+                    <button class="btn btn-success" id="export-pdf">Export to PDF</button>
                 </div>
             @endcan
-
+            &nbsp
+            &nbsp
             @can('export pdf')
                 <div>
-                    <button onclick="exportpng()">Export PNG to PDF</button>
+                    <button class="btn btn-success" onclick="exportpng()">Export PNG to PDF</button>
                 </div>
             @endcan
-
+            &nbsp
+            &nbsp
             @can('export excel')
                 <div>
-                    <a class="btn" href="/viewexcel">Generate Excel</a>
+                    <a class="btn btn-success" href="/viewexcel">Generate Excel</a>
                 </div>
             @endcan
         </div>
-    </body>
-</html>
+    </div>
+@endsection

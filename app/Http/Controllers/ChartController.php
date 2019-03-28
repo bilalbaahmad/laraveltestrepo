@@ -8,13 +8,14 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 use PhpOffice\PhpSpreadsheet\Chart\Chart as Chart;
-use PhpOffice\PhpSpreadsheet\Chart\DataSeries;
-use PhpOffice\PhpSpreadsheet\Chart\DataSeriesValues;
-use PhpOffice\PhpSpreadsheet\Chart\Legend;
-use PhpOffice\PhpSpreadsheet\Chart\PlotArea;
-use PhpOffice\PhpSpreadsheet\Chart\Title;
+use PhpOffice\PhpSpreadsheet\Chart\DataSeries as DataSeries;
+use PhpOffice\PhpSpreadsheet\Chart\DataSeriesValues as Values;
+use PhpOffice\PhpSpreadsheet\Chart\Legend as Legend;
+use PhpOffice\PhpSpreadsheet\Chart\PlotArea as PlotArea;
+use PhpOffice\PhpSpreadsheet\Chart\Title as Title;
 use PhpOffice\PhpSpreadsheet\Spreadsheet as spreadsheet;
-use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\IOFactory as IOFactory;
+use PhpOffice\PhpSpreadsheet\Chart\Layout as Layout;
 
 
 
@@ -72,7 +73,7 @@ class ChartController extends Controller
         // Data values
         // Data Marker
         $dataSeriesLabels = [
-            new \PhpOffice\PhpSpreadsheet\Chart\DataSeriesValues('String', 'Worksheet!$C$1', null, 1), //  2011
+            new Values('String', 'Worksheet!$C$1', null, 1), //  2011
         ];
 
         //Set the X-Axis Labels
@@ -83,7 +84,7 @@ class ChartController extends Controller
         // Data values
         // Data Marker
         $xAxisTickValues = [
-            new \PhpOffice\PhpSpreadsheet\Chart\DataSeriesValues('String', 'Worksheet!$A$2:$A$5', null, 4), //  Q1 to Q4
+            new Values('String', 'Worksheet!$A$2:$A$5', null, 4), //  Q1 to Q4
         ];
 
         //Set the Data values for each data series we want to plot
@@ -94,12 +95,12 @@ class ChartController extends Controller
         // Data values
         // Data Marker
         $dataSeriesValues = [
-            new \PhpOffice\PhpSpreadsheet\Chart\DataSeriesValues('Number', 'Worksheet!$C$2:$C$5', null, 4),
+            new Values('Number', 'Worksheet!$C$2:$C$5', null, 4),
         ];
 
         //  Build the dataseries
-        $series = new \PhpOffice\PhpSpreadsheet\Chart\DataSeries(
-            \PhpOffice\PhpSpreadsheet\Chart\DataSeries::TYPE_PIECHART, // plotType
+        $series = new DataSeries(
+            DataSeries::TYPE_PIECHART, // plotType
             null, // plotGrouping (Pie charts don't have any grouping)
             range(0, count($dataSeriesValues) - 1), // plotOrder
             $dataSeriesLabels, // plotLabel
@@ -108,18 +109,16 @@ class ChartController extends Controller
         );
 
         //  Set up a layout object for the Pie chart
-        $layout = new \PhpOffice\PhpSpreadsheet\Chart\Layout();
+        $layout = new Layout();
         $layout->setShowVal(true);
         $layout->setShowPercent(true);
-        $layout->setShowBubbleSize(true);
-        $layout->setShowLeaderLines(true);
 
         //  Set the series in the plot area
-        $plotArea = new \PhpOffice\PhpSpreadsheet\Chart\PlotArea($layout, [$series]);
+        $plotArea = new PlotArea($layout, [$series]);
         //  Set the chart legend
-        $legend = new \PhpOffice\PhpSpreadsheet\Chart\Legend(\PhpOffice\PhpSpreadsheet\Chart\Legend::POSITION_RIGHT, null, false);
+        $legend = new Legend(Legend::POSITION_RIGHT, null, false);
 
-        $title = new \PhpOffice\PhpSpreadsheet\Chart\Title('Test Pie Chart');
+        $title = new Title('Test Pie Chart');
 
         //  Create the chart
         $chart = new Chart(
@@ -142,7 +141,7 @@ class ChartController extends Controller
 
         //Save Excel 2007 file
         $randname = 'Test'.gmdate('Y-m-d H:s:i').'.xlsx';
-        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $writer->setIncludeCharts(true);
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment; filename='.$randname);

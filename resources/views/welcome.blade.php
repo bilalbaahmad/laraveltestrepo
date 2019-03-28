@@ -10,6 +10,8 @@
         <script type='text/javascript' src="{{URL::asset('assets/highcharts.js')}}"></script>
         <script type='text/javascript' src="{{URL::asset('assets/exporting.js')}}"></script>
         <script type='text/javascript' src="{{URL::asset('assets/file.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
 
         <style type='text/css'>
             .container {
@@ -29,8 +31,18 @@
             {
                 var element = $("#wid")[0];
                 html2canvas(element).then(function (canvas) {
-                    var myImage = canvas.toDataURL('application/pdf');
-                    saveAs(myImage, "cartao-virtual.png");
+                    var myImage = canvas.toDataURL();
+
+                    var margin_right = 20;
+                    var margin_top = 20;
+                    var image_height = 600;
+                    var image_width = 550;
+
+                    var doc = new jsPDF('p','pt','a4');
+                    doc.addImage(myImage,'JPEG',margin_right,margin_top, image_width, image_height);
+                    doc.save('sample-file.pdf');
+
+                    /*saveAs(myImage, "cartao-virtual.png");*/
                 });
             }
 
@@ -115,15 +127,21 @@
             </div>
 
             @can('export pdf')
-            <div>
-                <button id="export-pdf">Export to PDF</button>
-            </div>
+                <div>
+                    <button id="export-pdf">Export to PDF</button>
+                </div>
+            @endcan
+
+            @can('export pdf')
+                <div>
+                    <button onclick="exportpng()">Export PNG to PDF</button>
+                </div>
             @endcan
 
             @can('export excel')
-            <div>
-                <button onclick="exportpng()">Export to PNG</button>
-            </div>
+                <div>
+                    <a class="btn" href="/viewexcel">Generate Excel</a>
+                </div>
             @endcan
         </div>
     </body>

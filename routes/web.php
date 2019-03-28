@@ -18,5 +18,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/excel', 'ChartController@index')->middleware('role:admin');
-Route::get('/viewexcel', 'ChartController@index')->middleware('role:admin|excel downloader');
+Route::get('/viewexcel', 'ChartController@viewexcel')->middleware('role:admin|excel downloader');
 Route::get('/viewpdf', 'ChartController@index')->middleware('role:admin|pdf downloader');

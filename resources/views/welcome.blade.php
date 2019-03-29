@@ -24,11 +24,17 @@
 
                     var margin_right = 20;
                     var margin_top = 20;
-                    var image_height = 600;
-                    var image_width = 550;
+
+                    var divHeight = $('#wid').height();
+                    var divWidth = $('#wid').width();
+                    var ratio = divHeight / divWidth;
 
                     var doc = new jsPDF('p','pt','a4');
-                    doc.addImage(myImage,'JPEG',margin_right,margin_top, image_width, image_height);
+
+                    var width = doc.internal.pageSize.getWidth();
+                    var height = ratio * width;
+
+                    doc.addImage(myImage,'JPEG',margin_right,margin_top, width-50, height-10);
                     doc.save('sample-file.pdf');
 
                     /*saveAs(myImage, "cartao-virtual.png");*/
@@ -121,16 +127,18 @@
                     <button class="btn btn-success" id="export-pdf">Export to PDF</button>
                 </div>
             @endcan
-            &nbsp
-            &nbsp
+
+
             @can('export pdf')
+                &nbsp &nbsp
                 <div>
                     <button class="btn btn-success" onclick="exportpng()">Export PNG to PDF</button>
                 </div>
             @endcan
-            &nbsp
-            &nbsp
+
+
             @can('export excel')
+                &nbsp &nbsp
                 <div>
                     <a class="btn btn-success" href="/viewexcel">Generate Excel</a>
                 </div>

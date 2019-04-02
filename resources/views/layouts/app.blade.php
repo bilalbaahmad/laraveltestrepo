@@ -18,11 +18,12 @@
 
     <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
-    <script type='text/javascript' src="{{URL::asset('assets/jquery.js')}}"></script>
+    {{--<script type='text/javascript' src="{{URL::asset('assets/jquery.js')}}"></script>
     <script type='text/javascript' src="{{URL::asset('assets/highcharts.js')}}"></script>
     <script type='text/javascript' src="{{URL::asset('assets/exporting.js')}}"></script>
-    <script type='text/javascript' src="{{URL::asset('assets/file.js')}}"></script>
+    <script type='text/javascript' src="{{URL::asset('assets/file.js')}}"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
     <!-- Styles -->

@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import NavBar from './navbar';
+import NavBar from './navBar';
 import Roles from './roles';
+import AddRole from './addRole';
+import AddPermission from './addPermission';
 import Permissions from './permissions';
-import EditPermission from './editpermission';
+import EditPermission from './editPermission';
+import EditRole from './editRole';
 import Login from './login';
 import Home from './home';
 import NotFound from './notFound';
@@ -18,13 +21,16 @@ export default class MainComponent extends Component {
 
                 <div className="container">
                     <Switch>
-                        <Route path="/roles" component={Roles} />
-                        <Route path="/permissions" component={Permissions} />
-                        <Route path="/login" component={Login} />
-                        <Route exact path="/permission/edit/:id" component={EditPermission}></Route>
-                        <Route path="/not-found" component={NotFound} />
-                        <Route path="/" exact component={Home} />
-                        <Redirect to="not-found" />
+                        <Route exact path="/roles" render={() => <Roles />} />
+                        <Route exact path="/permissions" render={() => <Permissions />} />
+                        <Route exact path="/login" render={() => <Login />} />
+                        <Route exact path='/permission/edit/:id' render={() => <EditPermission />} />
+                        <Route exact path='/role/edit/:id' render={() => <EditRole />} />
+                        <Route exact path="/roles/add" render={() => <AddRole />} />
+                        <Route exact path="/permissions/add" render={() => <AddPermission />} />
+                        <Route exact path="/not-found" render={() => <NotFound />} />
+                        <Route exact path="/" render={() => <Home />} />
+                        <Redirect to="/not-found" />
                     </Switch>
                 </div>
             </div>

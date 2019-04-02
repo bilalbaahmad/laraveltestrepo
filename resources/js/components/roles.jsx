@@ -35,14 +35,18 @@ export default class Roles extends Component {
         });
     }
 
-
-
     render() {
+        var link_styling = {
+            marginLeft: '25px',
+            color: 'black'
+        };
+
         return (
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
                         <h4 className="card-title">All Roles</h4>
+                        <Link to={`/roles/add`} className="btn btn-success btn-sm float-right" style={{marginTop: -35}}>Add New +</Link>
                     </div>
                 </div>
 
@@ -70,10 +74,10 @@ export default class Roles extends Component {
                                                         Action
                                                     </a>
 
-                                                    {/*<div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <Link style={link_styling} to={`/role/edit/${role.id}`}>Edit</Link>
-                                            <a className="dropdown-item" onClick={this.onDelete.bind(this,role.id)}>Delete</a>
-                                        </div>*/}
+                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <Link style={link_styling} to={`/role/edit/${role.id}`}>Edit</Link>
+                                                        <a className="dropdown-item" onClick={this.onDelete.bind(this,role.id)}>Delete</a>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>

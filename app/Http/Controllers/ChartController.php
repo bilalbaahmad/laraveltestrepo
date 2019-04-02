@@ -17,6 +17,8 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet as spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory as IOFactory;
 use PhpOffice\PhpSpreadsheet\Chart\Layout as Layout;
 
+use App\client;
+
 
 
 class ChartController extends Controller
@@ -41,6 +43,14 @@ class ChartController extends Controller
         $admin_role->syncPermissions($all_permissions);
         $excel_role->givePermissionTo($excel_perm);
         $pdf_role->givePermissionTo($pdf_perm);*/
+
+        $client = client::find(1);
+        /*$pdf_role = Role::findByName('pdf downloader');
+        $client->assignRole($pdf_role);*/
+
+        /*$result = $client->hasAnyRole('pdf downloader');*/
+        $result = $client->hasPermissionTo('export pdf');
+        dd($result);
 
         /*$pdf_role = Role::findByName('pdf downloader');
         auth()->user()->assignRole($pdf_role);*/

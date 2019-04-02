@@ -35,13 +35,18 @@ export default class Permissions extends Component {
         });
     }
 
-
     render() {
+        var link_styling = {
+            marginLeft: '25px',
+            color: 'black'
+        };
+
         return (
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
                         <h4 className="card-title">All Permissions</h4>
+                        <Link to={`/permissions/add`} className="btn btn-success btn-sm float-right" style={{marginTop: -35}}>Add New +</Link>
                     </div>
                 </div>
 
@@ -49,11 +54,11 @@ export default class Permissions extends Component {
                     <div className="card-body card-dashboard">
                         <table className="table table-striped table-bordered">
                             <thead>
-                            <tr style={{backgroundColor: '#8fbeec'}}>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Action</th>
-                            </tr>
+                                <tr style={{backgroundColor: '#8fbeec'}}>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Action</th>
+                                </tr>
                             </thead>
 
                             <tbody>
@@ -69,10 +74,10 @@ export default class Permissions extends Component {
                                                         Action
                                                     </a>
 
-                                                    {/*<div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <Link style={link_styling} to={`/permission/edit/${permission.id}`}>Edit</Link>
-                                            <a className="dropdown-item" onClick={this.onDelete.bind(this,permission.id)}>Delete</a>
-                                        </div>*/}
+                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <Link style={link_styling} to={`/permission/edit/${permission.id}`}>Edit</Link>
+                                                        <a className="dropdown-item" onClick={this.onDelete.bind(this,permission.id)}>Delete</a>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>

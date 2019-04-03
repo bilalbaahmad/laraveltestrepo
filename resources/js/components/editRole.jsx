@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Input from "./sharedComponents/input";
 import Joi from "joi-browser";
 
@@ -97,22 +97,33 @@ class AddRole extends Component {
         }
 
         return (
-            <div>
-                <h1>Add Role</h1> <br />
-                <form onSubmit={this.handleSubmit}>
-                    <Input
-                        name="role"
-                        type="text"
-                        label="Role Name"
-                        value={this.state.new_role.role}
-                        onChange={this.handleChange}
-                        error={this.state.errors.role}
-                    />
+            <div className="card">
+                <div className="card-head">
+                    <div className="card-header">
+                        <h4 className="card-title">Edit Role</h4>
+                    </div>
+                </div>
 
-                    <button disabled={this.validate()} className="btn btn-primary">
-                        Add
-                    </button>
-                </form>
+                <div className="card-content collapse show">
+                    <div className="card-body card-dashboard">
+                        <form onSubmit={this.handleSubmit}>
+                            <Input
+                                name="role"
+                                type="text"
+                                label="Role Name"
+                                value={this.state.new_role.role}
+                                onChange={this.handleChange}
+                                error={this.state.errors.role}
+                            />
+
+                            <button disabled={this.validate()} className="btn btn-primary">
+                                Add
+                            </button>
+
+                            <Link className="btn btn-primary float-right" to={`/roles`}>Back</Link>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     }

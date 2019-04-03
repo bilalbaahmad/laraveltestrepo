@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Input from "./sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
@@ -99,22 +99,33 @@ class EditPermission extends Component {
         }
 
         return (
-            <div>
-                <h1>Edit Permission</h1> <br />
-                <form onSubmit={this.handleSubmit}>
-                    <Input
-                        name="permission"
-                        type="text"
-                        label="Permission Name"
-                        value={this.state.new_permission.permission}
-                        onChange={this.handleChange}
-                        error={this.state.errors.permission}
-                    />
+            <div className="card">
+                <div className="card-head">
+                    <div className="card-header">
+                        <h4 className="card-title">Edit Permission</h4>
+                    </div>
+                </div>
 
-                    <button disabled={this.validate()} className="btn btn-primary">
-                        Update
-                    </button>
-                </form>
+                <div className="card-content collapse show">
+                    <div className="card-body card-dashboard">
+                        <form onSubmit={this.handleSubmit}>
+                            <Input
+                                name="permission"
+                                type="text"
+                                label="Permission Name"
+                                value={this.state.new_permission.permission}
+                                onChange={this.handleChange}
+                                error={this.state.errors.permission}
+                            />
+
+                            <button disabled={this.validate()} className="btn btn-primary">
+                                Update
+                            </button>
+
+                            <Link className="btn btn-primary float-right" to={`/permissions`}>Back</Link>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     }

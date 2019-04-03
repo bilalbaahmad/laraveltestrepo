@@ -7,17 +7,32 @@ export default class Roles extends Component {
     constructor()
     {
         super();
+
         this.state={
             roles:[]
         }
+
     }
+
 
     componentDidMount()
     {
+       /* $('#mytable').dataTable();*/
+
         axios.get('/api/allroles').then(response=>{
             this.setState({roles:response.data});
         });
+
+        /*$('#mytable').dataTable({
+            "sPaginationType": "full_numbers",
+            "bAutoWidth": false,
+            "bDestroy": true,
+            "fnDrawCallback": function() {
+            },
+
+        });*/
     }
+
 
     onDelete(role_id)
     {
@@ -52,7 +67,7 @@ export default class Roles extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard">
-                        <table className="table table-striped table-bordered">
+                        <table className="table table-striped table-bordered" id="mytable">
                             <thead>
                                 <tr style={{backgroundColor: '#8fbeec'}}>
                                     <th scope="col">#</th>
@@ -63,10 +78,10 @@ export default class Roles extends Component {
 
                             <tbody>
                             {
-                                this.state.roles.map(role=>{
+                                this.state.roles.map((role, index)=>{
                                     return(
                                         <tr key={role.id}>
-                                            <th>{role.id}</th>
+                                            <th>{index+1}</th>
                                             <td>{role.name}</td>
                                             <td>
                                                 <div className="dropdown show">
@@ -75,6 +90,7 @@ export default class Roles extends Component {
                                                     </a>
 
                                                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <Link style={link_styling} to={`/role/${role.id}/${role.name}/permissions`}>View Permissions</Link> <br />
                                                         <Link style={link_styling} to={`/role/edit/${role.id}`}>Edit</Link>
                                                         <a className="dropdown-item" onClick={this.onDelete.bind(this,role.id)}>Delete</a>
                                                     </div>

@@ -17,7 +17,7 @@ class ApiController extends Controller
 
     public function addPermission(Request $request)
     {
-        $permission_name = $request->permission;
+        $permission_name = ucwords($request->permission);
         $new_permission = Permission::create(['name' => $permission_name]);
         return $permission_name;
     }
@@ -32,7 +32,7 @@ class ApiController extends Controller
     public function updatePermission(Request $request)
     {
         $permission_id = $request->permission_id;
-        $permission_name = $request->permission;
+        $permission_name = ucwords($request->permission);
         $permission = Permission::findById($permission_id);
         $permission->name = $permission_name;
         $permission->save();
@@ -54,7 +54,7 @@ class ApiController extends Controller
 
     public function addRole(Request $request)
     {
-        $role_name = $request->role;
+        $role_name = ucwords($request->role);
         $new_role = Role::create(['name' => $role_name]);
         return $role_name;
     }
@@ -69,7 +69,7 @@ class ApiController extends Controller
     public function updateRole(Request $request)
     {
         $role_id = $request->role_id;
-        $role_name = $request->role;
+        $role_name = ucwords($request->role);
         $role = Role::findById($role_id);
         $role->name = $role_name;
         $role->save();
@@ -81,5 +81,24 @@ class ApiController extends Controller
         $role_id = $id;
         $role = Role::findById($role_id);
         $role->delete();
+    }
+
+    public function viewRolePermissions($id)
+    {
+        $role_id = $id;
+        $role = Role::findById($role_id);
+        $role_details = $role->load('permissions');
+        return $role_details->permissions;
+    }
+
+    public function deleteRolePermission($r_id,$p_id)
+    {
+        $role_id = $r_id;
+        $permission_id = $p_id;
+
+        $role = Role::findById($role_id);
+        $permission = Permission::findById($permission_id);
+        $role->revokePermissionTo($permission);
+
     }
 }

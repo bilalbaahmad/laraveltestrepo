@@ -9,6 +9,7 @@ import AddPermission from './addPermission';
 import AddRole from './addRole';
 import EditPermission from './editPermission';
 import EditRole from './editRole';
+import RolePermissions from './rolePermissions';
 import Login from './login';
 import Home from './home';
 import NotFound from './notFound';
@@ -28,6 +29,7 @@ export default class MainComponent extends Component {
                         <Route exact path="/roles/add" render={() => <AddRole />} />
                         <Route exact path='/permission/edit/:id' render={(props) => <EditPermission {...props}/>} />
                         <Route exact path='/role/edit/:id' render={(props) => <EditRole {...props}/>} />
+                        <Route exact path='/role/:id/:name/permissions' render={(props) => <RolePermissions {...props}/>} />
                         <Route exact path="/not-found" render={() => <NotFound />} />
                         <Route exact path="/" render={() => <Home />} />
                         <Redirect to="/not-found" />

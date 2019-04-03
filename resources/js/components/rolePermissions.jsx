@@ -2,26 +2,20 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-export default class Permissions extends Component {
+export default class RolePermissions extends Component {
 
-    constructor()
+    constructor(props)
     {
-        super();
+        super(props);
         this.state={
             permissions:[]
         }
     }
 
-    componentDidMount()
+    onDelete(permission_id,role_id)
     {
-        axios.get('/api/allpermissions').then(response=>{
-            this.setState({permissions:response.data});
-        });
-    }
+        axios.delete('/api/role/'+role_id+'/permission/delete/'+permission_id).then(response=>{
 
-    onDelete(permission_id)
-    {
-        axios.delete('/api/permission/delete/'+permission_id).then(response=>{
             var current_permissions = this.state.permissions;
 
             for(var i=0; i<current_permissions.length; i++)
@@ -35,18 +29,29 @@ export default class Permissions extends Component {
         });
     }
 
+    componentDidMount()
+    {
+        const role_id = this.props.match.params.id;
+
+        axios.get('/api/role/'+role_id+'/permissions').then(response=>{
+            this.setState({permissions:response.data});
+        });
+    }
+
     render() {
         var link_styling = {
             marginLeft: '25px',
             color: 'black'
         };
 
+        const role_id = this.props.match.params.id;
+        const role_name = this.props.match.params.name;
+
         return (
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
-                        <h4 className="card-title">All Permissions</h4>
-                        <Link to={`/permissions/add`} className="btn btn-success btn-sm float-right" style={{marginTop: -35}}>Add New +</Link>
+                        <h4 className="card-title">{role_name} Permissions</h4>
                     </div>
                 </div>
 
@@ -54,11 +59,11 @@ export default class Permissions extends Component {
                     <div className="card-body card-dashboard">
                         <table className="table table-striped table-bordered">
                             <thead>
-                                <tr style={{backgroundColor: '#8fbeec'}}>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Action</th>
-                                </tr>
+                            <tr style={{backgroundColor: '#8fbeec'}}>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
                             </thead>
 
                             <tbody>
@@ -69,16 +74,7 @@ export default class Permissions extends Component {
                                             <th>{index+1}</th>
                                             <td>{permission.name}</td>
                                             <td>
-                                                <div className="dropdown show">
-                                                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Action
-                                                    </a>
-
-                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <Link style={link_styling} to={`/permission/edit/${permission.id}`}>Edit</Link>
-                                                        <a className="dropdown-item" onClick={this.onDelete.bind(this,permission.id)}>Delete</a>
-                                                    </div>
-                                                </div>
+                                                <a className="btn btn-danger text-white" onClick={this.onDelete.bind(this,permission.id,role_id)}>Delete</a>
                                             </td>
                                         </tr>
                                     )
@@ -86,10 +82,11 @@ export default class Permissions extends Component {
                             }
                             </tbody>
                         </table>
+
+                        <Link className="btn btn-primary float-right" to={`/roles`} style={{marginBottom: 15}}>Back</Link>
                     </div>
                 </div>
             </div>
-
         );
     }
 }

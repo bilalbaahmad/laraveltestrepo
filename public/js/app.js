@@ -60913,9 +60913,12 @@ if (token) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -60937,6 +60940,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -60964,15 +60969,16 @@ function (_Component) {
       new_permission: {
         permission: ""
       },
+      redirect: false,
       errors: {}
     });
 
     _defineProperty(_assertThisInitialized(_this), "schema", {
-      permission: joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.string().required().label("Permission")
+      permission: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Permission")
     });
 
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
-      var result = joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.validate(_this.state.new_permission, _this.schema, {
+      var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_permission, _this.schema, {
         abortEarly: false
       });
       if (!result.error) return null;
@@ -61012,7 +61018,7 @@ function (_Component) {
 
       var subschema = _defineProperty({}, name, _this.schema[name]);
 
-      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.validate(obj, subschema),
+      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(obj, subschema),
           error = _Joi$validate.error;
 
       return error ? error.details[0].message : null;
@@ -61028,6 +61034,19 @@ function (_Component) {
       });
 
       if (errors) return;
+
+      var oldState = _objectSpread({}, _this.state.new_permission);
+
+      var FD = new FormData();
+      FD.append('permission', _this.state.new_permission.permission);
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/permissions/add', FD).then(function (response) {
+        oldState.permission = response.data;
+
+        _this.setState({
+          new_permission: oldState,
+          redirect: true
+        });
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
@@ -61059,9 +61078,17 @@ function (_Component) {
   _createClass(AddPermission, [{
     key: "render",
     value: function render() {
+      var redirect = this.state.redirect;
+
+      if (redirect) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/permissions"
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Add Permission"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "permission",
         type: "text",
         label: "Permission Name",
@@ -61093,9 +61120,10 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -61117,6 +61145,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -61144,15 +61173,16 @@ function (_Component) {
       new_role: {
         role: ""
       },
+      redirect: false,
       errors: {}
     });
 
     _defineProperty(_assertThisInitialized(_this), "schema", {
-      role: joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.string().required().label("Role")
+      role: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Role")
     });
 
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
-      var result = joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.validate(_this.state.new_role, _this.schema, {
+      var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_role, _this.schema, {
         abortEarly: false
       });
       if (!result.error) return null;
@@ -61192,7 +61222,7 @@ function (_Component) {
 
       var subschema = _defineProperty({}, name, _this.schema[name]);
 
-      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.validate(obj, subschema),
+      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(obj, subschema),
           error = _Joi$validate.error;
 
       return error ? error.details[0].message : null;
@@ -61208,6 +61238,19 @@ function (_Component) {
       });
 
       if (errors) return;
+
+      var oldState = _objectSpread({}, _this.state.new_role);
+
+      var FD = new FormData();
+      FD.append('role', _this.state.new_role.role);
+      axios.post('/api/roles/add', FD).then(function (response) {
+        oldState.role = response.data;
+
+        _this.setState({
+          new_role: oldState,
+          redirect: true
+        });
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
@@ -61239,9 +61282,17 @@ function (_Component) {
   _createClass(AddRole, [{
     key: "render",
     value: function render() {
+      var redirect = this.state.redirect;
+
+      if (redirect) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/roles"
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Add Role"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "role",
         type: "text",
         label: "Role Name",
@@ -61266,10 +61317,215 @@ function (_Component) {
 /*!****************************************************!*\
   !*** ./resources/js/components/editPermission.jsx ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+
+
+
+
+
+var EditPermission =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(EditPermission, _Component);
+
+  function EditPermission(props) {
+    var _this;
+
+    _classCallCheck(this, EditPermission);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditPermission).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "schema", {
+      permission: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Permission")
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "validate", function () {
+      var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_permission, _this.schema, {
+        abortEarly: false
+      });
+      if (!result.error) return null;
+      var errors = {};
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = result.error.details[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+          errors[item.path[0]] = item.message;
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return != null) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      return errors;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "ValidateProperty", function (_ref) {
+      var name = _ref.name,
+          value = _ref.value;
+
+      var obj = _defineProperty({}, name, value);
+
+      var subschema = _defineProperty({}, name, _this.schema[name]);
+
+      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(obj, subschema),
+          error = _Joi$validate.error;
+
+      return error ? error.details[0].message : null;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      var errors = _this.validate();
+
+      _this.setState({
+        errors: errors || {}
+      });
+
+      if (errors) return;
+
+      var oldState = _objectSpread({}, _this.state.new_permission);
+
+      var FD = new FormData();
+      FD.append('permission_id', _this.props.match.params.id);
+      FD.append('permission', _this.state.new_permission.permission);
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/permissions/update', FD).then(function (response) {
+        oldState.permission = response.data + " testt";
+
+        _this.setState({
+          new_permission: oldState,
+          redirect: true
+        });
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
+      var input = _ref2.currentTarget;
+
+      var errors = _objectSpread({}, _this.state.errors);
+
+      var errorMessage = _this.ValidateProperty(input);
+
+      if (errorMessage) {
+        errors[input.name] = errorMessage;
+      } else {
+        delete errors[input.name];
+      }
+
+      var new_permission = _objectSpread({}, _this.state.new_permission);
+
+      new_permission[input.name] = input.value;
+
+      _this.setState({
+        new_permission: new_permission,
+        errors: errors
+      });
+    });
+
+    _this.state = {
+      new_permission: {
+        permission: ""
+      },
+      redirect: false,
+      errors: {}
+    };
+    return _this;
+  }
+
+  _createClass(EditPermission, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var oldState = _objectSpread({}, this.state.new_permission);
+
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/permissions/view/' + this.props.match.params.id).then(function (response) {
+        oldState.permission = response.data.name;
+
+        _this2.setState({
+          new_permission: oldState
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var redirect = this.state.redirect;
+
+      if (redirect) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/permissions"
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Edit Permission"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        name: "permission",
+        type: "text",
+        label: "Permission Name",
+        value: this.state.new_permission.permission,
+        onChange: this.handleChange,
+        error: this.state.errors.permission
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        disabled: this.validate(),
+        className: "btn btn-primary"
+      }, "Update")));
+    }
+  }]);
+
+  return EditPermission;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (EditPermission);
 
 /***/ }),
 
@@ -61277,10 +61533,212 @@ function (_Component) {
 /*!**********************************************!*\
   !*** ./resources/js/components/editRole.jsx ***!
   \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+
+
+
+
+var AddRole =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AddRole, _Component);
+
+  function AddRole(props) {
+    var _this;
+
+    _classCallCheck(this, AddRole);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddRole).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "schema", {
+      role: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Role")
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "validate", function () {
+      var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_role, _this.schema, {
+        abortEarly: false
+      });
+      if (!result.error) return null;
+      var errors = {};
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = result.error.details[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+          errors[item.path[0]] = item.message;
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return != null) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      return errors;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "ValidateProperty", function (_ref) {
+      var name = _ref.name,
+          value = _ref.value;
+
+      var obj = _defineProperty({}, name, value);
+
+      var subschema = _defineProperty({}, name, _this.schema[name]);
+
+      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(obj, subschema),
+          error = _Joi$validate.error;
+
+      return error ? error.details[0].message : null;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      var errors = _this.validate();
+
+      _this.setState({
+        errors: errors || {}
+      });
+
+      if (errors) return;
+
+      var oldState = _objectSpread({}, _this.state.new_role);
+
+      var FD = new FormData();
+      FD.append('role_id', _this.props.match.params.id);
+      FD.append('role', _this.state.new_role.role);
+      axios.post('/api/roles/update', FD).then(function (response) {
+        oldState.role = response.data;
+
+        _this.setState({
+          new_role: oldState,
+          redirect: true
+        });
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
+      var input = _ref2.currentTarget;
+
+      var errors = _objectSpread({}, _this.state.errors);
+
+      var errorMessage = _this.ValidateProperty(input);
+
+      if (errorMessage) {
+        errors[input.name] = errorMessage;
+      } else {
+        delete errors[input.name];
+      }
+
+      var new_role = _objectSpread({}, _this.state.new_role);
+
+      new_role[input.name] = input.value;
+
+      _this.setState({
+        new_role: new_role,
+        errors: errors
+      });
+    });
+
+    _this.state = {
+      new_role: {
+        role: ""
+      },
+      redirect: false,
+      errors: {}
+    };
+    return _this;
+  }
+
+  _createClass(AddRole, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var oldState = _objectSpread({}, this.state.new_role);
+
+      axios.get('/api/roles/view/' + this.props.match.params.id).then(function (response) {
+        oldState.role = response.data.name;
+
+        _this2.setState({
+          new_role: oldState
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var redirect = this.state.redirect;
+
+      if (redirect) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/roles"
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Add Role"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        name: "role",
+        type: "text",
+        label: "Role Name",
+        value: this.state.new_role.role,
+        onChange: this.handleChange,
+        error: this.state.errors.role
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        disabled: this.validate(),
+        className: "btn btn-primary"
+      }, "Add")));
+    }
+  }]);
+
+  return AddRole;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (AddRole);
 
 /***/ }),
 
@@ -61545,14 +62003,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _navBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navBar */ "./resources/js/components/navBar.jsx");
-/* harmony import */ var _roles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./roles */ "./resources/js/components/roles.jsx");
-/* harmony import */ var _addRole__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./addRole */ "./resources/js/components/addRole.jsx");
+/* harmony import */ var _permissions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./permissions */ "./resources/js/components/permissions.jsx");
+/* harmony import */ var _roles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./roles */ "./resources/js/components/roles.jsx");
 /* harmony import */ var _addPermission__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./addPermission */ "./resources/js/components/addPermission.jsx");
-/* harmony import */ var _permissions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./permissions */ "./resources/js/components/permissions.jsx");
+/* harmony import */ var _addRole__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./addRole */ "./resources/js/components/addRole.jsx");
 /* harmony import */ var _editPermission__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editPermission */ "./resources/js/components/editPermission.jsx");
-/* harmony import */ var _editPermission__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_editPermission__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _editRole__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editRole */ "./resources/js/components/editRole.jsx");
-/* harmony import */ var _editRole__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_editRole__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login */ "./resources/js/components/login.jsx");
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home */ "./resources/js/components/home.jsx");
 /* harmony import */ var _notFound__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./notFound */ "./resources/js/components/notFound.jsx");
@@ -61608,13 +62064,13 @@ function (_Component) {
         exact: true,
         path: "/roles",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roles__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roles__WEBPACK_IMPORTED_MODULE_5__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/permissions",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_permissions__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_permissions__WEBPACK_IMPORTED_MODULE_4__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
@@ -61624,27 +62080,27 @@ function (_Component) {
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/permission/edit/:id",
+        path: "/permissions/add",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editPermission__WEBPACK_IMPORTED_MODULE_8___default.a, null);
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
-        path: "/role/edit/:id",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editRole__WEBPACK_IMPORTED_MODULE_9___default.a, null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addPermission__WEBPACK_IMPORTED_MODULE_6__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/roles/add",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addRole__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addRole__WEBPACK_IMPORTED_MODULE_7__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/permissions/add",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addPermission__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+        path: "/permission/edit/:id",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editPermission__WEBPACK_IMPORTED_MODULE_8__["default"], props);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/role/edit/:id",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editRole__WEBPACK_IMPORTED_MODULE_9__["default"], props);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
@@ -61707,13 +62163,13 @@ var NavBar = function NavBar() {
     className: "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     className: "nav-link",
-    to: "/roles"
-  }, "Roles")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    to: "/permissions"
+  }, "Permissions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     className: "nav-link",
-    to: "/permissions"
-  }, "Permissions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    to: "/roles"
+  }, "Roles")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     className: "nav-link",
@@ -61970,14 +62426,14 @@ function (_Component) {
     }
   }, {
     key: "onDelete",
-    value: function onDelete(permission_id) {
+    value: function onDelete(role_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/roles/delete/' + permission_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/delete/' + role_id).then(function (response) {
         var current_roles = _this3.state.roles;
 
         for (var i = 0; i < current_roles.length; i++) {
-          if (current_roles[i].id == permission_id) {
+          if (current_roles[i].id == role_id) {
             current_roles.splice(i, 1);
 
             _this3.setState({

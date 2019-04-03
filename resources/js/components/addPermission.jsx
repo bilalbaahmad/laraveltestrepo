@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import Input from "./sharedComponents/input";
 import Joi from "joi-browser";
+import axios from 'axios';
 
 class AddPermission extends Component {
 
@@ -8,6 +10,7 @@ class AddPermission extends Component {
         new_permission: {
             permission: ""
         },
+        redirect: false,
         errors: {}
     };
 
@@ -47,6 +50,17 @@ class AddPermission extends Component {
         this.setState({ errors: errors || {} });
 
         if (errors) return;
+
+        const oldState = { ...this.state.new_permission };
+
+        const FD = new FormData();
+        FD.append('permission', this.state.new_permission.permission);
+
+        axios.post('/api/permissions/add',FD).then(response=>{
+            oldState.permission = response.data;
+            this.setState({new_permission:oldState,redirect: true});
+        });
+
     };
 
     handleChange = ({ currentTarget: input }) => {
@@ -64,6 +78,12 @@ class AddPermission extends Component {
     };
 
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to='/permissions' />;
+        }
+
         return (
             <div>
                 <h1>Add Permission</h1> <br />

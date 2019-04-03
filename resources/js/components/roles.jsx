@@ -19,14 +19,14 @@ export default class Roles extends Component {
         });
     }
 
-    onDelete(permission_id)
+    onDelete(role_id)
     {
-        axios.delete('/api/roles/delete/'+permission_id).then(response=>{
+        axios.delete('/api/role/delete/'+role_id).then(response=>{
             var current_roles = this.state.roles;
 
             for(var i=0; i<current_roles.length; i++)
             {
-                if(current_roles[i].id == permission_id)
+                if(current_roles[i].id == role_id)
                 {
                     current_roles.splice(i,1);
                     this.setState({roles:current_roles});

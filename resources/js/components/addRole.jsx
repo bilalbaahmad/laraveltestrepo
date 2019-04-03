@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import Input from "./sharedComponents/input";
 import Joi from "joi-browser";
 
@@ -8,6 +9,7 @@ class AddRole extends Component {
         new_role: {
             role: ""
         },
+        redirect: false,
         errors: {}
     };
 
@@ -47,6 +49,16 @@ class AddRole extends Component {
         this.setState({ errors: errors || {} });
 
         if (errors) return;
+
+        const oldState = { ...this.state.new_role };
+
+        const FD = new FormData();
+        FD.append('role', this.state.new_role.role);
+
+        axios.post('/api/roles/add',FD).then(response=>{
+            oldState.role = response.data;
+            this.setState({new_role:oldState,redirect: true});
+        });
     };
 
     handleChange = ({ currentTarget: input }) => {
@@ -64,6 +76,12 @@ class AddRole extends Component {
     };
 
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to='/roles' />;
+        }
+
         return (
             <div>
                 <h1>Add Role</h1> <br />

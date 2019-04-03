@@ -12,13 +12,13 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/roles">
-              Roles
+            <NavLink className="nav-link" to="/permissions">
+              Permissions
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/permissions">
-              Permissions
+            <NavLink className="nav-link" to="/roles">
+              Roles
             </NavLink>
           </li>
           <li className="nav-item">

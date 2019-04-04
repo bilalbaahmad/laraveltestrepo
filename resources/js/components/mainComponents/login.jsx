@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Input from "./sharedComponents/input";
+import Input from "../sharedComponents/input";
 import Joi from "joi-browser";
 
 class Login extends Component {

@@ -10,51 +10,50 @@ export default class Roles extends Component {
         super(props);
 
         this.state={
-            all_permissions:[],
-            role_permissions:[],
-            role_id: this.props.location.role_id,
-            role_name: this.props.location.role_name,
+            all_roles:[],
+            user_roles:[],
+            user_id: this.props.location.user_id,
+            user_name: this.props.location.user_name,
         }
     }
 
     onStatusChange(e)
     {
-        const role_id = this.state.role_id;
+        const user_id = this.state.user_id;
         const value = e.target.value;
         const checked = e.target.checked;
         var status = 0;
         if(checked) status = 1;
 
         const FD = new FormData();
-        FD.append('role_id', role_id);
-        FD.append('permission_id', value);
+        FD.append('user_id', user_id);
+        FD.append('role_id', value);
         FD.append('status', status);
 
-        axios.post('/api/role/permissions/update',FD).then(response=>{
+        axios.post('/api/user/roles/update',FD).then(response=>{
             const resp = response.data;
-            toast.success("Permission "+resp+" !", {  autoClose: 3000 });
+            toast.success("Role "+resp+" !", {  autoClose: 3000 });
         });
 
     }
 
     componentDidMount()
     {
-        const role_id = this.state.role_id;
+        const user_id = this.state.user_id;
 
-        axios.get('/api/allpermissions').then(response=>{
-            this.setState({all_permissions:response.data});
+        axios.get('/api/allroles').then(response=>{
+            this.setState({all_roles:response.data});
         });
 
-        axios.get('/api/role/'+role_id+'/permissions').then(response=>{
-            this.setState({role_permissions:response.data});
-            this.state.role_permissions.forEach(permission => {
-                let ref = 'permissionCheckbox_' + permission.id;
+        axios.get('/api/user/'+user_id+'/roles').then(response=>{
+            this.setState({user_roles:response.data.roles});
+            this.state.user_roles.forEach(role => {
+                let ref = 'roleCheckbox_' + role.id;
                 this.refs[ref].checked = true;
             } );
         });
-
-
     }
+
 
     render() {
         var link_styling = {
@@ -62,14 +61,13 @@ export default class Roles extends Component {
             color: 'black'
         };
 
-        const role_id = this.state.role_id;
-        const role_name = this.state.role_name;
+        const user_name = this.state.user_name;
 
         return (
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
-                        <h4 className="card-title">Add {role_name} Permissions</h4>
+                        <h4 className="card-title">Manage { user_name } Roles</h4>
                     </div>
                 </div>
 
@@ -86,13 +84,13 @@ export default class Roles extends Component {
 
                             <tbody>
                             {
-                                this.state.all_permissions.map((permission, index)=>{
+                                this.state.all_roles.map((role, index)=>{
                                     return(
-                                        <tr key={permission.id}>
+                                        <tr key={role.id}>
                                             <th>{index+1}</th>
-                                            <td>{permission.name}</td>
+                                            <td>{role.name}</td>
                                             <td>
-                                                <input type="checkbox" id={"permissionCheckbox_"+permission.id} ref={"permissionCheckbox_"+permission.id} onClick={this.onStatusChange.bind(this)} value={permission.id}/>
+                                                <input type="checkbox" id={"roleCheckbox_"+role.id} ref={"roleCheckbox_"+role.id} onClick={this.onStatusChange.bind(this)} value={role.id}/>
                                             </td>
                                         </tr>
                                     )
@@ -101,7 +99,7 @@ export default class Roles extends Component {
                             </tbody>
                         </table>
 
-                        <Link style={{marginBottom:15}} className="btn btn-primary float-right" to={{ pathname: '/role/permissions', role_id: role_id, role_name: role_name }}>Ok</Link> <br />
+                        <Link className="btn btn-primary float-right" to={`/users`} style={{marginBottom: 15}}>Back</Link>
                     </div>
                 </div>
             </div>

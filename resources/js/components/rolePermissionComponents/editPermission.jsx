@@ -1,28 +1,32 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import Input from "./sharedComponents/input";
+import Input from "../sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-class AddRole extends Component {
-
-    state = {
-        new_role: {
-            role: ""
-        },
-        redirect: false,
-        errors: {}
-    };
+class EditPermission extends Component {
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            new_permission: {
+                permission: ""
+            },
+            redirect: false,
+            permission_id: this.props.location.permission_id,
+            errors: {}
+        }
+    }
 
     schema = {
-        role: Joi.string()
+        permission: Joi.string()
             .required()
-            .label("Role")
+            .label("Permission")
     };
 
     validate = () => {
-        const result = Joi.validate(this.state.new_role, this.schema, {
+        const result = Joi.validate(this.state.new_permission, this.schema, {
             abortEarly: false
         });
 
@@ -52,16 +56,18 @@ class AddRole extends Component {
 
         if (errors) return;
 
-        const oldState = { ...this.state.new_role };
+        const oldState = { ...this.state.new_permission };
 
         const FD = new FormData();
-        FD.append('role', this.state.new_role.role);
+        FD.append('permission_id', this.state.permission_id);
+        FD.append('permission', this.state.new_permission.permission);
 
-        axios.post('/api/roles/add',FD).then(response=>{
-            oldState.role = response.data;
-            toast.success("New Role Added !", {  autoClose: 3000 });
-            this.setState({new_role:oldState,redirect: true});
+        axios.post('/api/permissions/update',FD).then(response=>{
+            oldState.permission = response.data;
+            toast.success("Permission Updated !", {  autoClose: 3000 });
+            this.setState({new_permission:oldState,redirect: true});
         });
+
     };
 
     handleChange = ({ currentTarget: input }) => {
@@ -73,23 +79,34 @@ class AddRole extends Component {
             delete errors[input.name];
         }
 
-        const new_role = { ...this.state.new_role };
-        new_role[input.name] = input.value;
-        this.setState({ new_role, errors });
+        const new_permission = { ...this.state.new_permission };
+        new_permission[input.name] = input.value;
+        this.setState({ new_permission, errors });
     };
+
+    componentDidMount()
+    {
+        const oldState = { ...this.state.new_permission };
+        const permission_id = this.state.permission_id;
+
+        axios.get('/api/permissions/view/'+permission_id).then(response=>{
+            oldState.permission = response.data.name;
+            this.setState({new_permission:oldState});
+        });
+    }
 
     render() {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to='/roles' />;
+            return <Redirect to='/permissions' />;
         }
 
         return (
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
-                        <h4 className="card-title">Add Role</h4>
+                        <h4 className="card-title">Edit Permission</h4>
                     </div>
                 </div>
 
@@ -97,19 +114,19 @@ class AddRole extends Component {
                     <div className="card-body card-dashboard">
                         <form onSubmit={this.handleSubmit}>
                             <Input
-                                name="role"
+                                name="permission"
                                 type="text"
-                                label="Role Name"
-                                value={this.state.new_role.role}
+                                label="Permission Name"
+                                value={this.state.new_permission.permission}
                                 onChange={this.handleChange}
-                                error={this.state.errors.role}
+                                error={this.state.errors.permission}
                             />
 
                             <button disabled={this.validate()} className="btn btn-primary">
-                                Add
+                                Update
                             </button>
 
-                            <Link className="btn btn-primary float-right" to={`/roles`}>Back</Link>
+                            <Link className="btn btn-primary float-right" to={`/permissions`}>Back</Link>
                         </form>
                     </div>
                 </div>
@@ -118,4 +135,4 @@ class AddRole extends Component {
     }
 }
 
-export default AddRole;
+export default EditPermission;

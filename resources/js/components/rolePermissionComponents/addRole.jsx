@@ -1,24 +1,19 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import Input from "./sharedComponents/input";
+import Input from "../sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
 class AddRole extends Component {
 
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            new_role: {
-                role: ""
-            },
-            redirect: false,
-            role_id: this.props.location.role_id,
-            errors: {}
-        }
-    }
+    state = {
+        new_role: {
+            role: ""
+        },
+        redirect: false,
+        errors: {}
+    };
 
     schema = {
         role: Joi.string()
@@ -30,6 +25,7 @@ class AddRole extends Component {
         const result = Joi.validate(this.state.new_role, this.schema, {
             abortEarly: false
         });
+
 
         if (!result.error) return null;
 
@@ -59,12 +55,11 @@ class AddRole extends Component {
         const oldState = { ...this.state.new_role };
 
         const FD = new FormData();
-        FD.append('role_id', this.state.role_id);
         FD.append('role', this.state.new_role.role);
 
-        axios.post('/api/roles/update',FD).then(response=>{
+        axios.post('/api/roles/add',FD).then(response=>{
             oldState.role = response.data;
-            toast.success("Role Updated !", {  autoClose: 3000 });
+            toast.success("New Role Added !", {  autoClose: 3000 });
             this.setState({new_role:oldState,redirect: true});
         });
     };
@@ -83,17 +78,6 @@ class AddRole extends Component {
         this.setState({ new_role, errors });
     };
 
-    componentDidMount()
-    {
-        const oldState = { ...this.state.new_role };
-        const role_id = this.state.role_id;
-
-        axios.get('/api/roles/view/'+role_id).then(response=>{
-            oldState.role = response.data.name;
-            this.setState({new_role:oldState});
-        });
-    }
-
     render() {
         const { redirect } = this.state;
 
@@ -105,7 +89,7 @@ class AddRole extends Component {
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
-                        <h4 className="card-title">Edit Role</h4>
+                        <h4 className="card-title">Add Role</h4>
                     </div>
                 </div>
 
@@ -122,7 +106,7 @@ class AddRole extends Component {
                             />
 
                             <button disabled={this.validate()} className="btn btn-primary">
-                                Update
+                                Add
                             </button>
 
                             <Link className="btn btn-primary float-right" to={`/roles`}>Back</Link>

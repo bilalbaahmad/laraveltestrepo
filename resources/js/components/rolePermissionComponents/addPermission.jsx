@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import Input from "./sharedComponents/input";
+import Input from "../sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
 import { toast } from 'react-toastify';

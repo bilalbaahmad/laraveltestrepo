@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="408b3572-bbcc-467a-8ab9-86733664fcd0" name="Default" comment="04-4-19">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/addPermission.jsx" afterPath="$PROJECT_DIR$/resources/js/components/addPermission.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/addRole.jsx" afterPath="$PROJECT_DIR$/resources/js/components/addRole.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/addRolePermissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/addRolePermissions.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/editPermission.jsx" afterPath="$PROJECT_DIR$/resources/js/components/editPermission.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/editRole.jsx" afterPath="$PROJECT_DIR$/resources/js/components/editRole.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/main.jsx" afterPath="$PROJECT_DIR$/resources/js/components/main.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/permissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/permissions.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/rolePermissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissions.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/roles.jsx" afterPath="$PROJECT_DIR$/resources/js/components/roles.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,22 +17,24 @@
   <component name="ComposerSettings" synchronizationState="DONT_SYNCHRONIZE" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="238">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiController.php">
+      <file leaf-file-name="RolesPermissionsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="123" column="9" lean-forward="false" selection-start-line="123" selection-start-column="9" selection-end-line="123" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="153">
+              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="32" />
+              <folding>
+                <element signature="e#44#72#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,11 +60,16 @@
       <find>load</find>
       <find>save</find>
       <find>viewRolePermissions</find>
+      <find>ApiController</find>
+      <find>Api/RolesPermissionsController</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Api/RolesPermissionsController</replace>
+      <replace>Api\RolesPermissionsController</replace>
+    </replaceStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="php artisan migrate" />
       <command text="artisan make:auth" />
       <command text="artisan make:controller ChartController" />
       <command text="git init" />
@@ -98,6 +94,7 @@
       <command text="php artisan cache:forget spatie.permission.cache" />
       <command text="artisan serve" />
       <command text="npm i react-toastify@4.1" />
+      <command text="artisan make:controller Api\RolesPermissionsController" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -146,7 +143,6 @@
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ChartController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/main.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/editRole.jsx" />
@@ -158,6 +154,8 @@
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissions.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/addRolePermissions.jsx" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -225,6 +223,14 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="test_laravel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Api" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="test_laravel" type="b2602c69:ProjectViewProjectNode" />
@@ -345,7 +351,7 @@
       <workItem from="1554091276373" duration="18719000" />
       <workItem from="1554178095078" duration="26533000" />
       <workItem from="1554264236774" duration="26628000" />
-      <workItem from="1554350153006" duration="17900000" />
+      <workItem from="1554350153006" duration="18917000" />
     </task>
     <task id="LOCAL-00001" summary="2nd">
       <created>1553682099649</created>
@@ -431,11 +437,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554357197965</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="04-4-19">
+      <created>1554372490613</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1554372490613</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194476000" />
+    <option name="totallyTimeSpent" value="195493000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -478,18 +491,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Concerns/InteractsWithPivotTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-366">
-          <caret line="81" column="20" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -766,22 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -795,7 +785,7 @@
         <state relative-caret-position="408">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -876,10 +866,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" column="69" lean-forward="true" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="123" column="9" lean-forward="false" selection-start-line="123" selection-start-column="9" selection-end-line="123" selection-end-column="9" />
+        <state relative-caret-position="187">
+          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#44#72#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>

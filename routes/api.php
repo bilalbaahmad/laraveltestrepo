@@ -18,19 +18,20 @@ Route::get('/user', function ()
     return "hello";
 });
 
-Route::get('/allpermissions', 'ApiController@allPermissions');
-Route::get('/allroles', 'ApiController@allRoles');
-Route::get('/permissions/view/{id}', 'ApiController@viewPermission');
-Route::get('/roles/view/{id}', 'ApiController@viewRole');
-Route::get('/role/{id}/permissions', 'ApiController@viewRolePermissions');
+Route::get('/allpermissions', 'Api\RolesPermissionsController@allPermissions');
+Route::get('/allroles', 'Api\RolesPermissionsController@allRoles');
+Route::get('/permissions/view/{id}', 'Api\RolesPermissionsController@viewPermission');
+Route::get('/roles/view/{id}', 'Api\RolesPermissionsController@viewRole');
+Route::get('/role/{id}/permissions', 'Api\RolesPermissionsController@viewRolePermissions');
 
 
-Route::post('/permissions/add', 'ApiController@addPermission');
-Route::post('/permissions/update', 'ApiController@updatePermission');
-Route::post('/roles/add', 'ApiController@addRole');
-Route::post('/roles/update', 'ApiController@updateRole');
-Route::post('/role/permissions/update', 'ApiController@updateRolePermissions');
+Route::post('/permissions/add', 'Api\RolesPermissionsController@addPermission');
+Route::post('/permissions/update', 'Api\RolesPermissionsController@updatePermission');
+Route::post('/roles/add', 'Api\RolesPermissionsController@addRole');
+Route::post('/roles/update', 'Api\RolesPermissionsController@updateRole');
+Route::post('/role/permissions/update', 'Api\RolesPermissionsController@updateRolePermissions');
 
-Route::delete('/permission/delete/{id}', 'ApiController@deletePermission');
-Route::delete('/role/delete/{id}', 'ApiController@deleteRole');
-Route::delete('/role/{r_id}/permission/delete/{p_id}', 'ApiController@deleteRolePermission');
+
+Route::delete('/permission/delete/{id}', 'Api\RolesPermissionsController@deletePermission');
+Route::delete('/role/delete/{id}', 'Api\RolesPermissionsController@deleteRole');
+Route::delete('/role/{r_id}/permission/delete/{p_id}', 'Api\RolesPermissionsController@deleteRolePermission');

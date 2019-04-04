@@ -8,7 +8,9 @@ export default class RolePermissions extends Component {
     {
         super(props);
         this.state={
-            permissions:[]
+            permissions:[],
+            role_id: this.props.location.role_id,
+            role_name: this.props.location.role_name,
         }
     }
 
@@ -31,9 +33,9 @@ export default class RolePermissions extends Component {
 
     componentDidMount()
     {
-        const role_id = this.props.match.params.id;
+        const role_id = this.state.role_id;
 
-        axios.get('/api/role/'+role_id+'/permissions').then(response=>{
+       axios.get('/api/role/'+role_id+'/permissions').then(response=>{
             this.setState({permissions:response.data});
         });
     }
@@ -44,14 +46,15 @@ export default class RolePermissions extends Component {
             color: 'black'
         };
 
-        const role_id = this.props.match.params.id;
-        const role_name = this.props.match.params.name;
+        const role_id = this.state.role_id;
+        const role_name = this.state.role_name;
 
         return (
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
                         <h4 className="card-title">{role_name} Permissions</h4>
+                        <Link to={`/role/${role_id}/permissions/add`} className="btn btn-success btn-sm float-right" style={{marginTop: -35}}>Add New +</Link>
                     </div>
                 </div>
 

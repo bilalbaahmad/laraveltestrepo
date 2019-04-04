@@ -13,6 +13,7 @@ class AddRole extends Component {
                 role: ""
             },
             redirect: false,
+            role_id: this.props.location.role_id,
             errors: {}
         }
     }
@@ -56,7 +57,7 @@ class AddRole extends Component {
         const oldState = { ...this.state.new_role };
 
         const FD = new FormData();
-        FD.append('role_id', this.props.match.params.id);
+        FD.append('role_id', this.state.role_id);
         FD.append('role', this.state.new_role.role);
 
         axios.post('/api/roles/update',FD).then(response=>{
@@ -82,8 +83,9 @@ class AddRole extends Component {
     componentDidMount()
     {
         const oldState = { ...this.state.new_role };
+        const role_id = this.state.role_id;
 
-        axios.get('/api/roles/view/'+this.props.match.params.id).then(response=>{
+        axios.get('/api/roles/view/'+role_id).then(response=>{
             oldState.role = response.data.name;
             this.setState({new_role:oldState});
         });
@@ -117,7 +119,7 @@ class AddRole extends Component {
                             />
 
                             <button disabled={this.validate()} className="btn btn-primary">
-                                Add
+                                Update
                             </button>
 
                             <Link className="btn btn-primary float-right" to={`/roles`}>Back</Link>

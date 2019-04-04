@@ -13,6 +13,7 @@ class EditPermission extends Component {
                 permission: ""
             },
             redirect: false,
+            permission_id: this.props.location.permission_id,
             errors: {}
         }
     }
@@ -57,7 +58,7 @@ class EditPermission extends Component {
         const oldState = { ...this.state.new_permission };
 
         const FD = new FormData();
-        FD.append('permission_id', this.props.match.params.id);
+        FD.append('permission_id', this.state.permission_id);
         FD.append('permission', this.state.new_permission.permission);
 
         axios.post('/api/permissions/update',FD).then(response=>{
@@ -84,8 +85,9 @@ class EditPermission extends Component {
     componentDidMount()
     {
         const oldState = { ...this.state.new_permission };
+        const permission_id = this.state.permission_id;
 
-        axios.get('/api/permissions/view/'+this.props.match.params.id).then(response=>{
+        axios.get('/api/permissions/view/'+permission_id).then(response=>{
             oldState.permission = response.data.name;
             this.setState({new_permission:oldState});
         });

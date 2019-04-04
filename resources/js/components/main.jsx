@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import NavBar from './navBar';
 import Permissions from './permissions';
-import Roles from './roles';
 import AddPermission from './addPermission';
-import AddRole from './addRole';
 import EditPermission from './editPermission';
+import Roles from './roles';
+import AddRole from './addRole';
 import EditRole from './editRole';
 import RolePermissions from './rolePermissions';
+import AddRolePermissions from './addRolePermissions';
 import Login from './login';
 import Home from './home';
 import NotFound from './notFound';
@@ -22,14 +23,15 @@ export default class MainComponent extends Component {
 
                 <div className="container">
                     <Switch>
-                        <Route exact path="/roles" render={() => <Roles />} />
                         <Route exact path="/permissions" render={() => <Permissions />} />
-                        <Route exact path="/login" render={() => <Login />} />
                         <Route exact path="/permissions/add" render={() => <AddPermission />} />
+                        <Route exact path='/permission/edit' component={EditPermission} />
+                        <Route exact path="/roles" render={() => <Roles />} />
                         <Route exact path="/roles/add" render={() => <AddRole />} />
-                        <Route exact path='/permission/edit/:id' render={(props) => <EditPermission {...props}/>} />
-                        <Route exact path='/role/edit/:id' render={(props) => <EditRole {...props}/>} />
-                        <Route exact path='/role/:id/:name/permissions' render={(props) => <RolePermissions {...props}/>} />
+                        <Route exact path='/role/edit' component={EditRole} />
+                        <Route exact path='/role/permissions' component={RolePermissions} />
+                        <Route exact path='/role/permissions/add' component={AddRolePermissions} />
+                        <Route exact path="/login" render={() => <Login />} />
                         <Route exact path="/not-found" render={() => <NotFound />} />
                         <Route exact path="/" render={() => <Home />} />
                         <Redirect to="/not-found" />

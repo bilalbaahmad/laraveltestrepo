@@ -32,25 +32,25 @@ class ChartController extends Controller
         /*$permission = Permission::create(['name' => 'export pdf']);
         $permission = Permission::create(['name' => 'export excel']);*/
 
-        /*$all_permissions = Permission::all();
+        $all_permissions = Permission::all();
         $excel_perm = Permission::findByName('export excel');
-        $pdf_perm = Permission::findByName('export pdf');
+        $pdf_perm = Permission::findByName('Export Pdf');
 
         $admin_role = Role::findByName('admin');
-        $excel_role = Role::findByName('excel downloader');
-        $pdf_role = Role::findByName('pdf downloader');
+        /*$excel_role = Role::findByName('excel downloader');
+        $pdf_role = Role::findByName('pdf downloader');*/
 
-        $admin_role->syncPermissions($all_permissions);
+        /*$admin_role->syncPermissions($all_permissions);
         $excel_role->givePermissionTo($excel_perm);
         $pdf_role->givePermissionTo($pdf_perm);*/
 
-        $client = client::find(1);
+        /*$client = client::find(1);*/
         /*$pdf_role = Role::findByName('pdf downloader');
         $client->assignRole($pdf_role);*/
 
         /*$result = $client->hasAnyRole('pdf downloader');*/
-        $result = $client->hasPermissionTo('export pdf');
-        dd($result);
+        /*$result = $client->hasPermissionTo('export pdf');
+        dd($result);*/
 
         /*$pdf_role = Role::findByName('pdf downloader');
         auth()->user()->assignRole($pdf_role);*/

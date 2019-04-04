@@ -14,7 +14,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+        {{--<link href="{{ asset('css/custom.css') }}" rel="stylesheet">--}}
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">

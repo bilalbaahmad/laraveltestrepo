@@ -61343,6 +61343,17 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/addRolePermissions.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/components/addRolePermissions.jsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/editPermission.jsx":
 /*!****************************************************!*\
   !*** ./resources/js/components/editPermission.jsx ***!
@@ -61465,7 +61476,7 @@ function (_Component) {
       var oldState = _objectSpread({}, _this.state.new_permission);
 
       var FD = new FormData();
-      FD.append('permission_id', _this.props.match.params.id);
+      FD.append('permission_id', _this.state.permission_id);
       FD.append('permission', _this.state.new_permission.permission);
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/permissions/update', FD).then(function (response) {
         oldState.permission = response.data + " testt";
@@ -61505,6 +61516,7 @@ function (_Component) {
         permission: ""
       },
       redirect: false,
+      permission_id: _this.props.location.permission_id,
       errors: {}
     };
     return _this;
@@ -61517,7 +61529,8 @@ function (_Component) {
 
       var oldState = _objectSpread({}, this.state.new_permission);
 
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/permissions/view/' + this.props.match.params.id).then(function (response) {
+      var permission_id = this.state.permission_id;
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/permissions/view/' + permission_id).then(function (response) {
         oldState.permission = response.data.name;
 
         _this2.setState({
@@ -61693,7 +61706,7 @@ function (_Component) {
       var oldState = _objectSpread({}, _this.state.new_role);
 
       var FD = new FormData();
-      FD.append('role_id', _this.props.match.params.id);
+      FD.append('role_id', _this.state.role_id);
       FD.append('role', _this.state.new_role.role);
       axios.post('/api/roles/update', FD).then(function (response) {
         oldState.role = response.data;
@@ -61733,6 +61746,7 @@ function (_Component) {
         role: ""
       },
       redirect: false,
+      role_id: _this.props.location.role_id,
       errors: {}
     };
     return _this;
@@ -61745,7 +61759,8 @@ function (_Component) {
 
       var oldState = _objectSpread({}, this.state.new_role);
 
-      axios.get('/api/roles/view/' + this.props.match.params.id).then(function (response) {
+      var role_id = this.state.role_id;
+      axios.get('/api/roles/view/' + role_id).then(function (response) {
         oldState.role = response.data.name;
 
         _this2.setState({
@@ -61788,7 +61803,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Add"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: "/roles"
       }, "Back")))));
@@ -62064,15 +62079,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _navBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navBar */ "./resources/js/components/navBar.jsx");
 /* harmony import */ var _permissions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./permissions */ "./resources/js/components/permissions.jsx");
-/* harmony import */ var _roles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./roles */ "./resources/js/components/roles.jsx");
-/* harmony import */ var _addPermission__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./addPermission */ "./resources/js/components/addPermission.jsx");
-/* harmony import */ var _addRole__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./addRole */ "./resources/js/components/addRole.jsx");
-/* harmony import */ var _editPermission__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editPermission */ "./resources/js/components/editPermission.jsx");
+/* harmony import */ var _addPermission__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./addPermission */ "./resources/js/components/addPermission.jsx");
+/* harmony import */ var _editPermission__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editPermission */ "./resources/js/components/editPermission.jsx");
+/* harmony import */ var _roles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./roles */ "./resources/js/components/roles.jsx");
+/* harmony import */ var _addRole__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./addRole */ "./resources/js/components/addRole.jsx");
 /* harmony import */ var _editRole__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editRole */ "./resources/js/components/editRole.jsx");
 /* harmony import */ var _rolePermissions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./rolePermissions */ "./resources/js/components/rolePermissions.jsx");
-/* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./login */ "./resources/js/components/login.jsx");
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./home */ "./resources/js/components/home.jsx");
-/* harmony import */ var _notFound__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./notFound */ "./resources/js/components/notFound.jsx");
+/* harmony import */ var _addRolePermissions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./addRolePermissions */ "./resources/js/components/addRolePermissions.jsx");
+/* harmony import */ var _addRolePermissions__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_addRolePermissions__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./login */ "./resources/js/components/login.jsx");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./home */ "./resources/js/components/home.jsx");
+/* harmony import */ var _notFound__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./notFound */ "./resources/js/components/notFound.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62090,6 +62107,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -62124,63 +62142,61 @@ function (_Component) {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/roles",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roles__WEBPACK_IMPORTED_MODULE_5__["default"], null);
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
         path: "/permissions",
         render: function render() {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_permissions__WEBPACK_IMPORTED_MODULE_4__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/login",
+        path: "/permissions/add",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_login__WEBPACK_IMPORTED_MODULE_11__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addPermission__WEBPACK_IMPORTED_MODULE_5__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/permissions/add",
+        path: "/permission/edit",
+        component: _editPermission__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/roles",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addPermission__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_roles__WEBPACK_IMPORTED_MODULE_7__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/roles/add",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addRole__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addRole__WEBPACK_IMPORTED_MODULE_8__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/permission/edit/:id",
-        render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editPermission__WEBPACK_IMPORTED_MODULE_8__["default"], props);
-        }
+        path: "/role/edit",
+        component: _editRole__WEBPACK_IMPORTED_MODULE_9__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/role/edit/:id",
-        render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editRole__WEBPACK_IMPORTED_MODULE_9__["default"], props);
-        }
+        path: "/role/permissions",
+        component: _rolePermissions__WEBPACK_IMPORTED_MODULE_10__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/role/:id/:name/permissions",
-        render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rolePermissions__WEBPACK_IMPORTED_MODULE_10__["default"], props);
+        path: "/role/permissions/add",
+        component: _addRolePermissions__WEBPACK_IMPORTED_MODULE_15___default.a
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/login",
+        render: function render() {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_login__WEBPACK_IMPORTED_MODULE_12__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/not-found",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_notFound__WEBPACK_IMPORTED_MODULE_13__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_notFound__WEBPACK_IMPORTED_MODULE_14__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_home__WEBPACK_IMPORTED_MODULE_12__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_home__WEBPACK_IMPORTED_MODULE_13__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
         to: "/not-found"
@@ -62411,7 +62427,10 @@ function (_Component) {
           "aria-labelledby": "dropdownMenuLink"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           style: link_styling,
-          to: "/permission/edit/".concat(permission.id)
+          to: {
+            pathname: '/permission/edit',
+            permission_id: permission.id
+          }
         }, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           className: "dropdown-item",
           onClick: _this4.onDelete.bind(_this4, permission.id)
@@ -62476,7 +62495,9 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(RolePermissions).call(this, props));
     _this.state = {
-      permissions: []
+      permissions: [],
+      role_id: _this.props.location.role_id,
+      role_name: _this.props.location.role_name
     };
     return _this;
   }
@@ -62505,7 +62526,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      var role_id = this.props.match.params.id;
+      var role_id = this.state.role_id;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
         _this3.setState({
           permissions: response.data
@@ -62521,8 +62542,8 @@ function (_Component) {
         marginLeft: '25px',
         color: 'black'
       };
-      var role_id = this.props.match.params.id;
-      var role_name = this.props.match.params.name;
+      var role_id = this.state.role_id;
+      var role_name = this.state.role_name;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -62531,7 +62552,13 @@ function (_Component) {
         className: "card-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "card-title"
-      }, role_name, " Permissions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, role_name, " Permissions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/role/".concat(role_id, "/permissions/add"),
+        className: "btn btn-success btn-sm float-right",
+        style: {
+          marginTop: -35
+        }
+      }, "Add New +"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-content collapse show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body card-dashboard"
@@ -62721,10 +62748,17 @@ function (_Component) {
           "aria-labelledby": "dropdownMenuLink"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           style: link_styling,
-          to: "/role/".concat(role.id, "/").concat(role.name, "/permissions")
-        }, "View Permissions"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: {
+            pathname: '/role/permissions',
+            role_id: role.id,
+            role_name: role.name
+          }
+        }, "Permissions"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           style: link_styling,
-          to: "/role/edit/".concat(role.id)
+          to: {
+            pathname: '/role/edit',
+            role_id: role.id
+          }
         }, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           className: "dropdown-item",
           onClick: _this4.onDelete.bind(_this4, role.id)

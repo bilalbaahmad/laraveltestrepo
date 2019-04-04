@@ -90,8 +90,8 @@ export default class Roles extends Component {
                                                     </a>
 
                                                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <Link style={link_styling} to={`/role/${role.id}/${role.name}/permissions`}>View Permissions</Link> <br />
-                                                        <Link style={link_styling} to={`/role/edit/${role.id}`}>Edit</Link>
+                                                        <Link style={link_styling} to={{ pathname: '/role/permissions', role_id: role.id, role_name: role.name }}>Permissions</Link> <br />
+                                                        <Link style={link_styling} to={{ pathname: '/role/edit', role_id: role.id}}>Edit</Link>
                                                         <a className="dropdown-item" onClick={this.onDelete.bind(this,role.id)}>Delete</a>
                                                     </div>
                                                 </div>

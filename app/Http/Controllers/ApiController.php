@@ -101,4 +101,26 @@ class ApiController extends Controller
         $role->revokePermissionTo($permission);
 
     }
+
+    public function updateRolePermissions(Request $request)
+    {
+        $status = $request->status;
+        $role_id = $request->role_id;
+        $permission_id = $request->permission_id;
+
+        if($status == '1')
+        {
+            $role = Role::findById($role_id);
+            $permission = Permission::findById($permission_id);
+            $role->givePermissionTo($permission);
+            return "Assigned";
+        }
+        else
+        {
+            $role = Role::findById($role_id);
+            $permission = Permission::findById($permission_id);
+            $role->revokePermissionTo($permission);
+            return "Deleted";
+        }
+    }
 }

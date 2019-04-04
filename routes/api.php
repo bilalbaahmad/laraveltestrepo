@@ -24,10 +24,12 @@ Route::get('/permissions/view/{id}', 'ApiController@viewPermission');
 Route::get('/roles/view/{id}', 'ApiController@viewRole');
 Route::get('/role/{id}/permissions', 'ApiController@viewRolePermissions');
 
+
 Route::post('/permissions/add', 'ApiController@addPermission');
 Route::post('/permissions/update', 'ApiController@updatePermission');
 Route::post('/roles/add', 'ApiController@addRole');
 Route::post('/roles/update', 'ApiController@updateRole');
+Route::post('/role/permissions/update', 'ApiController@updateRolePermissions');
 
 Route::delete('/permission/delete/{id}', 'ApiController@deletePermission');
 Route::delete('/role/delete/{id}', 'ApiController@deleteRole');

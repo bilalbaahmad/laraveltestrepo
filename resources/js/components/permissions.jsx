@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default class Permissions extends Component {
 
@@ -22,6 +23,7 @@ export default class Permissions extends Component {
     onDelete(permission_id)
     {
         axios.delete('/api/permission/delete/'+permission_id).then(response=>{
+            toast.success("Permission Deleted !", {  autoClose: 3000 });
             var current_permissions = this.state.permissions;
 
             for(var i=0; i<current_permissions.length; i++)

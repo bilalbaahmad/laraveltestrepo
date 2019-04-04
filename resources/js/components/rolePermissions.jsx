@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default class RolePermissions extends Component {
 
@@ -17,7 +18,7 @@ export default class RolePermissions extends Component {
     onDelete(permission_id,role_id)
     {
         axios.delete('/api/role/'+role_id+'/permission/delete/'+permission_id).then(response=>{
-
+            toast.success("Permission Deleted !", {  autoClose: 3000 });
             var current_permissions = this.state.permissions;
 
             for(var i=0; i<current_permissions.length; i++)
@@ -54,7 +55,7 @@ export default class RolePermissions extends Component {
                 <div className="card-head">
                     <div className="card-header">
                         <h4 className="card-title">{role_name} Permissions</h4>
-                        <Link to={`/role/${role_id}/permissions/add`} className="btn btn-success btn-sm float-right" style={{marginTop: -35}}>Add New +</Link>
+                        <Link to={{ pathname: '/role/permissions/add', role_id: role_id, role_name: role_name}} className="btn btn-success btn-sm float-right" style={{marginTop: -35}}>Add New +</Link>
                     </div>
                 </div>
 
@@ -62,11 +63,11 @@ export default class RolePermissions extends Component {
                     <div className="card-body card-dashboard">
                         <table className="table table-striped table-bordered">
                             <thead>
-                            <tr style={{backgroundColor: '#8fbeec'}}>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Action</th>
-                            </tr>
+                                <tr style={{backgroundColor: '#8fbeec'}}>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Action</th>
+                                </tr>
                             </thead>
 
                             <tbody>

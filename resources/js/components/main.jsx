@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import NavBar from './navBar';
 import Permissions from './permissions';
@@ -19,6 +21,8 @@ export default class MainComponent extends Component {
     render() {
         return (
             <div>
+                <ToastContainer/>
+
                 <NavBar />
 
                 <div className="container">

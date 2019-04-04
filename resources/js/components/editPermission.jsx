@@ -3,6 +3,7 @@ import { Redirect, Link } from "react-router-dom";
 import Input from "./sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 class EditPermission extends Component {
     constructor(props)
@@ -62,7 +63,8 @@ class EditPermission extends Component {
         FD.append('permission', this.state.new_permission.permission);
 
         axios.post('/api/permissions/update',FD).then(response=>{
-            oldState.permission = response.data+" testt";
+            oldState.permission = response.data;
+            toast.success("Permission Updated !", {  autoClose: 3000 });
             this.setState({new_permission:oldState,redirect: true});
         });
 

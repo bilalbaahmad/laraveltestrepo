@@ -3,6 +3,7 @@ import { Redirect, Link } from "react-router-dom";
 import Input from "./sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 class AddPermission extends Component {
 
@@ -58,6 +59,7 @@ class AddPermission extends Component {
 
         axios.post('/api/permissions/add',FD).then(response=>{
             oldState.permission = response.data;
+            toast.success("New Permission Added !", {  autoClose: 3000 });
             this.setState({new_permission:oldState,redirect: true});
         });
 

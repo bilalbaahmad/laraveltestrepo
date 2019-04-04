@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default class Roles extends Component {
 
@@ -37,6 +38,7 @@ export default class Roles extends Component {
     onDelete(role_id)
     {
         axios.delete('/api/role/delete/'+role_id).then(response=>{
+            toast.success("Role Deleted !", {  autoClose: 3000 });
             var current_roles = this.state.roles;
 
             for(var i=0; i<current_roles.length; i++)

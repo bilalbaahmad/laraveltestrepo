@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Input from "./sharedComponents/input";
 import Joi from "joi-browser";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 class AddRole extends Component {
 
@@ -57,6 +59,7 @@ class AddRole extends Component {
 
         axios.post('/api/roles/add',FD).then(response=>{
             oldState.role = response.data;
+            toast.success("New Role Added !", {  autoClose: 3000 });
             this.setState({new_role:oldState,redirect: true});
         });
     };

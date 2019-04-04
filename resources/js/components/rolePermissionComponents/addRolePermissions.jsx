@@ -51,8 +51,6 @@ export default class Roles extends Component {
                 this.refs[ref].checked = true;
             } );
         });
-
-
     }
 
     render() {

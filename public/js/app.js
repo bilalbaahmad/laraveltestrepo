@@ -65147,12 +65147,14 @@ function (_Component) {
         scope: "col"
       }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
+      }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
       }, "Roles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
       }, "Action"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.users.map(function (user, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: user.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, index + 1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.roles.map(function (user_role) {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, index + 1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.roles.map(function (user_role) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             key: user_role.id,
             className: "badge badge-success mr-1"

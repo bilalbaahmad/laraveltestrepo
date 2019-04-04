@@ -2,27 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="408b3572-bbcc-467a-8ab9-86733664fcd0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/users.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/userComponents/userPermissions.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/userComponents/userRoles.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/addPermission.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addPermission.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/addRole.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRole.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/addRolePermissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/editPermission.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/editPermission.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/editRole.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/editRole.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/home.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/home.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/login.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/login.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/navBar.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/navBar.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/notFound.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/notFound.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/permissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/permissions.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/rolePermissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/rolePermissions.jsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/js/components/roles.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/roles.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/main.jsx" afterPath="$PROJECT_DIR$/resources/js/components/main.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/mainComponents/users.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/users.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addRolePermissions.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx">
+      <file leaf-file-name="users.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/users.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="48" column="47" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="47" />
+            <state relative-caret-position="272">
+              <caret line="67" column="43" lean-forward="true" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -181,11 +164,11 @@
         <option value="$PROJECT_DIR$/resources/js/components/navBar.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/users.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/main.jsx" />
-        <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/userComponents/userRoles.jsx" />
+        <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/mainComponents/users.jsx" />
       </list>
     </option>
@@ -306,14 +289,6 @@
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="rolePermissionComponents" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="test_laravel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="userComponents" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -401,7 +376,7 @@
       <workItem from="1554091276373" duration="18719000" />
       <workItem from="1554178095078" duration="26533000" />
       <workItem from="1554264236774" duration="26628000" />
-      <workItem from="1554350153006" duration="27802000" />
+      <workItem from="1554350153006" duration="28111000" />
     </task>
     <task id="LOCAL-00001" summary="2nd">
       <created>1553682099649</created>
@@ -501,11 +476,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554373199620</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="04-4-19">
+      <created>1554382396985</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1554382396985</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204378000" />
+    <option name="totallyTimeSpent" value="204687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -933,10 +915,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/users.jsx">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="70" column="146" lean-forward="false" selection-start-line="70" selection-start-column="146" selection-end-line="70" selection-end-column="146" />
+        <state relative-caret-position="208">
+          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -953,10 +935,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/users.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="48" column="47" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="47" />
+        <state relative-caret-position="272">
+          <caret line="67" column="43" lean-forward="true" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

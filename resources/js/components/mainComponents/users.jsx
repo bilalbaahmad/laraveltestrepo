@@ -56,6 +56,7 @@ export default class Roles extends Component {
                             <tr style={{backgroundColor: '#8fbeec'}}>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Roles</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -68,6 +69,7 @@ export default class Roles extends Component {
                                         <tr key={user.id}>
                                             <th>{index+1}</th>
                                             <td>{user.name}</td>
+                                            <td>{user.email}</td>
                                             <td>{user.roles.map(user_role => { return(<span key={user_role.id} className='badge badge-success mr-1'> {user_role.name}</span>) })}</td>
                                             <td>
                                                 <div className="dropdown show">

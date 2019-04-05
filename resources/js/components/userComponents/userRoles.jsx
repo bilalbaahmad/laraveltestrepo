@@ -64,8 +64,9 @@ export default class Roles extends Component {
     render() {
 
         var link_styling = {
-            marginLeft: '25px',
-            color: 'black'
+            marginBottom: '15px',
+            marginTop: '10px',
+            marginRight: '15px'
         };
 
         const user_name = this.state.user_name;
@@ -107,7 +108,7 @@ export default class Roles extends Component {
                             </tbody>
                         </table>
 
-                        <Link className="btn btn-primary float-right" to={`/users`} style={{marginBottom: 15, marginTop: 10, marginRight: 10}}>Back</Link>
+                        <Link className="btn btn-primary float-right" to={`/users`} style={link_styling}>Back</Link>
                     </div>
                 </div>
             </div>

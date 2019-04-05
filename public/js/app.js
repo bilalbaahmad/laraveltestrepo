@@ -66941,8 +66941,9 @@ function (_Component) {
       var _this3 = this;
 
       var link_styling = {
-        marginLeft: '25px',
-        color: 'black'
+        marginBottom: '15px',
+        marginTop: '10px',
+        marginRight: '15px'
       };
       var role_id = this.state.role_id;
       var role_name = this.state.role_name;
@@ -66989,11 +66990,7 @@ function (_Component) {
           value: permission.id
         })));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        style: {
-          marginBottom: 15,
-          marginTop: 10,
-          marginRight: 10
-        },
+        style: link_styling,
         className: "btn btn-primary float-right",
         to: {
           pathname: '/role/permissions',
@@ -67599,8 +67596,9 @@ function (_Component) {
       var _this4 = this;
 
       var link_styling = {
-        marginLeft: '25px',
-        color: 'black'
+        marginBottom: '15px',
+        marginTop: '10px',
+        marginRight: '15px'
       };
       var role_id = this.state.role_id;
       var role_name = this.state.role_name;
@@ -67656,11 +67654,7 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "btn btn-primary float-right",
         to: "/roles",
-        style: {
-          marginBottom: 15,
-          marginTop: 10,
-          marginRight: 10
-        }
+        style: link_styling
       }, "Back"))));
     }
   }]);
@@ -67830,8 +67824,9 @@ function (_Component) {
       var _this3 = this;
 
       var link_styling = {
-        marginLeft: '25px',
-        color: 'black'
+        marginBottom: '15px',
+        marginTop: '10px',
+        marginRight: '15px'
       };
       var user_name = this.state.user_name;
       return this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67879,11 +67874,7 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "btn btn-primary float-right",
         to: "/users",
-        style: {
-          marginBottom: 15,
-          marginTop: 10,
-          marginRight: 10
-        }
+        style: link_styling
       }, "Back"))));
     }
   }]);
@@ -68013,8 +68004,9 @@ function (_Component) {
       var _this3 = this;
 
       var link_styling = {
-        marginLeft: '25px',
-        color: 'black'
+        marginBottom: '15px',
+        marginTop: '10px',
+        marginRight: '15px'
       };
       var user_name = this.state.user_name;
       return this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -68062,11 +68054,7 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "btn btn-primary float-right",
         to: "/users",
-        style: {
-          marginBottom: 15,
-          marginTop: 10,
-          marginRight: 10
-        }
+        style: link_styling
       }, "Back"))));
     }
   }]);

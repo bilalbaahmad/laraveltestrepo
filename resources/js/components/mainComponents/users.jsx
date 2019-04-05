@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loading from 'react-loading-spinkit';
 
 export default class Roles extends Component {
 
@@ -10,7 +11,8 @@ export default class Roles extends Component {
         super();
 
         this.state={
-            users:[]
+            users:[],
+            loading: true,
         };
     }
 
@@ -24,6 +26,8 @@ export default class Roles extends Component {
                 scrollCollapse: true,
                 ordering: true,
             });
+
+            this.setState({loading: false});
         });
     }
 
@@ -36,6 +40,7 @@ export default class Roles extends Component {
         };
 
         return (
+            this.state.loading ? <div style={{ height: '45vh', width: '60vw' }}><Loading show={true} /> </div> :
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">

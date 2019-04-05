@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loading from 'react-loading-spinkit';
 
 export default class Roles extends Component {
 
@@ -14,7 +15,33 @@ export default class Roles extends Component {
             role_permissions:[],
             role_id: this.props.location.role_id,
             role_name: this.props.location.role_name,
+            loading: true,
         }
+    }
+
+    componentDidMount()
+    {
+        const role_id = this.state.role_id;
+
+        axios.get('/api/allpermissions').then(response=>{
+            this.setState({all_permissions:response.data});
+
+            $(this.refs.role_permissions_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true,
+            });
+
+            this.setState({loading: false});
+        });
+
+        axios.get('/api/role/'+role_id+'/permissions').then(response=>{
+            this.setState({role_permissions:response.data});
+            this.state.role_permissions.forEach(permission => {
+                let ref = 'permissionCheckbox_' + permission.id;
+                this.refs[ref].checked = true;
+            } );
+        });
     }
 
     onStatusChange(e)
@@ -36,29 +63,6 @@ export default class Roles extends Component {
         });
     }
 
-    componentDidMount()
-    {
-        const role_id = this.state.role_id;
-
-        axios.get('/api/allpermissions').then(response=>{
-            this.setState({all_permissions:response.data});
-
-            $(this.refs.role_permissions_table).DataTable({
-                paginate: true,
-                scrollCollapse: true,
-                ordering: true,
-            });
-        });
-
-        axios.get('/api/role/'+role_id+'/permissions').then(response=>{
-            this.setState({role_permissions:response.data});
-            this.state.role_permissions.forEach(permission => {
-                let ref = 'permissionCheckbox_' + permission.id;
-                this.refs[ref].checked = true;
-            } );
-        });
-    }
-
     render() {
 
         var link_styling = {
@@ -70,6 +74,7 @@ export default class Roles extends Component {
         const role_name = this.state.role_name;
 
         return (
+            this.state.loading ? <div style={{ height: '45vh', width: '60vw' }}><Loading show={true} /> </div> :
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">

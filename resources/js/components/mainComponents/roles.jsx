@@ -15,7 +15,6 @@ export default class Roles extends Component {
 
     }
 
-
     componentDidMount()
     {
         axios.get('/api/allroles').then(response=>{
@@ -28,7 +27,6 @@ export default class Roles extends Component {
             });
         });
     }
-
 
     onDelete(role_id)
     {
@@ -48,6 +46,7 @@ export default class Roles extends Component {
     }
 
     render() {
+
         var link_styling = {
             marginLeft: '25px',
             color: 'black'

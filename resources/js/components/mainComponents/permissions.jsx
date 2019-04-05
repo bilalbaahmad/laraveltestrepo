@@ -30,6 +30,9 @@ export default class Permissions extends Component {
     {
         axios.delete('/api/permission/delete/'+permission_id).then(response=>{
             toast.success("Permission Deleted !", {  autoClose: 3000 });
+
+            $(this.refs.users_table).DataTable().destroy();
+
             var current_permissions = this.state.permissions;
 
             for(var i=0; i<current_permissions.length; i++)
@@ -44,6 +47,7 @@ export default class Permissions extends Component {
     }
 
     render() {
+
         var link_styling = {
             marginLeft: '25px',
             color: 'black'

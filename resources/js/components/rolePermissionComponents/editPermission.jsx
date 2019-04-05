@@ -30,7 +30,6 @@ class EditPermission extends Component {
             abortEarly: false
         });
 
-
         if (!result.error) return null;
 
         const errors = {};
@@ -67,7 +66,6 @@ class EditPermission extends Component {
             toast.success("Permission Updated !", {  autoClose: 3000 });
             this.setState({new_permission:oldState,redirect: true});
         });
-
     };
 
     handleChange = ({ currentTarget: input }) => {
@@ -96,6 +94,7 @@ class EditPermission extends Component {
     }
 
     render() {
+
         const { redirect } = this.state;
 
         if (redirect) {

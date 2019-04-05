@@ -64772,6 +64772,7 @@ function (_Component) {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission Deleted !", {
           autoClose: 3000
         });
+        $(_this3.refs.users_table).DataTable().destroy();
         var current_permissions = _this3.state.permissions;
 
         for (var i = 0; i < current_permissions.length; i++) {

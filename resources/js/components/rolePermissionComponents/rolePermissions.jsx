@@ -48,6 +48,7 @@ export default class RolePermissions extends Component {
     }
 
     render() {
+
         var link_styling = {
             marginLeft: '25px',
             color: 'black'

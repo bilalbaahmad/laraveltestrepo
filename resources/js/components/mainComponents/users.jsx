@@ -25,7 +25,6 @@ export default class Roles extends Component {
                 ordering: true,
             });
         });
-
     }
 
     render() {
@@ -74,7 +73,7 @@ export default class Roles extends Component {
 
                                                     <div className="dropdown-menu" style={{width:230}} aria-labelledby="dropdownMenuLink">
                                                         <Link style={link_styling} to={{ pathname: '/user/roles', user_id: user.id, user_name: user.name }}>Manage Roles</Link> <br />
-                                                        <Link style={link_styling} to={{ pathname: '/user/permissions', user_id: user.id, user_name: user.name}}>Manage Direct Permission</Link>
+                                                        <Link style={link_styling} to={{ pathname: '/user/permissions', user_id: user.id, user_name: user.name }}>Manage Direct Permission</Link>
                                                     </div>
                                                 </div>
                                             </td>

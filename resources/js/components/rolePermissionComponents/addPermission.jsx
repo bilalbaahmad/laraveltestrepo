@@ -62,7 +62,6 @@ class AddPermission extends Component {
             toast.success("New Permission Added !", {  autoClose: 3000 });
             this.setState({new_permission:oldState,redirect: true});
         });
-
     };
 
     handleChange = ({ currentTarget: input }) => {
@@ -80,6 +79,7 @@ class AddPermission extends Component {
     };
 
     render() {
+
         const { redirect } = this.state;
 
         if (redirect) {

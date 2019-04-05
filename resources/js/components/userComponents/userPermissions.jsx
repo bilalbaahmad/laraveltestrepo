@@ -34,7 +34,6 @@ export default class Roles extends Component {
             const resp = response.data;
             toast.success("Permission "+resp+" !", {  autoClose: 3000 });
         });
-
     }
 
     componentDidMount()
@@ -60,8 +59,8 @@ export default class Roles extends Component {
         });
     }
 
-
     render() {
+
         var link_styling = {
             marginLeft: '25px',
             color: 'black'

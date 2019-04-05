@@ -95,6 +95,7 @@ class AddRole extends Component {
     }
 
     render() {
+
         const { redirect } = this.state;
 
         if (redirect) {

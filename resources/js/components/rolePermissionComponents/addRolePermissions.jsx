@@ -60,6 +60,7 @@ export default class Roles extends Component {
     }
 
     render() {
+
         var link_styling = {
             marginLeft: '25px',
             color: 'black'

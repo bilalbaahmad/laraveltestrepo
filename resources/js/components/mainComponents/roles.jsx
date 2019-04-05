@@ -18,20 +18,15 @@ export default class Roles extends Component {
 
     componentDidMount()
     {
-       /* $('#mytable').dataTable();*/
-
         axios.get('/api/allroles').then(response=>{
             this.setState({roles:response.data});
+
+            $(this.refs.roles_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true,
+            });
         });
-
-        /*$('#mytable').dataTable({
-            "sPaginationType": "full_numbers",
-            "bAutoWidth": false,
-            "bDestroy": true,
-            "fnDrawCallback": function() {
-            },
-
-        });*/
     }
 
 
@@ -69,7 +64,7 @@ export default class Roles extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard">
-                        <table className="table table-striped table-bordered" id="mytable">
+                        <table className="table table-striped table-bordered" ref="roles_table">
                             <thead>
                                 <tr style={{backgroundColor: '#8fbeec'}}>
                                     <th scope="col">#</th>

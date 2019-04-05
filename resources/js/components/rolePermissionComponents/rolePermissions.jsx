@@ -15,6 +15,21 @@ export default class RolePermissions extends Component {
         }
     }
 
+    componentDidMount()
+    {
+        const role_id = this.state.role_id;
+
+       axios.get('/api/role/'+role_id+'/permissions').then(response=>{
+            this.setState({permissions:response.data});
+
+           $(this.refs.role_permissions_table).DataTable({
+               paginate: true,
+               scrollCollapse: true,
+               ordering: true,
+           });
+        });
+    }
+
     onDelete(permission_id,role_id)
     {
         axios.delete('/api/role/'+role_id+'/permission/delete/'+permission_id).then(response=>{
@@ -29,15 +44,6 @@ export default class RolePermissions extends Component {
                     this.setState({permissions:current_permissions});
                 }
             }
-        });
-    }
-
-    componentDidMount()
-    {
-        const role_id = this.state.role_id;
-
-       axios.get('/api/role/'+role_id+'/permissions').then(response=>{
-            this.setState({permissions:response.data});
         });
     }
 
@@ -61,7 +67,7 @@ export default class RolePermissions extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard">
-                        <table className="table table-striped table-bordered">
+                        <table className="table table-striped table-bordered" ref="role_permissions_table">
                             <thead>
                                 <tr style={{backgroundColor: '#8fbeec'}}>
                                     <th scope="col">#</th>
@@ -78,7 +84,7 @@ export default class RolePermissions extends Component {
                                             <th>{index+1}</th>
                                             <td>{permission.name}</td>
                                             <td>
-                                                <a className="btn btn-danger text-white" onClick={this.onDelete.bind(this,permission.id,role_id)}>Delete</a>
+                                                <a className="btn btn-danger btn-sm text-white" onClick={this.onDelete.bind(this,permission.id,role_id)}>Delete</a>
                                             </td>
                                         </tr>
                                     )
@@ -87,7 +93,7 @@ export default class RolePermissions extends Component {
                             </tbody>
                         </table>
 
-                        <Link className="btn btn-primary float-right" to={`/roles`} style={{marginBottom: 15}}>Back</Link>
+                        <Link className="btn btn-primary float-right" to={`/roles`} style={{marginBottom: 15, marginTop: 10, marginRight: 10}}>Back</Link>
                     </div>
                 </div>
             </div>

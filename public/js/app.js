@@ -64755,6 +64755,12 @@ function (_Component) {
         _this2.setState({
           permissions: response.data
         });
+
+        $(_this2.refs.permissions_table).DataTable({
+          paginate: true,
+          scrollCollapse: true,
+          ordering: true
+        });
       });
     }
   }, {
@@ -64807,7 +64813,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "table table-striped table-bordered"
+        className: "table table-striped table-bordered",
+        ref: "permissions_table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         style: {
           backgroundColor: '#8fbeec'
@@ -64917,19 +64924,17 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      /* $('#mytable').dataTable();*/
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allroles').then(function (response) {
         _this2.setState({
           roles: response.data
         });
+
+        $(_this2.refs.roles_table).DataTable({
+          paginate: true,
+          scrollCollapse: true,
+          ordering: true
+        });
       });
-      /*$('#mytable').dataTable({
-          "sPaginationType": "full_numbers",
-          "bAutoWidth": false,
-          "bDestroy": true,
-          "fnDrawCallback": function() {
-          },
-        });*/
     }
   }, {
     key: "onDelete",
@@ -64982,7 +64987,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-striped table-bordered",
-        id: "mytable"
+        ref: "roles_table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         style: {
           backgroundColor: '#8fbeec'
@@ -65099,19 +65104,17 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      /* $('#mytable').dataTable();*/
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allusers').then(function (response) {
         _this2.setState({
           users: response.data
         });
+
+        $(_this2.refs.users_table).DataTable({
+          paginate: true,
+          scrollCollapse: true,
+          ordering: true
+        });
       });
-      /*$('#mytable').dataTable({
-          "sPaginationType": "full_numbers",
-          "bAutoWidth": false,
-          "bDestroy": true,
-          "fnDrawCallback": function() {
-          },
-        });*/
     }
   }, {
     key: "render",
@@ -65135,7 +65138,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-striped table-bordered",
-        id: "mytable"
+        ref: "users_table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         style: {
           backgroundColor: '#8fbeec'
@@ -65171,7 +65174,7 @@ function (_Component) {
         }, "Action"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-menu",
           style: {
-            width: 115 + '%'
+            width: 230
           },
           "aria-labelledby": "dropdownMenuLink"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -65745,6 +65748,12 @@ function (_Component) {
         _this2.setState({
           all_permissions: response.data
         });
+
+        $(_this2.refs.role_permissions_table).DataTable({
+          paginate: true,
+          scrollCollapse: true,
+          ordering: true
+        });
       });
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
         _this2.setState({
@@ -65782,7 +65791,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-striped table-bordered",
-        id: "mytable"
+        ref: "role_permissions_table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         style: {
           backgroundColor: '#8fbeec'
@@ -65805,7 +65814,9 @@ function (_Component) {
         })));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         style: {
-          marginBottom: 15
+          marginBottom: 15,
+          marginTop: 10,
+          marginRight: 10
         },
         className: "btn btn-primary float-right",
         to: {
@@ -66362,37 +66373,43 @@ function (_Component) {
   }
 
   _createClass(RolePermissions, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var role_id = this.state.role_id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
+        _this2.setState({
+          permissions: response.data
+        });
+
+        $(_this2.refs.role_permissions_table).DataTable({
+          paginate: true,
+          scrollCollapse: true,
+          ordering: true
+        });
+      });
+    }
+  }, {
     key: "onDelete",
     value: function onDelete(permission_id, role_id) {
-      var _this2 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/' + role_id + '/permission/delete/' + permission_id).then(function (response) {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission Deleted !", {
           autoClose: 3000
         });
-        var current_permissions = _this2.state.permissions;
+        var current_permissions = _this3.state.permissions;
 
         for (var i = 0; i < current_permissions.length; i++) {
           if (current_permissions[i].id == permission_id) {
             current_permissions.splice(i, 1);
 
-            _this2.setState({
+            _this3.setState({
               permissions: current_permissions
             });
           }
         }
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this3 = this;
-
-      var role_id = this.state.role_id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
-        _this3.setState({
-          permissions: response.data
-        });
       });
     }
   }, {
@@ -66429,7 +66446,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "table table-striped table-bordered"
+        className: "table table-striped table-bordered",
+        ref: "role_permissions_table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         style: {
           backgroundColor: '#8fbeec'
@@ -66444,14 +66462,16 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: permission.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, index + 1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, permission.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          className: "btn btn-danger text-white",
+          className: "btn btn-danger btn-sm text-white",
           onClick: _this4.onDelete.bind(_this4, permission.id, role_id)
         }, "Delete")));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "btn btn-primary float-right",
         to: "/roles",
         style: {
-          marginBottom: 15
+          marginBottom: 15,
+          marginTop: 10,
+          marginRight: 10
         }
       }, "Back"))));
     }
@@ -66593,6 +66613,12 @@ function (_Component) {
         _this2.setState({
           all_permissions: response.data
         });
+
+        $(_this2.refs.user_permissions_table).DataTable({
+          paginate: true,
+          scrollCollapse: true,
+          ordering: true
+        });
       });
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user/' + user_id + '/permissions').then(function (response) {
         _this2.setState({
@@ -66629,7 +66655,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-striped table-bordered",
-        id: "mytable"
+        ref: "user_permissions_table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         style: {
           backgroundColor: '#8fbeec'
@@ -66654,7 +66680,9 @@ function (_Component) {
         className: "btn btn-primary float-right",
         to: "/users",
         style: {
-          marginBottom: 15
+          marginBottom: 15,
+          marginTop: 10,
+          marginRight: 10
         }
       }, "Back"))));
     }
@@ -66756,6 +66784,12 @@ function (_Component) {
         _this2.setState({
           all_roles: response.data
         });
+
+        $(_this2.refs.user_roles_table).DataTable({
+          paginate: true,
+          scrollCollapse: true,
+          ordering: true
+        });
       });
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user/' + user_id + '/roles').then(function (response) {
         _this2.setState({
@@ -66792,7 +66826,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-striped table-bordered",
-        id: "mytable"
+        ref: "user_roles_table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         style: {
           backgroundColor: '#8fbeec'
@@ -66817,7 +66851,9 @@ function (_Component) {
         className: "btn btn-primary float-right",
         to: "/users",
         style: {
-          marginBottom: 15
+          marginBottom: 15,
+          marginTop: 10,
+          marginRight: 10
         }
       }, "Back"))));
     }

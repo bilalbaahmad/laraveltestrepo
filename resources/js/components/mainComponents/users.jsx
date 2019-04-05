@@ -11,30 +11,25 @@ export default class Roles extends Component {
 
         this.state={
             users:[]
-        }
-
+        };
     }
 
     componentDidMount()
     {
-        /* $('#mytable').dataTable();*/
-
         axios.get('/api/allusers').then(response=>{
             this.setState({users:response.data});
+
+            $(this.refs.users_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true,
+            });
         });
 
-        /*$('#mytable').dataTable({
-            "sPaginationType": "full_numbers",
-            "bAutoWidth": false,
-            "bDestroy": true,
-            "fnDrawCallback": function() {
-            },
-
-        });*/
     }
 
-
     render() {
+
         var link_styling = {
             marginLeft: '25px',
             marginRight: '5px',
@@ -51,7 +46,7 @@ export default class Roles extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard">
-                        <table className="table table-striped table-bordered" id="mytable">
+                        <table className="table table-striped table-bordered" ref="users_table">
                             <thead>
                                 <tr style={{backgroundColor: '#8fbeec'}}>
                                     <th scope="col">#</th>
@@ -77,7 +72,7 @@ export default class Roles extends Component {
                                                         Action
                                                     </a>
 
-                                                    <div className="dropdown-menu" style={{width:115+'%'}} aria-labelledby="dropdownMenuLink">
+                                                    <div className="dropdown-menu" style={{width:230}} aria-labelledby="dropdownMenuLink">
                                                         <Link style={link_styling} to={{ pathname: '/user/roles', user_id: user.id, user_name: user.name }}>Manage Roles</Link> <br />
                                                         <Link style={link_styling} to={{ pathname: '/user/permissions', user_id: user.id, user_name: user.name}}>Manage Direct Permission</Link>
                                                     </div>

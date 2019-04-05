@@ -43,6 +43,12 @@ export default class Roles extends Component {
 
         axios.get('/api/allroles').then(response=>{
             this.setState({all_roles:response.data});
+
+            $(this.refs.user_roles_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true,
+            });
         });
 
         axios.get('/api/user/'+user_id+'/roles').then(response=>{
@@ -73,7 +79,7 @@ export default class Roles extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard">
-                        <table className="table table-striped table-bordered" id="mytable">
+                        <table className="table table-striped table-bordered" ref="user_roles_table">
                             <thead>
                                 <tr style={{backgroundColor: '#8fbeec'}}>
                                     <th scope="col">#</th>
@@ -99,7 +105,7 @@ export default class Roles extends Component {
                             </tbody>
                         </table>
 
-                        <Link className="btn btn-primary float-right" to={`/users`} style={{marginBottom: 15}}>Back</Link>
+                        <Link className="btn btn-primary float-right" to={`/users`} style={{marginBottom: 15, marginTop: 10, marginRight: 10}}>Back</Link>
                     </div>
                 </div>
             </div>

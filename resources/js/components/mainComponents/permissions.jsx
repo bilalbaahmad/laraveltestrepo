@@ -17,6 +17,12 @@ export default class Permissions extends Component {
     {
         axios.get('/api/allpermissions').then(response=>{
             this.setState({permissions:response.data});
+
+            $(this.refs.permissions_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true,
+            });
         });
     }
 
@@ -54,7 +60,7 @@ export default class Permissions extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard">
-                        <table className="table table-striped table-bordered">
+                        <table className="table table-striped table-bordered" ref="permissions_table">
                             <thead>
                                 <tr style={{backgroundColor: '#8fbeec'}}>
                                     <th scope="col">#</th>

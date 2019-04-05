@@ -99,7 +99,7 @@ export default class Roles extends Component {
                                             <th>{index+1}</th>
                                             <td>{permission.name}</td>
                                             <td>
-                                                <input type="checkbox" id={"permissionCheckbox_"+permission.id} ref={"permissionCheckbox_"+permission.id} onClick={this.onStatusChange.bind(this)} value={permission.id}/>
+                                                <input type="checkbox" ref={"permissionCheckbox_"+permission.id} onClick={this.onStatusChange.bind(this)} value={permission.id}/>
                                             </td>
                                         </tr>
                                     )

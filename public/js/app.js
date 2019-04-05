@@ -66984,7 +66984,6 @@ function (_Component) {
           key: permission.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, index + 1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, permission.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "checkbox",
-          id: "permissionCheckbox_" + permission.id,
           ref: "permissionCheckbox_" + permission.id,
           onClick: _this3.onStatusChange.bind(_this3),
           value: permission.id
@@ -67866,7 +67865,6 @@ function (_Component) {
           key: permission.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, index + 1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, permission.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "checkbox",
-          id: "permissionCheckbox_" + permission.id,
           ref: "permissionCheckbox_" + permission.id,
           onClick: _this3.onStatusChange.bind(_this3),
           value: permission.id
@@ -68046,7 +68044,6 @@ function (_Component) {
           key: role.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, index + 1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, role.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "checkbox",
-          id: "roleCheckbox_" + role.id,
           ref: "roleCheckbox_" + role.id,
           onClick: _this3.onStatusChange.bind(_this3),
           value: role.id

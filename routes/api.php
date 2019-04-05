@@ -25,7 +25,7 @@ Route::get('/roles/view/{id}', 'Api\RolesPermissionsController@viewRole');
 Route::get('/role/{id}/permissions', 'Api\RolesPermissionsController@viewRolePermissions');
 Route::get('/allusers', 'Api\UsersController@allUsers');
 Route::get('/user/{id}/roles', 'Api\UsersController@userRoles');
-
+Route::get('/user/{id}/permissions', 'Api\UsersController@userDirectPermissions');
 
 
 Route::post('/permissions/add', 'Api\RolesPermissionsController@addPermission');
@@ -34,6 +34,7 @@ Route::post('/roles/add', 'Api\RolesPermissionsController@addRole');
 Route::post('/roles/update', 'Api\RolesPermissionsController@updateRole');
 Route::post('/role/permissions/update', 'Api\RolesPermissionsController@updateRolePermissions');
 Route::post('/user/roles/update', 'Api\UsersController@updateUserRoles');
+Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPermissions');
 
 
 Route::delete('/permission/delete/{id}', 'Api\RolesPermissionsController@deletePermission');

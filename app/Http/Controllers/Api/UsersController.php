@@ -43,4 +43,34 @@ class UsersController extends Controller
             return "Deleted";
         }
     }
+
+    public function userDirectPermissions($id)
+    {
+        $user_id= $id;
+        $user = User::find($user_id);
+        $permissions = $user->getDirectPermissions();
+        return $permissions;
+    }
+
+    public function updateUserDirectPermissions(Request $request)
+    {
+        $user_id= $request->user_id;
+        $permission_id= $request->permission_id;
+        $status = $request->status;
+
+        if($status == '1')
+        {
+            $user = User::find($user_id);
+            $permission = Permission::findById($permission_id);
+            $user->givePermissionTo($permission);
+            return "Assigned";
+        }
+        else
+        {
+            $user = User::find($user_id);
+            $permission = Permission::findById($permission_id);
+            $user->revokePermissionTo($permission);
+            return "Deleted";
+        }
+    }
 }

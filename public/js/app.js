@@ -64221,7 +64221,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mainComponents_users__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./mainComponents/users */ "./resources/js/components/mainComponents/users.jsx");
 /* harmony import */ var _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./userComponents/userRoles */ "./resources/js/components/userComponents/userRoles.jsx");
 /* harmony import */ var _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./userComponents/userPermissions */ "./resources/js/components/userComponents/userPermissions.jsx");
-/* harmony import */ var _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _mainComponents_login__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mainComponents/login */ "./resources/js/components/mainComponents/login.jsx");
 /* harmony import */ var _mainComponents_home__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mainComponents/home */ "./resources/js/components/mainComponents/home.jsx");
 /* harmony import */ var _mainComponents_notFound__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./mainComponents/notFound */ "./resources/js/components/mainComponents/notFound.jsx");
@@ -64333,7 +64332,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/user/permissions",
-        component: _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_16___default.a
+        component: _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_16__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/login",
@@ -65119,7 +65118,7 @@ function (_Component) {
     value: function render() {
       var link_styling = {
         marginLeft: '25px',
-        marginRight: '25px',
+        marginRight: '5px',
         color: 'black'
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -65171,6 +65170,9 @@ function (_Component) {
           "aria-expanded": "false"
         }, "Action"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-menu",
+          style: {
+            width: 115 + '%'
+          },
           "aria-labelledby": "dropdownMenuLink"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           style: link_styling,
@@ -65183,7 +65185,8 @@ function (_Component) {
           style: link_styling,
           to: {
             pathname: '/user/permissions',
-            user_id: user.id
+            user_id: user.id,
+            user_name: user.name
           }
         }, "Manage Direct Permission")))));
       }))))));
@@ -66505,8 +66508,160 @@ var Input = function Input(_ref) {
 /*!********************************************************************!*\
   !*** ./resources/js/components/userComponents/userPermissions.jsx ***!
   \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roles; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var Roles =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Roles, _Component);
+
+  function Roles(props) {
+    var _this;
+
+    _classCallCheck(this, Roles);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Roles).call(this, props));
+    _this.state = {
+      all_permissions: [],
+      direct_permissions: [],
+      user_id: _this.props.location.user_id,
+      user_name: _this.props.location.user_name
+    };
+    return _this;
+  }
+
+  _createClass(Roles, [{
+    key: "onStatusChange",
+    value: function onStatusChange(e) {
+      var user_id = this.state.user_id;
+      var value = e.target.value;
+      var checked = e.target.checked;
+      var status = 0;
+      if (checked) status = 1;
+      var FD = new FormData();
+      FD.append('user_id', user_id);
+      FD.append('permission_id', value);
+      FD.append('status', status);
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/user/permissions/update', FD).then(function (response) {
+        var resp = response.data;
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission " + resp + " !", {
+          autoClose: 3000
+        });
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var user_id = this.state.user_id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allpermissions').then(function (response) {
+        _this2.setState({
+          all_permissions: response.data
+        });
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user/' + user_id + '/permissions').then(function (response) {
+        _this2.setState({
+          direct_permissions: response.data
+        });
+
+        _this2.state.direct_permissions.forEach(function (permission) {
+          var ref = 'permissionCheckbox_' + permission.id;
+          _this2.refs[ref].checked = true;
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var link_styling = {
+        marginLeft: '25px',
+        color: 'black'
+      };
+      var user_name = this.state.user_name;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-head"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "card-title"
+      }, "Manage ", user_name, " Direct Permissions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-content collapse show"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body card-dashboard"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-striped table-bordered",
+        id: "mytable"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+        style: {
+          backgroundColor: '#8fbeec'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "#"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Action"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.all_permissions.map(function (permission, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+          key: permission.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, index + 1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, permission.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "checkbox",
+          id: "permissionCheckbox_" + permission.id,
+          ref: "permissionCheckbox_" + permission.id,
+          onClick: _this3.onStatusChange.bind(_this3),
+          value: permission.id
+        })));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        className: "btn btn-primary float-right",
+        to: "/users",
+        style: {
+          marginBottom: 15
+        }
+      }, "Back"))));
+    }
+  }]);
+
+  return Roles;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 

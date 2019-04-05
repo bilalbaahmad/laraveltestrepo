@@ -37,7 +37,7 @@ export default class Roles extends Component {
     render() {
         var link_styling = {
             marginLeft: '25px',
-            marginRight: '25px',
+            marginRight: '5px',
             color: 'black'
         };
 
@@ -53,13 +53,13 @@ export default class Roles extends Component {
                     <div className="card-body card-dashboard">
                         <table className="table table-striped table-bordered" id="mytable">
                             <thead>
-                            <tr style={{backgroundColor: '#8fbeec'}}>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Roles</th>
-                                <th scope="col">Action</th>
-                            </tr>
+                                <tr style={{backgroundColor: '#8fbeec'}}>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Roles</th>
+                                    <th scope="col">Action</th>
+                                </tr>
                             </thead>
 
                             <tbody>
@@ -77,9 +77,9 @@ export default class Roles extends Component {
                                                         Action
                                                     </a>
 
-                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <div className="dropdown-menu" style={{width:115+'%'}} aria-labelledby="dropdownMenuLink">
                                                         <Link style={link_styling} to={{ pathname: '/user/roles', user_id: user.id, user_name: user.name }}>Manage Roles</Link> <br />
-                                                        <Link style={link_styling} to={{ pathname: '/user/permissions', user_id: user.id}}>Manage Direct Permission</Link>
+                                                        <Link style={link_styling} to={{ pathname: '/user/permissions', user_id: user.id, user_name: user.name}}>Manage Direct Permission</Link>
                                                     </div>
                                                 </div>
                                             </td>

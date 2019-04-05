@@ -88,7 +88,7 @@ class AddRole extends Component {
         const oldState = { ...this.state.new_role };
         const role_id = this.state.role_id;
 
-        axios.get('/api/roles/view/'+role_id).then(response=>{
+        axios.get('/api/role/'+role_id+'/view').then(response=>{
             oldState.role = response.data.name;
             this.setState({new_role:oldState});
         });

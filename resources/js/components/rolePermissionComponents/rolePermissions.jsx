@@ -34,7 +34,7 @@ export default class RolePermissions extends Component {
 
     onDelete(permission_id,role_id)
     {
-        axios.delete('/api/role/'+role_id+'/permission/delete/'+permission_id).then(response=>{
+        axios.delete('/api/role/'+role_id+'/permission/'+permission_id+'/delete').then(response=>{
             toast.success("Permission Deleted !", {  autoClose: 3000 });
             var current_permissions = this.state.permissions;
 

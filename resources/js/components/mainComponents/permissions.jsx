@@ -30,7 +30,7 @@ export default class Permissions extends Component {
 
     onDelete(permission_id)
     {
-        axios.delete('/api/permission/delete/'+permission_id).then(response=>{
+        axios.delete('/api/permission/'+permission_id+'/delete').then(response=>{
             toast.success("Permission Deleted !", {  autoClose: 3000 });
 
             $(this.refs.users_table).DataTable().destroy();

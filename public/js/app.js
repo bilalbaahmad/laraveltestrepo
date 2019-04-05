@@ -65900,7 +65900,7 @@ function (_Component) {
     value: function onDelete(permission_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/permission/delete/' + permission_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/permission/' + permission_id + '/delete').then(function (response) {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission Deleted !", {
           autoClose: 3000
         });
@@ -67189,7 +67189,7 @@ function (_Component) {
       var oldState = _objectSpread({}, this.state.new_permission);
 
       var permission_id = this.state.permission_id;
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/permissions/view/' + permission_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/permission/' + permission_id + '/view').then(function (response) {
         oldState.permission = response.data.name;
 
         _this2.setState({
@@ -67428,7 +67428,7 @@ function (_Component) {
       var oldState = _objectSpread({}, this.state.new_role);
 
       var role_id = this.state.role_id;
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/roles/view/' + role_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/role/' + role_id + '/view').then(function (response) {
         oldState.role = response.data.name;
 
         _this2.setState({
@@ -67572,7 +67572,7 @@ function (_Component) {
     value: function onDelete(permission_id, role_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/' + role_id + '/permission/delete/' + permission_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/' + role_id + '/permission/' + permission_id + '/delete').then(function (response) {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission Deleted !", {
           autoClose: 3000
         });

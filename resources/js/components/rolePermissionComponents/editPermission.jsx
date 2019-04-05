@@ -87,7 +87,7 @@ class EditPermission extends Component {
         const oldState = { ...this.state.new_permission };
         const permission_id = this.state.permission_id;
 
-        axios.get('/api/permissions/view/'+permission_id).then(response=>{
+        axios.get('/api/permission/'+permission_id+'/view').then(response=>{
             oldState.permission = response.data.name;
             this.setState({new_permission:oldState});
         });

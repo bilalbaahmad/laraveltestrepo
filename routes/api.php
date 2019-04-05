@@ -38,5 +38,5 @@ Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPer
 
 
 Route::delete('/permission/{id}/delete', 'Api\RolesPermissionsController@deletePermission');
-Route::delete('/role/delete/{id}', 'Api\RolesPermissionsController@deleteRole');
+Route::delete('/role/{id}/delete', 'Api\RolesPermissionsController@deleteRole');
 Route::delete('/role/{r_id}/permission/{p_id}/delete', 'Api\RolesPermissionsController@deleteRolePermission');

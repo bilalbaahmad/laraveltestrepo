@@ -66086,7 +66086,7 @@ function (_Component) {
     value: function onDelete(role_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/delete/' + role_id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/' + role_id + '/delete').then(function (response) {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Role Deleted !", {
           autoClose: 3000
         });

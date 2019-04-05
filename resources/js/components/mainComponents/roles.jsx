@@ -32,7 +32,7 @@ export default class Roles extends Component {
 
     onDelete(role_id)
     {
-        axios.delete('/api/role/delete/'+role_id).then(response=>{
+        axios.delete('/api/role/'+role_id+'/delete').then(response=>{
             toast.success("Role Deleted !", {  autoClose: 3000 });
             var current_roles = this.state.roles;
 

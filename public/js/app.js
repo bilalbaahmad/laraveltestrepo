@@ -65884,17 +65884,14 @@ function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allpermissions').then(function (response) {
         _this2.setState({
-          permissions: response.data
+          permissions: response.data,
+          loading: false
         });
 
         $(_this2.refs.permissions_table).DataTable({
           paginate: true,
           scrollCollapse: true,
           ordering: true
-        });
-
-        _this2.setState({
-          loading: false
         });
       });
     }
@@ -66073,17 +66070,14 @@ function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allroles').then(function (response) {
         _this2.setState({
-          roles: response.data
+          roles: response.data,
+          loading: false
         });
 
         $(_this2.refs.roles_table).DataTable({
           paginate: true,
           scrollCollapse: true,
           ordering: true
-        });
-
-        _this2.setState({
-          loading: false
         });
       });
     }
@@ -66268,17 +66262,14 @@ function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allusers').then(function (response) {
         _this2.setState({
-          users: response.data
+          users: response.data,
+          loading: false
         });
 
         $(_this2.refs.users_table).DataTable({
           paginate: true,
           scrollCollapse: true,
           ordering: true
-        });
-
-        _this2.setState({
-          loading: false
         });
       });
     }
@@ -66904,17 +66895,14 @@ function (_Component) {
       var role_id = this.state.role_id;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allpermissions').then(function (response) {
         _this2.setState({
-          all_permissions: response.data
+          all_permissions: response.data,
+          loading: false
         });
 
         $(_this2.refs.role_permissions_table).DataTable({
           paginate: true,
           scrollCollapse: true,
           ordering: true
-        });
-
-        _this2.setState({
-          loading: false
         });
       });
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
@@ -67572,17 +67560,14 @@ function (_Component) {
       var role_id = this.state.role_id;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
         _this2.setState({
-          permissions: response.data
+          permissions: response.data,
+          loading: false
         });
 
         $(_this2.refs.role_permissions_table).DataTable({
           paginate: true,
           scrollCollapse: true,
           ordering: true
-        });
-
-        _this2.setState({
-          loading: false
         });
       });
     }
@@ -67799,17 +67784,14 @@ function (_Component) {
       var user_id = this.state.user_id;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allpermissions').then(function (response) {
         _this2.setState({
-          all_permissions: response.data
+          all_permissions: response.data,
+          loading: false
         });
 
         $(_this2.refs.user_permissions_table).DataTable({
           paginate: true,
           scrollCollapse: true,
           ordering: true
-        });
-
-        _this2.setState({
-          loading: false
         });
       });
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user/' + user_id + '/permissions').then(function (response) {
@@ -67985,17 +67967,14 @@ function (_Component) {
       var user_id = this.state.user_id;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allroles').then(function (response) {
         _this2.setState({
-          all_roles: response.data
+          all_roles: response.data,
+          loading: false
         });
 
         $(_this2.refs.user_roles_table).DataTable({
           paginate: true,
           scrollCollapse: true,
           ordering: true
-        });
-
-        _this2.setState({
-          loading: false
         });
       });
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user/' + user_id + '/roles').then(function (response) {

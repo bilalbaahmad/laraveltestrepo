@@ -18,15 +18,13 @@ export default class Permissions extends Component {
     componentDidMount()
     {
         axios.get('/api/allpermissions').then(response=>{
-            this.setState({permissions:response.data});
+            this.setState({permissions:response.data, loading: false});
 
             $(this.refs.permissions_table).DataTable({
                 paginate: true,
                 scrollCollapse: true,
                 ordering: true,
             });
-
-            this.setState({loading: false});
         });
     }
 

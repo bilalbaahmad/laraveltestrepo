@@ -24,15 +24,13 @@ export default class Roles extends Component {
         const user_id = this.state.user_id;
 
         axios.get('/api/allpermissions').then(response=>{
-            this.setState({all_permissions:response.data});
+            this.setState({all_permissions:response.data, loading: false});
 
             $(this.refs.user_permissions_table).DataTable({
                 paginate: true,
                 scrollCollapse: true,
                 ordering: true,
             });
-
-            this.setState({loading: false});
         });
 
         axios.get('/api/user/'+user_id+'/permissions').then(response=>{

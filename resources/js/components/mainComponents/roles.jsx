@@ -20,15 +20,13 @@ export default class Roles extends Component {
     componentDidMount()
     {
         axios.get('/api/allroles').then(response=>{
-            this.setState({roles:response.data});
+            this.setState({roles:response.data, loading: false});
 
             $(this.refs.roles_table).DataTable({
                 paginate: true,
                 scrollCollapse: true,
                 ordering: true,
             });
-
-            this.setState({loading: false});
         });
     }
 

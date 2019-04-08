@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 use App\User;
+use Illuminate\Support\Facades\File as File;
 
 class UsersController extends Controller
 {
@@ -71,6 +72,33 @@ class UsersController extends Controller
             $permission = Permission::findById($permission_id);
             $user->revokePermissionTo($permission);
             return "Deleted";
+        }
+    }
+
+    public function download()
+    {
+        $user = User::find(1);
+
+        if($user->hasPermissionTo('Download File'))
+        {
+            $image_physical_path = base_path().parent::file_path_getter()."/assets/images/test.png";
+
+            $NewName = 'test_file.png';
+
+            $headers = array('Content-Type: image/png');
+
+            if (File::exists($image_physical_path))
+            {
+                return response()->download($image_physical_path, $NewName, $headers);
+            }
+            else
+            {
+                return "File Not Found";
+            }
+        }
+        else
+        {
+            return "Access Denied";
         }
     }
 }

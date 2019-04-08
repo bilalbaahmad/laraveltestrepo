@@ -65,7 +65,7 @@
 
         <div id="wid" class="wid">
             <div>
-                <img src="{{URL::asset('assets/images/test.jpg')}}"> <br>
+                <img src="{{URL::asset('test.png')}}"> <br>
 
                 <table class="table" style="margin-top: 20px;">
                     <thead>

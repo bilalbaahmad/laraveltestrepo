@@ -65565,6 +65565,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -65586,6 +65590,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -65679,6 +65685,34 @@ function (_Component) {
       });
 
       if (errors) return;
+      var data = {
+        client_id: 2,
+        client_secret: 'RrrmaSW7TbQRnGkZNIjQVOIFfj1nyu7k5vC6YJv3',
+        grant_type: 'password',
+        username: _this.state.account.email,
+        password: _this.state.account.password,
+        scope: '*'
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/oauth/token', data).then(function (response) {
+        var token = response.data['access_token']; //window.localStorage.setItem('access_token', token);
+
+        localStorage.setItem('access_token', token);
+
+        if (localStorage.hasOwnProperty('access_token')) {
+          // get the key's value from localStorage
+          var value = localStorage.getItem('access_token');
+          react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Logged-in', {
+            autoClose: 3000
+          });
+
+          _this.setState({
+            account: {
+              email: "",
+              password: ""
+            }
+          });
+        }
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
@@ -65794,10 +65828,20 @@ function (_Component) {
   _createClass(NavBar, [{
     key: "onDownload",
     value: function onDownload() {
+      var value = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        // get the key's value from localStorage
+        value = localStorage.getItem('access_token');
+      }
+
+      var header = {
+        'Content-Type': 'application/json',
+        Authorization: "Bearer ".concat(value),
+        'Cache-Control': 'no-cache'
+      };
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/download', {
-        headers: {
-          "Cache-Control": "no-cache"
-        }
+        headers: header
       }).then(function (response) {
         var resp = response.data;
 
@@ -65806,6 +65850,15 @@ function (_Component) {
             autoClose: 3000
           });
         } else {
+          var contentType = response.headers['content-type'];
+          var contentDisposition = response.headers['content-disposition'];
+          var filename = contentDisposition.split(';')[1].split('filename')[1].split('=')[1].trim();
+          /* let blob = new Blob([response.data], { type: contentType });
+           let link = document.createElement('a');
+           link.href = window.URL.createObjectURL(blob);
+           link.download = filename;
+           link.click();*/
+
           window.open('/api/download/');
         }
       });
@@ -66337,6 +66390,15 @@ function (_Component) {
           ordering: true
         });
       });
+      /*let value = '';
+      if (localStorage.hasOwnProperty('access_token'))
+      {
+          // get the key's value from localStorage
+          value = localStorage.getItem('access_token');
+      }
+        axios.get('/api/user', {headers: {"Authorization" : `Bearer ${value}`}} ).then(response=>{
+          console.log(response.data);
+      });*/
     }
   }, {
     key: "render",

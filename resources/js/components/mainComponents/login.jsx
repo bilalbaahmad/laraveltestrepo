@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Input from "../sharedComponents/input";
 import Joi from "joi-browser";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 class Login extends Component {
 
@@ -51,6 +53,34 @@ class Login extends Component {
     this.setState({ errors: errors || {} });
 
     if (errors) return;
+
+    var data = {
+        client_id: 2,
+        client_secret: 'RrrmaSW7TbQRnGkZNIjQVOIFfj1nyu7k5vC6YJv3',
+        grant_type: 'password',
+        username: this.state.account.email,
+        password: this.state.account.password,
+        scope: '*',
+    };
+
+    axios.post('/oauth/token', data).then(response=>{
+
+        var token = response.data['access_token'];
+        //window.localStorage.setItem('access_token', token);
+        localStorage.setItem('access_token', token);
+
+        if (localStorage.hasOwnProperty('access_token'))
+        {
+            // get the key's value from localStorage
+            let value = localStorage.getItem('access_token');
+
+            toast.success('Logged-in', {  autoClose: 3000 });
+
+            this.setState({account: { email: "", password: "" }});
+        }
+
+    });
+
   };
 
   handleChange = ({ currentTarget: input }) => {

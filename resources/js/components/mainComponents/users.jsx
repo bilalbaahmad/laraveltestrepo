@@ -27,6 +27,17 @@ export default class Roles extends Component {
                 ordering: true,
             });
         });
+
+        /*let value = '';
+        if (localStorage.hasOwnProperty('access_token'))
+        {
+            // get the key's value from localStorage
+            value = localStorage.getItem('access_token');
+        }
+
+        axios.get('/api/user', {headers: {"Authorization" : `Bearer ${value}`}} ).then(response=>{
+            console.log(response.data);
+        });*/
     }
 
     render() {

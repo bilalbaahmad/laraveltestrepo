@@ -75,9 +75,9 @@ class UsersController extends Controller
         }
     }
 
-    public function download()
+    public function download(Request $request)
     {
-        $user = User::find(1);
+        $user = User::find($request->user()->id);
 
         if($user->hasPermissionTo('Download File'))
         {

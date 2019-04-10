@@ -13,10 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function ()
-{
-    return "hello";
+
+
+Route::group(['middleware' => ['auth:api']], function () {
+
+    Route::get('/user', function (Request $request){ return $request->user()->id; });
+    Route::get('/download', 'Api\UsersController@download');
 });
+
 
 Route::get('/allpermissions', 'Api\RolesPermissionsController@allPermissions');
 Route::get('/permission/{id}/view', 'Api\RolesPermissionsController@viewPermission');
@@ -26,7 +30,7 @@ Route::get('/role/{id}/permissions', 'Api\RolesPermissionsController@viewRolePer
 Route::get('/allusers', 'Api\UsersController@allUsers');
 Route::get('/user/{id}/roles', 'Api\UsersController@userRoles');
 Route::get('/user/{id}/permissions', 'Api\UsersController@userDirectPermissions');
-Route::get('/download', 'Api\UsersController@download');
+
 
 
 Route::post('/permissions/add', 'Api\RolesPermissionsController@addPermission');

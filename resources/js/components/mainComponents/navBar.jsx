@@ -8,7 +8,21 @@ export default class NavBar extends Component {
 
     onDownload()
     {
-        axios.get('/api/download', { headers: { "Cache-Control": "no-cache" }}).then(response=>{
+        let value = '';
+
+        if (localStorage.hasOwnProperty('access_token'))
+        {
+            // get the key's value from localStorage
+            value = localStorage.getItem('access_token');
+        }
+
+        var header = {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${value}`,
+            'Cache-Control': 'no-cache'
+        }
+
+        axios.get('/api/download', {headers: header}).then(response=>{
             const resp = response.data;
             if(resp == 'File Not Found' || resp == 'Access Denied')
             {
@@ -16,6 +30,16 @@ export default class NavBar extends Component {
             }
             else
             {
+                var contentType = response.headers['content-type'];
+                var contentDisposition = response.headers['content-disposition'];
+                var filename = contentDisposition.split(';')[1].split('filename')[1].split('=')[1].trim();
+
+               /* let blob = new Blob([response.data], { type: contentType });
+                let link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = filename;
+                link.click();*/
+
                 window.open('/api/download/');
             }
         });

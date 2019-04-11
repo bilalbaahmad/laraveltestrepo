@@ -65677,6 +65677,7 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
+      localStorage.clear();
 
       var errors = _this.validate();
 
@@ -65693,14 +65694,17 @@ function (_Component) {
         password: _this.state.account.password,
         scope: '*'
       };
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/oauth/token', data).then(function (response) {
-        var token = response.data['access_token']; //window.localStorage.setItem('access_token', token);
-
+      var header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/oauth/token', data, {
+        headers: header
+      }).then(function (response) {
+        var token = response.data['access_token'];
         localStorage.setItem('access_token', token);
 
         if (localStorage.hasOwnProperty('access_token')) {
-          // get the key's value from localStorage
-          var value = localStorage.getItem('access_token');
           react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Logged-in', {
             autoClose: 3000
           });
@@ -65710,6 +65714,14 @@ function (_Component) {
               email: "",
               password: ""
             }
+          });
+        }
+      }).catch(function (error) {
+        localStorage.clear();
+
+        if (error.response.status == 401) {
+          react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].error('Invalid Credentials !', {
+            autoClose: 3000
           });
         }
       });
@@ -65835,33 +65847,45 @@ function (_Component) {
         value = localStorage.getItem('access_token');
       }
 
-      var header = {
-        'Content-Type': 'application/json',
-        Authorization: "Bearer ".concat(value),
-        'Cache-Control': 'no-cache'
-      };
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/download', {
-        headers: header
-      }).then(function (response) {
-        var resp = response.data;
+      if (value == "") {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
+        });
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(value),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/download', {
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
 
-        if (resp == 'File Not Found' || resp == 'Access Denied') {
-          react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
-            autoClose: 3000
-          });
-        } else {
-          var contentType = response.headers['content-type'];
-          var contentDisposition = response.headers['content-disposition'];
-          var filename = contentDisposition.split(';')[1].split('filename')[1].split('=')[1].trim();
-          /* let blob = new Blob([response.data], { type: contentType });
-           let link = document.createElement('a');
-           link.href = window.URL.createObjectURL(blob);
-           link.download = filename;
-           link.click();*/
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'File Not Found' || resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              var contentType = response.headers['content-type'];
+              var contentDisposition = response.headers['content-disposition'];
+              var filename = contentDisposition.split(';')[1].split('filename')[1].split('=')[1].trim();
+              /* let blob = new Blob([response.data], { type: contentType });
+               let link = document.createElement('a');
+               link.href = window.URL.createObjectURL(blob);
+               link.download = filename;
+               link.click();*/
 
-          window.open('/api/download/');
-        }
-      });
+              window.open('/api/download');
+            }
+          }
+        });
+      }
     }
   }, {
     key: "render",

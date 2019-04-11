@@ -46,7 +46,10 @@ class Login extends Component {
   };
 
   handleSubmit = e => {
+
     e.preventDefault();
+
+    localStorage.clear();
 
     const errors = this.validate();
 
@@ -60,25 +63,32 @@ class Login extends Component {
         grant_type: 'password',
         username: this.state.account.email,
         password: this.state.account.password,
-        scope: '*',
+        scope: '*'
     };
 
-    axios.post('/oauth/token', data).then(response=>{
+      var header = {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+      };
+
+    axios.post('/oauth/token', data, {headers: header}).then(response=>{
 
         var token = response.data['access_token'];
-        //window.localStorage.setItem('access_token', token);
+
         localStorage.setItem('access_token', token);
 
         if (localStorage.hasOwnProperty('access_token'))
         {
-            // get the key's value from localStorage
-            let value = localStorage.getItem('access_token');
-
             toast.success('Logged-in', {  autoClose: 3000 });
-
             this.setState({account: { email: "", password: "" }});
         }
+    }).catch(function (error) {
+        localStorage.clear();
 
+        if(error.response.status == 401)
+        {
+            toast.error('Invalid Credentials !', {  autoClose: 3000 });
+        }
     });
 
   };

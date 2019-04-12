@@ -17,6 +17,7 @@ import Users from './mainComponents/users';
 import UserRoles from './userComponents/userRoles';
 import UserPermissions from './userComponents/userPermissions';
 import Login from './mainComponents/login';
+import Register from './mainComponents/register';
 import Home from './mainComponents/home';
 import NotFound from './mainComponents/notFound';
 
@@ -42,6 +43,7 @@ export default class MainComponent extends Component {
                         <Route exact path="/user/roles" component={UserRoles} />
                         <Route exact path="/user/permissions" component={UserPermissions} />
                         <Route exact path="/login" render={() => <Login />} />
+                        <Route exact path="/register" render={() => <Register />} />
                         <Route exact path="/not-found" render={() => <NotFound />} />
                         <Route exact path="/" render={() => <Home />} />
                         <Redirect to="/not-found" />

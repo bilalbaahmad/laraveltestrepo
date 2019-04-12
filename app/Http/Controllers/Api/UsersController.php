@@ -101,4 +101,29 @@ class UsersController extends Controller
             return "Access Denied";
         }
     }
+
+    public function register(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ],
+        [   'name.required' => 'Name Is Required.',
+            'email.required' => 'Email Is Required.',
+            'email.unique'      => 'Sorry, This Email Address Is Already Used By Another User. Please Try With Different One.',
+            'password.required' => 'Password Is Required.',
+            'password.min'      => 'Password Length Should Be More Than 8 Character Or Digit Or Mix.'
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        $token = $user->createToken()->accessToken;
+
+        return response()->json(['access_token' => $token], 200);
+    }
 }

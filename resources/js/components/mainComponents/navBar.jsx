@@ -9,10 +9,8 @@ export default class NavBar extends Component {
     onDownload()
     {
         let value = '';
-
         if (localStorage.hasOwnProperty('access_token'))
         {
-            // get the key's value from localStorage
             value = localStorage.getItem('access_token');
         }
 
@@ -57,6 +55,19 @@ export default class NavBar extends Component {
         }
     }
 
+    onLogout()
+    {
+        if (localStorage.hasOwnProperty('access_token'))
+        {
+            localStorage.clear();
+            toast.success('Logged out !', {autoClose: 3000});
+        }
+        else
+        {
+            toast.warning('You are not logged in !', {autoClose: 3000});
+        }
+    }
+
   render()
   {
       return (
@@ -96,6 +107,18 @@ export default class NavBar extends Component {
                       <li className="nav-item">
                           <NavLink className="nav-link" to="/login">
                               Login
+                          </NavLink>
+                      </li>
+
+                      <li className="nav-item">
+                          <a className="nav-link" onClick={this.onLogout.bind(this)}>
+                              Logout
+                          </a>
+                      </li>
+
+                      <li className="nav-item">
+                          <NavLink className="nav-link" to="/register">
+                              Register
                           </NavLink>
                       </li>
                   </ul>

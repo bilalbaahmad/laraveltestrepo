@@ -108,33 +108,42 @@ class Login extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <h1>Login</h1> <br />
-        <form onSubmit={this.handleSubmit}>
-          <Input
-            name="email"
-            type="email"
-            label="Email Address"
-            value={this.state.account.email}
-            onChange={this.handleChange}
-            error={this.state.errors.email}
-          />
+      return (
+          <div className="card">
+              <div className="card-head">
+                  <div className="card-header">
+                      <h4 className="card-title">Login</h4>
+                  </div>
+              </div>
 
-          <Input
-            name="password"
-            type="password"
-            label="Passowrd"
-            value={this.state.account.password}
-            onChange={this.handleChange}
-            error={this.state.errors.password}
-          />
-          <button disabled={this.validate()} className="btn btn-primary">
-            Login
-          </button>
-        </form>
-      </div>
-    );
+              <div className="card-content collapse show">
+                  <div className="card-body card-dashboard">
+                      <form onSubmit={this.handleSubmit}>
+                          <Input
+                              name="email"
+                              type="email"
+                              label="Email Address"
+                              value={this.state.account.email}
+                              onChange={this.handleChange}
+                              error={this.state.errors.email}
+                          />
+
+                          <Input
+                              name="password"
+                              type="password"
+                              label="Passowrd"
+                              value={this.state.account.password}
+                              onChange={this.handleChange}
+                              error={this.state.errors.password}
+                          />
+                          <button disabled={this.validate()} className="btn btn-primary">
+                              Login
+                          </button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      );
   }
 }
 

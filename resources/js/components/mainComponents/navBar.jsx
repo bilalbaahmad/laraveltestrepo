@@ -2,19 +2,30 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) =>
+{
+    return {
+        login_status: state.login_status,
+        access_token: state.access_token
+    }
+};
+
+const mapDispatchToProps = (dispatch) =>
+{
+    return {
+        onLogout: (token) => dispatch({type: 'logout', val: token})
+    }
+};
 
 
-export default class NavBar extends Component {
+class NavBar extends Component {
 
     onDownload()
     {
-        let value = '';
-        if (localStorage.hasOwnProperty('access_token'))
-        {
-            value = localStorage.getItem('access_token');
-        }
-
-        if(value == "")
+        let token = this.props.access_token;
+        if(token == '')
         {
             toast.error("You are not logged in !", {  autoClose: 3000 });
         }
@@ -22,7 +33,7 @@ export default class NavBar extends Component {
         {
             var header = {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${value}`,
+                Authorization: `Bearer ${token}`,
                 'Cache-Control': 'no-cache'
             };
 
@@ -57,14 +68,15 @@ export default class NavBar extends Component {
 
     onLogout()
     {
-        if (localStorage.hasOwnProperty('access_token'))
+        let token = this.props.access_token;
+        if(token == '')
         {
-            localStorage.clear();
-            toast.success('Logged out !', {autoClose: 3000});
+            toast.error("You are not logged in !", {  autoClose: 3000 });
         }
         else
         {
-            toast.warning('You are not logged in !', {autoClose: 3000});
+            this.props.onLogout('');
+            toast.success('Logged out !', {autoClose: 3000});
         }
     }
 
@@ -105,25 +117,17 @@ export default class NavBar extends Component {
                       </li>
 
                       <li className="nav-item">
-                          <NavLink className="nav-link" to="/login">
-                              Login
-                          </NavLink>
-                      </li>
-
-                      <li className="nav-item">
-                          <a className="nav-link" onClick={this.onLogout.bind(this)}>
-                              Logout
-                          </a>
-                      </li>
-
-                      <li className="nav-item">
                           <NavLink className="nav-link" to="/register">
                               Register
                           </NavLink>
                       </li>
+
+                      {this.props.login_status ? <li className="nav-item"><a className="nav-link" onClick={this.onLogout.bind(this)}> Logout </a></li> : <li className="nav-item"><NavLink className="nav-link" to="/login"> Login </NavLink></li>}
                   </ul>
               </div>
           </nav>
       );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

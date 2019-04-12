@@ -3,6 +3,23 @@ import Input from "../sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) =>
+{
+    return {
+        login_status: state.login_status,
+        access_token: state.access_token
+    }
+};
+
+const mapDispatchToProps = (dispatch) =>
+{
+    return {
+        onLogin: (token) => dispatch({type: 'login', val: token}),
+        onLogout: (token) => dispatch({type: 'logout', val: token})
+    }
+};
 
 class Login extends Component {
 
@@ -28,7 +45,6 @@ class Login extends Component {
       abortEarly: false
     });
 
-
     if (!result.error) return null;
 
     const errors = {};
@@ -49,7 +65,7 @@ class Login extends Component {
 
     e.preventDefault();
 
-    localStorage.clear();
+    this.props.onLogout('');
 
     const errors = this.validate();
 
@@ -75,15 +91,13 @@ class Login extends Component {
 
         var token = response.data['access_token'];
 
-        localStorage.setItem('access_token', token);
-
-        if (localStorage.hasOwnProperty('access_token'))
+        if (token != '')
         {
-            toast.success('Logged-in', {  autoClose: 3000 });
+            this.props.onLogin(token);
             this.setState({account: { email: "", password: "" }});
+            toast.success('Logged-in', {  autoClose: 3000 });
         }
     }).catch(function (error) {
-        localStorage.clear();
 
         if(error.response.status == 401)
         {
@@ -147,4 +161,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

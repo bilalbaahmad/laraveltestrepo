@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './store/reducer';
 
 import NavBar from './mainComponents/navBar';
 import Permissions from './mainComponents/permissions';
@@ -20,6 +23,8 @@ import Login from './mainComponents/login';
 import Register from './mainComponents/register';
 import Home from './mainComponents/home';
 import NotFound from './mainComponents/notFound';
+
+const mystore = createStore(reducer);
 
 export default class MainComponent extends Component {
     render() {
@@ -56,9 +61,11 @@ export default class MainComponent extends Component {
 
 if (document.getElementById('main_div')) {
     ReactDOM.render(
-        <BrowserRouter>
-            <MainComponent />
-        </BrowserRouter>,
+        <Provider store={mystore}>
+            <BrowserRouter>
+                <MainComponent />
+            </BrowserRouter>
+        </Provider>,
         document.getElementById("main_div")
     );
 }

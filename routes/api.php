@@ -40,7 +40,7 @@ Route::post('/roles/update', 'Api\RolesPermissionsController@updateRole');
 Route::post('/role/permissions/update', 'Api\RolesPermissionsController@updateRolePermissions');
 Route::post('/user/roles/update', 'Api\UsersController@updateUserRoles');
 Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPermissions');
-Route::post('/user/register', 'Api\UsersController@register');
+Route::post('/user/register', 'Auth\RegisterController@register');
 
 
 Route::delete('/permission/{id}/delete', 'Api\RolesPermissionsController@deletePermission');

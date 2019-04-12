@@ -122,7 +122,7 @@ class UsersController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        $token = $user->createToken()->accessToken;
+        $token = $user->createToken('')->accessToken;
 
         return response()->json(['access_token' => $token], 200);
     }

@@ -3,6 +3,23 @@ import Input from "../sharedComponents/input";
 import Joi from "joi-browser";
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) =>
+{
+    return {
+        login_status: state.login_status,
+        access_token: state.access_token
+    }
+};
+
+const mapDispatchToProps = (dispatch) =>
+{
+    return {
+        onLogin: (token) => dispatch({type: 'login', val: token}),
+        onLogout: (token) => dispatch({type: 'logout', val: token})
+    }
+};
 
 class Register extends Component {
 
@@ -19,7 +36,7 @@ class Register extends Component {
     schema = {
         user_name: Joi.string() .required().label("Name"),
         email: Joi.string().required().label("Email"),
-        password: Joi.string().min(6).max(20).required().label("Password"),
+        password: Joi.string().min(8).max(20).required().label("Password"),
         conf_password: Joi.string().valid(Joi.ref('password')).required().options({ language: { any: { allowOnly: 'must match password' } } })
     };
 
@@ -31,7 +48,6 @@ class Register extends Component {
         }
         else
         {
-            console.log('delete');
             delete errors[input.name];
         }
 
@@ -44,7 +60,6 @@ class Register extends Component {
         const obj = { [name]: value };
         const subschema = { [name]: this.schema[name] };
         const { error } = Joi.validate(obj, subschema);
-        console.log(error);
         return error ? error.details[0].message : null;
     };
 
@@ -52,7 +67,7 @@ class Register extends Component {
 
         e.preventDefault();
 
-        localStorage.clear();
+        this.props.onLogin('');
 
         const errors = this.validate();
 
@@ -70,11 +85,11 @@ class Register extends Component {
         FD.append('email', this.state.account.email);
         FD.append('password', this.state.account.password);
 
-        console.log('final');
         axios.post('/api/user/register',FD , {headers: header}).then(response=>{
-            localStorage.setItem('access_token', response.data.access_token);
+            toast.success('Registered successfully !', {  autoClose: 3000 });
+            this.props.onLogin(response.data.access_token);
         }).catch(function (error) {
-            localStorage.clear();
+            toast.error('Something went wrong, please check console log !', {  autoClose: 3000 });
             console.log(error.response);
         });
     };
@@ -152,4 +167,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

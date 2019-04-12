@@ -68436,6 +68436,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -68463,6 +68464,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    login_status: state.login_status,
+    access_token: state.access_token
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    onLogin: function onLogin(token) {
+      return dispatch({
+        type: 'login',
+        val: token
+      });
+    },
+    onLogout: function onLogout(token) {
+      return dispatch({
+        type: 'logout',
+        val: token
+      });
+    }
+  };
+};
 
 var Register =
 /*#__PURE__*/
@@ -68495,7 +68521,7 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "schema", {
       user_name: joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.string().required().label("Name"),
       email: joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.string().required().label("Email"),
-      password: joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.string().min(6).max(20).required().label("Password"),
+      password: joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.string().min(8).max(20).required().label("Password"),
       conf_password: joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.string().valid(joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.ref('password')).required().options({
         language: {
           any: {
@@ -68515,7 +68541,6 @@ function (_Component) {
       if (errorMessage) {
         errors[input.name] = errorMessage;
       } else {
-        console.log('delete');
         delete errors[input.name];
       }
 
@@ -68540,13 +68565,13 @@ function (_Component) {
       var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.validate(obj, subschema),
           error = _Joi$validate.error;
 
-      console.log(error);
       return error ? error.details[0].message : null;
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
-      localStorage.clear();
+
+      _this.props.onLogin('');
 
       var errors = _this.validate();
 
@@ -68563,13 +68588,18 @@ function (_Component) {
       FD.append('name', _this.state.account.user_name);
       FD.append('email', _this.state.account.email);
       FD.append('password', _this.state.account.password);
-      console.log('final');
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/user/register', FD, {
         headers: header
       }).then(function (response) {
-        localStorage.setItem('access_token', response.data.access_token);
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Registered successfully !', {
+          autoClose: 3000
+        });
+
+        _this.props.onLogin(response.data.access_token);
       }).catch(function (error) {
-        localStorage.clear();
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].error('Something went wrong, please check console log !', {
+          autoClose: 3000
+        });
         console.log(error.response);
       });
     });
@@ -68665,7 +68695,7 @@ function (_Component) {
   return Register;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Register);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(mapStateToProps, mapDispatchToProps)(Register));
 
 /***/ }),
 

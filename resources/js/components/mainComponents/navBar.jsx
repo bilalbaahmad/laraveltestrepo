@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
-import axios from 'axios';
+import { NavLink, Route } from "react-router-dom";
 import { toast } from 'react-toastify';
-import { connect } from 'react-redux';
-
-const mapStateToProps = (state) =>
-{
-    return {
-        login_status: state.login_status,
-        access_token: state.access_token
-    }
-};
-
-const mapDispatchToProps = (dispatch) =>
-{
-    return {
-        onLogout: (token) => dispatch({type: 'logout', val: token})
-    }
-};
-
+import axios from 'axios';
 
 class NavBar extends Component {
 
     onDownload()
     {
-        let token = this.props.access_token;
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
+
         if(token == '')
         {
             toast.error("You are not logged in !", {  autoClose: 3000 });
@@ -63,20 +51,6 @@ class NavBar extends Component {
                     }
                 }
             });
-        }
-    }
-
-    onLogout()
-    {
-        let token = this.props.access_token;
-        if(token == '')
-        {
-            toast.error("You are not logged in !", {  autoClose: 3000 });
-        }
-        else
-        {
-            this.props.onLogout('');
-            toast.success('Logged out !', {autoClose: 3000});
         }
     }
 
@@ -122,7 +96,7 @@ class NavBar extends Component {
                           </NavLink>
                       </li>
 
-                      {this.props.login_status ? <li className="nav-item"><a className="nav-link" onClick={this.onLogout.bind(this)}> Logout </a></li> : <li className="nav-item"><NavLink className="nav-link" to="/login"> Login </NavLink></li>}
+                      {localStorage.hasOwnProperty('login_status') ? ((localStorage.getItem('login_status')) ? <li className="nav-item"><NavLink className="nav-link" to="/logout"> Logout </NavLink></li> : <li className="nav-item"><NavLink className="nav-link" to="/login"> Login </NavLink></li>) : <li className="nav-item"><NavLink className="nav-link" to="/login"> Login </NavLink></li>}
                   </ul>
               </div>
           </nav>
@@ -130,4 +104,4 @@ class NavBar extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default NavBar;

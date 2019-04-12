@@ -1,35 +1,23 @@
 import React, { Component } from "react";
-import Input from "../sharedComponents/input";
+import { Redirect } from "react-router-dom";
+import { toast } from 'react-toastify';
 import Joi from "joi-browser";
 import axios from 'axios';
-import { toast } from 'react-toastify';
-import { connect } from 'react-redux';
-
-const mapStateToProps = (state) =>
-{
-    return {
-        login_status: state.login_status,
-        access_token: state.access_token
-    }
-};
-
-const mapDispatchToProps = (dispatch) =>
-{
-    return {
-        onLogin: (token) => dispatch({type: 'login', val: token}),
-        onLogout: (token) => dispatch({type: 'logout', val: token})
-    }
-};
+import Input from "../sharedComponents/input";
 
 class Login extends Component {
 
-    state = {
-        account: {
-            email: "",
-            password: ""
-        },
-        errors: {}
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            account: {
+                email: "",
+                password: ""
+            },
+            redirect: false,
+            errors: {}
+        };
+    }
 
     schema = {
         email: Joi.string()
@@ -65,7 +53,7 @@ class Login extends Component {
 
     e.preventDefault();
 
-    this.props.onLogout('');
+    localStorage.clear();
 
     const errors = this.validate();
 
@@ -93,8 +81,11 @@ class Login extends Component {
 
         if (token != '')
         {
-            this.props.onLogin(token);
+            localStorage.setItem('access_token',token);
+            localStorage.setItem('login_status',true);
             this.setState({account: { email: "", password: "" }});
+            this.props.rerenderParentCallback();
+            this.setState({ redirect: true });
             toast.success('Logged-in', {  autoClose: 3000 });
         }
     }).catch(function (error) {
@@ -122,6 +113,12 @@ class Login extends Component {
   };
 
   render() {
+      const { redirect } = this.state;
+
+      if (redirect) {
+          return <Redirect to='/'/>;
+      }
+
       return (
           <div className="card">
               <div className="card-head">
@@ -161,4 +158,4 @@ class Login extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

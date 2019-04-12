@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::get('/user', function (Request $request){ return $request->user()->id; });
     Route::get('/download', 'Api\UsersController@download');
+    Route::post('/user/logout', 'Api\UsersController@logout');
 });
 
 
@@ -41,6 +42,7 @@ Route::post('/role/permissions/update', 'Api\RolesPermissionsController@updateRo
 Route::post('/user/roles/update', 'Api\UsersController@updateUserRoles');
 Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPermissions');
 Route::post('/user/register', 'Api\UsersController@register');
+
 
 
 Route::delete('/permission/{id}/delete', 'Api\RolesPermissionsController@deletePermission');

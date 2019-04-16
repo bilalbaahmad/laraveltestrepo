@@ -88,7 +88,7 @@ export default class Permissions extends Component {
                                                     </a>
 
                                                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <Link style={link_styling}  to={{ pathname: '/permission/edit', permission_id: permission.id}}>Edit</Link>
+                                                        <Link style={link_styling} to={{ pathname: '/permission/edit', permission_id: permission.id}}>Edit</Link>
                                                         <a className="dropdown-item" onClick={this.onDelete.bind(this,permission.id)}>Delete</a>
                                                     </div>
                                                 </div>
@@ -102,7 +102,6 @@ export default class Permissions extends Component {
                     </div>
                 </div>
             </div>
-
         );
     }
 }

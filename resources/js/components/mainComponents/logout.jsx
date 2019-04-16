@@ -12,10 +12,6 @@ export default class Logout extends Component {
         };
     }
 
-    state = {
-        redirect: false
-    };
-
     componentDidMount()
     {
         var token = '';

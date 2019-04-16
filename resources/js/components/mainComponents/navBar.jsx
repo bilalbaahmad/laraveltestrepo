@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from "react-router-dom";
+import { Link, NavLink, Route } from "react-router-dom";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
@@ -88,6 +88,13 @@ class NavBar extends Component {
                           <a className="nav-link" onClick={this.onDownload.bind(this)}>
                               Download File
                           </a>
+                      </li>
+
+                      <li className="nav-item">
+                          {/*<NavLink className="nav-link" to="/explorer">
+                              Explorer
+                          </NavLink>*/}
+                          <Link className="nav-link" to={{ pathname: '/explorer', state: { folder_id: '0'} }}>Explorer</Link> {/*folder id = 0 for root folder*/}
                       </li>
 
                       <li className="nav-item">

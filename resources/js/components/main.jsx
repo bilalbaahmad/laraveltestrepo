@@ -19,6 +19,9 @@ import AddRolePermissions from './rolePermissionComponents/addRolePermissions';
 import Users from './mainComponents/users';
 import UserRoles from './userComponents/userRoles';
 import UserPermissions from './userComponents/userPermissions';
+import Explorer from './mainComponents/explorer';
+import AddFolder from './fileExplorerComponents/addFolder';
+import AddFile from './fileExplorerComponents/addFile';
 import Login from './mainComponents/login';
 import Logout from './mainComponents/logout';
 import Register from './mainComponents/register';
@@ -58,6 +61,9 @@ export default class MainComponent extends Component {
                         <Route exact path="/users" render={() => <Users />} />
                         <Route exact path="/user/roles" component={UserRoles} />
                         <Route exact path="/user/permissions" component={UserPermissions} />
+                        <Route exact path="/explorer" component={Explorer}/>
+                        <Route exact path="/folder/add" component={AddFolder}/>
+                        <Route exact path="/file/add" component={AddFile}/>
                         <Route exact path="/login" render={() => <Login rerenderParentCallback={this.rerenderParentCallback} />} />
                         <Route exact path="/logout" render={() => <Logout rerenderParentCallback={this.rerenderParentCallback} />} />
                         <Route exact path="/register" render={() => <Register />} />

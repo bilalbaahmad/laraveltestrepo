@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './store/reducer';
 import 'react-toastify/dist/ReactToastify.css';
+import '../styles/contextMenu.css';
 
 import NavBar from './mainComponents/navBar';
 import Permissions from './mainComponents/permissions';

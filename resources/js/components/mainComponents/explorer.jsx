@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from "react-router-dom";
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import Input from "../sharedComponents/input";
+
+const MENU_TYPE = 'ID';
+
+function collect(props) {
+    return { name: props.name, value: props.value };
+}
 
 export default class Explorer extends Component {
 
@@ -9,38 +17,87 @@ export default class Explorer extends Component {
 
         super(props);
 
-        this.state={
-            content:[],
+        this.state = {
+            content: [],
             upper_level_id: 0,
             folder_id: this.props.location.state.folder_id,
+            file_folder_rename: '',
+            file_folder_rename_id: '',
         }
     }
 
-    componentDidMount()
-    {
+    componentDidMount() {
         var folder_id = this.state.folder_id;
-        axios.get('/api/getfolder/'+folder_id+'/content').then(response=>{
-            this.setState({content:response.data.content, upper_level_id: response.data.upper_level_id});
+        axios.get('/api/getfolder/' + folder_id + '/content').then(response => {
+            this.setState({content: response.data.content, upper_level_id: response.data.upper_level_id});
         });
     }
 
-    onFolderChange(folder_id)
-    {
+    onFolderChange(folder_id) {
         var folder_id = folder_id;
-        if(folder_id == '#')
-        {
+        if (folder_id == '#') {
             folder_id = '0';
         }
 
-        axios.get('/api/getfolder/'+folder_id+'/content').then(response=>{
-            this.setState({content:response.data.content, folder_id: folder_id, upper_level_id: response.data.upper_level_id});
+        axios.get('/api/getfolder/' + folder_id + '/content').then(response => {
+            this.setState({
+                content: response.data.content,
+                folder_id: folder_id,
+                upper_level_id: response.data.upper_level_id
+            });
         });
     }
 
-    onDownloadFile()
-    {
+    onDownloadFile() {
         console.log('in download');
     }
+
+    onFolderClick = (e, data) => {
+        var file_folder_rename_id = data.value;
+        var action = data.action;
+        var file_folder_rename = data.name;
+
+        if (action == 'rename') {
+            console.log('in rename', file_folder_rename_id);
+            this.setState({file_folder_rename,file_folder_rename_id});
+            $(this.modal).modal('show');
+        }
+        else
+        {
+            console.log('in delete', file_folder_rename_id);
+        }
+    }
+
+    onRenameInputChange = ({ currentTarget: input }) =>
+    {
+        var file_folder_rename = input.value;
+        this.setState({ file_folder_rename });
+    }
+
+    onRenameSubmit = e => {
+        const folder_id = this.state.folder_id;
+        const new_name = this.state.file_folder_rename;
+        const rename_id = this.state.file_folder_rename_id;
+
+        if(new_name == '')
+        {
+            toast.warning("New name cannot be empty !", {  autoClose: 3000 });
+        }
+        else
+        {
+            const FD = new FormData();
+            FD.append('rename_id', rename_id);
+            FD.append('new_name', new_name);
+            FD.append('folder_id', folder_id);
+
+            axios.post('/api/update/filefolder/name',FD).then(response=>{
+            toast.success("Name Updated !", {  autoClose: 3000 });
+            this.setState({content: response.data, file_folder_rename:'',file_folder_rename_id: ''});
+            $(this.modal).modal('hide');
+        });
+        }
+    }
+
 
     render() {
 
@@ -68,20 +125,63 @@ export default class Explorer extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard row">
-                        { this.state.upper_level_id != '0' ? <div className="col-md-2 mb-4"><a onClick={this.onFolderChange.bind(this,this.state.upper_level_id)}><i className='fas fa-level-up-alt fa-2x col-md-12' style={{color: '#007bff'}}></i> <br/> <label className="col-md-12" style={{color: '#007bff'}} >Level Up</label></a> </div> : '' }
+                        { this.state.upper_level_id != '0' ? <div className="col-md-2 mb-4" style={{marginRight: '-70px'}}><a onClick={this.onFolderChange.bind(this,this.state.upper_level_id)} style={{cursor: 'pointer'}}><i className='fas fa-level-up-alt fa-2x col-md-12' style={{color: '#007bff'}}></i> <br/> <label className="col-md-12" style={{color: '#007bff'}} >Level Up</label></a> </div> : '' }
 
                         {
-                            this.state.content.map((cont)=>{
+                            this.state.content.map((cont,i)=>{
                                 return(
-                                    <div className="col-md-2 mb-4" key={cont.id}>
-                                        <a onDoubleClick={cont.type == 1 ? this.onFolderChange.bind(this,cont.id) : this.onDownloadFile.bind(this,cont.id)} >
-                                        <i className={cont.icon+' fa-2x col-md-12'}></i> <br/>
-                                        <label className="col-md-12" style={{ textTransform: 'capitalize'}}>{cont.text}</label>
-                                        </a>
-                                    </div>
+                                    cont.parent == '#' ?
+                                        <div className="col-md-12 mb-4" key={i}>
+                                            <a onDoubleClick={cont.type == 1 ? this.onFolderChange.bind(this,cont.id) : this.onDownloadFile.bind(this,cont.id)} style={{cursor: 'pointer'}}>
+                                                <i className={cont.icon+' fa-2x col-md-12'}></i> <br/>
+                                                <label className="col-md-12" style={{ textTransform: 'capitalize'}}>{cont.text}</label>
+                                            </a>
+                                        </div>
+                                        :
+                                        <ContextMenuTrigger name={cont.text} value={cont.id} key={i} collect={collect} id={MENU_TYPE}>
+                                            <div className="col-md-12 mb-4" key={i}>
+                                                <a onDoubleClick={cont.type == 1 ? this.onFolderChange.bind(this,cont.id) : this.onDownloadFile.bind(this,cont.id)} style={{cursor: 'pointer'}}>
+                                                <i className={cont.icon+' fa-2x col-md-12'}></i> <br/>
+                                                <label className="col-md-12" style={{ textTransform: 'capitalize'}}>{cont.text}</label>
+                                                </a>
+                                            </div>
+                                        </ContextMenuTrigger>
                                 )
                             })
                         }
+                    </div>
+                </div>
+
+                <ContextMenu id={MENU_TYPE}>
+                    <MenuItem onClick={this.onFolderClick} data={{ action: 'rename' }}>Rename</MenuItem>
+                    <MenuItem onClick={this.onFolderClick} data={{ action: 'delete' }}>Delete</MenuItem>
+                </ContextMenu>
+
+                <div className="modal fade" ref={modal => this.modal = modal} role="dialog" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalCenterTitle">Rename Modal</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div className="modal-body">
+                                <Input
+                                    name="file_folder_rename"
+                                    type="text"
+                                    label="Enter Name"
+                                    value={this.state.file_folder_rename}
+                                    onChange={this.onRenameInputChange}
+                                />
+                            </div>
+
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-primary" onClick={() => this.onRenameSubmit()}>Save changes</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

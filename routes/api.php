@@ -45,6 +45,7 @@ Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPer
 Route::post('/user/register', 'Api\UsersController@register');
 Route::post('/folder/add', 'Api\FileExplorerController@addFolder');
 Route::post('/file/add', 'Api\FileExplorerController@addFile');
+Route::post('/update/filefolder/name', 'Api\FileExplorerController@renameFileFolder');
 
 
 

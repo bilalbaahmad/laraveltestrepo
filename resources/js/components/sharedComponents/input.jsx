@@ -3,7 +3,7 @@ import React from "react";
 const Input = ({ name, type, label, value, onChange, error }) => {
   return (
     <div className="form-group">
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name}>{label}: </label>
       <input
         autoFocus
         type={type}

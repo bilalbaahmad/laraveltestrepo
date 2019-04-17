@@ -61,4 +61,18 @@ class FileExplorerController extends Controller
         return $content;
     }
 
+    public function renameFileFolder(Request $request)
+    {
+        $folder_id = $request->folder_id;
+        $rename_id = $request->rename_id;
+        $new_name = $request->new_name;
+
+        $file_folder = fileFolder::find($rename_id);
+        $file_folder->text = $new_name;
+        $file_folder->save();
+
+        $content = fileFolder::where('parent',$folder_id)->get();
+        return $content;
+    }
+
 }

@@ -2429,6 +2429,25 @@ exports.push([module.i, ".Toastify__toast-container {\n  z-index: 9999;\n  posit
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/styles/contextMenu.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/styles/contextMenu.css ***!
+  \*****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".react-contextmenu {\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid rgba(0, 0, 0, 0.15);\r\n    border-radius: 0.25rem;\r\n    color: #373a3c;\r\n    font-size: 16px;\r\n    margin: 2px 0 0;\r\n    min-width: 160px;\r\n    outline: none;\r\n    opacity: 0;\r\n    padding: 5px 0;\r\n    pointer-events: none;\r\n    text-align: left;\r\n    transition: opacity 250ms ease !important;\r\n}\r\n\r\n.react-contextmenu.react-contextmenu--visible {\r\n    opacity: 1;\r\n    pointer-events: auto;\r\n    z-index: 9999;\r\n}\r\n\r\n.react-contextmenu-item {\r\n    background: 0 0;\r\n    border: 0;\r\n    color: #373a3c;\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    padding: 3px 20px;\r\n    text-align: inherit;\r\n    white-space: nowrap;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-item--active,\r\n.react-contextmenu-item.react-contextmenu-item--selected {\r\n    color: #fff;\r\n    background-color: #20a0ff;\r\n    border-color: #20a0ff;\r\n    text-decoration: none;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-item--disabled,\r\n.react-contextmenu-item.react-contextmenu-item--disabled:hover {\r\n    background-color: transparent;\r\n    border-color: rgba(0, 0, 0, 0.15);\r\n    color: #878a8c;\r\n}\r\n\r\n.react-contextmenu-item--divider {\r\n    border-bottom: 1px solid rgba(0, 0, 0, 0.15);\r\n    cursor: inherit;\r\n    margin-bottom: 3px;\r\n    padding: 2px 0;\r\n}\r\n.react-contextmenu-item--divider:hover {\r\n    background-color: transparent;\r\n    border-color: rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu {\r\n    padding: 0;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu > .react-contextmenu-item {\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu\r\n> .react-contextmenu-item:after {\r\n    content: '\\25B6';\r\n    display: inline-block;\r\n    position: absolute;\r\n    right: 7px;\r\n}\r\n\r\n.example-multiple-targets::after {\r\n    content: attr(data-count);\r\n    display: block;\r\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/lib/css-base.js":
 /*!*************************************************!*\
   !*** ./node_modules/css-loader/lib/css-base.js ***!
@@ -34904,6 +34923,1509 @@ if (true) {
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/AbstractMenu.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/AbstractMenu.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _MenuItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MenuItem */ "./node_modules/react-contextmenu/es6/MenuItem.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var AbstractMenu = function (_Component) {
+    _inherits(AbstractMenu, _Component);
+
+    function AbstractMenu(props) {
+        _classCallCheck(this, AbstractMenu);
+
+        var _this = _possibleConstructorReturn(this, (AbstractMenu.__proto__ || Object.getPrototypeOf(AbstractMenu)).call(this, props));
+
+        _initialiseProps.call(_this);
+
+        _this.seletedItemRef = null;
+        _this.state = {
+            selectedItem: null,
+            forceSubMenuOpen: false
+        };
+        return _this;
+    }
+
+    return AbstractMenu;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+AbstractMenu.propTypes = {
+    children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired
+};
+
+var _initialiseProps = function _initialiseProps() {
+    var _this2 = this;
+
+    this.handleKeyNavigation = function (e) {
+        // check for isVisible strictly here as it might be undefined when this code executes in the context of SubMenu
+        // but we only need to check when it runs in the ContextMenu context
+        if (_this2.state.isVisible === false) {
+            return;
+        }
+
+        switch (e.keyCode) {
+            case 37: // left arrow
+            case 27:
+                // escape
+                e.preventDefault();
+                _this2.hideMenu(e);
+                break;
+            case 38:
+                // up arrow
+                e.preventDefault();
+                _this2.selectChildren(true);
+                break;
+            case 40:
+                // down arrow
+                e.preventDefault();
+                _this2.selectChildren(false);
+                break;
+            case 39:
+                // right arrow
+                _this2.tryToOpenSubMenu(e);
+                break;
+            case 13:
+                // enter
+                e.preventDefault();
+                _this2.tryToOpenSubMenu(e);
+                {
+                    // determine the selected item is disabled or not
+                    var disabled = _this2.seletedItemRef && _this2.seletedItemRef.props && _this2.seletedItemRef.props.disabled;
+
+                    if (_this2.seletedItemRef && _this2.seletedItemRef.ref instanceof HTMLElement && !disabled) {
+                        _this2.seletedItemRef.ref.click();
+                    } else {
+                        _this2.hideMenu(e);
+                    }
+                }
+                break;
+            default:
+            // do nothing
+        }
+    };
+
+    this.handleForceClose = function () {
+        _this2.setState({ forceSubMenuOpen: false });
+    };
+
+    this.tryToOpenSubMenu = function (e) {
+        if (_this2.state.selectedItem && _this2.state.selectedItem.type === _this2.getSubMenuType()) {
+            e.preventDefault();
+            _this2.setState({ forceSubMenuOpen: true });
+        }
+    };
+
+    this.selectChildren = function (forward) {
+        var selectedItem = _this2.state.selectedItem;
+
+        var children = [];
+        var disabledChildrenCount = 0;
+        var disabledChildIndexes = {};
+
+        var childCollector = function childCollector(child, index) {
+            // child can be empty in case you do conditional rendering of components, in which
+            // case it should not be accounted for as a real child
+            if (!child) {
+                return;
+            }
+
+            if ([_MenuItem__WEBPACK_IMPORTED_MODULE_2__["default"], _this2.getSubMenuType()].indexOf(child.type) < 0) {
+                // Maybe the MenuItem or SubMenu is capsuled in a wrapper div or something else
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.Children.forEach(child.props.children, childCollector);
+            } else if (!child.props.divider) {
+                if (child.props.disabled) {
+                    ++disabledChildrenCount;
+                    disabledChildIndexes[index] = true;
+                }
+
+                children.push(child);
+            }
+        };
+
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.Children.forEach(_this2.props.children, childCollector);
+        if (disabledChildrenCount === children.length) {
+            // All menu items are disabled, so none can be selected, don't do anything
+            return;
+        }
+
+        function findNextEnabledChildIndex(currentIndex) {
+            var i = currentIndex;
+            var incrementCounter = function incrementCounter() {
+                if (forward) {
+                    --i;
+                } else {
+                    ++i;
+                }
+
+                if (i < 0) {
+                    i = children.length - 1;
+                } else if (i >= children.length) {
+                    i = 0;
+                }
+            };
+
+            do {
+                incrementCounter();
+            } while (i !== currentIndex && disabledChildIndexes[i]);
+
+            return i === currentIndex ? null : i;
+        }
+
+        var currentIndex = children.indexOf(selectedItem);
+        var nextEnabledChildIndex = findNextEnabledChildIndex(currentIndex);
+
+        if (nextEnabledChildIndex !== null) {
+            _this2.setState({
+                selectedItem: children[nextEnabledChildIndex],
+                forceSubMenuOpen: false
+            });
+        }
+    };
+
+    this.onChildMouseMove = function (child) {
+        if (_this2.state.selectedItem !== child) {
+            _this2.setState({ selectedItem: child, forceSubMenuOpen: false });
+        }
+    };
+
+    this.onChildMouseLeave = function () {
+        _this2.setState({ selectedItem: null, forceSubMenuOpen: false });
+    };
+
+    this.renderChildren = function (children) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.Children.map(children, function (child) {
+            var props = {};
+            if (!react__WEBPACK_IMPORTED_MODULE_0___default.a.isValidElement(child)) return child;
+            if ([_MenuItem__WEBPACK_IMPORTED_MODULE_2__["default"], _this2.getSubMenuType()].indexOf(child.type) < 0) {
+                // Maybe the MenuItem or SubMenu is capsuled in a wrapper div or something else
+                props.children = _this2.renderChildren(child.props.children);
+                return react__WEBPACK_IMPORTED_MODULE_0___default.a.cloneElement(child, props);
+            }
+            props.onMouseLeave = _this2.onChildMouseLeave.bind(_this2);
+            if (child.type === _this2.getSubMenuType()) {
+                // special props for SubMenu only
+                props.forceOpen = _this2.state.forceSubMenuOpen && _this2.state.selectedItem === child;
+                props.forceClose = _this2.handleForceClose;
+                props.parentKeyNavigationHandler = _this2.handleKeyNavigation;
+            }
+            if (!child.props.divider && _this2.state.selectedItem === child) {
+                // special props for selected item only
+                props.selected = true;
+                props.ref = function (ref) {
+                    _this2.seletedItemRef = ref;
+                };
+                return react__WEBPACK_IMPORTED_MODULE_0___default.a.cloneElement(child, props);
+            }
+            // onMouseMove is only needed for non selected items
+            props.onMouseMove = function () {
+                return _this2.onChildMouseMove(child);
+            };
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.cloneElement(child, props);
+        });
+    };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AbstractMenu);
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/ContextMenu.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/ContextMenu.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _globalEventListener__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globalEventListener */ "./node_modules/react-contextmenu/es6/globalEventListener.js");
+/* harmony import */ var _AbstractMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AbstractMenu */ "./node_modules/react-contextmenu/es6/AbstractMenu.js");
+/* harmony import */ var _SubMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubMenu */ "./node_modules/react-contextmenu/es6/SubMenu.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions */ "./node_modules/react-contextmenu/es6/actions.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers */ "./node_modules/react-contextmenu/es6/helpers.js");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+
+
+
+var ContextMenu = function (_AbstractMenu) {
+    _inherits(ContextMenu, _AbstractMenu);
+
+    function ContextMenu(props) {
+        _classCallCheck(this, ContextMenu);
+
+        var _this = _possibleConstructorReturn(this, (ContextMenu.__proto__ || Object.getPrototypeOf(ContextMenu)).call(this, props));
+
+        _this.registerHandlers = function () {
+            document.addEventListener('mousedown', _this.handleOutsideClick);
+            document.addEventListener('touchstart', _this.handleOutsideClick);
+            document.addEventListener('scroll', _this.handleHide);
+            document.addEventListener('contextmenu', _this.handleHide);
+            document.addEventListener('keydown', _this.handleKeyNavigation);
+            window.addEventListener('resize', _this.handleHide);
+        };
+
+        _this.unregisterHandlers = function () {
+            document.removeEventListener('mousedown', _this.handleOutsideClick);
+            document.removeEventListener('touchstart', _this.handleOutsideClick);
+            document.removeEventListener('scroll', _this.handleHide);
+            document.removeEventListener('contextmenu', _this.handleHide);
+            document.removeEventListener('keydown', _this.handleKeyNavigation);
+            window.removeEventListener('resize', _this.handleHide);
+        };
+
+        _this.handleShow = function (e) {
+            if (e.detail.id !== _this.props.id || _this.state.isVisible) return;
+
+            var _e$detail$position = e.detail.position,
+                x = _e$detail$position.x,
+                y = _e$detail$position.y;
+
+
+            _this.setState({ isVisible: true, x: x, y: y });
+            _this.registerHandlers();
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_8__["callIfExists"])(_this.props.onShow, e);
+        };
+
+        _this.handleHide = function (e) {
+            if (_this.state.isVisible && (!e.detail || !e.detail.id || e.detail.id === _this.props.id)) {
+                _this.unregisterHandlers();
+                _this.setState({ isVisible: false, selectedItem: null, forceSubMenuOpen: false });
+                Object(_helpers__WEBPACK_IMPORTED_MODULE_8__["callIfExists"])(_this.props.onHide, e);
+            }
+        };
+
+        _this.handleOutsideClick = function (e) {
+            if (!_this.menu.contains(e.target)) Object(_actions__WEBPACK_IMPORTED_MODULE_7__["hideMenu"])();
+        };
+
+        _this.handleMouseLeave = function (event) {
+            event.preventDefault();
+
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_8__["callIfExists"])(_this.props.onMouseLeave, event, object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, _this.props.data, _helpers__WEBPACK_IMPORTED_MODULE_8__["store"].data), _helpers__WEBPACK_IMPORTED_MODULE_8__["store"].target);
+
+            if (_this.props.hideOnLeave) Object(_actions__WEBPACK_IMPORTED_MODULE_7__["hideMenu"])();
+        };
+
+        _this.handleContextMenu = function (e) {
+            if (false) {}
+            _this.handleHide(e);
+        };
+
+        _this.hideMenu = function (e) {
+            if (e.keyCode === 27 || e.keyCode === 13) {
+                // ECS or enter
+                Object(_actions__WEBPACK_IMPORTED_MODULE_7__["hideMenu"])();
+            }
+        };
+
+        _this.getMenuPosition = function () {
+            var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+            var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+            var menuStyles = {
+                top: y,
+                left: x
+            };
+
+            if (!_this.menu) return menuStyles;
+
+            var _window = window,
+                innerWidth = _window.innerWidth,
+                innerHeight = _window.innerHeight;
+
+            var rect = _this.menu.getBoundingClientRect();
+
+            if (y + rect.height > innerHeight) {
+                menuStyles.top -= rect.height;
+            }
+
+            if (x + rect.width > innerWidth) {
+                menuStyles.left -= rect.width;
+            }
+
+            if (menuStyles.top < 0) {
+                menuStyles.top = rect.height < innerHeight ? (innerHeight - rect.height) / 2 : 0;
+            }
+
+            if (menuStyles.left < 0) {
+                menuStyles.left = rect.width < innerWidth ? (innerWidth - rect.width) / 2 : 0;
+            }
+
+            return menuStyles;
+        };
+
+        _this.getRTLMenuPosition = function () {
+            var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+            var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+            var menuStyles = {
+                top: y,
+                left: x
+            };
+
+            if (!_this.menu) return menuStyles;
+
+            var _window2 = window,
+                innerWidth = _window2.innerWidth,
+                innerHeight = _window2.innerHeight;
+
+            var rect = _this.menu.getBoundingClientRect();
+
+            // Try to position the menu on the left side of the cursor
+            menuStyles.left = x - rect.width;
+
+            if (y + rect.height > innerHeight) {
+                menuStyles.top -= rect.height;
+            }
+
+            if (menuStyles.left < 0) {
+                menuStyles.left += rect.width;
+            }
+
+            if (menuStyles.top < 0) {
+                menuStyles.top = rect.height < innerHeight ? (innerHeight - rect.height) / 2 : 0;
+            }
+
+            if (menuStyles.left + rect.width > innerWidth) {
+                menuStyles.left = rect.width < innerWidth ? (innerWidth - rect.width) / 2 : 0;
+            }
+
+            return menuStyles;
+        };
+
+        _this.menuRef = function (c) {
+            _this.menu = c;
+        };
+
+        _this.state = object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, _this.state, {
+            x: 0,
+            y: 0,
+            isVisible: false
+        });
+        return _this;
+    }
+
+    _createClass(ContextMenu, [{
+        key: 'getSubMenuType',
+        value: function getSubMenuType() {
+            // eslint-disable-line class-methods-use-this
+            return _SubMenu__WEBPACK_IMPORTED_MODULE_6__["default"];
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.listenId = _globalEventListener__WEBPACK_IMPORTED_MODULE_4__["default"].register(this.handleShow, this.handleHide);
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            var _this2 = this;
+
+            if (this.state.isVisible) {
+                var wrapper = window.requestAnimationFrame || setTimeout;
+
+                wrapper(function () {
+                    var _state = _this2.state,
+                        x = _state.x,
+                        y = _state.y;
+
+                    var _ref = _this2.props.rtl ? _this2.getRTLMenuPosition(x, y) : _this2.getMenuPosition(x, y),
+                        top = _ref.top,
+                        left = _ref.left;
+
+                    wrapper(function () {
+                        if (!_this2.menu) return;
+                        _this2.menu.style.top = top + 'px';
+                        _this2.menu.style.left = left + 'px';
+                        _this2.menu.style.opacity = 1;
+                        _this2.menu.style.pointerEvents = 'auto';
+                    });
+                });
+            } else {
+                if (!this.menu) return;
+                this.menu.style.opacity = 0;
+                this.menu.style.pointerEvents = 'none';
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.listenId) {
+                _globalEventListener__WEBPACK_IMPORTED_MODULE_4__["default"].unregister(this.listenId);
+            }
+
+            this.unregisterHandlers();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                children = _props.children,
+                className = _props.className,
+                style = _props.style;
+            var isVisible = this.state.isVisible;
+
+            var inlineStyle = object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, style, { position: 'fixed', opacity: 0, pointerEvents: 'none' });
+            var menuClassnames = classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_8__["cssClasses"].menu, className, _defineProperty({}, _helpers__WEBPACK_IMPORTED_MODULE_8__["cssClasses"].menuVisible, isVisible));
+
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                'nav',
+                {
+                    role: 'menu', tabIndex: '-1', ref: this.menuRef, style: inlineStyle, className: menuClassnames,
+                    onContextMenu: this.handleContextMenu, onMouseLeave: this.handleMouseLeave },
+                this.renderChildren(children)
+            );
+        }
+    }]);
+
+    return ContextMenu;
+}(_AbstractMenu__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+ContextMenu.propTypes = {
+    id: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired,
+    data: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    className: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    hideOnLeave: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    rtl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    onHide: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    onMouseLeave: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    onShow: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    style: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object
+};
+ContextMenu.defaultProps = {
+    className: '',
+    data: {},
+    hideOnLeave: false,
+    rtl: false,
+    onHide: function onHide() {
+        return null;
+    },
+    onMouseLeave: function onMouseLeave() {
+        return null;
+    },
+    onShow: function onShow() {
+        return null;
+    },
+
+    style: {}
+};
+/* harmony default export */ __webpack_exports__["default"] = (ContextMenu);
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/ContextMenuTrigger.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/ContextMenuTrigger.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions */ "./node_modules/react-contextmenu/es6/actions.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./node_modules/react-contextmenu/es6/helpers.js");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+var ContextMenuTrigger = function (_Component) {
+    _inherits(ContextMenuTrigger, _Component);
+
+    function ContextMenuTrigger() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, ContextMenuTrigger);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ContextMenuTrigger.__proto__ || Object.getPrototypeOf(ContextMenuTrigger)).call.apply(_ref, [this].concat(args))), _this), _this.touchHandled = false, _this.handleMouseDown = function (event) {
+            if (_this.props.holdToDisplay >= 0 && event.button === 0) {
+                event.persist();
+                event.stopPropagation();
+
+                _this.mouseDownTimeoutId = setTimeout(function () {
+                    return _this.handleContextClick(event);
+                }, _this.props.holdToDisplay);
+            }
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.attributes.onMouseDown, event);
+        }, _this.handleMouseUp = function (event) {
+            if (event.button === 0) {
+                clearTimeout(_this.mouseDownTimeoutId);
+            }
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.attributes.onMouseUp, event);
+        }, _this.handleMouseOut = function (event) {
+            if (event.button === 0) {
+                clearTimeout(_this.mouseDownTimeoutId);
+            }
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.attributes.onMouseOut, event);
+        }, _this.handleTouchstart = function (event) {
+            _this.touchHandled = false;
+
+            if (_this.props.holdToDisplay >= 0) {
+                event.persist();
+                event.stopPropagation();
+
+                _this.touchstartTimeoutId = setTimeout(function () {
+                    _this.handleContextClick(event);
+                    _this.touchHandled = true;
+                }, _this.props.holdToDisplay);
+            }
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.attributes.onTouchStart, event);
+        }, _this.handleTouchEnd = function (event) {
+            if (_this.touchHandled) {
+                event.preventDefault();
+            }
+            clearTimeout(_this.touchstartTimeoutId);
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.attributes.onTouchEnd, event);
+        }, _this.handleContextMenu = function (event) {
+            _this.handleContextClick(event);
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.attributes.onContextMenu, event);
+        }, _this.handleContextClick = function (event) {
+            if (_this.props.disable) return;
+            if (_this.props.disableIfShiftIsPressed && event.shiftKey) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            var x = event.clientX || event.touches && event.touches[0].pageX;
+            var y = event.clientY || event.touches && event.touches[0].pageY;
+
+            if (_this.props.posX) {
+                x -= _this.props.posX;
+            }
+            if (_this.props.posY) {
+                y -= _this.props.posY;
+            }
+
+            Object(_actions__WEBPACK_IMPORTED_MODULE_4__["hideMenu"])();
+
+            var data = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.collect, _this.props);
+            var showMenuConfig = {
+                position: { x: x, y: y },
+                target: _this.elem,
+                id: _this.props.id
+            };
+            if (data && typeof data.then === 'function') {
+                // it's promise
+                data.then(function (resp) {
+                    showMenuConfig.data = object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, resp, {
+                        target: event.target
+                    });
+                    Object(_actions__WEBPACK_IMPORTED_MODULE_4__["showMenu"])(showMenuConfig);
+                });
+            } else {
+                showMenuConfig.data = object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, data, {
+                    target: event.target
+                });
+                Object(_actions__WEBPACK_IMPORTED_MODULE_4__["showMenu"])(showMenuConfig);
+            }
+        }, _this.elemRef = function (c) {
+            _this.elem = c;
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(ContextMenuTrigger, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                renderTag = _props.renderTag,
+                attributes = _props.attributes,
+                children = _props.children;
+
+            var newAttrs = object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, attributes, {
+                className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuWrapper, attributes.className),
+                onContextMenu: this.handleContextMenu,
+                onMouseDown: this.handleMouseDown,
+                onMouseUp: this.handleMouseUp,
+                onTouchStart: this.handleTouchstart,
+                onTouchEnd: this.handleTouchEnd,
+                onMouseOut: this.handleMouseOut,
+                ref: this.elemRef
+            });
+
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(renderTag, newAttrs, children);
+        }
+    }]);
+
+    return ContextMenuTrigger;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+ContextMenuTrigger.propTypes = {
+    id: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired,
+    attributes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    collect: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    disable: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    holdToDisplay: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+    posX: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+    posY: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+    renderTag: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func]),
+    disableIfShiftIsPressed: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
+};
+ContextMenuTrigger.defaultProps = {
+    attributes: {},
+    collect: function collect() {
+        return null;
+    },
+
+    disable: false,
+    holdToDisplay: 1000,
+    renderTag: 'div',
+    posX: 0,
+    posY: 0,
+    disableIfShiftIsPressed: false
+};
+/* harmony default export */ __webpack_exports__["default"] = (ContextMenuTrigger);
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/MenuItem.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/MenuItem.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions */ "./node_modules/react-contextmenu/es6/actions.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./node_modules/react-contextmenu/es6/helpers.js");
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+var MenuItem = function (_Component) {
+    _inherits(MenuItem, _Component);
+
+    function MenuItem() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, MenuItem);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MenuItem.__proto__ || Object.getPrototypeOf(MenuItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (event) {
+            if (event.button !== 0 && event.button !== 1) {
+                event.preventDefault();
+            }
+
+            if (_this.props.disabled || _this.props.divider) return;
+
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.onClick, event, object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, _this.props.data, _helpers__WEBPACK_IMPORTED_MODULE_5__["store"].data), _helpers__WEBPACK_IMPORTED_MODULE_5__["store"].target);
+
+            if (_this.props.preventClose) return;
+
+            Object(_actions__WEBPACK_IMPORTED_MODULE_4__["hideMenu"])();
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(MenuItem, [{
+        key: 'render',
+        value: function render() {
+            var _cx,
+                _this2 = this;
+
+            var _props = this.props,
+                disabled = _props.disabled,
+                divider = _props.divider,
+                children = _props.children,
+                attributes = _props.attributes,
+                selected = _props.selected;
+
+            var menuItemClassNames = classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItem, attributes.className, (_cx = {}, _defineProperty(_cx, classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItemDisabled, attributes.disabledClassName), disabled), _defineProperty(_cx, classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItemDivider, attributes.dividerClassName), divider), _defineProperty(_cx, classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItemSelected, attributes.selectedClassName), selected), _cx));
+
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                'div',
+                _extends({}, attributes, { className: menuItemClassNames,
+                    role: 'menuitem', tabIndex: '-1', 'aria-disabled': disabled ? 'true' : 'false',
+                    'aria-orientation': divider ? 'horizontal' : null,
+                    ref: function ref(_ref2) {
+                        _this2.ref = _ref2;
+                    },
+                    onMouseMove: this.props.onMouseMove, onMouseLeave: this.props.onMouseLeave,
+                    onTouchEnd: this.handleClick, onClick: this.handleClick }),
+                divider ? null : children
+            );
+        }
+    }]);
+
+    return MenuItem;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+MenuItem.propTypes = {
+    children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node,
+    attributes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    data: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    disabled: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    divider: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    preventClose: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    selected: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    onMouseMove: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    onMouseLeave: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+};
+MenuItem.defaultProps = {
+    disabled: false,
+    data: {},
+    divider: false,
+    attributes: {},
+    preventClose: false,
+    onClick: function onClick() {
+        return null;
+    },
+
+    children: null,
+    selected: false,
+    onMouseMove: function onMouseMove() {
+        return null;
+    },
+    onMouseLeave: function onMouseLeave() {
+        return null;
+    }
+};
+/* harmony default export */ __webpack_exports__["default"] = (MenuItem);
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/SubMenu.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/SubMenu.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _AbstractMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AbstractMenu */ "./node_modules/react-contextmenu/es6/AbstractMenu.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./node_modules/react-contextmenu/es6/helpers.js");
+/* harmony import */ var _globalEventListener__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./globalEventListener */ "./node_modules/react-contextmenu/es6/globalEventListener.js");
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+
+var SubMenu = function (_AbstractMenu) {
+    _inherits(SubMenu, _AbstractMenu);
+
+    function SubMenu(props) {
+        _classCallCheck(this, SubMenu);
+
+        var _this = _possibleConstructorReturn(this, (SubMenu.__proto__ || Object.getPrototypeOf(SubMenu)).call(this, props));
+
+        _this.getMenuPosition = function () {
+            var _window = window,
+                innerWidth = _window.innerWidth,
+                innerHeight = _window.innerHeight;
+
+            var rect = _this.subMenu.getBoundingClientRect();
+            var position = {};
+
+            if (rect.bottom > innerHeight) {
+                position.bottom = 0;
+            } else {
+                position.top = 0;
+            }
+
+            if (rect.right < innerWidth) {
+                position.left = '100%';
+            } else {
+                position.right = '100%';
+            }
+
+            return position;
+        };
+
+        _this.getRTLMenuPosition = function () {
+            var _window2 = window,
+                innerHeight = _window2.innerHeight;
+
+            var rect = _this.subMenu.getBoundingClientRect();
+            var position = {};
+
+            if (rect.bottom > innerHeight) {
+                position.bottom = 0;
+            } else {
+                position.top = 0;
+            }
+
+            if (rect.left < 0) {
+                position.left = '100%';
+            } else {
+                position.right = '100%';
+            }
+
+            return position;
+        };
+
+        _this.hideMenu = function (e) {
+            // avoid closing submenus of a different menu tree
+            if (e.detail && e.detail.id && _this.menu && e.detail.id !== _this.menu.id) {
+                return;
+            }
+
+            if (_this.props.forceOpen) {
+                _this.props.forceClose();
+            }
+            _this.setState({ visible: false, selectedItem: null });
+            _this.unregisterHandlers();
+        };
+
+        _this.handleClick = function (event) {
+            event.preventDefault();
+
+            if (_this.props.disabled) return;
+
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["callIfExists"])(_this.props.onClick, event, object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, _this.props.data, _helpers__WEBPACK_IMPORTED_MODULE_5__["store"].data), _helpers__WEBPACK_IMPORTED_MODULE_5__["store"].target);
+        };
+
+        _this.handleMouseEnter = function () {
+            if (_this.closetimer) clearTimeout(_this.closetimer);
+
+            if (_this.props.disabled || _this.state.visible) return;
+
+            _this.opentimer = setTimeout(function () {
+                return _this.setState({
+                    visible: true,
+                    selectedItem: null
+                });
+            }, _this.props.hoverDelay);
+        };
+
+        _this.handleMouseLeave = function () {
+            if (_this.opentimer) clearTimeout(_this.opentimer);
+
+            if (!_this.state.visible) return;
+
+            _this.closetimer = setTimeout(function () {
+                return _this.setState({
+                    visible: false,
+                    selectedItem: null
+                });
+            }, _this.props.hoverDelay);
+        };
+
+        _this.menuRef = function (c) {
+            _this.menu = c;
+        };
+
+        _this.subMenuRef = function (c) {
+            _this.subMenu = c;
+        };
+
+        _this.registerHandlers = function () {
+            document.removeEventListener('keydown', _this.props.parentKeyNavigationHandler);
+            document.addEventListener('keydown', _this.handleKeyNavigation);
+        };
+
+        _this.unregisterHandlers = function (dismounting) {
+            document.removeEventListener('keydown', _this.handleKeyNavigation);
+            if (!dismounting) {
+                document.addEventListener('keydown', _this.props.parentKeyNavigationHandler);
+            }
+        };
+
+        _this.state = object_assign__WEBPACK_IMPORTED_MODULE_3___default()({}, _this.state, {
+            visible: false
+        });
+        return _this;
+    }
+
+    _createClass(SubMenu, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.listenId = _globalEventListener__WEBPACK_IMPORTED_MODULE_6__["default"].register(function () {}, this.hideMenu);
+        }
+    }, {
+        key: 'getSubMenuType',
+        value: function getSubMenuType() {
+            // eslint-disable-line class-methods-use-this
+            return SubMenu;
+        }
+    }, {
+        key: 'shouldComponentUpdate',
+        value: function shouldComponentUpdate(nextProps, nextState) {
+            this.isVisibilityChange = (this.state.visible !== nextState.visible || this.props.forceOpen !== nextProps.forceOpen) && !(this.state.visible && nextProps.forceOpen) && !(this.props.forceOpen && nextState.visible);
+            return true;
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            var _this2 = this;
+
+            if (!this.isVisibilityChange) return;
+            if (this.props.forceOpen || this.state.visible) {
+                var wrapper = window.requestAnimationFrame || setTimeout;
+                wrapper(function () {
+                    var styles = _this2.props.rtl ? _this2.getRTLMenuPosition() : _this2.getMenuPosition();
+
+                    _this2.subMenu.style.removeProperty('top');
+                    _this2.subMenu.style.removeProperty('bottom');
+                    _this2.subMenu.style.removeProperty('left');
+                    _this2.subMenu.style.removeProperty('right');
+
+                    if (Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["hasOwnProp"])(styles, 'top')) _this2.subMenu.style.top = styles.top;
+                    if (Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["hasOwnProp"])(styles, 'left')) _this2.subMenu.style.left = styles.left;
+                    if (Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["hasOwnProp"])(styles, 'bottom')) _this2.subMenu.style.bottom = styles.bottom;
+                    if (Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["hasOwnProp"])(styles, 'right')) _this2.subMenu.style.right = styles.right;
+                    _this2.subMenu.classList.add(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuVisible);
+
+                    _this2.registerHandlers();
+                    _this2.setState({ selectedItem: null });
+                });
+            } else {
+                var cleanup = function cleanup() {
+                    _this2.subMenu.removeEventListener('transitionend', cleanup);
+                    _this2.subMenu.style.removeProperty('bottom');
+                    _this2.subMenu.style.removeProperty('right');
+                    _this2.subMenu.style.top = 0;
+                    _this2.subMenu.style.left = '100%';
+                    _this2.unregisterHandlers();
+                };
+                this.subMenu.addEventListener('transitionend', cleanup);
+                this.subMenu.classList.remove(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuVisible);
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.listenId) {
+                _globalEventListener__WEBPACK_IMPORTED_MODULE_6__["default"].unregister(this.listenId);
+            }
+
+            if (this.opentimer) clearTimeout(this.opentimer);
+
+            if (this.closetimer) clearTimeout(this.closetimer);
+
+            this.unregisterHandlers(true);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _cx;
+
+            var _props = this.props,
+                children = _props.children,
+                attributes = _props.attributes,
+                disabled = _props.disabled,
+                title = _props.title,
+                selected = _props.selected;
+            var visible = this.state.visible;
+
+            var menuProps = {
+                ref: this.menuRef,
+                onMouseEnter: this.handleMouseEnter,
+                onMouseLeave: this.handleMouseLeave,
+                className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItem, _helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].subMenu, attributes.listClassName),
+                style: {
+                    position: 'relative'
+                }
+            };
+            var menuItemProps = {
+                className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItem, attributes.className, (_cx = {}, _defineProperty(_cx, classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItemDisabled, attributes.disabledClassName), disabled), _defineProperty(_cx, classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItemActive, attributes.visibleClassName), visible), _defineProperty(_cx, classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menuItemSelected, attributes.selectedClassName), selected), _cx)),
+                onMouseMove: this.props.onMouseMove,
+                onMouseOut: this.props.onMouseOut,
+                onClick: this.handleClick
+            };
+            var subMenuProps = {
+                ref: this.subMenuRef,
+                style: {
+                    position: 'absolute',
+                    transition: 'opacity 1ms', // trigger transitionend event
+                    top: 0,
+                    left: '100%'
+                },
+                className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_helpers__WEBPACK_IMPORTED_MODULE_5__["cssClasses"].menu, this.props.className)
+            };
+
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                'nav',
+                _extends({}, menuProps, { role: 'menuitem', tabIndex: '-1', 'aria-haspopup': 'true' }),
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                    'div',
+                    _extends({}, attributes, menuItemProps),
+                    title
+                ),
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                    'nav',
+                    _extends({}, subMenuProps, { role: 'menu', tabIndex: '-1' }),
+                    this.renderChildren(children)
+                )
+            );
+        }
+    }]);
+
+    return SubMenu;
+}(_AbstractMenu__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+SubMenu.propTypes = {
+    children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired,
+    attributes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    title: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired,
+    className: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    disabled: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    hoverDelay: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+    rtl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    selected: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    onMouseMove: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    onMouseOut: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    forceOpen: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+    forceClose: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    parentKeyNavigationHandler: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+};
+SubMenu.defaultProps = {
+    disabled: false,
+    hoverDelay: 500,
+    attributes: {},
+    className: '',
+    rtl: false,
+    selected: false,
+    onMouseMove: function onMouseMove() {
+        return null;
+    },
+    onMouseOut: function onMouseOut() {
+        return null;
+    },
+    forceOpen: false,
+    forceClose: function forceClose() {
+        return null;
+    },
+    parentKeyNavigationHandler: function parentKeyNavigationHandler() {
+        return null;
+    }
+};
+/* harmony default export */ __webpack_exports__["default"] = (SubMenu);
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/actions.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/actions.js ***!
+  \*******************************************************/
+/*! exports provided: MENU_SHOW, MENU_HIDE, dispatchGlobalEvent, showMenu, hideMenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MENU_SHOW", function() { return MENU_SHOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MENU_HIDE", function() { return MENU_HIDE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dispatchGlobalEvent", function() { return dispatchGlobalEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showMenu", function() { return showMenu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hideMenu", function() { return hideMenu; });
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./node_modules/react-contextmenu/es6/helpers.js");
+
+
+
+
+var MENU_SHOW = 'REACT_CONTEXTMENU_SHOW';
+var MENU_HIDE = 'REACT_CONTEXTMENU_HIDE';
+
+function dispatchGlobalEvent(eventName, opts) {
+    var target = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : window;
+
+    // Compatibale with IE
+    // @see http://stackoverflow.com/questions/26596123/internet-explorer-9-10-11-event-constructor-doesnt-work
+    var event = void 0;
+
+    if (typeof window.CustomEvent === 'function') {
+        event = new window.CustomEvent(eventName, { detail: opts });
+    } else {
+        event = document.createEvent('CustomEvent');
+        event.initCustomEvent(eventName, false, true, opts);
+    }
+
+    if (target) {
+        target.dispatchEvent(event);
+        object_assign__WEBPACK_IMPORTED_MODULE_0___default()(_helpers__WEBPACK_IMPORTED_MODULE_1__["store"], opts);
+    }
+}
+
+function showMenu() {
+    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var target = arguments[1];
+
+    dispatchGlobalEvent(MENU_SHOW, object_assign__WEBPACK_IMPORTED_MODULE_0___default()({}, opts, { type: MENU_SHOW }), target);
+}
+
+function hideMenu() {
+    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var target = arguments[1];
+
+    dispatchGlobalEvent(MENU_HIDE, object_assign__WEBPACK_IMPORTED_MODULE_0___default()({}, opts, { type: MENU_HIDE }), target);
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/connectMenu.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/connectMenu.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ContextMenuTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContextMenuTrigger */ "./node_modules/react-contextmenu/es6/ContextMenuTrigger.js");
+/* harmony import */ var _globalEventListener__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./globalEventListener */ "./node_modules/react-contextmenu/es6/globalEventListener.js");
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+
+
+
+
+
+// collect ContextMenuTrigger's expected props to NOT pass them on as part of the context
+var ignoredTriggerProps = [].concat(_toConsumableArray(Object.keys(_ContextMenuTrigger__WEBPACK_IMPORTED_MODULE_1__["default"].propTypes)), ['children']);
+
+// expect the id of the menu to be responsible for as outer parameter
+/* harmony default export */ __webpack_exports__["default"] = (function (menuId) {
+    // expect menu component to connect as inner parameter
+    // <Child/> is presumably a wrapper of <ContextMenu/>
+    return function (Child) {
+        // return wrapper for <Child/> that forwards the ContextMenuTrigger's additional props
+        return function (_Component) {
+            _inherits(ConnectMenu, _Component);
+
+            function ConnectMenu(props) {
+                _classCallCheck(this, ConnectMenu);
+
+                var _this = _possibleConstructorReturn(this, (ConnectMenu.__proto__ || Object.getPrototypeOf(ConnectMenu)).call(this, props));
+
+                _this.handleShow = function (e) {
+                    if (e.detail.id !== menuId) return;
+
+                    // the onShow event's detail.data object holds all ContextMenuTrigger props
+                    var data = e.detail.data;
+
+                    var filteredData = {};
+
+                    for (var key in data) {
+                        // exclude props the ContextMenuTrigger is expecting itself
+                        if (!ignoredTriggerProps.includes(key)) {
+                            filteredData[key] = data[key];
+                        }
+                    }
+                    _this.setState({ trigger: filteredData });
+                };
+
+                _this.handleHide = function () {
+                    _this.setState({ trigger: null });
+                };
+
+                _this.state = { trigger: null };
+                return _this;
+            }
+
+            _createClass(ConnectMenu, [{
+                key: 'componentDidMount',
+                value: function componentDidMount() {
+                    this.listenId = _globalEventListener__WEBPACK_IMPORTED_MODULE_2__["default"].register(this.handleShow, this.handleHide);
+                }
+            }, {
+                key: 'componentWillUnmount',
+                value: function componentWillUnmount() {
+                    if (this.listenId) {
+                        _globalEventListener__WEBPACK_IMPORTED_MODULE_2__["default"].unregister(this.listenId);
+                    }
+                }
+            }, {
+                key: 'render',
+                value: function render() {
+                    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Child, _extends({}, this.props, { id: menuId, trigger: this.state.trigger }));
+                }
+            }]);
+
+            return ConnectMenu;
+        }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+    };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/globalEventListener.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/globalEventListener.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./node_modules/react-contextmenu/es6/actions.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./node_modules/react-contextmenu/es6/helpers.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+
+var GlobalEventListener = function GlobalEventListener() {
+    var _this = this;
+
+    _classCallCheck(this, GlobalEventListener);
+
+    this.handleShowEvent = function (event) {
+        for (var id in _this.callbacks) {
+            if (Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["hasOwnProp"])(_this.callbacks, id)) _this.callbacks[id].show(event);
+        }
+    };
+
+    this.handleHideEvent = function (event) {
+        for (var id in _this.callbacks) {
+            if (Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["hasOwnProp"])(_this.callbacks, id)) _this.callbacks[id].hide(event);
+        }
+    };
+
+    this.register = function (showCallback, hideCallback) {
+        var id = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["uniqueId"])();
+
+        _this.callbacks[id] = {
+            show: showCallback,
+            hide: hideCallback
+        };
+
+        return id;
+    };
+
+    this.unregister = function (id) {
+        if (id && _this.callbacks[id]) {
+            delete _this.callbacks[id];
+        }
+    };
+
+    this.callbacks = {};
+
+    if (_helpers__WEBPACK_IMPORTED_MODULE_1__["canUseDOM"]) {
+        window.addEventListener(_actions__WEBPACK_IMPORTED_MODULE_0__["MENU_SHOW"], this.handleShowEvent);
+        window.addEventListener(_actions__WEBPACK_IMPORTED_MODULE_0__["MENU_HIDE"], this.handleHideEvent);
+    }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (new GlobalEventListener());
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/helpers.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/helpers.js ***!
+  \*******************************************************/
+/*! exports provided: callIfExists, hasOwnProp, uniqueId, cssClasses, store, canUseDOM */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callIfExists", function() { return callIfExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasOwnProp", function() { return hasOwnProp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uniqueId", function() { return uniqueId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return cssClasses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "store", function() { return store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canUseDOM", function() { return canUseDOM; });
+function callIfExists(func) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+    }
+
+    return typeof func === 'function' && func.apply(undefined, args);
+}
+
+function hasOwnProp(obj, prop) {
+    return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+function uniqueId() {
+    return Math.random().toString(36).substring(7);
+}
+
+var cssClasses = {
+    menu: 'react-contextmenu',
+    menuVisible: 'react-contextmenu--visible',
+    menuWrapper: 'react-contextmenu-wrapper',
+    menuItem: 'react-contextmenu-item',
+    menuItemActive: 'react-contextmenu-item--active',
+    menuItemDisabled: 'react-contextmenu-item--disabled',
+    menuItemDivider: 'react-contextmenu-item--divider',
+    menuItemSelected: 'react-contextmenu-item--selected',
+    subMenu: 'react-contextmenu-submenu'
+};
+
+var store = {};
+
+var canUseDOM = Boolean(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+/***/ }),
+
+/***/ "./node_modules/react-contextmenu/es6/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-contextmenu/es6/index.js ***!
+  \*****************************************************/
+/*! exports provided: ContextMenu, ContextMenuTrigger, MenuItem, SubMenu, connectMenu, hideMenu, showMenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContextMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContextMenu */ "./node_modules/react-contextmenu/es6/ContextMenu.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContextMenu", function() { return _ContextMenu__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _ContextMenuTrigger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContextMenuTrigger */ "./node_modules/react-contextmenu/es6/ContextMenuTrigger.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContextMenuTrigger", function() { return _ContextMenuTrigger__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _MenuItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MenuItem */ "./node_modules/react-contextmenu/es6/MenuItem.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _MenuItem__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _SubMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubMenu */ "./node_modules/react-contextmenu/es6/SubMenu.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SubMenu", function() { return _SubMenu__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _connectMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./connectMenu */ "./node_modules/react-contextmenu/es6/connectMenu.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "connectMenu", function() { return _connectMenu__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions */ "./node_modules/react-contextmenu/es6/actions.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "hideMenu", function() { return _actions__WEBPACK_IMPORTED_MODULE_5__["hideMenu"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showMenu", function() { return _actions__WEBPACK_IMPORTED_MODULE_5__["showMenu"]; });
+
+
+
+
+
+
 
 
 /***/ }),
@@ -68040,26 +69562,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store/reducer */ "./resources/js/components/store/reducer.js");
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _mainComponents_navBar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./mainComponents/navBar */ "./resources/js/components/mainComponents/navBar.jsx");
-/* harmony import */ var _mainComponents_permissions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./mainComponents/permissions */ "./resources/js/components/mainComponents/permissions.jsx");
-/* harmony import */ var _rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./rolePermissionComponents/addPermission */ "./resources/js/components/rolePermissionComponents/addPermission.jsx");
-/* harmony import */ var _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./rolePermissionComponents/editPermission */ "./resources/js/components/rolePermissionComponents/editPermission.jsx");
-/* harmony import */ var _mainComponents_roles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./mainComponents/roles */ "./resources/js/components/mainComponents/roles.jsx");
-/* harmony import */ var _rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./rolePermissionComponents/addRole */ "./resources/js/components/rolePermissionComponents/addRole.jsx");
-/* harmony import */ var _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./rolePermissionComponents/editRole */ "./resources/js/components/rolePermissionComponents/editRole.jsx");
-/* harmony import */ var _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./rolePermissionComponents/rolePermissions */ "./resources/js/components/rolePermissionComponents/rolePermissions.jsx");
-/* harmony import */ var _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./rolePermissionComponents/addRolePermissions */ "./resources/js/components/rolePermissionComponents/addRolePermissions.jsx");
-/* harmony import */ var _mainComponents_users__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mainComponents/users */ "./resources/js/components/mainComponents/users.jsx");
-/* harmony import */ var _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./userComponents/userRoles */ "./resources/js/components/userComponents/userRoles.jsx");
-/* harmony import */ var _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./userComponents/userPermissions */ "./resources/js/components/userComponents/userPermissions.jsx");
-/* harmony import */ var _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./mainComponents/explorer */ "./resources/js/components/mainComponents/explorer.jsx");
-/* harmony import */ var _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./fileExplorerComponents/addFolder */ "./resources/js/components/fileExplorerComponents/addFolder.jsx");
-/* harmony import */ var _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./fileExplorerComponents/addFile */ "./resources/js/components/fileExplorerComponents/addFile.jsx");
-/* harmony import */ var _mainComponents_login__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./mainComponents/login */ "./resources/js/components/mainComponents/login.jsx");
-/* harmony import */ var _mainComponents_logout__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./mainComponents/logout */ "./resources/js/components/mainComponents/logout.jsx");
-/* harmony import */ var _mainComponents_register__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./mainComponents/register */ "./resources/js/components/mainComponents/register.jsx");
-/* harmony import */ var _mainComponents_home__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./mainComponents/home */ "./resources/js/components/mainComponents/home.jsx");
-/* harmony import */ var _mainComponents_notFound__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./mainComponents/notFound */ "./resources/js/components/mainComponents/notFound.jsx");
+/* harmony import */ var _styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/contextMenu.css */ "./resources/js/styles/contextMenu.css");
+/* harmony import */ var _styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _mainComponents_navBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./mainComponents/navBar */ "./resources/js/components/mainComponents/navBar.jsx");
+/* harmony import */ var _mainComponents_permissions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./mainComponents/permissions */ "./resources/js/components/mainComponents/permissions.jsx");
+/* harmony import */ var _rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./rolePermissionComponents/addPermission */ "./resources/js/components/rolePermissionComponents/addPermission.jsx");
+/* harmony import */ var _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./rolePermissionComponents/editPermission */ "./resources/js/components/rolePermissionComponents/editPermission.jsx");
+/* harmony import */ var _mainComponents_roles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mainComponents/roles */ "./resources/js/components/mainComponents/roles.jsx");
+/* harmony import */ var _rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./rolePermissionComponents/addRole */ "./resources/js/components/rolePermissionComponents/addRole.jsx");
+/* harmony import */ var _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./rolePermissionComponents/editRole */ "./resources/js/components/rolePermissionComponents/editRole.jsx");
+/* harmony import */ var _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./rolePermissionComponents/rolePermissions */ "./resources/js/components/rolePermissionComponents/rolePermissions.jsx");
+/* harmony import */ var _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./rolePermissionComponents/addRolePermissions */ "./resources/js/components/rolePermissionComponents/addRolePermissions.jsx");
+/* harmony import */ var _mainComponents_users__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mainComponents/users */ "./resources/js/components/mainComponents/users.jsx");
+/* harmony import */ var _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./userComponents/userRoles */ "./resources/js/components/userComponents/userRoles.jsx");
+/* harmony import */ var _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./userComponents/userPermissions */ "./resources/js/components/userComponents/userPermissions.jsx");
+/* harmony import */ var _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./mainComponents/explorer */ "./resources/js/components/mainComponents/explorer.jsx");
+/* harmony import */ var _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./fileExplorerComponents/addFolder */ "./resources/js/components/fileExplorerComponents/addFolder.jsx");
+/* harmony import */ var _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./fileExplorerComponents/addFile */ "./resources/js/components/fileExplorerComponents/addFile.jsx");
+/* harmony import */ var _mainComponents_login__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./mainComponents/login */ "./resources/js/components/mainComponents/login.jsx");
+/* harmony import */ var _mainComponents_logout__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./mainComponents/logout */ "./resources/js/components/mainComponents/logout.jsx");
+/* harmony import */ var _mainComponents_register__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./mainComponents/register */ "./resources/js/components/mainComponents/register.jsx");
+/* harmony import */ var _mainComponents_home__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./mainComponents/home */ "./resources/js/components/mainComponents/home.jsx");
+/* harmony import */ var _mainComponents_notFound__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./mainComponents/notFound */ "./resources/js/components/mainComponents/notFound.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68077,6 +69601,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -68133,79 +69658,79 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_navBar__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_navBar__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/permissions",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_permissions__WEBPACK_IMPORTED_MODULE_9__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_permissions__WEBPACK_IMPORTED_MODULE_10__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/permissions/add",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_10__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_11__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/permission/edit",
-        component: _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_11__["default"]
+        component: _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_12__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/roles",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_roles__WEBPACK_IMPORTED_MODULE_12__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_roles__WEBPACK_IMPORTED_MODULE_13__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/roles/add",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_13__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_14__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/role/edit",
-        component: _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_14__["default"]
+        component: _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_15__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/role/permissions",
-        component: _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_15__["default"]
+        component: _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_16__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/role/permissions/add",
-        component: _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_16__["default"]
+        component: _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_17__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/users",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_users__WEBPACK_IMPORTED_MODULE_17__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_users__WEBPACK_IMPORTED_MODULE_18__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/user/roles",
-        component: _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_18__["default"]
+        component: _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_19__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/user/permissions",
-        component: _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_19__["default"]
+        component: _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_20__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/explorer",
-        component: _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_20__["default"]
+        component: _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_21__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/folder/add",
-        component: _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_21__["default"]
+        component: _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_22__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/file/add",
-        component: _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_22__["default"]
+        component: _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_23__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/login",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_login__WEBPACK_IMPORTED_MODULE_23__["default"], {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_login__WEBPACK_IMPORTED_MODULE_24__["default"], {
             rerenderParentCallback: _this2.rerenderParentCallback
           });
         }
@@ -68213,7 +69738,7 @@ function (_Component) {
         exact: true,
         path: "/logout",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_logout__WEBPACK_IMPORTED_MODULE_24__["default"], {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_logout__WEBPACK_IMPORTED_MODULE_25__["default"], {
             rerenderParentCallback: _this2.rerenderParentCallback
           });
         }
@@ -68221,19 +69746,19 @@ function (_Component) {
         exact: true,
         path: "/register",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_register__WEBPACK_IMPORTED_MODULE_25__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_register__WEBPACK_IMPORTED_MODULE_26__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/not-found",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_notFound__WEBPACK_IMPORTED_MODULE_27__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_notFound__WEBPACK_IMPORTED_MODULE_28__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_home__WEBPACK_IMPORTED_MODULE_26__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_home__WEBPACK_IMPORTED_MODULE_27__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
         to: "/not-found"
@@ -68267,10 +69792,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_contextmenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-contextmenu */ "./node_modules/react-contextmenu/es6/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68281,18 +69808,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
+
+
+
+var MENU_TYPE = 'ID';
+
+function collect(props) {
+  return {
+    name: props.name,
+    value: props.value
+  };
+}
 
 var Explorer =
 /*#__PURE__*/
@@ -68305,10 +69844,71 @@ function (_Component) {
     _classCallCheck(this, Explorer);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Explorer).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "onFolderClick", function (e, data) {
+      var file_folder_rename_id = data.value;
+      var action = data.action;
+      var file_folder_rename = data.name;
+
+      if (action == 'rename') {
+        console.log('in rename', file_folder_rename_id);
+
+        _this.setState({
+          file_folder_rename: file_folder_rename,
+          file_folder_rename_id: file_folder_rename_id
+        });
+
+        $(_this.modal).modal('show');
+      } else {
+        console.log('in delete', file_folder_rename_id);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onRenameInputChange", function (_ref) {
+      var input = _ref.currentTarget;
+      var file_folder_rename = input.value;
+
+      _this.setState({
+        file_folder_rename: file_folder_rename
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onRenameSubmit", function (e) {
+      var folder_id = _this.state.folder_id;
+      var new_name = _this.state.file_folder_rename;
+      var rename_id = _this.state.file_folder_rename_id;
+
+      if (new_name == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning("New name cannot be empty !", {
+          autoClose: 3000
+        });
+      } else {
+        var FD = new FormData();
+        FD.append('rename_id', rename_id);
+        FD.append('new_name', new_name);
+        FD.append('folder_id', folder_id);
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/update/filefolder/name', FD).then(function (response) {
+          react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Name Updated !", {
+            autoClose: 3000
+          });
+
+          _this.setState({
+            content: response.data,
+            file_folder_rename: '',
+            file_folder_rename_id: ''
+          });
+
+          $(_this.modal).modal('hide');
+        });
+      }
+    });
+
     _this.state = {
       content: [],
       upper_level_id: 0,
-      folder_id: _this.props.location.state.folder_id
+      folder_id: _this.props.location.state.folder_id,
+      file_folder_rename: '',
+      file_folder_rename_id: ''
     };
     return _this;
   }
@@ -68319,7 +69919,7 @@ function (_Component) {
       var _this2 = this;
 
       var folder_id = this.state.folder_id;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/getfolder/' + folder_id + '/content').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content').then(function (response) {
         _this2.setState({
           content: response.data.content,
           upper_level_id: response.data.upper_level_id
@@ -68337,7 +69937,7 @@ function (_Component) {
         folder_id = '0';
       }
 
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/getfolder/' + folder_id + '/content').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content').then(function (response) {
         _this3.setState({
           content: response.data.content,
           folder_id: folder_id,
@@ -68396,9 +69996,15 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body card-dashboard row"
       }, this.state.upper_level_id != '0' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-2 mb-4"
+        className: "col-md-2 mb-4",
+        style: {
+          marginRight: '-70px'
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        onClick: this.onFolderChange.bind(this, this.state.upper_level_id)
+        onClick: this.onFolderChange.bind(this, this.state.upper_level_id),
+        style: {
+          cursor: 'pointer'
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-level-up-alt fa-2x col-md-12",
         style: {
@@ -68409,12 +70015,15 @@ function (_Component) {
         style: {
           color: '#007bff'
         }
-      }, "Level Up")), " ") : '', this.state.content.map(function (cont) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-md-2 mb-4",
-          key: cont.id
+      }, "Level Up")), " ") : '', this.state.content.map(function (cont, i) {
+        return cont.parent == '#' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-md-12 mb-4",
+          key: i
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          onDoubleClick: cont.type == 1 ? _this4.onFolderChange.bind(_this4, cont.id) : _this4.onDownloadFile.bind(_this4, cont.id)
+          onDoubleClick: cont.type == 1 ? _this4.onFolderChange.bind(_this4, cont.id) : _this4.onDownloadFile.bind(_this4, cont.id),
+          style: {
+            cursor: 'pointer'
+          }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: cont.icon + ' fa-2x col-md-12'
         }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -68422,8 +70031,85 @@ function (_Component) {
           style: {
             textTransform: 'capitalize'
           }
-        }, cont.text)));
-      }))));
+        }, cont.text))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["ContextMenuTrigger"], {
+          name: cont.text,
+          value: cont.id,
+          key: i,
+          collect: collect,
+          id: MENU_TYPE
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-md-12 mb-4",
+          key: i
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          onDoubleClick: cont.type == 1 ? _this4.onFolderChange.bind(_this4, cont.id) : _this4.onDownloadFile.bind(_this4, cont.id),
+          style: {
+            cursor: 'pointer'
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: cont.icon + ' fa-2x col-md-12'
+        }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "col-md-12",
+          style: {
+            textTransform: 'capitalize'
+          }
+        }, cont.text))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["ContextMenu"], {
+        id: MENU_TYPE
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["MenuItem"], {
+        onClick: this.onFolderClick,
+        data: {
+          action: 'rename'
+        }
+      }, "Rename"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["MenuItem"], {
+        onClick: this.onFolderClick,
+        data: {
+          action: 'delete'
+        }
+      }, "Delete")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        ref: function ref(modal) {
+          return _this4.modal = modal;
+        },
+        role: "dialog",
+        "aria-hidden": "true"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog modal-dialog-centered",
+        role: "document"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalCenterTitle"
+      }, "Rename Modal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        name: "file_folder_rename",
+        type: "text",
+        label: "Enter Name",
+        value: this.state.file_folder_rename,
+        onChange: this.onRenameInputChange
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Close"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this4.onRenameSubmit();
+        }
+      }, "Save changes"))))));
     }
   }]);
 
@@ -70225,6 +71911,29 @@ function (_Component) {
       role: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Role")
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref) {
+      var input = _ref.currentTarget;
+
+      var errors = _objectSpread({}, _this.state.errors);
+
+      var errorMessage = _this.ValidateProperty(input);
+
+      if (errorMessage) {
+        errors[input.name] = errorMessage;
+      } else {
+        delete errors[input.name];
+      }
+
+      var new_role = _objectSpread({}, _this.state.new_role);
+
+      new_role[input.name] = input.value;
+
+      _this.setState({
+        new_role: new_role,
+        errors: errors
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
       var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_role, _this.schema, {
         abortEarly: false
@@ -70258,9 +71967,9 @@ function (_Component) {
       return errors;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "ValidateProperty", function (_ref) {
-      var name = _ref.name,
-          value = _ref.value;
+    _defineProperty(_assertThisInitialized(_this), "ValidateProperty", function (_ref2) {
+      var name = _ref2.name,
+          value = _ref2.value;
 
       var obj = _defineProperty({}, name, value);
 
@@ -70297,29 +72006,6 @@ function (_Component) {
           new_role: oldState,
           redirect: true
         });
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
-      var input = _ref2.currentTarget;
-
-      var errors = _objectSpread({}, _this.state.errors);
-
-      var errorMessage = _this.ValidateProperty(input);
-
-      if (errorMessage) {
-        errors[input.name] = errorMessage;
-      } else {
-        delete errors[input.name];
-      }
-
-      var new_role = _objectSpread({}, _this.state.new_role);
-
-      new_role[input.name] = input.value;
-
-      _this.setState({
-        new_role: new_role,
-        errors: errors
       });
     });
 
@@ -71241,7 +72927,7 @@ var Input = function Input(_ref) {
     className: "form-group"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: name
-  }, label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, label, ": "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     autoFocus: true,
     type: type,
     className: "form-control",
@@ -71654,6 +73340,36 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
+
+/***/ }),
+
+/***/ "./resources/js/styles/contextMenu.css":
+/*!*********************************************!*\
+  !*** ./resources/js/styles/contextMenu.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/postcss-loader/src??ref--6-2!./contextMenu.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/styles/contextMenu.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 

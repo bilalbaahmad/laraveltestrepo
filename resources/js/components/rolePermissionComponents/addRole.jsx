@@ -21,6 +21,20 @@ class AddRole extends Component {
             .label("Role")
     };
 
+    handleChange = ({ currentTarget: input }) => {
+        const errors = { ...this.state.errors };
+        const errorMessage = this.ValidateProperty(input);
+        if (errorMessage) {
+            errors[input.name] = errorMessage;
+        } else {
+            delete errors[input.name];
+        }
+
+        const new_role = { ...this.state.new_role };
+        new_role[input.name] = input.value;
+        this.setState({ new_role, errors });
+    };
+
     validate = () => {
         const result = Joi.validate(this.state.new_role, this.schema, {
             abortEarly: false
@@ -64,19 +78,6 @@ class AddRole extends Component {
         });
     };
 
-    handleChange = ({ currentTarget: input }) => {
-        const errors = { ...this.state.errors };
-        const errorMessage = this.ValidateProperty(input);
-        if (errorMessage) {
-            errors[input.name] = errorMessage;
-        } else {
-            delete errors[input.name];
-        }
-
-        const new_role = { ...this.state.new_role };
-        new_role[input.name] = input.value;
-        this.setState({ new_role, errors });
-    };
 
     render() {
 

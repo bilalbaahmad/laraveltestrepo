@@ -67613,7 +67613,6 @@ function (_Component) {
       FD.append('folder_id', _this.state.folder_id);
       FD.append('file_data', _this.state.file_data);
       FD.append('file_name', _this.state.file.file_name);
-      console.log(FD);
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/file/add', FD).then(function (response) {
         console.log(response.data);
         react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New File Uploaded !", {
@@ -67675,8 +67674,9 @@ function (_Component) {
     key: "onfileChange",
     value: function onfileChange(e) {
       var data = e.target.files[0];
-      console.log(data);
-      /*this.setState({file_data: data});*/
+      this.setState({
+        file_data: data
+      });
     }
   }, {
     key: "render",
@@ -67726,7 +67726,7 @@ function (_Component) {
         className: "form-control-file",
         name: "file_data",
         src: this.state.file_data,
-        onChange: this.onfileChange
+        onChange: this.onfileChange.bind(this)
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "file_name",
         type: "text",

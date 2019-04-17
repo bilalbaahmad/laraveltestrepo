@@ -73,7 +73,6 @@ class AddFile extends Component {
         FD.append('file_data', this.state.file_data);
         FD.append('file_name', this.state.file.file_name);
 
-        console.log(FD);
 
         axios.post('/api/file/add',FD).then(response=>{
             console.log(response.data);
@@ -97,9 +96,8 @@ class AddFile extends Component {
     };
 
     onfileChange(e){
-        var data = e.target.files[0];
-        console.log(data);
-        /*this.setState({file_data: data});*/
+        let data = e.target.files[0];
+        this.setState({file_data: data});
     }
 
     render() {
@@ -124,7 +122,7 @@ class AddFile extends Component {
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard">
                         <form onSubmit={this.handleSubmit}>
-                            <input type="file" className="form-control-file" name="file_data" src={this.state.file_data} onChange={this.onfileChange}/> <br/>
+                            <input type="file" className="form-control-file" name="file_data" src={this.state.file_data} onChange={this.onfileChange.bind(this)}/> <br/>
 
                             <Input
                                 name="file_name"

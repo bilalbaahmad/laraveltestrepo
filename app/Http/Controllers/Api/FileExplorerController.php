@@ -50,8 +50,15 @@ class FileExplorerController extends Controller
         $file_data = $request->file_data;
         $file_name = $request->file_name;
 
-        $res = array('folder_id' => $folder_id,'file_data' => $file_data,'file_name' => $file_name);
-        return $res;
+        $new_folder = new fileFolder();
+        $new_folder->parent = $folder_id;
+        $new_folder->text = ucfirst($file_name);
+        $new_folder->type = 2;
+        $new_folder->icon = 'far fa-file';
+        $new_folder->save();
+
+        $content = fileFolder::where('parent',$folder_id)->get();
+        return $content;
     }
 
 }

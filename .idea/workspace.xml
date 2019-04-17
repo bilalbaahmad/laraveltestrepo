@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="408b3572-bbcc-467a-8ab9-86733664fcd0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2019_04_17_050053_create_file_folder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFile.jsx" afterPath="$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFile.jsx" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileExplorerController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileExplorerController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="86">
+              <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
               <folding>
                 <element signature="e#44#72#0#PHP" expanded="true" />
               </folding>
@@ -39,24 +37,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addFile.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFile.jsx">
+      <file leaf-file-name="addFolder.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFolder.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="89" column="38" lean-forward="true" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
+            <state relative-caret-position="510">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="permissions.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/permissions.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="91" column="112" lean-forward="true" selection-start-line="91" selection-start-column="94" selection-end-line="91" selection-end-column="112" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -105,8 +93,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="npm install js-file-download --save" />
-      <command text="artisan serve" />
       <command text="composer require laravel/passport" />
       <command text="php artisan migrate" />
       <command text="php artisan passport:install" />
@@ -130,6 +116,8 @@
       <command text="artisan make:controller FileExplorerController" />
       <command text="artisan make:controller Api\FileExplorerController" />
       <command text="artisan serve" />
+      <command text="artisan make:migration create_file_folder" />
+      <command text="artisan migrate" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -142,7 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/components/roles.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/permissions.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/addRole.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissions.jsx" />
@@ -193,6 +180,7 @@
         <option value="$PROJECT_DIR$/resources/js/components/sharedComponents/input.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFile.jsx" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_17_050053_create_file_folder.php" />
       </list>
     </option>
   </component>
@@ -335,14 +323,6 @@
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="rolePermissionComponents" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="test_laravel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="sharedComponents" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -449,7 +429,7 @@
       <workItem from="1555065918542" duration="7924000" />
       <workItem from="1555301708433" duration="17051000" />
       <workItem from="1555387144970" duration="26594000" />
-      <workItem from="1555475159895" duration="1744000" />
+      <workItem from="1555475159895" duration="2925000" />
     </task>
     <task id="LOCAL-00001" summary="2nd">
       <created>1553682099649</created>
@@ -689,11 +669,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555418202711</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="17-4-19">
+      <created>1555476919192</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1555476919192</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="369301000" />
+    <option name="totallyTimeSpent" value="370482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -738,7 +725,8 @@
     <MESSAGE value="11-4-19" />
     <MESSAGE value="12-4-19" />
     <MESSAGE value="16-4-19" />
-    <option name="LAST_COMMIT_MESSAGE" value="16-4-19" />
+    <MESSAGE value="17-4-19" />
+    <option name="LAST_COMMIT_MESSAGE" value="17-4-19" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -747,20 +735,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/RouteRegistrar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1692">
-          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/cache.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1097,16 +1071,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFolder.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1411">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/login.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1632">
@@ -1115,30 +1079,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/permissions.jsx">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_27_044921_create_user_permission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="91" column="112" lean-forward="true" selection-start-line="91" selection-start-column="94" selection-end-line="91" selection-end-column="112" />
+        <state relative-caret-position="-441">
+          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_17_050053_create_file_folder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFile.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="89" column="38" lean-forward="true" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
+        <state relative-caret-position="468">
+          <caret line="89" column="38" lean-forward="false" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/permissions.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="91" column="112" lean-forward="false" selection-start-line="91" selection-start-column="94" selection-end-line="91" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="86">
+          <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
           <folding>
             <element signature="e#44#72#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFolder.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

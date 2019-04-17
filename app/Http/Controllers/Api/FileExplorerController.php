@@ -75,4 +75,9 @@ class FileExplorerController extends Controller
         return $content;
     }
 
+    public function downloadFile($id)
+    {
+        return $id;
+    }
+
 }

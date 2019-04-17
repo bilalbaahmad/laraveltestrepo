@@ -69947,8 +69947,25 @@ function (_Component) {
     }
   }, {
     key: "onDownloadFile",
-    value: function onDownloadFile() {
-      console.log('in download');
+    value: function onDownloadFile(file_id) {
+      var downloading_file_id = file_id;
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/file/' + file_id + '/download').then(function (response) {
+        var resp = response.data;
+
+        if (response.data.status === 'error') {
+          react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+            autoClose: 3000
+          });
+        } else {
+          if (resp == 'File Not Found' || resp == 'Access Denied') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+              autoClose: 3000
+            });
+          } else {
+            window.open('/api/file/' + file_id + '/download');
+          }
+        }
+      });
     }
   }, {
     key: "render",

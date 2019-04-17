@@ -32,6 +32,7 @@ Route::get('/allusers', 'Api\UsersController@allUsers');
 Route::get('/user/{id}/roles', 'Api\UsersController@userRoles');
 Route::get('/user/{id}/permissions', 'Api\UsersController@userDirectPermissions');
 Route::get('/getfolder/{id}/content', 'Api\FileExplorerController@getFolderContent');
+Route::get('/file/{id}/download', 'Api\FileExplorerController@downloadFile');
 
 
 

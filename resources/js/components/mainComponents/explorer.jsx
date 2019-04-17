@@ -48,8 +48,26 @@ export default class Explorer extends Component {
         });
     }
 
-    onDownloadFile() {
-        console.log('in download');
+    onDownloadFile(file_id) {
+        const downloading_file_id = file_id;
+
+        axios.get('/api/file/' + file_id + '/download').then(response => {
+            const resp = response.data;
+            if(response.data.status === 'error')
+            {
+                toast.warning('Something went wrong !', {  autoClose: 3000 });
+            }
+            else
+            {
+                if (resp == 'File Not Found' || resp == 'Access Denied') {
+                    toast.warning(resp, {autoClose: 3000});
+                }
+                else
+                {
+                    window.open('/api/file/' + file_id + '/download');
+                }
+            }
+        });
     }
 
     onFolderClick = (e, data) => {

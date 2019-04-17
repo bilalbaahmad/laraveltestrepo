@@ -17,8 +17,9 @@ class CreateFileFolder extends Migration
             $table->increments('id');
             $table->string('parent');
             $table->string('text');
-            $table->unsignedInteger('type');
             $table->string('icon');
+            $table->unsignedInteger('type');
+            $table->unsignedInteger('file_id')->nullable();
             $table->timestamps();
         });
     }

@@ -68,13 +68,12 @@ export default class Explorer extends Component {
 
                 <div className="card-content collapse show">
                     <div className="card-body card-dashboard row">
-
-                        { this.state.upper_level_id != '0' ? <div className="col-md-2"><a onClick={this.onFolderChange.bind(this,this.state.upper_level_id)}><i className='fas fa-level-up-alt fa-2x col-md-12'></i> <br/> <label className="col-md-12" >Level Up</label></a> </div> : '' }
+                        { this.state.upper_level_id != '0' ? <div className="col-md-2 mb-4"><a onClick={this.onFolderChange.bind(this,this.state.upper_level_id)}><i className='fas fa-level-up-alt fa-2x col-md-12' style={{color: '#007bff'}}></i> <br/> <label className="col-md-12" style={{color: '#007bff'}} >Level Up</label></a> </div> : '' }
 
                         {
                             this.state.content.map((cont)=>{
                                 return(
-                                    <div className="col-md-2" key={cont.id}>
+                                    <div className="col-md-2 mb-4" key={cont.id}>
                                         <a onDoubleClick={cont.type == 1 ? this.onFolderChange.bind(this,cont.id) : this.onDownloadFile.bind(this,cont.id)} >
                                         <i className={cont.icon+' fa-2x col-md-12'}></i> <br/>
                                         <label className="col-md-12" style={{ textTransform: 'capitalize'}}>{cont.text}</label>

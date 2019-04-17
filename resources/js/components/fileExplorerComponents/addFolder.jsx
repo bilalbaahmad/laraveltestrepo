@@ -72,7 +72,6 @@ class AddFolder extends Component {
         FD.append('folder_name', this.state.folder.folder_name);
 
         axios.post('/api/folder/add',FD).then(response=>{
-            console.log(response.data);
             toast.success("New Folder Created !", {  autoClose: 3000 });
             this.setState({redirect_back: true});
         });

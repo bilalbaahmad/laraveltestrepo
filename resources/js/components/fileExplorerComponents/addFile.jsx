@@ -73,12 +73,18 @@ class AddFile extends Component {
         FD.append('file_data', this.state.file_data);
         FD.append('file_name', this.state.file.file_name);
 
-
-        axios.post('/api/file/add',FD).then(response=>{
-            console.log(response.data);
-            toast.success("New File Uploaded !", {  autoClose: 3000 });
-            this.setState({redirect_back: true});
-        });
+        console.log(this.state.file_data);
+        if(this.state.file_data == '')
+        {
+            toast.warning("Please Select File !", {  autoClose: 3000 });
+        }
+        else
+        {
+            axios.post('/api/file/add',FD).then(response=>{
+                toast.success("New File Uploaded !", {  autoClose: 3000 });
+                this.setState({redirect_back: true});
+            });
+        }
     };
 
     handleChange = ({ currentTarget: input }) => {

@@ -67613,16 +67613,23 @@ function (_Component) {
       FD.append('folder_id', _this.state.folder_id);
       FD.append('file_data', _this.state.file_data);
       FD.append('file_name', _this.state.file.file_name);
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/file/add', FD).then(function (response) {
-        console.log(response.data);
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New File Uploaded !", {
+      console.log(_this.state.file_data);
+
+      if (_this.state.file_data == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning("Please Select File !", {
           autoClose: 3000
         });
+      } else {
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/file/add', FD).then(function (response) {
+          react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New File Uploaded !", {
+            autoClose: 3000
+          });
 
-        _this.setState({
-          redirect_back: true
+          _this.setState({
+            redirect_back: true
+          });
         });
-      });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
@@ -67885,7 +67892,6 @@ function (_Component) {
       FD.append('folder_id', _this.state.folder_id);
       FD.append('folder_name', _this.state.folder.folder_name);
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/folder/add', FD).then(function (response) {
-        console.log(response.data);
         react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New Folder Created !", {
           autoClose: 3000
         });
@@ -68390,16 +68396,22 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body card-dashboard row"
       }, this.state.upper_level_id != '0' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-2"
+        className: "col-md-2 mb-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: this.onFolderChange.bind(this, this.state.upper_level_id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-level-up-alt fa-2x col-md-12"
+        className: "fas fa-level-up-alt fa-2x col-md-12",
+        style: {
+          color: '#007bff'
+        }
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "col-md-12"
+        className: "col-md-12",
+        style: {
+          color: '#007bff'
+        }
       }, "Level Up")), " ") : '', this.state.content.map(function (cont) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-md-2",
+          className: "col-md-2 mb-4",
           key: cont.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           onDoubleClick: cont.type == 1 ? _this4.onFolderChange.bind(_this4, cont.id) : _this4.onDownloadFile.bind(_this4, cont.id)

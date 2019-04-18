@@ -21,6 +21,11 @@ class CreateFileFolder extends Migration
             $table->unsignedInteger('type');
             $table->unsignedInteger('file_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('file_id')
+                ->references('id')
+                ->on('files')
+                ->onDelete('cascade');
         });
     }
 

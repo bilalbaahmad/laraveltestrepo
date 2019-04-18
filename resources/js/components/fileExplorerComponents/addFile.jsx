@@ -73,7 +73,6 @@ class AddFile extends Component {
         FD.append('file_data', this.state.file_data);
         FD.append('file_name', this.state.file.file_name);
 
-        console.log(this.state.file_data);
         if(this.state.file_data == '')
         {
             toast.warning("Please Select File !", {  autoClose: 3000 });

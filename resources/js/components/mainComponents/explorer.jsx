@@ -20,6 +20,7 @@ export default class Explorer extends Component {
         this.state = {
             content: [],
             upper_level_id: 0,
+            directory_path: '',
             folder_id: this.props.location.state.folder_id,
             file_folder_rename: '',
             file_folder_rename_id: '',
@@ -29,7 +30,7 @@ export default class Explorer extends Component {
     componentDidMount() {
         var folder_id = this.state.folder_id;
         axios.get('/api/getfolder/' + folder_id + '/content').then(response => {
-            this.setState({content: response.data.content, upper_level_id: response.data.upper_level_id});
+            this.setState({content: response.data.content, upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
         });
     }
 
@@ -41,10 +42,7 @@ export default class Explorer extends Component {
 
         axios.get('/api/getfolder/' + folder_id + '/content').then(response => {
             this.setState({
-                content: response.data.content,
-                folder_id: folder_id,
-                upper_level_id: response.data.upper_level_id
-            });
+                content: response.data.content,folder_id: folder_id,upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
         });
     }
 
@@ -142,6 +140,10 @@ export default class Explorer extends Component {
                 </div>
 
                 <div className="card-content collapse show">
+                    <div className="alert alert-primary alert" role="alert" style={{marginBottom: '-15px'}}>
+                        <strong>{this.state.directory_path}</strong>
+                    </div> <br/>
+
                     <div className="card-body card-dashboard row">
                         { this.state.upper_level_id != '0' ? <div className="col-md-2 mb-4" style={{marginRight: '-70px'}}><a onClick={this.onFolderChange.bind(this,this.state.upper_level_id)} style={{cursor: 'pointer'}}><i className='fas fa-level-up-alt fa-2x col-md-12' style={{color: '#007bff'}}></i> <br/> <label className="col-md-12" style={{color: '#007bff'}} >Level Up</label></a> </div> : '' }
 

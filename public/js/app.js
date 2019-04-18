@@ -69135,7 +69135,6 @@ function (_Component) {
       FD.append('folder_id', _this.state.folder_id);
       FD.append('file_data', _this.state.file_data);
       FD.append('file_name', _this.state.file.file_name);
-      console.log(_this.state.file_data);
 
       if (_this.state.file_data == '') {
         react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning("Please Select File !", {
@@ -69906,6 +69905,7 @@ function (_Component) {
     _this.state = {
       content: [],
       upper_level_id: 0,
+      directory_path: '',
       folder_id: _this.props.location.state.folder_id,
       file_folder_rename: '',
       file_folder_rename_id: ''
@@ -69922,7 +69922,8 @@ function (_Component) {
       axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content').then(function (response) {
         _this2.setState({
           content: response.data.content,
-          upper_level_id: response.data.upper_level_id
+          upper_level_id: response.data.upper_level_id,
+          directory_path: response.data.directory_path
         });
       });
     }
@@ -69941,7 +69942,8 @@ function (_Component) {
         _this3.setState({
           content: response.data.content,
           folder_id: folder_id,
-          upper_level_id: response.data.upper_level_id
+          upper_level_id: response.data.upper_level_id,
+          directory_path: response.data.directory_path
         });
       });
     }
@@ -70011,6 +70013,12 @@ function (_Component) {
       }, "Upload File"))) : '')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-content collapse show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-primary alert",
+        role: "alert",
+        style: {
+          marginBottom: '-15px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, this.state.directory_path)), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body card-dashboard row"
       }, this.state.upper_level_id != '0' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-2 mb-4",

@@ -116,7 +116,6 @@ export default class Explorer extends Component {
 
 
     render() {
-
         return(
             <div className="card">
                 <div className="card-head">

@@ -41,7 +41,7 @@ class FileExplorerController extends Controller
 
         $new_folder = new fileFolder();
         $new_folder->parent = $folder_id;
-        $new_folder->text = ucfirst($folder_name);
+        $new_folder->text = $folder_name;
         $new_folder->type = 1;
         $new_folder->icon = 'fas fa-folder-open';
         $new_folder->save();
@@ -56,10 +56,13 @@ class FileExplorerController extends Controller
         $file_data = $request->file_data;
         $file_name = $request->file_name;
 
+        $obj = new fileFolder();
+        $folder_path = $obj->getFilePath($folder_id);
+
         $extension = $request->file('file_data')->getClientOriginalExtension();
         $type = $request->file('file_data')->getMimeType();
         $size = $request->file('file_data')->getSize();
-        $path = $request->file('file_data')->storeAs('documents/test', $file_name.'_'.time().'.'.$extension,'local');
+        $path = $request->file('file_data')->storeAs($folder_path, $file_name.'_'.time().'.'.$extension,'local');
 
         $new_file = new files();
         $new_file->path = $path;
@@ -87,7 +90,7 @@ class FileExplorerController extends Controller
         $new_name = $request->new_name;
 
         $file_folder = fileFolder::find($rename_id);
-        $file_folder->text = ucfirst($new_name);
+        $file_folder->text = $new_name;
         $file_folder->save();
 
         $content = fileFolder::where('parent',$folder_id)->get();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use DB;
 use App\fileFolder;
 use App\files;
 use App\User;
@@ -24,7 +25,9 @@ class FileExplorerController extends Controller
             {
                 $parent_id = '#';
                 $id = 0; // table primary key id
-                $path = '';
+                $path = '/';
+
+                $content = fileFolder::where('parent',$parent_id)->orderBy('type', 'ASC')->get();
             }
             else
             {
@@ -33,10 +36,15 @@ class FileExplorerController extends Controller
 
                 $obj = new fileFolder();
                 $path = $obj->getFilePath($parent_id);
-            }
+                $path = '/'.$path;
 
-            $path = '/'.$path;
-            $content = fileFolder::where('parent',$parent_id)->orderBy('type', 'ASC')->get();
+                $content = DB::table('file_folder')
+                    ->join('user_file_folder','user_file_folder.file_folder_id','=','file_folder.id')
+                    ->select('file_folder.*')
+                    ->where([['parent',$parent_id],['user_file_folder.user_id',$user_id]])
+                    ->orderBy('type', 'ASC')
+                    ->get();
+            }
 
             $res = array('upper_level_id' => $id, 'content' => $content, 'directory_path' => $path);
             return $res;
@@ -94,18 +102,18 @@ class FileExplorerController extends Controller
             $extension = $request->file('file_data')->getClientOriginalExtension();
             $type = $request->file('file_data')->getMimeType();
             $size = $request->file('file_data')->getSize();
-            $path = $request->file('file_data')->storeAs($folder_path, $file_name.'_'.time().'.'.$extension,'local');
+            $path = $request->file('file_data')->storeAs($folder_path, $file_name.'_'.$user_id.'_'.time().'.'.$extension,'local');
 
             $new_file = new files();
             $new_file->path = $path;
-            $new_file->name = $file_name.'.'.$extension;
+            $new_file->name = $file_name.'_'.$user_id.'_'.time().'.'.$extension;
             $new_file->type = $type;
             $new_file->size = $size;
             $new_file->save();
 
             $new_folder = new fileFolder();
             $new_folder->parent = $folder_id;
-            $new_folder->name = $file_name.'_'.$user_id.'_'.time();
+            $new_folder->name = $file_name.'.'.$extension;
             $new_folder->display_text = ucfirst($file_name);
             $new_folder->icon = 'far fa-file';
             $new_folder->type = 2;
@@ -150,7 +158,7 @@ class FileExplorerController extends Controller
             $file = files::find($file_folder->file_id);
             if($file != null)
             {
-                return response()->download(storage_path('app/'.$file->path),$file->name);
+                return response()->download(storage_path('app/'.$file->path),$file_folder->name);
             }
             else
             {

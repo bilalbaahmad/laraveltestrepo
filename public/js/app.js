@@ -69119,37 +69119,72 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
+      var token = '';
 
-      var errors = _this.validate();
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-
-      var oldState = _objectSpread({}, _this.state.file);
-
-      var folder_id = _this.state.folder_id;
-      var FD = new FormData();
-      FD.append('folder_id', _this.state.folder_id);
-      FD.append('file_data', _this.state.file_data);
-      FD.append('file_name', _this.state.file.file_name);
-
-      if (_this.state.file_data == '') {
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning("Please Select File !", {
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/file/add', FD).then(function (response) {
-          react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New File Uploaded !", {
+        var errors = _this.validate();
+
+        _this.setState({
+          errors: errors || {}
+        });
+
+        if (errors) return;
+
+        var oldState = _objectSpread({}, _this.state.file);
+
+        var folder_id = _this.state.folder_id;
+        var FD = new FormData();
+        FD.append('folder_id', _this.state.folder_id);
+        FD.append('file_data', _this.state.file_data);
+        FD.append('file_name', _this.state.file.file_name);
+
+        if (_this.state.file_data == '') {
+          react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning("Please Select File !", {
             autoClose: 3000
           });
+        } else {
+          var header = {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer ".concat(token),
+            'Cache-Control': 'no-cache'
+          };
+          axios__WEBPACK_IMPORTED_MODULE_4___default()({
+            method: 'post',
+            url: '/api/file/add',
+            headers: header,
+            data: FD
+          }).then(function (response) {
+            var resp = response.data;
 
-          _this.setState({
-            redirect_back: true
+            if (response.data.status === 'error') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning('Something went wrong !', {
+                autoClose: 3000
+              });
+            } else {
+              if (resp == 'Access Denied') {
+                react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning(resp, {
+                  autoClose: 3000
+                });
+              } else {
+                react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New File Uploaded !", {
+                  autoClose: 3000
+                });
+
+                _this.setState({
+                  redirect_back: true
+                });
+              }
+            }
           });
-        });
+        }
       }
     });
 
@@ -69397,30 +69432,65 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
+      var token = '';
 
-      var errors = _this.validate();
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-
-      var oldState = _objectSpread({}, _this.state.folder);
-
-      var folder_id = _this.state.folder_id;
-      var FD = new FormData();
-      FD.append('folder_id', _this.state.folder_id);
-      FD.append('folder_name', _this.state.folder.folder_name);
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/folder/add', FD).then(function (response) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New Folder Created !", {
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
+      } else {
+        var errors = _this.validate();
 
         _this.setState({
-          redirect_back: true
+          errors: errors || {}
         });
-      });
+
+        if (errors) return;
+
+        var oldState = _objectSpread({}, _this.state.folder);
+
+        var folder_id = _this.state.folder_id;
+        var FD = new FormData();
+        FD.append('folder_id', _this.state.folder_id);
+        FD.append('folder_name', _this.state.folder.folder_name);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'post',
+          url: '/api/folder/add',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New Folder Created !", {
+                autoClose: 3000
+              });
+
+              _this.setState({
+                redirect_back: true
+              });
+            }
+          }
+        });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
@@ -69918,56 +69988,143 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var folder_id = this.state.folder_id;
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content').then(function (response) {
-        _this2.setState({
-          content: response.data.content,
-          upper_level_id: response.data.upper_level_id,
-          directory_path: response.data.directory_path
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var folder_id = this.state.folder_id;
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content', {
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+          console.log(resp);
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                content: response.data.content,
+                upper_level_id: response.data.upper_level_id,
+                directory_path: response.data.directory_path
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onFolderChange",
     value: function onFolderChange(folder_id) {
       var _this3 = this;
 
-      var folder_id = folder_id;
+      var token = '';
 
-      if (folder_id == '#') {
-        folder_id = '0';
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
       }
 
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content').then(function (response) {
-        _this3.setState({
-          content: response.data.content,
-          folder_id: folder_id,
-          upper_level_id: response.data.upper_level_id,
-          directory_path: response.data.directory_path
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var folder_id = folder_id;
+
+        if (folder_id == '#') {
+          folder_id = '0';
+        }
+
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content', {
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+          console.log(resp);
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this3.setState({
+                content: response.data.content,
+                folder_id: folder_id,
+                upper_level_id: response.data.upper_level_id,
+                directory_path: response.data.directory_path
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onDownloadFile",
     value: function onDownloadFile(file_id) {
       var downloading_file_id = file_id;
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/file/' + file_id + '/download').then(function (response) {
-        var resp = response.data;
+      var token = '';
 
-        if (response.data.status === 'error') {
-          react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
-            autoClose: 3000
-          });
-        } else {
-          if (resp == 'File Not Found' || resp == 'Access Denied') {
-            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
+        });
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/file/' + file_id + '/download', {
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
               autoClose: 3000
             });
           } else {
-            window.open('/api/file/' + file_id + '/download');
+            if (resp == 'File Not Found' || resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              window.open('/api/file/' + file_id + '/download');
+            }
           }
-        }
-      });
+        });
+      }
     }
   }, {
     key: "render",
@@ -70052,12 +70209,9 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: cont.icon + ' fa-2x col-md-12'
         }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          className: "col-md-12",
-          style: {
-            textTransform: 'capitalize'
-          }
-        }, cont.text))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["ContextMenuTrigger"], {
-          name: cont.text,
+          className: "col-md-12"
+        }, cont.display_text))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["ContextMenuTrigger"], {
+          name: cont.display_text,
           value: cont.id,
           key: i,
           collect: collect,
@@ -70073,11 +70227,8 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: cont.icon + ' fa-2x col-md-12'
         }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          className: "col-md-12",
-          style: {
-            textTransform: 'capitalize'
-          }
-        }, cont.text))));
+          className: "col-md-12"
+        }, cont.display_text))));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["ContextMenu"], {
         id: MENU_TYPE
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_2__["MenuItem"], {

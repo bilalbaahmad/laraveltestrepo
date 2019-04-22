@@ -60,29 +60,67 @@ class AddFile extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        const errors = this.validate();
-
-        this.setState({ errors: errors || {} });
-
-        if (errors) return;
-
-        const oldState = { ...this.state.file };
-        const folder_id = this.state.folder_id;
-        const FD = new FormData();
-        FD.append('folder_id', this.state.folder_id);
-        FD.append('file_data', this.state.file_data);
-        FD.append('file_name', this.state.file.file_name);
-
-        if(this.state.file_data == '')
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
         {
-            toast.warning("Please Select File !", {  autoClose: 3000 });
+            token = localStorage.getItem('access_token');
+        }
+
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
         }
         else
         {
-            axios.post('/api/file/add',FD).then(response=>{
-                toast.success("New File Uploaded !", {  autoClose: 3000 });
-                this.setState({redirect_back: true});
-            });
+            const errors = this.validate();
+
+            this.setState({ errors: errors || {} });
+
+            if (errors) return;
+
+            const oldState = { ...this.state.file };
+            const folder_id = this.state.folder_id;
+            const FD = new FormData();
+            FD.append('folder_id', this.state.folder_id);
+            FD.append('file_data', this.state.file_data);
+            FD.append('file_name', this.state.file.file_name);
+
+            if(this.state.file_data == '')
+            {
+                toast.warning("Please Select File !", {  autoClose: 3000 });
+            }
+            else
+            {
+                var header = {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                    'Cache-Control': 'no-cache'
+                };
+
+                axios({
+                    method: 'post',
+                    url: '/api/file/add',
+                    headers: header,
+                    data:FD,
+
+                }).then(response => {
+                    const resp = response.data;
+                    if (response.data.status === 'error') {
+                        toast.warning('Something went wrong !', {autoClose: 3000});
+                    }
+                    else
+                    {
+                        if (resp == 'Access Denied') {
+                            toast.warning(resp, {autoClose: 3000});
+                        }
+                        else
+                        {
+                            toast.success("New File Uploaded !", {  autoClose: 3000 });
+                            this.setState({redirect_back: true});
+                        }
+                    }
+                });
+            }
         }
     };
 

@@ -47,7 +47,6 @@ export default class Logout extends Component {
                     this.setState({ redirect: true });
                 }
             });
-
         }
     }
 

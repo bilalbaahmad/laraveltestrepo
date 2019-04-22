@@ -16,7 +16,8 @@ class CreateFileFolder extends Migration
         Schema::create('file_folder', function (Blueprint $table) {
             $table->increments('id');
             $table->string('parent');
-            $table->string('text');
+            $table->string('name');
+            $table->string('display_text');
             $table->string('icon');
             $table->unsignedInteger('type');
             $table->unsignedInteger('file_id')->nullable();

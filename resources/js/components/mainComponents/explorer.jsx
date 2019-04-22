@@ -28,44 +28,131 @@ export default class Explorer extends Component {
     }
 
     componentDidMount() {
-        var folder_id = this.state.folder_id;
-        axios.get('/api/getfolder/' + folder_id + '/content').then(response => {
-            this.setState({content: response.data.content, upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
-        });
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
+
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            var folder_id = this.state.folder_id;
+
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios.get('/api/getfolder/' + folder_id + '/content', {headers: header}).then(response => {
+                const resp = response.data;
+                console.log(resp);
+                if(response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {  autoClose: 3000 });
+                }
+                else
+                {
+                    if (resp == 'Access Denied') {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        this.setState({content: response.data.content, upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
+                    }
+                }
+            });
+        }
     }
 
     onFolderChange(folder_id) {
-        var folder_id = folder_id;
-        if (folder_id == '#') {
-            folder_id = '0';
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
         }
 
-        axios.get('/api/getfolder/' + folder_id + '/content').then(response => {
-            this.setState({
-                content: response.data.content,folder_id: folder_id,upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
-        });
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            var folder_id = folder_id;
+            if (folder_id == '#') {
+                folder_id = '0';
+            }
+
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios.get('/api/getfolder/' + folder_id + '/content', {headers: header}).then(response => {
+                const resp = response.data;
+                console.log(resp);
+                if(response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {  autoClose: 3000 });
+                }
+                else
+                {
+                    if (resp == 'Access Denied') {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        this.setState({content: response.data.content,folder_id: folder_id,upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
+                    }
+                }
+            });
+        }
     }
 
     onDownloadFile(file_id) {
         const downloading_file_id = file_id;
 
-        axios.get('/api/file/' + file_id + '/download').then(response => {
-            const resp = response.data;
-            if(response.data.status === 'error')
-            {
-                toast.warning('Something went wrong !', {  autoClose: 3000 });
-            }
-            else
-            {
-                if (resp == 'File Not Found' || resp == 'Access Denied') {
-                    toast.warning(resp, {autoClose: 3000});
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
+
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios.get('/api/file/' + file_id + '/download', {headers: header}).then(response => {
+                const resp = response.data;
+                if(response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {  autoClose: 3000 });
                 }
                 else
                 {
-                    window.open('/api/file/' + file_id + '/download');
+                    if (resp == 'File Not Found' || resp == 'Access Denied') {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        window.open('/api/file/' + file_id + '/download');
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     onFolderClick = (e, data) => {
@@ -153,15 +240,15 @@ export default class Explorer extends Component {
                                         <div className="col-md-12 mb-4" key={i}>
                                             <a onDoubleClick={cont.type == 1 ? this.onFolderChange.bind(this,cont.id) : this.onDownloadFile.bind(this,cont.id)} style={{cursor: 'pointer'}}>
                                                 <i className={cont.icon+' fa-2x col-md-12'}></i> <br/>
-                                                <label className="col-md-12" style={{ textTransform: 'capitalize'}}>{cont.text}</label>
+                                                <label className="col-md-12">{cont.display_text}</label>
                                             </a>
                                         </div>
                                         :
-                                        <ContextMenuTrigger name={cont.text} value={cont.id} key={i} collect={collect} id={MENU_TYPE}>
+                                        <ContextMenuTrigger name={cont.display_text} value={cont.id} key={i} collect={collect} id={MENU_TYPE}>
                                             <div className="col-md-12 mb-4" key={i}>
                                                 <a onDoubleClick={cont.type == 1 ? this.onFolderChange.bind(this,cont.id) : this.onDownloadFile.bind(this,cont.id)} style={{cursor: 'pointer'}}>
                                                 <i className={cont.icon+' fa-2x col-md-12'}></i> <br/>
-                                                <label className="col-md-12" style={{ textTransform: 'capitalize'}}>{cont.text}</label>
+                                                <label className="col-md-12">{cont.display_text}</label>
                                                 </a>
                                             </div>
                                         </ContextMenuTrigger>
@@ -205,7 +292,5 @@ export default class Explorer extends Component {
                 </div>
             </div>
         )
-
-
     }
 }

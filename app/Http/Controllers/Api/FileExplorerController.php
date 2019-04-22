@@ -7,80 +7,123 @@ use App\Http\Controllers\Controller;
 
 use App\fileFolder;
 use App\files;
+use App\User;
+use App\user_file_folder;
 
 class FileExplorerController extends Controller
 {
-    public function getFolderContent($parent_id)
+    public function getFolderContent(Request $request, $parent_id)
     {
-        if($parent_id == 0)
+
+        $user_id = $request->user()->id;
+        $user = User::find($user_id);
+
+        if($user->hasPermissionTo('View Directory'))
         {
-            $parent_id = '#';
-            $id = 0; // table primary key id
-            $path = '';
+            if($parent_id == 0)
+            {
+                $parent_id = '#';
+                $id = 0; // table primary key id
+                $path = '';
+            }
+            else
+            {
+                $data = fileFolder::where('id',$parent_id)->first(); // table primary key id
+                $id = $data->parent;
+
+                $obj = new fileFolder();
+                $path = $obj->getFilePath($parent_id);
+            }
+
+            $path = '/'.$path;
+            $content = fileFolder::where('parent',$parent_id)->orderBy('type', 'ASC')->get();
+
+            $res = array('upper_level_id' => $id, 'content' => $content, 'directory_path' => $path);
+            return $res;
         }
         else
         {
-            $data = fileFolder::where('id',$parent_id)->first(); // table primary key id
-            $id = $data->parent;
-
-            $obj = new fileFolder();
-            $path = $obj->getFilePath($parent_id);
+            return "Access Denied";
         }
-
-        $path = '/'.$path;
-        $content = fileFolder::where('parent',$parent_id)->orderBy('type', 'ASC')->get();
-
-        $res = array('upper_level_id' => $id, 'content' => $content, 'directory_path' => $path);
-        return $res;
     }
 
     public function addFolder(Request $request)
     {
-        $folder_id = $request->folder_id;
-        $folder_name = $request->folder_name;
+        $user_id = $request->user()->id;
+        $user = User::find($user_id);
 
-        $new_folder = new fileFolder();
-        $new_folder->parent = $folder_id;
-        $new_folder->text = $folder_name;
-        $new_folder->type = 1;
-        $new_folder->icon = 'fas fa-folder-open';
-        $new_folder->save();
+        if($user->hasPermissionTo('Create Folder'))
+        {
+            $folder_id = $request->folder_id;
+            $folder_name = $request->folder_name;
 
-        $content = fileFolder::where('parent',$folder_id)->get();
-        return $content;
+            $new_folder = new fileFolder();
+            $new_folder->parent = $folder_id;
+            $new_folder->name = $folder_name.'_'.$user_id.'_'.time();
+            $new_folder->display_text = ucfirst($folder_name);
+            $new_folder->type = 1;
+            $new_folder->icon = 'fas fa-folder-open';
+            $new_folder->save();
+
+            $user_file_folder = new user_file_folder();
+            $user_file_folder->user_id = $user_id;
+            $user_file_folder->file_folder_id = $new_folder->id;
+            $user_file_folder->save();
+
+            $content = fileFolder::where('parent',$folder_id)->get();
+            return $content;
+        }
+        else
+        {
+            return "Access Denied";
+        }
     }
 
     public function addFile(Request $request)
     {
-        $folder_id = $request->folder_id;
-        $file_data = $request->file_data;
-        $file_name = $request->file_name;
+        $user_id = $request->user()->id;
+        $user = User::find($user_id);
+        if($user->hasPermissionTo('Upload File'))
+        {
+            $folder_id = $request->folder_id;
+            $file_name = $request->file_name;
 
-        $obj = new fileFolder();
-        $folder_path = $obj->getFilePath($folder_id);
+            $obj = new fileFolder();
+            $folder_path = $obj->getStorageFilePath($folder_id);
 
-        $extension = $request->file('file_data')->getClientOriginalExtension();
-        $type = $request->file('file_data')->getMimeType();
-        $size = $request->file('file_data')->getSize();
-        $path = $request->file('file_data')->storeAs($folder_path, $file_name.'_'.time().'.'.$extension,'local');
+            $extension = $request->file('file_data')->getClientOriginalExtension();
+            $type = $request->file('file_data')->getMimeType();
+            $size = $request->file('file_data')->getSize();
+            $path = $request->file('file_data')->storeAs($folder_path, $file_name.'_'.time().'.'.$extension,'local');
 
-        $new_file = new files();
-        $new_file->path = $path;
-        $new_file->name = $file_name.'_'.time().'.'.$extension;
-        $new_file->type = $type;
-        $new_file->size = $size;
-        $new_file->save();
+            $new_file = new files();
+            $new_file->path = $path;
+            $new_file->name = $file_name.'.'.$extension;
+            $new_file->type = $type;
+            $new_file->size = $size;
+            $new_file->save();
 
-        $new_folder = new fileFolder();
-        $new_folder->parent = $folder_id;
-        $new_folder->text = ucfirst($file_name);
-        $new_folder->icon = 'far fa-file';
-        $new_folder->type = 2;
-        $new_folder->file_id = $new_file->id;
-        $new_folder->save();
+            $new_folder = new fileFolder();
+            $new_folder->parent = $folder_id;
+            $new_folder->name = $file_name.'_'.$user_id.'_'.time();
+            $new_folder->display_text = ucfirst($file_name);
+            $new_folder->icon = 'far fa-file';
+            $new_folder->type = 2;
+            $new_folder->file_id = $new_file->id;
+            $new_folder->save();
 
-        $res = array('file _path' => $path, 'type' => $type, 'size' => $size);
-        return $res;
+            $user_file_folder = new user_file_folder();
+            $user_file_folder->user_id = $user_id;
+            $user_file_folder->file_folder_id = $new_folder->id;
+            $user_file_folder->save();
+
+            $res = array('file _path' => $path, 'type' => $type, 'size' => $size);
+            return $res;
+        }
+        else
+        {
+            return "Access Denied";
+        }
     }
 
     public function renameFileFolder(Request $request)
@@ -90,19 +133,34 @@ class FileExplorerController extends Controller
         $new_name = $request->new_name;
 
         $file_folder = fileFolder::find($rename_id);
-        $file_folder->text = $new_name;
+        $file_folder->display_text = ucfirst($new_name);
         $file_folder->save();
 
         $content = fileFolder::where('parent',$folder_id)->get();
         return $content;
     }
 
-    public function downloadFile($id)
+    public function downloadFile(Request $request, $id)
     {
-        $file_folder = fileFolder::find($id);
-        $file = files::find($file_folder->file_id);
+        $user = User::find($request->user()->id);
 
-        return response()->download(storage_path('app/'.$file->path));
+        if($user->hasPermissionTo('Download File'))
+        {
+            $file_folder = fileFolder::find($id);
+            $file = files::find($file_folder->file_id);
+            if($file != null)
+            {
+                return response()->download(storage_path('app/'.$file->path),$file->name);
+            }
+            else
+            {
+                return "File Not Found";
+            }
+        }
+        else
+        {
+            return "Access Denied";
+        }
     }
 
 }

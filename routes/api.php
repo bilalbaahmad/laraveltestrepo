@@ -6,7 +6,12 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::get('/user', function (Request $request){ return $request->user()->id; });
     Route::get('/download', 'Api\UsersController@download');
+    Route::get('/file/{id}/download', 'Api\FileExplorerController@downloadFile');
+    Route::get('/getfolder/{id}/content', 'Api\FileExplorerController@getFolderContent');
+
     Route::post('/user/logout', 'Api\UsersController@logout');
+    Route::post('/folder/add', 'Api\FileExplorerController@addFolder');
+    Route::post('/file/add', 'Api\FileExplorerController@addFile');
 });
 
 
@@ -18,8 +23,6 @@ Route::get('/role/{id}/permissions', 'Api\RolesPermissionsController@viewRolePer
 Route::get('/allusers', 'Api\UsersController@allUsers');
 Route::get('/user/{id}/roles', 'Api\UsersController@userRoles');
 Route::get('/user/{id}/permissions', 'Api\UsersController@userDirectPermissions');
-Route::get('/getfolder/{id}/content', 'Api\FileExplorerController@getFolderContent');
-Route::get('/file/{id}/download', 'Api\FileExplorerController@downloadFile');
 
 
 
@@ -31,8 +34,6 @@ Route::post('/role/permissions/update', 'Api\RolesPermissionsController@updateRo
 Route::post('/user/roles/update', 'Api\UsersController@updateUserRoles');
 Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPermissions');
 Route::post('/user/register', 'Api\UsersController@register');
-Route::post('/folder/add', 'Api\FileExplorerController@addFolder');
-Route::post('/file/add', 'Api\FileExplorerController@addFile');
 Route::post('/update/filefolder/name', 'Api\FileExplorerController@renameFileFolder');
 
 

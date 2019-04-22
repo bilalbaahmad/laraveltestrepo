@@ -59,22 +59,59 @@ class AddFolder extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        const errors = this.validate();
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-        this.setState({ errors: errors || {} });
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            const errors = this.validate();
 
-        if (errors) return;
+            this.setState({ errors: errors || {} });
 
-        const oldState = { ...this.state.folder };
-        const folder_id = this.state.folder_id;
-        const FD = new FormData();
-        FD.append('folder_id', this.state.folder_id);
-        FD.append('folder_name', this.state.folder.folder_name);
+            if (errors) return;
 
-        axios.post('/api/folder/add',FD).then(response=>{
-            toast.success("New Folder Created !", {  autoClose: 3000 });
-            this.setState({redirect_back: true});
-        });
+            const oldState = { ...this.state.folder };
+            const folder_id = this.state.folder_id;
+            const FD = new FormData();
+            FD.append('folder_id', this.state.folder_id);
+            FD.append('folder_name', this.state.folder.folder_name);
+
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios({
+                method: 'post',
+                url: '/api/folder/add',
+                headers: header,
+                data:FD,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error') {
+                    toast.warning('Something went wrong !', {autoClose: 3000});
+                }
+                else {
+                    if (resp == 'Access Denied') {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        toast.success("New Folder Created !", {  autoClose: 3000 });
+                        this.setState({redirect_back: true});
+                    }
+                }
+            });
+        }
     };
 
     handleChange = ({ currentTarget: input }) => {

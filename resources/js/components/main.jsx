@@ -29,6 +29,7 @@ import Register from './mainComponents/register';
 import Home from './mainComponents/home';
 import NotFound from './mainComponents/notFound';
 import ProtectedRoute from './sharedComponents/protectedRoute';
+import VerifyLoginRoute from './sharedComponents/verifyLoginRoute';
 
 const mystore = createStore(reducer);
 
@@ -36,10 +37,20 @@ export default class MainComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
 
-        this.state = {
-            permissions: []
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            this.state = {
+                login_status: true,
+                permissions: []
+            }
+        }
+        else
+        {
+            this.state = {
+                login_status: false,
+                permissions: []
+            }
         }
     }
 
@@ -77,13 +88,9 @@ export default class MainComponent extends Component {
         }
     }
 
-    rerenderParentCallback() {
-        this.forceUpdate();
-    }
-
     render() {
-
         const permissions = this.state.permissions;
+        const login_status = this.state.login_status;
 
         return (
             <div>
@@ -107,6 +114,8 @@ export default class MainComponent extends Component {
                         {/*<Route exact path="/explorer" component={Explorer}/>*/}
                         {/*<Route exact path="/folder/add" component={AddFolder}/>*/}
                         {/*<Route exact path="/file/add" component={AddFile}/>*/}
+                        {/*<Route exact path="/"  render={() => <Home />} />*/}
+
 
                         <ProtectedRoute exact path="/permissions" permissions={permissions} name={'View Permissions'} component={Permissions} />
                         <ProtectedRoute exact path="/permissions/add" permissions={permissions} name={'Add Permission'} component={AddPermission} />
@@ -122,13 +131,13 @@ export default class MainComponent extends Component {
                         <ProtectedRoute exact path="/explorer" permissions={permissions} name={'View Directory'} component={Explorer} />
                         <ProtectedRoute exact path="/folder/add" permissions={permissions} name={'Create Folder'} component={AddFolder} />
                         <ProtectedRoute exact path="/file/add" permissions={permissions} name={'Upload File'} component={AddFile} />
+                        <VerifyLoginRoute exact path="/" login_status={login_status} component={Home} />
 
 
-                        <Route exact path="/login" render={() => <Login rerenderParentCallback={this.rerenderParentCallback} />} />
-                        <Route exact path="/logout" render={() => <Logout rerenderParentCallback={this.rerenderParentCallback} />} />
+                        <Route exact path="/login" render={() => <Login />} />
+                        <Route exact path="/logout" render={() => <Logout />} />
                         <Route exact path="/register" render={() => <Register />} />
                         <Route exact path="/not-found" render={() => <NotFound />} />
-                        <Route exact path="/" render={() => <Home />} />
                         <Redirect to="/not-found" />
                     </Switch>
                 </div>

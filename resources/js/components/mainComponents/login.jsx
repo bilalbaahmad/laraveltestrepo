@@ -14,7 +14,6 @@ class Login extends Component {
                 email: "",
                 password: ""
             },
-            redirect: false,
             errors: {}
         };
     }
@@ -84,9 +83,8 @@ class Login extends Component {
             localStorage.setItem('access_token',token);
             localStorage.setItem('login_status',true);
             this.setState({account: { email: "", password: "" }});
-            this.props.rerenderParentCallback();
-            this.setState({ redirect: true });
             toast.success('Logged-in', {  autoClose: 3000 });
+            window.location = '/';
         }
     }).catch(function (error) {
 
@@ -113,12 +111,6 @@ class Login extends Component {
   };
 
   render() {
-      const { redirect } = this.state;
-
-      if (redirect) {
-          return <Redirect to='/'/>;
-      }
-
       return (
           <div className="card">
               <div className="card-head">

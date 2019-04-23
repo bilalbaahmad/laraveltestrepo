@@ -7,9 +7,6 @@ export default class Logout extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            redirect: false
-        };
     }
 
     componentDidMount()
@@ -43,24 +40,15 @@ export default class Logout extends Component {
                 else {
                     localStorage.clear();
                     toast.success('Logged out !', {autoClose: 3000});
-                    this.props.rerenderParentCallback();
-                    this.setState({ redirect: true });
+                    window.location = '/';
                 }
             });
         }
     }
 
     render() {
-        const { redirect } = this.state;
-
-        if (redirect) {
-            return <Redirect to='/login'/>;
-        }
-
         return(
             <div></div>
         )
-
-
     }
 }

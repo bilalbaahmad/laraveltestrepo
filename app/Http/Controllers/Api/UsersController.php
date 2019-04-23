@@ -135,4 +135,17 @@ class UsersController extends Controller
             'message' => 'Successfully logged out'
         ]);
     }
+
+    public function getUserPermissions(Request $request)
+    {
+        $user = User::find($request->user()->id);
+        $permissions = $user->getAllPermissions();
+
+        foreach ($permissions as $permission)
+        {
+            $permissions_array[] = $permission->name;
+        }
+
+        return $permissions_array;
+    }
 }

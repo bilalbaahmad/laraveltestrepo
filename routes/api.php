@@ -8,6 +8,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/download', 'Api\UsersController@download');
     Route::get('/file/{id}/download', 'Api\FileExplorerController@downloadFile');
     Route::get('/getfolder/{id}/content', 'Api\FileExplorerController@getFolderContent');
+    Route::get('/user/permissions', 'Api\UsersController@getUserPermissions');
 
     Route::post('/user/logout', 'Api\UsersController@logout');
     Route::post('/folder/add', 'Api\FileExplorerController@addFolder');
@@ -25,7 +26,6 @@ Route::get('/user/{id}/roles', 'Api\UsersController@userRoles');
 Route::get('/user/{id}/permissions', 'Api\UsersController@userDirectPermissions');
 
 
-
 Route::post('/permissions/add', 'Api\RolesPermissionsController@addPermission');
 Route::post('/permissions/update', 'Api\RolesPermissionsController@updatePermission');
 Route::post('/roles/add', 'Api\RolesPermissionsController@addRole');
@@ -35,7 +35,6 @@ Route::post('/user/roles/update', 'Api\UsersController@updateUserRoles');
 Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPermissions');
 Route::post('/user/register', 'Api\UsersController@register');
 Route::post('/update/filefolder/name', 'Api\FileExplorerController@renameFileFolder');
-
 
 
 Route::delete('/permission/{id}/delete', 'Api\RolesPermissionsController@deletePermission');

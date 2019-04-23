@@ -4,6 +4,7 @@ import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import Input from "../sharedComponents/input";
+import Loading from 'react-loading-spinkit';
 
 const MENU_TYPE = 'ID';
 
@@ -24,6 +25,7 @@ export default class Explorer extends Component {
             folder_id: this.props.location.state.folder_id,
             file_folder_rename: '',
             file_folder_rename_id: '',
+            loading: true,
         }
     }
 
@@ -50,7 +52,6 @@ export default class Explorer extends Component {
 
             axios.get('/api/getfolder/' + folder_id + '/content', {headers: header}).then(response => {
                 const resp = response.data;
-                console.log(resp);
                 if(response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {  autoClose: 3000 });
@@ -62,7 +63,7 @@ export default class Explorer extends Component {
                     }
                     else
                     {
-                        this.setState({content: response.data.content, upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
+                        this.setState({content: response.data.content, upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path, loading: false});
                     }
                 }
             });
@@ -95,7 +96,6 @@ export default class Explorer extends Component {
 
             axios.get('/api/getfolder/' + folder_id + '/content', {headers: header}).then(response => {
                 const resp = response.data;
-                console.log(resp);
                 if(response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {  autoClose: 3000 });
@@ -107,7 +107,7 @@ export default class Explorer extends Component {
                     }
                     else
                     {
-                        this.setState({content: response.data.content,folder_id: folder_id,upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path});
+                        this.setState({content: response.data.content,folder_id: folder_id,upper_level_id: response.data.upper_level_id, directory_path: response.data.directory_path, loading: false});
                     }
                 }
             });
@@ -204,6 +204,7 @@ export default class Explorer extends Component {
 
     render() {
         return(
+            this.state.loading ? <div style={{ height: '45vh', width: '60vw' }}><Loading show={true} /> </div> :
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">

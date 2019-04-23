@@ -69653,6 +69653,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mainComponents_register__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./mainComponents/register */ "./resources/js/components/mainComponents/register.jsx");
 /* harmony import */ var _mainComponents_home__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./mainComponents/home */ "./resources/js/components/mainComponents/home.jsx");
 /* harmony import */ var _mainComponents_notFound__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./mainComponents/notFound */ "./resources/js/components/mainComponents/notFound.jsx");
+/* harmony import */ var _sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./sharedComponents/protectedRoute */ "./resources/js/components/sharedComponents/protectedRoute.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69700,6 +69701,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var mystore = Object(redux__WEBPACK_IMPORTED_MODULE_5__["createStore"])(_store_reducer__WEBPACK_IMPORTED_MODULE_6__["default"]);
 
 var MainComponent =
@@ -69714,10 +69716,49 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MainComponent).call(this, props));
     _this.rerenderParentCallback = _this.rerenderParentCallback.bind(_assertThisInitialized(_this));
+    _this.state = {
+      permissions: []
+    };
     return _this;
   }
 
   _createClass(MainComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token != '') {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios({
+          method: 'get',
+          url: '/api/user/permissions',
+          headers: header
+        }).then(function (response) {
+          var permissions = response.data;
+
+          if (response.data.status === 'error') {
+            toast.warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            _this2.setState({
+              permissions: permissions
+            });
+          }
+        });
+      }
+    }
+  }, {
     key: "rerenderParentCallback",
     value: function rerenderParentCallback() {
       this.forceUpdate();
@@ -69725,82 +69766,101 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
+      var permissions = this.state.permissions;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_navBar__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/permissions",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_permissions__WEBPACK_IMPORTED_MODULE_10__["default"], null);
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        permissions: permissions,
+        name: 'View Permissions',
+        component: _mainComponents_permissions__WEBPACK_IMPORTED_MODULE_10__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/permissions/add",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_11__["default"], null);
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        permissions: permissions,
+        name: 'Add Permission',
+        component: _rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_11__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/permission/edit",
+        permissions: permissions,
+        name: 'Edit Permission',
         component: _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_12__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/roles",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_roles__WEBPACK_IMPORTED_MODULE_13__["default"], null);
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        permissions: permissions,
+        name: 'View Roles',
+        component: _mainComponents_roles__WEBPACK_IMPORTED_MODULE_13__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/roles/add",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_14__["default"], null);
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        permissions: permissions,
+        name: 'Add Role',
+        component: _rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_14__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/role/edit",
+        permissions: permissions,
+        name: 'Edit Role',
         component: _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_15__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/role/permissions",
+        permissions: permissions,
+        name: 'View Role Permissions',
         component: _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_16__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/role/permissions/add",
+        permissions: permissions,
+        name: 'Add Role Permissions',
         component: _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_17__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/users",
-        render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_users__WEBPACK_IMPORTED_MODULE_18__["default"], null);
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        permissions: permissions,
+        name: 'View Users',
+        component: _mainComponents_users__WEBPACK_IMPORTED_MODULE_18__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/user/roles",
+        permissions: permissions,
+        name: 'Manage User Roles',
         component: _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_19__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/user/permissions",
+        permissions: permissions,
+        name: 'Manage User Permissions',
         component: _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_20__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/explorer",
+        permissions: permissions,
+        name: 'View Directory',
         component: _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_21__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/folder/add",
+        permissions: permissions,
+        name: 'Create Folder',
         component: _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_22__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
         exact: true,
         path: "/file/add",
+        permissions: permissions,
+        name: 'Upload File',
         component: _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_23__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/login",
         render: function render() {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_login__WEBPACK_IMPORTED_MODULE_24__["default"], {
-            rerenderParentCallback: _this2.rerenderParentCallback
+            rerenderParentCallback: _this3.rerenderParentCallback
           });
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -69808,7 +69868,7 @@ function (_Component) {
         path: "/logout",
         render: function render() {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_logout__WEBPACK_IMPORTED_MODULE_25__["default"], {
-            rerenderParentCallback: _this2.rerenderParentCallback
+            rerenderParentCallback: _this3.rerenderParentCallback
           });
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -69867,6 +69927,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69886,6 +69948,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -69978,7 +70041,8 @@ function (_Component) {
       directory_path: '',
       folder_id: _this.props.location.state.folder_id,
       file_folder_rename: '',
-      file_folder_rename_id: ''
+      file_folder_rename_id: '',
+      loading: true
     };
     return _this;
   }
@@ -70009,7 +70073,6 @@ function (_Component) {
           headers: header
         }).then(function (response) {
           var resp = response.data;
-          console.log(resp);
 
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
@@ -70024,7 +70087,8 @@ function (_Component) {
               _this2.setState({
                 content: response.data.content,
                 upper_level_id: response.data.upper_level_id,
-                directory_path: response.data.directory_path
+                directory_path: response.data.directory_path,
+                loading: false
               });
             }
           }
@@ -70062,7 +70126,6 @@ function (_Component) {
           headers: header
         }).then(function (response) {
           var resp = response.data;
-          console.log(resp);
 
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
@@ -70078,7 +70141,8 @@ function (_Component) {
                 content: response.data.content,
                 folder_id: folder_id,
                 upper_level_id: response.data.upper_level_id,
-                directory_path: response.data.directory_path
+                directory_path: response.data.directory_path,
+                loading: false
               });
             }
           }
@@ -70131,7 +70195,14 @@ function (_Component) {
     value: function render() {
       var _this4 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          height: '45vh',
+          width: '60vw'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_6___default.a, {
+        show: true
+      }), " ") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-head"
@@ -73117,6 +73188,62 @@ var Input = function Input(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Input);
+
+/***/ }),
+
+/***/ "./resources/js/components/sharedComponents/protectedRoute.jsx":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/sharedComponents/protectedRoute.jsx ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+var ProtectedRoute = function ProtectedRoute(_ref) {
+  var Component = _ref.component,
+      rest = _objectWithoutProperties(_ref, ["component"]);
+
+  var result = rest.permissions.some(function (permission) {
+    return rest.name === permission;
+  }) ? true : false;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], _extends({}, rest, {
+    render: function render(props) {
+      if (result) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props);
+      } else {
+        if (rest.permissions != '') react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Access Denied', {
+          autoClose: 3000
+        });
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: {
+            pathname: "/",
+            state: {
+              from: props.location
+            }
+          }
+        });
+      }
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ProtectedRoute);
 
 /***/ }),
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from 'react-loading-spinkit';
+import axios from 'axios';
 
-export default class Roles extends Component {
-
+export default class Roles extends Component
+{
     constructor()
     {
         super();
@@ -14,41 +14,118 @@ export default class Roles extends Component {
             roles:[],
             loading: true,
         }
-
     }
 
     componentDidMount()
     {
-        axios.get('/api/allroles').then(response=>{
-            this.setState({roles:response.data, loading: false});
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-            $(this.refs.roles_table).DataTable({
-                paginate: true,
-                scrollCollapse: true,
-                ordering: true,
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios({
+                method: 'get',
+                url: '/api/allroles',
+                headers: header,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {autoClose: 3000});
+                }
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        this.setState({roles:response.data, loading: false});
+
+                        $(this.refs.roles_table).DataTable({
+                            paginate: true,
+                            scrollCollapse: true,
+                            ordering: true,
+                        });
+                    }
+                }
             });
-        });
+        }
     }
 
     onDelete(role_id)
     {
-        axios.delete('/api/role/'+role_id+'/delete').then(response=>{
-            toast.success("Role Deleted !", {  autoClose: 3000 });
-            var current_roles = this.state.roles;
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-            for(var i=0; i<current_roles.length; i++)
-            {
-                if(current_roles[i].id == role_id)
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios({
+                method: 'delete',
+                url: '/api/role/'+role_id+'/delete',
+                headers: header,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
                 {
-                    current_roles.splice(i,1);
-                    this.setState({roles:current_roles});
+                    toast.warning('Something went wrong !', {autoClose: 3000});
                 }
-            }
-        });
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        toast.success("Role Deleted !", {  autoClose: 3000 });
+                        var current_roles = this.state.roles;
+
+                        for(var i=0; i<current_roles.length; i++)
+                        {
+                            if(current_roles[i].id == role_id)
+                            {
+                                current_roles.splice(i,1);
+                                this.setState({roles:current_roles});
+                            }
+                        }
+                    }
+                }
+            });
+        }
     }
 
-    render() {
-
+    render()
+    {
         var link_styling = {
             marginLeft: '25px',
             color: 'black'
@@ -76,29 +153,27 @@ export default class Roles extends Component {
                             </thead>
 
                             <tbody>
-                            {
-                                this.state.roles.map((role, index)=>{
-                                    return(
-                                        <tr key={role.id}>
-                                            <th>{index+1}</th>
-                                            <td>{role.name}</td>
-                                            <td>
-                                                <div className="dropdown show">
-                                                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Action
-                                                    </a>
+                            { this.state.roles.map((role, index)=>{
+                                return(
+                                    <tr key={role.id}>
+                                        <th>{index+1}</th>
+                                        <td>{role.name}</td>
+                                        <td>
+                                            <div className="dropdown show">
+                                                <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                                </a>
 
-                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <Link style={link_styling} to={{ pathname: '/role/permissions', role_id: role.id, role_name: role.name }}>Permissions</Link> <br />
-                                                        <Link style={link_styling} to={{ pathname: '/role/edit', role_id: role.id}}>Edit</Link>
-                                                        <a className="dropdown-item" onClick={this.onDelete.bind(this,role.id)}>Delete</a>
-                                                    </div>
+                                                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <Link style={link_styling} to={{ pathname: '/role/permissions', role_id: role.id, role_name: role.name }}>Permissions</Link> <br />
+                                                    <Link style={link_styling} to={{ pathname: '/role/edit', role_id: role.id}}>Edit</Link>
+                                                    <a className="dropdown-item" onClick={this.onDelete.bind(this,role.id)}>Delete</a>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                            }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )
+                            }) }
                             </tbody>
                         </table>
                     </div>

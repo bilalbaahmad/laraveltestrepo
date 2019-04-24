@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import Input from "../sharedComponents/input";
-import Joi from "joi-browser";
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Joi from "joi-browser";
 
-class AddRole extends Component {
+import Input from "../sharedComponents/input";
 
+export default class AddRole extends Component
+{
     state = {
         new_role: {
-            role: ""
+            role: ''
         },
         redirect: false,
         errors: {}
@@ -22,11 +23,15 @@ class AddRole extends Component {
     };
 
     handleChange = ({ currentTarget: input }) => {
+
         const errors = { ...this.state.errors };
         const errorMessage = this.ValidateProperty(input);
-        if (errorMessage) {
+        if (errorMessage)
+        {
             errors[input.name] = errorMessage;
-        } else {
+        }
+        else
+        {
             delete errors[input.name];
         }
 
@@ -36,21 +41,21 @@ class AddRole extends Component {
     };
 
     validate = () => {
-        const result = Joi.validate(this.state.new_role, this.schema, {
-            abortEarly: false
-        });
 
+        const result = Joi.validate(this.state.new_role, this.schema, { abortEarly: false });
 
         if (!result.error) return null;
 
         const errors = {};
-        for (let item of result.error.details) {
+        for (let item of result.error.details)
+        {
             errors[item.path[0]] = item.message;
         }
         return errors;
     };
 
     ValidateProperty = ({ name, value }) => {
+
         const obj = { [name]: value };
         const subschema = { [name]: this.schema[name] };
         const { error } = Joi.validate(obj, subschema);
@@ -58,32 +63,73 @@ class AddRole extends Component {
     };
 
     handleSubmit = e => {
+
         e.preventDefault();
 
-        const errors = this.validate();
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-        this.setState({ errors: errors || {} });
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            const errors = this.validate();
 
-        if (errors) return;
+            this.setState({ errors: errors || {} });
 
-        const oldState = { ...this.state.new_role };
+            if (errors) return;
 
-        const FD = new FormData();
-        FD.append('role', this.state.new_role.role);
+            const oldState = { ...this.state.new_role };
 
-        axios.post('/api/roles/add',FD).then(response=>{
-            oldState.role = response.data;
-            toast.success("New Role Added !", {  autoClose: 3000 });
-            this.setState({new_role:oldState,redirect: true});
-        });
+            const FD = new FormData();
+            FD.append('role', this.state.new_role.role);
+
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios({
+                method: 'post',
+                url: '/api/roles/add',
+                headers: header,
+                data:FD,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {autoClose: 3000});
+                }
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        oldState.role = response.data;
+                        toast.success("New Role Added !", {  autoClose: 3000 });
+                        this.setState({new_role:oldState,redirect: true});
+                    }
+                }
+            });
+        }
     };
 
-
-    render() {
-
+    render()
+    {
         const { redirect } = this.state;
 
-        if (redirect) {
+        if (redirect)
+        {
             return <Redirect to='/roles' />;
         }
 
@@ -107,10 +153,7 @@ class AddRole extends Component {
                                 error={this.state.errors.role}
                             />
 
-                            <button disabled={this.validate()} className="btn btn-primary">
-                                Add
-                            </button>
-
+                            <button disabled={this.validate()} className="btn btn-primary"> Add </button>
                             <Link className="btn btn-primary float-right" to={`/roles`}>Back</Link>
                         </form>
                     </div>
@@ -119,5 +162,3 @@ class AddRole extends Component {
         );
     }
 }
-
-export default AddRole;

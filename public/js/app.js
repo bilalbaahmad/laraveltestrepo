@@ -2441,7 +2441,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".react-contextmenu {\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid rgba(0, 0, 0, 0.15);\r\n    border-radius: 0.25rem;\r\n    color: #373a3c;\r\n    font-size: 16px;\r\n    margin: 2px 0 0;\r\n    min-width: 160px;\r\n    outline: none;\r\n    opacity: 0;\r\n    padding: 5px 0;\r\n    pointer-events: none;\r\n    text-align: left;\r\n    transition: opacity 250ms ease !important;\r\n}\r\n\r\n.react-contextmenu.react-contextmenu--visible {\r\n    opacity: 1;\r\n    pointer-events: auto;\r\n    z-index: 9999;\r\n}\r\n\r\n.react-contextmenu-item {\r\n    background: 0 0;\r\n    border: 0;\r\n    color: #373a3c;\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    padding: 3px 20px;\r\n    text-align: inherit;\r\n    white-space: nowrap;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-item--active,\r\n.react-contextmenu-item.react-contextmenu-item--selected {\r\n    color: #fff;\r\n    background-color: #20a0ff;\r\n    border-color: #20a0ff;\r\n    text-decoration: none;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-item--disabled,\r\n.react-contextmenu-item.react-contextmenu-item--disabled:hover {\r\n    background-color: transparent;\r\n    border-color: rgba(0, 0, 0, 0.15);\r\n    color: #878a8c;\r\n}\r\n\r\n.react-contextmenu-item--divider {\r\n    border-bottom: 1px solid rgba(0, 0, 0, 0.15);\r\n    cursor: inherit;\r\n    margin-bottom: 3px;\r\n    padding: 2px 0;\r\n}\r\n.react-contextmenu-item--divider:hover {\r\n    background-color: transparent;\r\n    border-color: rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu {\r\n    padding: 0;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu > .react-contextmenu-item {\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu\r\n> .react-contextmenu-item:after {\r\n    content: '\\25B6';\r\n    display: inline-block;\r\n    position: absolute;\r\n    right: 7px;\r\n}\r\n\r\n.example-multiple-targets::after {\r\n    content: attr(data-count);\r\n    display: block;\r\n}\r\n", ""]);
+exports.push([module.i, ".react-contextmenu {\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid rgba(0, 0, 0, 0.15);\r\n    border-radius: 0.25rem;\r\n    color: #373a3c;\r\n    font-size: 16px;\r\n    margin: 2px 0 0;\r\n    min-width: 160px;\r\n    outline: none;\r\n    opacity: 0;\r\n    padding: 5px 0;\r\n    pointer-events: none;\r\n    text-align: left;\r\n    transition: opacity 250ms ease !important;\r\n}\r\n\r\n.react-contextmenu.react-contextmenu--visible {\r\n    opacity: 1;\r\n    pointer-events: auto;\r\n    z-index: 9999;\r\n}\r\n\r\n.react-contextmenu-item {\r\n    background: 0 0;\r\n    border: 0;\r\n    color: #373a3c;\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    padding: 3px 20px;\r\n    text-align: inherit;\r\n    white-space: nowrap;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-item--active,\r\n.react-contextmenu-item.react-contextmenu-item--selected {\r\n    color: #fff;\r\n    background-color: #20a0ff;\r\n    border-color: #20a0ff;\r\n    text-decoration: none;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-item--disabled,\r\n.react-contextmenu-item.react-contextmenu-item--disabled:hover {\r\n    background-color: transparent;\r\n    border-color: rgba(0, 0, 0, 0.15);\r\n    color: #878a8c;\r\n}\r\n\r\n.react-contextmenu-item--divider {\r\n    border-bottom: 1px solid rgba(0, 0, 0, 0.15);\r\n    cursor: inherit;\r\n    margin-bottom: 3px;\r\n    padding: 2px 0;\r\n}\r\n.react-contextmenu-item--divider:hover {\r\n    background-color: transparent;\r\n    border-color: rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu {\r\n    padding: 0;\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu > .react-contextmenu-item {\r\n}\r\n\r\n.react-contextmenu-item.react-contextmenu-submenu > .react-contextmenu-item:after {\r\n    content: '\\25B6';\r\n    display: inline-block;\r\n    position: absolute;\r\n    right: 7px;\r\n}\r\n\r\n.example-multiple-targets::after {\r\n    content: attr(data-count);\r\n    display: block;\r\n}\r\n", ""]);
 
 // exports
 
@@ -69018,13 +69018,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -69117,77 +69117,6 @@ function (_Component) {
       return error ? error.details[0].message : null;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-      var token = '';
-
-      if (localStorage.hasOwnProperty('access_token')) {
-        token = localStorage.getItem('access_token');
-      }
-
-      if (token == '') {
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].error("You are not logged in !", {
-          autoClose: 3000
-        });
-      } else {
-        var errors = _this.validate();
-
-        _this.setState({
-          errors: errors || {}
-        });
-
-        if (errors) return;
-
-        var oldState = _objectSpread({}, _this.state.file);
-
-        var folder_id = _this.state.folder_id;
-        var FD = new FormData();
-        FD.append('folder_id', _this.state.folder_id);
-        FD.append('file_data', _this.state.file_data);
-        FD.append('file_name', _this.state.file.file_name);
-
-        if (_this.state.file_data == '') {
-          react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning("Please Select File !", {
-            autoClose: 3000
-          });
-        } else {
-          var header = {
-            'Content-Type': 'application/json',
-            Authorization: "Bearer ".concat(token),
-            'Cache-Control': 'no-cache'
-          };
-          axios__WEBPACK_IMPORTED_MODULE_4___default()({
-            method: 'post',
-            url: '/api/file/add',
-            headers: header,
-            data: FD
-          }).then(function (response) {
-            var resp = response.data;
-
-            if (response.data.status === 'error') {
-              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning('Something went wrong !', {
-                autoClose: 3000
-              });
-            } else {
-              if (resp == 'Access Denied') {
-                react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning(resp, {
-                  autoClose: 3000
-                });
-              } else {
-                react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New File Uploaded !", {
-                  autoClose: 3000
-                });
-
-                _this.setState({
-                  redirect_back: true
-                });
-              }
-            }
-          });
-        }
-      }
-    });
-
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
       var input = _ref2.currentTarget;
 
@@ -69211,9 +69140,80 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
+        });
+      } else {
+        var errors = _this.validate();
+
+        _this.setState({
+          errors: errors || {}
+        });
+
+        if (errors) return;
+
+        var oldState = _objectSpread({}, _this.state.file);
+
+        var folder_id = _this.state.folder_id;
+        var FD = new FormData();
+        FD.append('folder_id', _this.state.folder_id);
+        FD.append('file_data', _this.state.file_data);
+        FD.append('file_name', _this.state.file.file_name);
+
+        if (_this.state.file_data == '') {
+          react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning("Please Select File !", {
+            autoClose: 3000
+          });
+        } else {
+          var header = {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer ".concat(token),
+            'Cache-Control': 'no-cache'
+          };
+          axios__WEBPACK_IMPORTED_MODULE_4___default()({
+            method: 'post',
+            url: '/api/file/add',
+            headers: header,
+            data: FD
+          }).then(function (response) {
+            var resp = response.data;
+
+            if (response.data.status === 'error') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+                autoClose: 3000
+              });
+            } else {
+              if (resp == 'Access Denied') {
+                react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                  autoClose: 3000
+                });
+              } else {
+                react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("New File Uploaded !", {
+                  autoClose: 3000
+                });
+
+                _this.setState({
+                  redirect_back: true
+                });
+              }
+            }
+          });
+        }
+      }
+    });
+
     _this.state = {
       file: {
-        file_name: ""
+        file_name: ''
       },
       file_data: '',
       folder_id: _this.props.location.folder_id,
@@ -69290,7 +69290,7 @@ function (_Component) {
         name: "file_data",
         src: this.state.file_data,
         onChange: this.onfileChange.bind(this)
-      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
         name: "file_name",
         type: "text",
         label: "File Name",
@@ -69300,7 +69300,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Upload"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, " Upload "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: {
           pathname: '/explorer',
@@ -69331,13 +69331,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -69430,6 +69430,29 @@ function (_Component) {
       return error ? error.details[0].message : null;
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
+      var input = _ref2.currentTarget;
+
+      var errors = _objectSpread({}, _this.state.errors);
+
+      var errorMessage = _this.ValidateProperty(input);
+
+      if (errorMessage) {
+        errors[input.name] = errorMessage;
+      } else {
+        delete errors[input.name];
+      }
+
+      var folder = _objectSpread({}, _this.state.folder);
+
+      folder[input.name] = input.value;
+
+      _this.setState({
+        folder: folder,
+        errors: errors
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
       var token = '';
@@ -69439,7 +69462,7 @@ function (_Component) {
       }
 
       if (token == '') {
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].error("You are not logged in !", {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
       } else {
@@ -69471,16 +69494,16 @@ function (_Component) {
           var resp = response.data;
 
           if (response.data.status === 'error') {
-            react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning('Something went wrong !', {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
               autoClose: 3000
             });
           } else {
             if (resp == 'Access Denied') {
-              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].warning(resp, {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
                 autoClose: 3000
               });
             } else {
-              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New Folder Created !", {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("New Folder Created !", {
                 autoClose: 3000
               });
 
@@ -69493,32 +69516,9 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
-      var input = _ref2.currentTarget;
-
-      var errors = _objectSpread({}, _this.state.errors);
-
-      var errorMessage = _this.ValidateProperty(input);
-
-      if (errorMessage) {
-        errors[input.name] = errorMessage;
-      } else {
-        delete errors[input.name];
-      }
-
-      var folder = _objectSpread({}, _this.state.folder);
-
-      folder[input.name] = input.value;
-
-      _this.setState({
-        folder: folder,
-        errors: errors
-      });
-    });
-
     _this.state = {
       folder: {
-        folder_name: ""
+        folder_name: ''
       },
       folder_id: _this.props.location.folder_id,
       redirect_to_file_explorer: false,
@@ -69580,7 +69580,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
         name: "folder_name",
         type: "text",
         label: "Folder Name",
@@ -69590,7 +69590,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, " Create "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: {
           pathname: '/explorer',
@@ -69629,32 +69629,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _store_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store/reducer */ "./resources/js/components/store/reducer.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/contextMenu.css */ "./resources/js/styles/contextMenu.css");
-/* harmony import */ var _styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _mainComponents_navBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./mainComponents/navBar */ "./resources/js/components/mainComponents/navBar.jsx");
-/* harmony import */ var _mainComponents_permissions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./mainComponents/permissions */ "./resources/js/components/mainComponents/permissions.jsx");
-/* harmony import */ var _rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./rolePermissionComponents/addPermission */ "./resources/js/components/rolePermissionComponents/addPermission.jsx");
-/* harmony import */ var _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./rolePermissionComponents/editPermission */ "./resources/js/components/rolePermissionComponents/editPermission.jsx");
-/* harmony import */ var _mainComponents_roles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mainComponents/roles */ "./resources/js/components/mainComponents/roles.jsx");
-/* harmony import */ var _rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./rolePermissionComponents/addRole */ "./resources/js/components/rolePermissionComponents/addRole.jsx");
-/* harmony import */ var _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./rolePermissionComponents/editRole */ "./resources/js/components/rolePermissionComponents/editRole.jsx");
-/* harmony import */ var _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./rolePermissionComponents/rolePermissions */ "./resources/js/components/rolePermissionComponents/rolePermissions.jsx");
-/* harmony import */ var _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./rolePermissionComponents/addRolePermissions */ "./resources/js/components/rolePermissionComponents/addRolePermissions.jsx");
-/* harmony import */ var _mainComponents_users__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mainComponents/users */ "./resources/js/components/mainComponents/users.jsx");
-/* harmony import */ var _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./userComponents/userRoles */ "./resources/js/components/userComponents/userRoles.jsx");
-/* harmony import */ var _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./userComponents/userPermissions */ "./resources/js/components/userComponents/userPermissions.jsx");
-/* harmony import */ var _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./mainComponents/explorer */ "./resources/js/components/mainComponents/explorer.jsx");
-/* harmony import */ var _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./fileExplorerComponents/addFolder */ "./resources/js/components/fileExplorerComponents/addFolder.jsx");
-/* harmony import */ var _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./fileExplorerComponents/addFile */ "./resources/js/components/fileExplorerComponents/addFile.jsx");
-/* harmony import */ var _mainComponents_login__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./mainComponents/login */ "./resources/js/components/mainComponents/login.jsx");
-/* harmony import */ var _mainComponents_logout__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./mainComponents/logout */ "./resources/js/components/mainComponents/logout.jsx");
-/* harmony import */ var _mainComponents_register__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./mainComponents/register */ "./resources/js/components/mainComponents/register.jsx");
-/* harmony import */ var _mainComponents_home__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./mainComponents/home */ "./resources/js/components/mainComponents/home.jsx");
-/* harmony import */ var _mainComponents_notFound__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./mainComponents/notFound */ "./resources/js/components/mainComponents/notFound.jsx");
-/* harmony import */ var _sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./sharedComponents/protectedRoute */ "./resources/js/components/sharedComponents/protectedRoute.jsx");
-/* harmony import */ var _sharedComponents_verifyLoginRoute__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./sharedComponents/verifyLoginRoute */ "./resources/js/components/sharedComponents/verifyLoginRoute.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/contextMenu.css */ "./resources/js/styles/contextMenu.css");
+/* harmony import */ var _styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_contextMenu_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _mainComponents_navBar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./mainComponents/navBar */ "./resources/js/components/mainComponents/navBar.jsx");
+/* harmony import */ var _mainComponents_home__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mainComponents/home */ "./resources/js/components/mainComponents/home.jsx");
+/* harmony import */ var _mainComponents_permissions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./mainComponents/permissions */ "./resources/js/components/mainComponents/permissions.jsx");
+/* harmony import */ var _rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./rolePermissionComponents/addPermission */ "./resources/js/components/rolePermissionComponents/addPermission.jsx");
+/* harmony import */ var _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./rolePermissionComponents/editPermission */ "./resources/js/components/rolePermissionComponents/editPermission.jsx");
+/* harmony import */ var _mainComponents_roles__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mainComponents/roles */ "./resources/js/components/mainComponents/roles.jsx");
+/* harmony import */ var _rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./rolePermissionComponents/addRole */ "./resources/js/components/rolePermissionComponents/addRole.jsx");
+/* harmony import */ var _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./rolePermissionComponents/editRole */ "./resources/js/components/rolePermissionComponents/editRole.jsx");
+/* harmony import */ var _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./rolePermissionComponents/rolePermissions */ "./resources/js/components/rolePermissionComponents/rolePermissions.jsx");
+/* harmony import */ var _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./rolePermissionComponents/addRolePermissions */ "./resources/js/components/rolePermissionComponents/addRolePermissions.jsx");
+/* harmony import */ var _mainComponents_users__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./mainComponents/users */ "./resources/js/components/mainComponents/users.jsx");
+/* harmony import */ var _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./userComponents/userRoles */ "./resources/js/components/userComponents/userRoles.jsx");
+/* harmony import */ var _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./userComponents/userPermissions */ "./resources/js/components/userComponents/userPermissions.jsx");
+/* harmony import */ var _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./mainComponents/explorer */ "./resources/js/components/mainComponents/explorer.jsx");
+/* harmony import */ var _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./fileExplorerComponents/addFolder */ "./resources/js/components/fileExplorerComponents/addFolder.jsx");
+/* harmony import */ var _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./fileExplorerComponents/addFile */ "./resources/js/components/fileExplorerComponents/addFile.jsx");
+/* harmony import */ var _mainComponents_login__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./mainComponents/login */ "./resources/js/components/mainComponents/login.jsx");
+/* harmony import */ var _mainComponents_logout__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./mainComponents/logout */ "./resources/js/components/mainComponents/logout.jsx");
+/* harmony import */ var _mainComponents_register__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./mainComponents/register */ "./resources/js/components/mainComponents/register.jsx");
+/* harmony import */ var _mainComponents_notFound__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./mainComponents/notFound */ "./resources/js/components/mainComponents/notFound.jsx");
+/* harmony import */ var _sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./sharedComponents/protectedRoute */ "./resources/js/components/sharedComponents/protectedRoute.jsx");
+/* harmony import */ var _sharedComponents_verifyLoginRoute__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./sharedComponents/verifyLoginRoute */ "./resources/js/components/sharedComponents/verifyLoginRoute.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69672,6 +69674,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -69750,7 +69753,7 @@ function (_Component) {
           Authorization: "Bearer ".concat(token),
           'Cache-Control': 'no-cache'
         };
-        axios({
+        axios__WEBPACK_IMPORTED_MODULE_7___default()({
           method: 'get',
           url: '/api/user/permissions',
           headers: header
@@ -69774,120 +69777,120 @@ function (_Component) {
     value: function render() {
       var permissions = this.state.permissions;
       var login_status = this.state.login_status;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_navBar__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_navBar__WEBPACK_IMPORTED_MODULE_10__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/permissions",
         permissions: permissions,
         name: 'View Permissions',
-        component: _mainComponents_permissions__WEBPACK_IMPORTED_MODULE_10__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _mainComponents_permissions__WEBPACK_IMPORTED_MODULE_12__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/permissions/add",
         permissions: permissions,
         name: 'Add Permission',
-        component: _rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_11__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _rolePermissionComponents_addPermission__WEBPACK_IMPORTED_MODULE_13__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/permission/edit",
         permissions: permissions,
         name: 'Edit Permission',
-        component: _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_12__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _rolePermissionComponents_editPermission__WEBPACK_IMPORTED_MODULE_14__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/roles",
         permissions: permissions,
         name: 'View Roles',
-        component: _mainComponents_roles__WEBPACK_IMPORTED_MODULE_13__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _mainComponents_roles__WEBPACK_IMPORTED_MODULE_15__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/roles/add",
         permissions: permissions,
         name: 'Add Role',
-        component: _rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_14__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _rolePermissionComponents_addRole__WEBPACK_IMPORTED_MODULE_16__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/role/edit",
         permissions: permissions,
         name: 'Edit Role',
-        component: _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_15__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _rolePermissionComponents_editRole__WEBPACK_IMPORTED_MODULE_17__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/role/permissions",
         permissions: permissions,
         name: 'View Role Permissions',
-        component: _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_16__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _rolePermissionComponents_rolePermissions__WEBPACK_IMPORTED_MODULE_18__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/role/permissions/add",
         permissions: permissions,
         name: 'Add Role Permissions',
-        component: _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_17__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _rolePermissionComponents_addRolePermissions__WEBPACK_IMPORTED_MODULE_19__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/users",
         permissions: permissions,
         name: 'View Users',
-        component: _mainComponents_users__WEBPACK_IMPORTED_MODULE_18__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _mainComponents_users__WEBPACK_IMPORTED_MODULE_20__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/user/roles",
         permissions: permissions,
         name: 'Manage User Roles',
-        component: _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_19__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _userComponents_userRoles__WEBPACK_IMPORTED_MODULE_21__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/user/permissions",
         permissions: permissions,
         name: 'Manage User Permissions',
-        component: _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_20__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _userComponents_userPermissions__WEBPACK_IMPORTED_MODULE_22__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/explorer",
         permissions: permissions,
         name: 'View Directory',
-        component: _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_21__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _mainComponents_explorer__WEBPACK_IMPORTED_MODULE_23__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/folder/add",
         permissions: permissions,
         name: 'Create Folder',
-        component: _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_22__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_29__["default"], {
+        component: _fileExplorerComponents_addFolder__WEBPACK_IMPORTED_MODULE_24__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_protectedRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
         exact: true,
         path: "/file/add",
         permissions: permissions,
         name: 'Upload File',
-        component: _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_23__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_verifyLoginRoute__WEBPACK_IMPORTED_MODULE_30__["default"], {
+        component: _fileExplorerComponents_addFile__WEBPACK_IMPORTED_MODULE_25__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_verifyLoginRoute__WEBPACK_IMPORTED_MODULE_31__["default"], {
         exact: true,
         path: "/",
         login_status: login_status,
-        component: _mainComponents_home__WEBPACK_IMPORTED_MODULE_27__["default"]
+        component: _mainComponents_home__WEBPACK_IMPORTED_MODULE_11__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/login",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_login__WEBPACK_IMPORTED_MODULE_24__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_login__WEBPACK_IMPORTED_MODULE_26__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/logout",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_logout__WEBPACK_IMPORTED_MODULE_25__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_logout__WEBPACK_IMPORTED_MODULE_27__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/register",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_register__WEBPACK_IMPORTED_MODULE_26__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_register__WEBPACK_IMPORTED_MODULE_28__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/not-found",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_notFound__WEBPACK_IMPORTED_MODULE_28__["default"], null);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mainComponents_notFound__WEBPACK_IMPORTED_MODULE_29__["default"], null);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
         to: "/not-found"
@@ -70006,32 +70009,68 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "onRenameSubmit", function (e) {
-      var folder_id = _this.state.folder_id;
-      var new_name = _this.state.file_folder_rename;
-      var rename_id = _this.state.file_folder_rename_id;
+      var token = '';
 
-      if (new_name == '') {
-        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning("New name cannot be empty !", {
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
       } else {
-        var FD = new FormData();
-        FD.append('rename_id', rename_id);
-        FD.append('new_name', new_name);
-        FD.append('folder_id', folder_id);
-        axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/update/filefolder/name', FD).then(function (response) {
-          react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Name Updated !", {
+        var folder_id = _this.state.folder_id;
+        var new_name = _this.state.file_folder_rename;
+        var rename_id = _this.state.file_folder_rename_id;
+
+        if (new_name == '') {
+          react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning("New name cannot be empty !", {
             autoClose: 3000
           });
+        } else {
+          var FD = new FormData();
+          FD.append('rename_id', rename_id);
+          FD.append('new_name', new_name);
+          FD.append('folder_id', folder_id);
+          var header = {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer ".concat(token),
+            'Cache-Control': 'no-cache'
+          };
+          axios__WEBPACK_IMPORTED_MODULE_4___default()({
+            method: 'post',
+            url: '/api/update/filefolder/name',
+            headers: header,
+            data: FD
+          }).then(function (response) {
+            var resp = response.data;
 
-          _this.setState({
-            content: response.data,
-            file_folder_rename: '',
-            file_folder_rename_id: ''
+            if (response.data.status === 'error') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+                autoClose: 3000
+              });
+            } else {
+              if (resp == 'Access Denied') {
+                react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                  autoClose: 3000
+                });
+              } else {
+                react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Name Updated !", {
+                  autoClose: 3000
+                });
+
+                _this.setState({
+                  content: response.data,
+                  file_folder_rename: '',
+                  file_folder_rename_id: ''
+                });
+
+                $(_this.modal).modal('hide');
+              }
+            }
           });
-
-          $(_this.modal).modal('hide');
-        });
+        }
       }
     });
 
@@ -70069,7 +70108,9 @@ function (_Component) {
           Authorization: "Bearer ".concat(token),
           'Cache-Control': 'no-cache'
         };
-        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content', {
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'get',
+          url: '/api/getfolder/' + folder_id + '/content',
           headers: header
         }).then(function (response) {
           var resp = response.data;
@@ -70122,7 +70163,9 @@ function (_Component) {
           Authorization: "Bearer ".concat(token),
           'Cache-Control': 'no-cache'
         };
-        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/getfolder/' + folder_id + '/content', {
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'get',
+          url: '/api/getfolder/' + folder_id + '/content',
           headers: header
         }).then(function (response) {
           var resp = response.data;
@@ -70169,7 +70212,9 @@ function (_Component) {
           Authorization: "Bearer ".concat(token),
           'Cache-Control': 'no-cache'
         };
-        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/file/' + file_id + '/download', {
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'get',
+          url: '/api/file/' + file_id + '/download',
           headers: header
         }).then(function (response) {
           var resp = response.data;
@@ -70179,11 +70224,19 @@ function (_Component) {
               autoClose: 3000
             });
           } else {
-            if (resp == 'File Not Found' || resp == 'Access Denied') {
+            if (resp == 'Access Denied') {
               react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
                 autoClose: 3000
               });
             } else {
+              /*var contentType = response.headers['content-type'];
+              var contentDisposition = response.headers['content-disposition'];
+              var filename = contentDisposition.split(';')[1].split('filename')[1].split('=')[1].trim();
+                let blob = new Blob([response.data], { type: contentType });
+              let link = document.createElement('a');
+              link.href = window.URL.createObjectURL(blob);
+              link.download = filename;
+              link.click();*/
               window.open('/api/file/' + file_id + '/download');
             }
           }
@@ -70376,6 +70429,7 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -70431,7 +70485,7 @@ function (_Component) {
   return Home;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Home);
+
 
 /***/ }),
 
@@ -70444,6 +70498,7 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Login; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
@@ -70547,59 +70602,6 @@ function (_Component) {
       return error ? error.details[0].message : null;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-      localStorage.clear();
-
-      var errors = _this.validate();
-
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-      var data = {
-        client_id: 2,
-        client_secret: 'RrrmaSW7TbQRnGkZNIjQVOIFfj1nyu7k5vC6YJv3',
-        grant_type: 'password',
-        username: _this.state.account.email,
-        password: _this.state.account.password,
-        scope: '*'
-      };
-      var header = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      };
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/oauth/token', data, {
-        headers: header
-      }).then(function (response) {
-        var token = response.data['access_token'];
-
-        if (token != '') {
-          localStorage.setItem('access_token', token);
-          localStorage.setItem('login_status', true);
-
-          _this.setState({
-            account: {
-              email: "",
-              password: ""
-            }
-          });
-
-          react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success('Logged-in', {
-            autoClose: 3000
-          });
-          window.location = '/';
-        }
-      }).catch(function (error) {
-        if (error.response.status == 401) {
-          react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error('Invalid Credentials !', {
-            autoClose: 3000
-          });
-        }
-      });
-    });
-
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
       var input = _ref2.currentTarget;
 
@@ -70623,10 +70625,66 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+      localStorage.clear();
+
+      var errors = _this.validate();
+
+      _this.setState({
+        errors: errors || {}
+      });
+
+      if (errors) return;
+      var data = {
+        client_id: 2,
+        client_secret: 'RrrmaSW7TbQRnGkZNIjQVOIFfj1nyu7k5vC6YJv3',
+        grant_type: 'password',
+        username: _this.state.account.email,
+        password: _this.state.account.password,
+        scope: '*'
+      };
+      var header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      };
+      axios__WEBPACK_IMPORTED_MODULE_4___default()({
+        method: 'post',
+        url: '/oauth/token',
+        headers: header,
+        data: data
+      }).then(function (response) {
+        var token = response.data['access_token'];
+
+        if (token != '') {
+          react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success('Logged-in', {
+            autoClose: 3000
+          });
+          localStorage.setItem('access_token', token);
+          localStorage.setItem('login_status', true);
+
+          _this.setState({
+            account: {
+              email: "",
+              password: ""
+            }
+          });
+
+          window.location = '/';
+        }
+      }).catch(function (error) {
+        if (error.response.status == 401) {
+          react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error('Invalid Credentials !', {
+            autoClose: 3000
+          });
+        }
+      });
+    });
+
     _this.state = {
       account: {
-        email: "",
-        password: ""
+        email: '',
+        password: ''
       },
       errors: {}
     };
@@ -70667,14 +70725,14 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Login")))));
+      }, " Login ")))));
     }
   }]);
 
   return Login;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Login);
+
 
 /***/ }),
 
@@ -70758,10 +70816,10 @@ function (_Component) {
               autoClose: 3000
             });
           } else {
-            localStorage.clear();
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success('Logged out !', {
               autoClose: 3000
             });
+            localStorage.clear();
             window.location = '/';
           }
         });
@@ -70770,7 +70828,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ");
     }
   }]);
 
@@ -70790,6 +70848,7 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavBar; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
@@ -70832,55 +70891,6 @@ function (_Component) {
   }
 
   _createClass(NavBar, [{
-    key: "onDownload",
-    value: function onDownload() {
-      var token = '';
-
-      if (localStorage.hasOwnProperty('access_token')) {
-        token = localStorage.getItem('access_token');
-      }
-
-      if (token == '') {
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
-          autoClose: 3000
-        });
-      } else {
-        var header = {
-          'Content-Type': 'application/json',
-          Authorization: "Bearer ".concat(token),
-          'Cache-Control': 'no-cache'
-        };
-        axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/download', {
-          headers: header
-        }).then(function (response) {
-          var resp = response.data;
-
-          if (response.data.status === 'error') {
-            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
-              autoClose: 3000
-            });
-          } else {
-            if (resp == 'File Not Found' || resp == 'Access Denied') {
-              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
-                autoClose: 3000
-              });
-            } else {
-              var contentType = response.headers['content-type'];
-              var contentDisposition = response.headers['content-disposition'];
-              var filename = contentDisposition.split(';')[1].split('filename')[1].split('=')[1].trim();
-              /* let blob = new Blob([response.data], { type: contentType });
-               let link = document.createElement('a');
-               link.href = window.URL.createObjectURL(blob);
-               link.download = filename;
-               link.click();*/
-
-              window.open('/api/download');
-            }
-          }
-        });
-      }
-    }
-  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -70911,11 +70921,6 @@ function (_Component) {
         className: "nav-link",
         to: "/users"
       }, "Users")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "nav-item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "nav-link",
-        onClick: this.onDownload.bind(this)
-      }, "Download File")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "nav-link",
@@ -70952,7 +70957,7 @@ function (_Component) {
   return NavBar;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (NavBar);
+
 
 /***/ }),
 
@@ -70989,13 +70994,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Permissions; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
-/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71043,40 +71048,110 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allpermissions').then(function (response) {
-        _this2.setState({
-          permissions: response.data,
-          loading: false
-        });
+      var token = '';
 
-        $(_this2.refs.permissions_table).DataTable({
-          paginate: true,
-          scrollCollapse: true,
-          ordering: true
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'get',
+          url: '/api/allpermissions',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                permissions: response.data,
+                loading: false
+              });
+
+              $(_this2.refs.permissions_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onDelete",
     value: function onDelete(permission_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/permission/' + permission_id + '/delete').then(function (response) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission Deleted !", {
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
-        var current_permissions = _this3.state.permissions;
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'delete',
+          url: '/api/permission/' + permission_id + '/delete',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
 
-        for (var i = 0; i < current_permissions.length; i++) {
-          if (current_permissions[i].id == permission_id) {
-            current_permissions.splice(i, 1);
-
-            _this3.setState({
-              permissions: current_permissions
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
             });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("Permission Deleted !", {
+                autoClose: 3000
+              });
+              var current_permissions = _this3.state.permissions;
+
+              for (var i = 0; i < current_permissions.length; i++) {
+                if (current_permissions[i].id == permission_id) {
+                  current_permissions.splice(i, 1);
+
+                  _this3.setState({
+                    permissions: current_permissions
+                  });
+                }
+              }
+            }
           }
-        }
-      });
+        });
+      }
     }
   }, {
     key: "render",
@@ -71092,7 +71167,7 @@ function (_Component) {
           height: '45vh',
           width: '60vw'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3___default.a, {
         show: true
       }), " ") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
@@ -71102,7 +71177,7 @@ function (_Component) {
         className: "card-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "card-title"
-      }, "All Permissions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, "All Permissions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/permissions/add",
         className: "btn btn-success btn-sm float-right",
         style: {
@@ -71141,7 +71216,7 @@ function (_Component) {
         }, "Action"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-menu",
           "aria-labelledby": "dropdownMenuLink"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           style: link_styling,
           to: {
             pathname: '/permission/edit',
@@ -71171,16 +71246,16 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Register; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -71209,31 +71284,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    login_status: state.login_status,
-    access_token: state.access_token
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    onLogin: function onLogin(token) {
-      return dispatch({
-        type: 'login',
-        val: token
-      });
-    },
-    onLogout: function onLogout(token) {
-      return dispatch({
-        type: 'logout',
-        val: token
-      });
-    }
-  };
-};
-
 var Register =
 /*#__PURE__*/
 function (_Component) {
@@ -71254,10 +71304,10 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       account: {
-        user_name: "",
-        email: "",
-        password: "",
-        conf_password: ""
+        user_name: '',
+        email: '',
+        password: '',
+        conf_password: ''
       },
       errors: {}
     });
@@ -71312,42 +71362,6 @@ function (_Component) {
       return error ? error.details[0].message : null;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-
-      _this.props.onLogin('');
-
-      var errors = _this.validate();
-
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-      var header = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      };
-      var FD = new FormData();
-      FD.append('name', _this.state.account.user_name);
-      FD.append('email', _this.state.account.email);
-      FD.append('password', _this.state.account.password);
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/user/register', FD, {
-        headers: header
-      }).then(function (response) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Registered successfully !', {
-          autoClose: 3000
-        });
-
-        _this.props.onLogin(response.data.access_token);
-      }).catch(function (error) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].error('Something went wrong, please check console log !', {
-          autoClose: 3000
-        });
-        console.log(error.response);
-      });
-    });
-
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
       var result = joi_browser__WEBPACK_IMPORTED_MODULE_2___default.a.validate(_this.state.account, _this.schema, {
         abortEarly: false
@@ -71381,6 +71395,42 @@ function (_Component) {
       return errors;
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      var errors = _this.validate();
+
+      _this.setState({
+        errors: errors || {}
+      });
+
+      if (errors) return;
+      var header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      };
+      var FD = new FormData();
+      FD.append('name', _this.state.account.user_name);
+      FD.append('email', _this.state.account.email);
+      FD.append('password', _this.state.account.password);
+      axios__WEBPACK_IMPORTED_MODULE_3___default()({
+        method: 'post',
+        url: '/api/user/register',
+        headers: header,
+        data: FD
+      }).then(function (response) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].success('Registered successfully !', {
+          autoClose: 3000
+        });
+        window.location = '/login';
+      }).catch(function (error) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].error('Something went wrong, please check console log !', {
+          autoClose: 3000
+        });
+        console.log(error.response);
+      });
+    });
+
     return _this;
   }
 
@@ -71401,28 +71451,28 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_4__["default"], {
         name: "user_name",
         type: "text",
         label: "Name",
         value: this.state.account.user_name,
         onChange: this.handleChange,
         error: this.state.errors.user_name
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_4__["default"], {
         name: "email",
         type: "email",
         label: "Email Address",
         value: this.state.account.email,
         onChange: this.handleChange,
         error: this.state.errors.email
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_4__["default"], {
         name: "password",
         type: "password",
         label: "Passowrd",
         value: this.state.account.password,
         onChange: this.handleChange,
         error: this.state.errors.password
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_4__["default"], {
         name: "conf_password",
         type: "password",
         label: "Confirm Passowrd",
@@ -71432,14 +71482,14 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Register")))));
+      }, " Register ")))));
     }
   }]);
 
   return Register;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(mapStateToProps, mapDispatchToProps)(Register));
+
 
 /***/ }),
 
@@ -71455,13 +71505,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roles; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
-/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71509,40 +71559,110 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allroles').then(function (response) {
-        _this2.setState({
-          roles: response.data,
-          loading: false
-        });
+      var token = '';
 
-        $(_this2.refs.roles_table).DataTable({
-          paginate: true,
-          scrollCollapse: true,
-          ordering: true
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'get',
+          url: '/api/allroles',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                roles: response.data,
+                loading: false
+              });
+
+              $(_this2.refs.roles_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onDelete",
     value: function onDelete(role_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/' + role_id + '/delete').then(function (response) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Role Deleted !", {
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
-        var current_roles = _this3.state.roles;
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'delete',
+          url: '/api/role/' + role_id + '/delete',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
 
-        for (var i = 0; i < current_roles.length; i++) {
-          if (current_roles[i].id == role_id) {
-            current_roles.splice(i, 1);
-
-            _this3.setState({
-              roles: current_roles
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
             });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("Role Deleted !", {
+                autoClose: 3000
+              });
+              var current_roles = _this3.state.roles;
+
+              for (var i = 0; i < current_roles.length; i++) {
+                if (current_roles[i].id == role_id) {
+                  current_roles.splice(i, 1);
+
+                  _this3.setState({
+                    roles: current_roles
+                  });
+                }
+              }
+            }
           }
-        }
-      });
+        });
+      }
     }
   }, {
     key: "render",
@@ -71558,7 +71678,7 @@ function (_Component) {
           height: '45vh',
           width: '60vw'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3___default.a, {
         show: true
       }), " ") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
@@ -71568,7 +71688,7 @@ function (_Component) {
         className: "card-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "card-title"
-      }, "All Roles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, "All Roles"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/roles/add",
         className: "btn btn-success btn-sm float-right",
         style: {
@@ -71607,14 +71727,14 @@ function (_Component) {
         }, "Action"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-menu",
           "aria-labelledby": "dropdownMenuLink"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           style: link_styling,
           to: {
             pathname: '/role/permissions',
             role_id: role.id,
             role_name: role.name
           }
-        }, "Permissions"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        }, "Permissions"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           style: link_styling,
           to: {
             pathname: '/role/edit',
@@ -71644,7 +71764,7 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Users; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -71678,17 +71798,17 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Roles =
+var Users =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Roles, _Component);
+  _inherits(Users, _Component);
 
-  function Roles() {
+  function Users() {
     var _this;
 
-    _classCallCheck(this, Roles);
+    _classCallCheck(this, Users);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Roles).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Users).call(this));
     _this.state = {
       users: [],
       loading: true
@@ -71696,32 +71816,58 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(Roles, [{
+  _createClass(Users, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allusers').then(function (response) {
-        _this2.setState({
-          users: response.data,
-          loading: false
-        });
+      var token = '';
 
-        $(_this2.refs.users_table).DataTable({
-          paginate: true,
-          scrollCollapse: true,
-          ordering: true
-        });
-      });
-      /*let value = '';
-      if (localStorage.hasOwnProperty('access_token'))
-      {
-          // get the key's value from localStorage
-          value = localStorage.getItem('access_token');
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
       }
-        axios.get('/api/user', {headers: {"Authorization" : `Bearer ${value}`}} ).then(response=>{
-          console.log(response.data);
-      });*/
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
+        });
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_1___default()({
+          method: 'get',
+          url: '/api/allusers',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                users: response.data,
+                loading: false
+              });
+
+              $(_this2.refs.users_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "render",
@@ -71810,7 +71956,7 @@ function (_Component) {
     }
   }]);
 
-  return Roles;
+  return Users;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -71826,16 +71972,17 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AddPermission; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -71885,7 +72032,7 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       new_permission: {
-        permission: ""
+        permission: ''
       },
       redirect: false,
       errors: {}
@@ -71942,34 +72089,6 @@ function (_Component) {
       return error ? error.details[0].message : null;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-
-      var errors = _this.validate();
-
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-
-      var oldState = _objectSpread({}, _this.state.new_permission);
-
-      var FD = new FormData();
-      FD.append('permission', _this.state.new_permission.permission);
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/permissions/add', FD).then(function (response) {
-        oldState.permission = response.data;
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New Permission Added !", {
-          autoClose: 3000
-        });
-
-        _this.setState({
-          new_permission: oldState,
-          redirect: true
-        });
-      });
-    });
-
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
       var input = _ref2.currentTarget;
 
@@ -71991,6 +72110,69 @@ function (_Component) {
         new_permission: new_permission,
         errors: errors
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
+        });
+      } else {
+        var errors = _this.validate();
+
+        _this.setState({
+          errors: errors || {}
+        });
+
+        if (errors) return;
+
+        var oldState = _objectSpread({}, _this.state.new_permission);
+
+        var FD = new FormData();
+        FD.append('permission', _this.state.new_permission.permission);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'post',
+          url: '/api/permissions/add',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              oldState.permission = response.data;
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("New Permission Added !", {
+                autoClose: 3000
+              });
+
+              _this.setState({
+                new_permission: oldState,
+                redirect: true
+              });
+            }
+          }
+        });
+      }
     });
 
     return _this;
@@ -72021,7 +72203,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
         name: "permission",
         type: "text",
         label: "Permission Name",
@@ -72031,7 +72213,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Add"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, " Add "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: "/permissions"
       }, "Back")))));
@@ -72041,7 +72223,7 @@ function (_Component) {
   return AddPermission;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (AddPermission);
+
 
 /***/ }),
 
@@ -72054,16 +72236,17 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AddRole; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -72113,14 +72296,14 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       new_role: {
-        role: ""
+        role: ''
       },
       redirect: false,
       errors: {}
     });
 
     _defineProperty(_assertThisInitialized(_this), "schema", {
-      role: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Role")
+      role: joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.string().required().label("Role")
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref) {
@@ -72147,7 +72330,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
-      var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_role, _this.schema, {
+      var result = joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.validate(_this.state.new_role, _this.schema, {
         abortEarly: false
       });
       if (!result.error) return null;
@@ -72187,7 +72370,7 @@ function (_Component) {
 
       var subschema = _defineProperty({}, name, _this.schema[name]);
 
-      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(obj, subschema),
+      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.validate(obj, subschema),
           error = _Joi$validate.error;
 
       return error ? error.details[0].message : null;
@@ -72195,30 +72378,65 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
       e.preventDefault();
+      var token = '';
 
-      var errors = _this.validate();
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-
-      var oldState = _objectSpread({}, _this.state.new_role);
-
-      var FD = new FormData();
-      FD.append('role', _this.state.new_role.role);
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/roles/add', FD).then(function (response) {
-        oldState.role = response.data;
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("New Role Added !", {
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
+      } else {
+        var errors = _this.validate();
 
         _this.setState({
-          new_role: oldState,
-          redirect: true
+          errors: errors || {}
         });
-      });
+
+        if (errors) return;
+
+        var oldState = _objectSpread({}, _this.state.new_role);
+
+        var FD = new FormData();
+        FD.append('role', _this.state.new_role.role);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_2___default()({
+          method: 'post',
+          url: '/api/roles/add',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              oldState.role = response.data;
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("New Role Added !", {
+                autoClose: 3000
+              });
+
+              _this.setState({
+                new_role: oldState,
+                redirect: true
+              });
+            }
+          }
+        });
+      }
     });
 
     return _this;
@@ -72249,7 +72467,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
         name: "role",
         type: "text",
         label: "Role Name",
@@ -72259,7 +72477,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Add"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, " Add "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: "/roles"
       }, "Back")))));
@@ -72269,7 +72487,7 @@ function (_Component) {
   return AddRole;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (AddRole);
+
 
 /***/ }),
 
@@ -72282,14 +72500,14 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AddRolePermissions; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
 /* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -72316,17 +72534,17 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Roles =
+var AddRolePermissions =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Roles, _Component);
+  _inherits(AddRolePermissions, _Component);
 
-  function Roles(props) {
+  function AddRolePermissions(props) {
     var _this;
 
-    _classCallCheck(this, Roles);
+    _classCallCheck(this, AddRolePermissions);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Roles).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddRolePermissions).call(this, props));
     _this.state = {
       all_permissions: [],
       role_permissions: [],
@@ -72337,53 +72555,143 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(Roles, [{
+  _createClass(AddRolePermissions, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      var role_id = this.state.role_id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allpermissions').then(function (response) {
-        _this2.setState({
-          all_permissions: response.data,
-          loading: false
-        });
+      var token = '';
 
-        $(_this2.refs.role_permissions_table).DataTable({
-          paginate: true,
-          scrollCollapse: true,
-          ordering: true
-        });
-      });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
-        _this2.setState({
-          role_permissions: response.data
-        });
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-        _this2.state.role_permissions.forEach(function (permission) {
-          var ref = 'permissionCheckbox_' + permission.id;
-          _this2.refs[ref].checked = true;
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var role_id = this.state.role_id;
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'get',
+          url: '/api/allpermissions',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                all_permissions: response.data,
+                loading: false
+              });
+
+              $(_this2.refs.role_permissions_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true
+              });
+            }
+          }
+        });
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'get',
+          url: '/api/role/' + role_id + '/permissions',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                role_permissions: response.data
+              });
+
+              _this2.state.role_permissions.map(function (permission) {
+                var ref = 'permissionCheckbox_' + permission.id;
+                _this2.refs[ref].checked = true;
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onStatusChange",
     value: function onStatusChange(e) {
-      var role_id = this.state.role_id;
-      var value = e.target.value;
-      var checked = e.target.checked;
-      var status = 0;
-      if (checked) status = 1;
-      var FD = new FormData();
-      FD.append('role_id', role_id);
-      FD.append('permission_id', value);
-      FD.append('status', status);
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/role/permissions/update', FD).then(function (response) {
-        var resp = response.data;
-        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission " + resp + " !", {
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
-      });
+      } else {
+        var role_id = this.state.role_id;
+        var value = e.target.value;
+        var checked = e.target.checked;
+        var status = 0;
+        if (checked) status = 1;
+        var FD = new FormData();
+        FD.append('role_id', role_id);
+        FD.append('permission_id', value);
+        FD.append('status', status);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'post',
+          url: '/api/role/permissions/update',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+          console.log(resp);
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              var _resp = response.data;
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("Permission " + _resp + " !", {
+                autoClose: 3000
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "render",
@@ -72438,7 +72746,7 @@ function (_Component) {
           onClick: _this3.onStatusChange.bind(_this3),
           value: permission.id
         })));
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         style: link_styling,
         className: "btn btn-primary float-right",
         to: {
@@ -72450,7 +72758,7 @@ function (_Component) {
     }
   }]);
 
-  return Roles;
+  return AddRolePermissions;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -72466,16 +72774,17 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EditPermission; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -72518,11 +72827,11 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditPermission).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "schema", {
-      permission: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Permission")
+      permission: joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.string().required().label("Permission")
     });
 
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
-      var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_permission, _this.schema, {
+      var result = joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.validate(_this.state.new_permission, _this.schema, {
         abortEarly: false
       });
       if (!result.error) return null;
@@ -72554,51 +72863,8 @@ function (_Component) {
       return errors;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "ValidateProperty", function (_ref) {
-      var name = _ref.name,
-          value = _ref.value;
-
-      var obj = _defineProperty({}, name, value);
-
-      var subschema = _defineProperty({}, name, _this.schema[name]);
-
-      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(obj, subschema),
-          error = _Joi$validate.error;
-
-      return error ? error.details[0].message : null;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-
-      var errors = _this.validate();
-
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-
-      var oldState = _objectSpread({}, _this.state.new_permission);
-
-      var FD = new FormData();
-      FD.append('permission_id', _this.state.permission_id);
-      FD.append('permission', _this.state.new_permission.permission);
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/permissions/update', FD).then(function (response) {
-        oldState.permission = response.data;
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("Permission Updated !", {
-          autoClose: 3000
-        });
-
-        _this.setState({
-          new_permission: oldState,
-          redirect: true
-        });
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
-      var input = _ref2.currentTarget;
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref) {
+      var input = _ref.currentTarget;
 
       var errors = _objectSpread({}, _this.state.errors);
 
@@ -72620,9 +72886,87 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "ValidateProperty", function (_ref2) {
+      var name = _ref2.name,
+          value = _ref2.value;
+
+      var obj = _defineProperty({}, name, value);
+
+      var subschema = _defineProperty({}, name, _this.schema[name]);
+
+      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.validate(obj, subschema),
+          error = _Joi$validate.error;
+
+      return error ? error.details[0].message : null;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
+        });
+      } else {
+        var errors = _this.validate();
+
+        _this.setState({
+          errors: errors || {}
+        });
+
+        if (errors) return;
+
+        var oldState = _objectSpread({}, _this.state.new_permission);
+
+        var FD = new FormData();
+        FD.append('permission_id', _this.state.permission_id);
+        FD.append('permission', _this.state.new_permission.permission);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_2___default()({
+          method: 'post',
+          url: '/api/permissions/update',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              oldState.permission = response.data;
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission Updated !", {
+                autoClose: 3000
+              });
+
+              _this.setState({
+                new_permission: oldState,
+                redirect: true
+              });
+            }
+          }
+        });
+      }
+    });
+
     _this.state = {
       new_permission: {
-        permission: ""
+        permission: ''
       },
       redirect: false,
       permission_id: _this.props.location.permission_id,
@@ -72636,16 +72980,51 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var oldState = _objectSpread({}, this.state.new_permission);
+      var token = '';
 
-      var permission_id = this.state.permission_id;
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/permission/' + permission_id + '/view').then(function (response) {
-        oldState.permission = response.data.name;
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-        _this2.setState({
-          new_permission: oldState
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var oldState = _objectSpread({}, this.state.new_permission);
+
+        var permission_id = this.state.permission_id;
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_2___default()({
+          method: 'get',
+          url: '/api/permission/' + permission_id + '/view',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              oldState.permission = response.data.name;
+
+              _this2.setState({
+                new_permission: oldState
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "render",
@@ -72672,7 +73051,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
         name: "permission",
         type: "text",
         label: "Permission Name",
@@ -72692,7 +73071,7 @@ function (_Component) {
   return EditPermission;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (EditPermission);
+
 
 /***/ }),
 
@@ -72705,16 +73084,17 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EditRole; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
-/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
+/* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -72744,24 +73124,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var AddRole =
+var EditRole =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(AddRole, _Component);
+  _inherits(EditRole, _Component);
 
-  function AddRole(props) {
+  function EditRole(props) {
     var _this;
 
-    _classCallCheck(this, AddRole);
+    _classCallCheck(this, EditRole);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddRole).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditRole).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "schema", {
-      role: joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.string().required().label("Role")
+      role: joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.string().required().label("Role")
     });
 
     _defineProperty(_assertThisInitialized(_this), "validate", function () {
-      var result = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(_this.state.new_role, _this.schema, {
+      var result = joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.validate(_this.state.new_role, _this.schema, {
         abortEarly: false
       });
       if (!result.error) return null;
@@ -72801,39 +73181,10 @@ function (_Component) {
 
       var subschema = _defineProperty({}, name, _this.schema[name]);
 
-      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_3___default.a.validate(obj, subschema),
+      var _Joi$validate = joi_browser__WEBPACK_IMPORTED_MODULE_4___default.a.validate(obj, subschema),
           error = _Joi$validate.error;
 
       return error ? error.details[0].message : null;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
-      e.preventDefault();
-
-      var errors = _this.validate();
-
-      _this.setState({
-        errors: errors || {}
-      });
-
-      if (errors) return;
-
-      var oldState = _objectSpread({}, _this.state.new_role);
-
-      var FD = new FormData();
-      FD.append('role_id', _this.state.role_id);
-      FD.append('role', _this.state.new_role.role);
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/roles/update', FD).then(function (response) {
-        oldState.role = response.data;
-        react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("Role Updated !", {
-          autoClose: 3000
-        });
-
-        _this.setState({
-          new_role: oldState,
-          redirect: true
-        });
-      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (_ref2) {
@@ -72859,9 +73210,73 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
+        });
+      } else {
+        var errors = _this.validate();
+
+        _this.setState({
+          errors: errors || {}
+        });
+
+        if (errors) return;
+
+        var oldState = _objectSpread({}, _this.state.new_role);
+
+        var FD = new FormData();
+        FD.append('role_id', _this.state.role_id);
+        FD.append('role', _this.state.new_role.role);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_2___default()({
+          method: 'post',
+          url: '/api/roles/update',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              oldState.role = response.data;
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Role Updated !", {
+                autoClose: 3000
+              });
+
+              _this.setState({
+                new_role: oldState,
+                redirect: true
+              });
+            }
+          }
+        });
+      }
+    });
+
     _this.state = {
       new_role: {
-        role: ""
+        role: ''
       },
       redirect: false,
       role_id: _this.props.location.role_id,
@@ -72870,21 +73285,56 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(AddRole, [{
+  _createClass(EditRole, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      var oldState = _objectSpread({}, this.state.new_role);
+      var token = '';
 
-      var role_id = this.state.role_id;
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/role/' + role_id + '/view').then(function (response) {
-        oldState.role = response.data.name;
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-        _this2.setState({
-          new_role: oldState
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var oldState = _objectSpread({}, this.state.new_role);
+
+        var role_id = this.state.role_id;
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_2___default()({
+          method: 'get',
+          url: '/api/role/' + role_id + '/view',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              oldState.role = response.data.name;
+
+              _this2.setState({
+                new_role: oldState
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "render",
@@ -72911,7 +73361,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
         name: "role",
         type: "text",
         label: "Role Name",
@@ -72921,17 +73371,17 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         disabled: this.validate(),
         className: "btn btn-primary"
-      }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, " Update "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: "/roles"
       }, "Back")))));
     }
   }]);
 
-  return AddRole;
+  return EditRole;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (AddRole);
+
 
 /***/ }),
 
@@ -72947,11 +73397,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RolePermissions; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
 /* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -73003,41 +73453,113 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var role_id = this.state.role_id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/role/' + role_id + '/permissions').then(function (response) {
-        _this2.setState({
-          permissions: response.data,
-          loading: false
-        });
+      var token = '';
 
-        $(_this2.refs.role_permissions_table).DataTable({
-          paginate: true,
-          scrollCollapse: true,
-          ordering: true
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var role_id = this.state.role_id;
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'get',
+          url: '/api/role/' + role_id + '/permissions',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+          console.log(resp);
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                permissions: response.data,
+                loading: false
+              });
+
+              $(_this2.refs.role_permissions_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onDelete",
     value: function onDelete(permission_id, role_id) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete('/api/role/' + role_id + '/permission/' + permission_id + '/delete').then(function (response) {
-        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission Deleted !", {
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
-        var current_permissions = _this3.state.permissions;
+      } else {
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        };
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'delete',
+          url: '/api/role/' + role_id + '/permission/' + permission_id + '/delete',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+          console.log(resp);
 
-        for (var i = 0; i < current_permissions.length; i++) {
-          if (current_permissions[i].id == permission_id) {
-            current_permissions.splice(i, 1);
-
-            _this3.setState({
-              permissions: current_permissions
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
             });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("Permission Deleted !", {
+                autoClose: 3000
+              });
+              var current_permissions = _this3.state.permissions;
+
+              for (var i = 0; i < current_permissions.length; i++) {
+                if (current_permissions[i].id == permission_id) {
+                  current_permissions.splice(i, 1);
+
+                  _this3.setState({
+                    permissions: current_permissions
+                  });
+                }
+              }
+            }
           }
-        }
-      });
+        });
+      }
     }
   }, {
     key: "render",
@@ -73066,7 +73588,7 @@ function (_Component) {
         className: "card-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "card-title"
-      }, role_name, " Permissions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, role_name, " Permissions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: {
           pathname: '/role/permissions/add',
           role_id: role_id,
@@ -73100,7 +73622,7 @@ function (_Component) {
           className: "btn btn-danger btn-sm text-white",
           onClick: _this4.onDelete.bind(_this4, permission.id, role_id)
         }, "Delete")));
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: "/roles",
         style: link_styling
@@ -73184,7 +73706,8 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
   var Component = _ref.component,
       rest = _objectWithoutProperties(_ref, ["component"]);
 
-  var result = rest.permissions.some(function (permission) {
+  var result = false;
+  result = rest.permissions.some(function (permission) {
     return rest.name === permission;
   }) ? true : false;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], _extends({}, rest, {
@@ -73224,14 +73747,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 
 
 
@@ -73313,11 +73833,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roles; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
 /* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -73370,48 +73890,140 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var user_id = this.state.user_id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allpermissions').then(function (response) {
-        _this2.setState({
-          all_permissions: response.data,
-          loading: false
-        });
+      var token = '';
 
-        $(_this2.refs.user_permissions_table).DataTable({
-          paginate: true,
-          scrollCollapse: true,
-          ordering: true
-        });
-      });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user/' + user_id + '/permissions').then(function (response) {
-        _this2.setState({
-          direct_permissions: response.data
-        });
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-        _this2.state.direct_permissions.forEach(function (permission) {
-          var ref = 'permissionCheckbox_' + permission.id;
-          _this2.refs[ref].checked = true;
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var user_id = this.state.user_id;
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        }; // Get All Permissions
+
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'get',
+          url: '/api/allpermissions',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                all_permissions: response.data,
+                loading: false
+              });
+
+              $(_this2.refs.user_permissions_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true
+              });
+            }
+          }
+        }); // To Check The User Permissions Form All Permissions
+
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'get',
+          url: '/api/user/' + user_id + '/permissions',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                direct_permissions: response.data
+              });
+
+              _this2.state.direct_permissions.forEach(function (permission) {
+                var ref = 'permissionCheckbox_' + permission.id;
+                _this2.refs[ref].checked = true;
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onStatusChange",
     value: function onStatusChange(e) {
-      var user_id = this.state.user_id;
-      var value = e.target.value;
-      var checked = e.target.checked;
-      var status = 0;
-      if (checked) status = 1;
-      var FD = new FormData();
-      FD.append('user_id', user_id);
-      FD.append('permission_id', value);
-      FD.append('status', status);
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/user/permissions/update', FD).then(function (response) {
-        var resp = response.data;
-        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Permission " + resp + " !", {
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
-      });
+      } else {
+        var user_id = this.state.user_id;
+        var value = e.target.value;
+        var checked = e.target.checked;
+        var status = 0;
+        if (checked) status = 1;
+        var FD = new FormData();
+        FD.append('user_id', user_id);
+        FD.append('permission_id', value);
+        FD.append('status', status);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        }; // Assign/UnAssign Permissions To User
+
+        axios__WEBPACK_IMPORTED_MODULE_3___default()({
+          method: 'post',
+          url: '/api/user/permissions/update',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              var _resp = response.data;
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("Permission " + _resp + " !", {
+                autoClose: 3000
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "render",
@@ -73465,7 +74077,7 @@ function (_Component) {
           onClick: _this3.onStatusChange.bind(_this3),
           value: permission.id
         })));
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: "/users",
         style: link_styling
@@ -73492,13 +74104,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Roles; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
-/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/lib/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73549,48 +74161,140 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var user_id = this.state.user_id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/allroles').then(function (response) {
-        _this2.setState({
-          all_roles: response.data,
-          loading: false
-        });
+      var token = '';
 
-        $(_this2.refs.user_roles_table).DataTable({
-          paginate: true,
-          scrollCollapse: true,
-          ordering: true
-        });
-      });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user/' + user_id + '/roles').then(function (response) {
-        _this2.setState({
-          user_roles: response.data.roles
-        });
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
 
-        _this2.state.user_roles.forEach(function (role) {
-          var ref = 'roleCheckbox_' + role.id;
-          _this2.refs[ref].checked = true;
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
+          autoClose: 3000
         });
-      });
+      } else {
+        var user_id = this.state.user_id;
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        }; // Get All Roles
+
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'get',
+          url: '/api/allroles',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                all_roles: response.data,
+                loading: false
+              });
+
+              $(_this2.refs.user_roles_table).DataTable({
+                paginate: true,
+                scrollCollapse: true,
+                ordering: true
+              });
+            }
+          }
+        }); // To Check The User Roles Form All Roles
+
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'get',
+          url: '/api/user/' + user_id + '/roles',
+          headers: header
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              _this2.setState({
+                user_roles: response.data.roles
+              });
+
+              _this2.state.user_roles.forEach(function (role) {
+                var ref = 'roleCheckbox_' + role.id;
+                _this2.refs[ref].checked = true;
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "onStatusChange",
     value: function onStatusChange(e) {
-      var user_id = this.state.user_id;
-      var value = e.target.value;
-      var checked = e.target.checked;
-      var status = 0;
-      if (checked) status = 1;
-      var FD = new FormData();
-      FD.append('user_id', user_id);
-      FD.append('role_id', value);
-      FD.append('status', status);
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/user/roles/update', FD).then(function (response) {
-        var resp = response.data;
-        react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Role " + resp + " !", {
+      var token = '';
+
+      if (localStorage.hasOwnProperty('access_token')) {
+        token = localStorage.getItem('access_token');
+      }
+
+      if (token == '') {
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
-      });
+      } else {
+        var user_id = this.state.user_id;
+        var value = e.target.value;
+        var checked = e.target.checked;
+        var status = 0;
+        if (checked) status = 1;
+        var FD = new FormData();
+        FD.append('user_id', user_id);
+        FD.append('role_id', value);
+        FD.append('status', status);
+        var header = {
+          'Content-Type': 'application/json',
+          Authorization: "Bearer ".concat(token),
+          'Cache-Control': 'no-cache'
+        }; // Assign/UnAssign Permissions To User
+
+        axios__WEBPACK_IMPORTED_MODULE_4___default()({
+          method: 'post',
+          url: '/api/user/roles/update',
+          headers: header,
+          data: FD
+        }).then(function (response) {
+          var resp = response.data;
+
+          if (response.data.status === 'error') {
+            react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
+              autoClose: 3000
+            });
+          } else {
+            if (resp == 'Access Denied') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
+                autoClose: 3000
+              });
+            } else {
+              var _resp = response.data;
+              react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].success("Role " + _resp + " !", {
+                autoClose: 3000
+              });
+            }
+          }
+        });
+      }
     }
   }, {
     key: "render",
@@ -73608,7 +74312,7 @@ function (_Component) {
           height: '45vh',
           width: '60vw'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_3___default.a, {
         show: true
       }), " ") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
@@ -73644,7 +74348,7 @@ function (_Component) {
           onClick: _this3.onStatusChange.bind(_this3),
           value: role.id
         })));
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary float-right",
         to: "/users",
         style: link_styling

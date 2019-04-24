@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from 'react-loading-spinkit';
+import axios from 'axios';
 
-export default class Permissions extends Component {
-
+export default class Permissions extends Component
+{
     constructor()
     {
         super();
+
         this.state={
             permissions:[],
             loading: true,
@@ -17,37 +18,115 @@ export default class Permissions extends Component {
 
     componentDidMount()
     {
-        axios.get('/api/allpermissions').then(response=>{
-            this.setState({permissions:response.data, loading: false});
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-            $(this.refs.permissions_table).DataTable({
-                paginate: true,
-                scrollCollapse: true,
-                ordering: true,
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            axios({
+                method: 'get',
+                url: '/api/allpermissions',
+                headers: header,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {autoClose: 3000});
+                }
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        this.setState({permissions:response.data, loading: false});
+
+                        $(this.refs.permissions_table).DataTable({
+                            paginate: true,
+                            scrollCollapse: true,
+                            ordering: true,
+                        });
+                    }
+                }
             });
-        });
+        }
     }
 
     onDelete(permission_id)
     {
-        axios.delete('/api/permission/'+permission_id+'/delete').then(response=>{
-            toast.success("Permission Deleted !", {  autoClose: 3000 });
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-            var current_permissions = this.state.permissions;
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
 
-            for(var i=0; i<current_permissions.length; i++)
-            {
-                if(current_permissions[i].id == permission_id)
+            axios({
+                method: 'delete',
+                url: '/api/permission/'+permission_id+'/delete',
+                headers: header,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
                 {
-                    current_permissions.splice(i,1);
-                    this.setState({permissions:current_permissions});
+                    toast.warning('Something went wrong !', {autoClose: 3000});
                 }
-            }
-        });
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        toast.success("Permission Deleted !", {  autoClose: 3000 });
+
+                        var current_permissions = this.state.permissions;
+
+                        for(var i=0; i<current_permissions.length; i++)
+                        {
+                            if(current_permissions[i].id == permission_id)
+                            {
+                                current_permissions.splice(i,1);
+                                this.setState({permissions:current_permissions});
+                            }
+                        }
+                    }
+                }
+            });
+        }
     }
 
-    render() {
-
+    render()
+    {
         var link_styling = {
             marginLeft: '25px',
             color: 'black'
@@ -75,28 +154,26 @@ export default class Permissions extends Component {
                             </thead>
 
                             <tbody>
-                            {
-                                this.state.permissions.map((permission, index)=>{
-                                    return(
-                                        <tr key={permission.id}>
-                                            <th>{index+1}</th>
-                                            <td>{permission.name}</td>
-                                            <td>
-                                                <div className="dropdown show">
-                                                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Action
-                                                    </a>
+                            { this.state.permissions.map((permission, index)=>{
+                                return(
+                                    <tr key={permission.id}>
+                                        <th>{index+1}</th>
+                                        <td>{permission.name}</td>
+                                        <td>
+                                            <div className="dropdown show">
+                                                <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                                </a>
 
-                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <Link style={link_styling} to={{ pathname: '/permission/edit', permission_id: permission.id}}>Edit</Link>
-                                                        <a className="dropdown-item" onClick={this.onDelete.bind(this,permission.id)}>Delete</a>
-                                                    </div>
+                                                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <Link style={link_styling} to={{ pathname: '/permission/edit', permission_id: permission.id}}>Edit</Link>
+                                                    <a className="dropdown-item" onClick={this.onDelete.bind(this,permission.id)}>Delete</a>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                            }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )
+                            }) }
                             </tbody>
                         </table>
                     </div>

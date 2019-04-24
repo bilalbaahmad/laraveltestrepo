@@ -5,10 +5,12 @@ import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './store/reducer';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/contextMenu.css';
 
 import NavBar from './mainComponents/navBar';
+import Home from './mainComponents/home';
 import Permissions from './mainComponents/permissions';
 import AddPermission from './rolePermissionComponents/addPermission';
 import EditPermission from './rolePermissionComponents/editPermission';
@@ -26,15 +28,14 @@ import AddFile from './fileExplorerComponents/addFile';
 import Login from './mainComponents/login';
 import Logout from './mainComponents/logout';
 import Register from './mainComponents/register';
-import Home from './mainComponents/home';
 import NotFound from './mainComponents/notFound';
 import ProtectedRoute from './sharedComponents/protectedRoute';
 import VerifyLoginRoute from './sharedComponents/verifyLoginRoute';
 
 const mystore = createStore(reducer);
 
-export default class MainComponent extends Component {
-
+export default class MainComponent extends Component
+{
     constructor(props) {
         super(props);
 
@@ -77,7 +78,8 @@ export default class MainComponent extends Component {
 
             }).then(response => {
                 const permissions = response.data;
-                if (response.data.status === 'error') {
+                if (response.data.status === 'error')
+                {
                     toast.warning('Something went wrong !', {autoClose: 3000});
                 }
                 else
@@ -88,11 +90,12 @@ export default class MainComponent extends Component {
         }
     }
 
-    render() {
+    render()
+    {
         const permissions = this.state.permissions;
         const login_status = this.state.login_status;
 
-        return (
+        return(
             <div>
                 <ToastContainer/>
 
@@ -146,7 +149,8 @@ export default class MainComponent extends Component {
     }
 }
 
-if (document.getElementById('main_div')) {
+if (document.getElementById('main_div'))
+{
     ReactDOM.render(
         <Provider store={mystore}>
             <BrowserRouter>

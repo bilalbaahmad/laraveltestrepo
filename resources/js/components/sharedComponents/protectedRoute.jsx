@@ -3,7 +3,9 @@ import { Route, Redirect } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 const ProtectedRoute = ({component: Component, ...rest  })=> {
-    const result = rest.permissions.some(permission => rest.name === permission) ? true : false;
+
+    var result = false;
+    result = rest.permissions.some(permission => rest.name === permission) ? true : false;
 
     return (
         <Route
@@ -35,4 +37,3 @@ const ProtectedRoute = ({component: Component, ...rest  })=> {
 
 
 export default ProtectedRoute;
-

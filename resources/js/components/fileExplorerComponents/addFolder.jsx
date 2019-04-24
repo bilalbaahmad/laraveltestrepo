@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import Input from "../sharedComponents/input";
+import { toast } from 'react-toastify';
 import Joi from "joi-browser";
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
-class AddFolder extends Component {
+import Input from "../sharedComponents/input";
 
+class AddFolder extends Component
+{
     constructor(props)
     {
         super(props);
 
         this.state = {
             folder: {
-                folder_name: ""
+                folder_name: ''
             },
             folder_id: this.props.location.folder_id,
             redirect_to_file_explorer: false,
@@ -24,7 +25,8 @@ class AddFolder extends Component {
 
     componentDidMount()
     {
-        if(this.state.folder_id == null){
+        if(this.state.folder_id == null)
+        {
             this.setState({redirect_to_file_explorer: true});
         }
     }
@@ -36,27 +38,47 @@ class AddFolder extends Component {
     };
 
     validate = () => {
-        const result = Joi.validate(this.state.folder, this.schema, {
-            abortEarly: false
-        });
+
+        const result = Joi.validate(this.state.folder, this.schema, { abortEarly: false });
 
         if (!result.error) return null;
 
         const errors = {};
-        for (let item of result.error.details) {
+        for (let item of result.error.details)
+        {
             errors[item.path[0]] = item.message;
         }
         return errors;
     };
 
     ValidateProperty = ({ name, value }) => {
+
         const obj = { [name]: value };
         const subschema = { [name]: this.schema[name] };
         const { error } = Joi.validate(obj, subschema);
         return error ? error.details[0].message : null;
     };
 
+    handleChange = ({ currentTarget: input }) => {
+
+        const errors = { ...this.state.errors };
+        const errorMessage = this.ValidateProperty(input);
+        if (errorMessage)
+        {
+            errors[input.name] = errorMessage;
+        }
+        else
+        {
+            delete errors[input.name];
+        }
+
+        const folder = { ...this.state.folder };
+        folder[input.name] = input.value;
+        this.setState({ folder, errors });
+    };
+
     handleSubmit = e => {
+
         e.preventDefault();
 
         var token = '';
@@ -79,6 +101,7 @@ class AddFolder extends Component {
 
             const oldState = { ...this.state.folder };
             const folder_id = this.state.folder_id;
+
             const FD = new FormData();
             FD.append('folder_id', this.state.folder_id);
             FD.append('folder_name', this.state.folder.folder_name);
@@ -97,11 +120,14 @@ class AddFolder extends Component {
 
             }).then(response => {
                 const resp = response.data;
-                if (response.data.status === 'error') {
+                if (response.data.status === 'error')
+                {
                     toast.warning('Something went wrong !', {autoClose: 3000});
                 }
-                else {
-                    if (resp == 'Access Denied') {
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
                         toast.warning(resp, {autoClose: 3000});
                     }
                     else
@@ -114,28 +140,17 @@ class AddFolder extends Component {
         }
     };
 
-    handleChange = ({ currentTarget: input }) => {
-        const errors = { ...this.state.errors };
-        const errorMessage = this.ValidateProperty(input);
-        if (errorMessage) {
-            errors[input.name] = errorMessage;
-        } else {
-            delete errors[input.name];
-        }
-
-        const folder = { ...this.state.folder };
-        folder[input.name] = input.value;
-        this.setState({ folder, errors });
-    };
-
     render() {
 
         const { redirect_to_file_explorer, redirect_back } = this.state;
 
-        if (redirect_to_file_explorer) {
+        if (redirect_to_file_explorer)
+        {
             return <Redirect to={{ pathname: '/explorer', state: { folder_id: '0'} }} />;
         }
-        if (redirect_back) {
+
+        if (redirect_back)
+        {
             return <Redirect to={{ pathname: '/explorer', state: { folder_id: this.state.folder_id} }} />;
         }
 
@@ -159,9 +174,7 @@ class AddFolder extends Component {
                                 error={this.state.errors.folder_name}
                             />
 
-                            <button disabled={this.validate()} className="btn btn-primary">
-                                Create
-                            </button>
+                            <button disabled={this.validate()} className="btn btn-primary"> Create </button>
 
                             <Link className="btn btn-primary float-right" to={{ pathname: '/explorer', state: { folder_id: this.state.folder_id} }}>Back</Link>
                         </form>

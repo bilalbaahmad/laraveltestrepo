@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 import Loading from 'react-loading-spinkit';
 
-export default class Roles extends Component {
-
+export default class Roles extends Component
+{
     constructor(props)
     {
         super(props);
@@ -21,48 +21,150 @@ export default class Roles extends Component {
 
     componentDidMount()
     {
-        const user_id = this.state.user_id;
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-        axios.get('/api/allpermissions').then(response=>{
-            this.setState({all_permissions:response.data, loading: false});
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else
+        {
+            const user_id = this.state.user_id;
 
-            $(this.refs.user_permissions_table).DataTable({
-                paginate: true,
-                scrollCollapse: true,
-                ordering: true,
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            // Get All Permissions
+            axios({
+                method: 'get',
+                url: '/api/allpermissions',
+                headers: header,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {autoClose: 3000});
+                }
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        this.setState({all_permissions:response.data, loading: false});
+
+                        $(this.refs.user_permissions_table).DataTable({
+                            paginate: true,
+                            scrollCollapse: true,
+                            ordering: true,
+                        });
+                    }
+                }
             });
-        });
 
-        axios.get('/api/user/'+user_id+'/permissions').then(response=>{
-            this.setState({direct_permissions:response.data});
-            this.state.direct_permissions.forEach(permission => {
-                let ref = 'permissionCheckbox_' + permission.id;
-                this.refs[ref].checked = true;
-            } );
-        });
+            // To Check The User Permissions Form All Permissions
+            axios({
+                method: 'get',
+                url: '/api/user/'+user_id+'/permissions',
+                headers: header,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {autoClose: 3000});
+                }
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        this.setState({direct_permissions:response.data});
+
+                        this.state.direct_permissions.forEach(permission => {
+                            let ref = 'permissionCheckbox_' + permission.id;
+                            this.refs[ref].checked = true;
+                        } );
+                    }
+                }
+            });
+        }
     }
 
     onStatusChange(e)
     {
-        const user_id = this.state.user_id;
-        const value = e.target.value;
-        const checked = e.target.checked;
-        var status = 0;
-        if(checked) status = 1;
+        var token = '';
+        if(localStorage.hasOwnProperty('access_token'))
+        {
+            token = localStorage.getItem('access_token');
+        }
 
-        const FD = new FormData();
-        FD.append('user_id', user_id);
-        FD.append('permission_id', value);
-        FD.append('status', status);
+        if(token == '')
+        {
+            toast.error("You are not logged in !", {  autoClose: 3000 });
+        }
+        else {
+            const user_id = this.state.user_id;
+            const value = e.target.value;
+            const checked = e.target.checked;
+            var status = 0;
+            if(checked) status = 1;
 
-        axios.post('/api/user/permissions/update',FD).then(response=>{
-            const resp = response.data;
-            toast.success("Permission "+resp+" !", {  autoClose: 3000 });
-        });
+            const FD = new FormData();
+            FD.append('user_id', user_id);
+            FD.append('permission_id', value);
+            FD.append('status', status);
+
+            var header = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            };
+
+            // Assign/UnAssign Permissions To User
+            axios({
+                method: 'post',
+                url: '/api/user/permissions/update',
+                headers: header,
+                data: FD,
+
+            }).then(response => {
+                const resp = response.data;
+                if (response.data.status === 'error')
+                {
+                    toast.warning('Something went wrong !', {autoClose: 3000});
+                }
+                else
+                {
+                    if (resp == 'Access Denied')
+                    {
+                        toast.warning(resp, {autoClose: 3000});
+                    }
+                    else
+                    {
+                        const resp = response.data;
+                        toast.success("Permission "+resp+" !", {  autoClose: 3000 });
+                    }
+                }
+            });
+        }
     }
 
-    render() {
-
+    render()
+    {
         var link_styling = {
             marginBottom: '15px',
             marginTop: '10px',
@@ -92,8 +194,7 @@ export default class Roles extends Component {
                             </thead>
 
                             <tbody>
-                            {
-                                this.state.all_permissions.map((permission, index)=>{
+                                { this.state.all_permissions.map((permission, index)=>{
                                     return(
                                         <tr key={permission.id}>
                                             <th>{index+1}</th>
@@ -103,8 +204,7 @@ export default class Roles extends Component {
                                             </td>
                                         </tr>
                                     )
-                                })
-                            }
+                                }) }
                             </tbody>
                         </table>
 

@@ -1,34 +1,18 @@
 import React, { Component } from "react";
-import Input from "../sharedComponents/input";
+import { toast } from 'react-toastify';
 import Joi from "joi-browser";
 import axios from 'axios';
-import { toast } from 'react-toastify';
-import { connect } from 'react-redux';
 
-const mapStateToProps = (state) =>
+import Input from "../sharedComponents/input";
+
+export default class Register extends Component
 {
-    return {
-        login_status: state.login_status,
-        access_token: state.access_token
-    }
-};
-
-const mapDispatchToProps = (dispatch) =>
-{
-    return {
-        onLogin: (token) => dispatch({type: 'login', val: token}),
-        onLogout: (token) => dispatch({type: 'logout', val: token})
-    }
-};
-
-class Register extends Component {
-
     state = {
         account: {
-            user_name: "",
-            email: "",
-            password: "",
-            conf_password: ""
+            user_name: '',
+            email: '',
+            password: '',
+            conf_password: '',
         },
         errors: {}
     };
@@ -41,9 +25,11 @@ class Register extends Component {
     };
 
     handleChange = ({ currentTarget: input }) => {
+
         const errors = { ...this.state.errors };
         const errorMessage = this.ValidateProperty(input);
-        if (errorMessage) {
+        if (errorMessage)
+        {
             errors[input.name] = errorMessage;
         }
         else
@@ -57,17 +43,29 @@ class Register extends Component {
     };
 
     ValidateProperty = ({ name, value }) => {
+
         const obj = { [name]: value };
         const subschema = { [name]: this.schema[name] };
         const { error } = Joi.validate(obj, subschema);
         return error ? error.details[0].message : null;
     };
 
+    validate = () => {
+
+        const result = Joi.validate(this.state.account, this.schema, { abortEarly: false });
+
+        if (!result.error) return null;
+
+        const errors = {};
+        for (let item of result.error.details) {
+            errors[item.path[0]] = item.message;
+        }
+        return errors;
+    };
+
     handleSubmit = e => {
 
         e.preventDefault();
-
-        this.props.onLogin('');
 
         const errors = this.validate();
 
@@ -85,30 +83,24 @@ class Register extends Component {
         FD.append('email', this.state.account.email);
         FD.append('password', this.state.account.password);
 
-        axios.post('/api/user/register',FD , {headers: header}).then(response=>{
+        axios({
+            method: 'post',
+            url: '/api/user/register',
+            headers: header,
+            data:FD,
+
+        }).then(response => {
             toast.success('Registered successfully !', {  autoClose: 3000 });
-            this.props.onLogin(response.data.access_token);
+            window.location = '/login';
+
         }).catch(function (error) {
             toast.error('Something went wrong, please check console log !', {  autoClose: 3000 });
             console.log(error.response);
         });
     };
 
-    validate = () => {
-        const result = Joi.validate(this.state.account, this.schema, {
-            abortEarly: false
-        });
-
-        if (!result.error) return null;
-
-        const errors = {};
-        for (let item of result.error.details) {
-            errors[item.path[0]] = item.message;
-        }
-        return errors;
-    };
-
-    render() {
+    render()
+    {
         return (
             <div className="card">
                 <div className="card-head">
@@ -156,9 +148,7 @@ class Register extends Component {
                                 error={this.state.errors.conf_password}
                             />
 
-                            <button disabled={this.validate()} className="btn btn-primary">
-                                Register
-                            </button>
+                            <button disabled={this.validate()} className="btn btn-primary"> Register </button>
                         </form>
                     </div>
                 </div>
@@ -166,5 +156,3 @@ class Register extends Component {
         );
     }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Register);

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
-    render() {
+export default class Home extends Component
+{
+    render()
+    {
         return (
             <div className="card">
                 <div className="card-head">
@@ -19,6 +21,4 @@ class Home extends Component {
         );
     }
 }
-
-export default Home;
 

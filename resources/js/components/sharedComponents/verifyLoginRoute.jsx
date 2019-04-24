@@ -1,15 +1,16 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { toast } from 'react-toastify';
 
 const VerifyLoginRoute = ({component: Component, ...rest  })=> {
+
     const status = rest.login_status;
 
     return (
         <Route
             {...rest}
             render={props => {
-                if (status) {
+                if (status)
+                {
                     return <Component {...props} />;
                 }
                 else

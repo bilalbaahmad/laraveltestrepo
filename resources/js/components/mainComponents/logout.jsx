@@ -3,9 +3,10 @@ import { Redirect } from "react-router-dom";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-export default class Logout extends Component {
-
-    constructor(props) {
+export default class Logout extends Component
+{
+    constructor(props)
+    {
         super(props);
     }
 
@@ -21,7 +22,8 @@ export default class Logout extends Component {
         {
             toast.error("You are not logged in !", {  autoClose: 3000 });
         }
-        else {
+        else
+        {
             var header = {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`,
@@ -34,21 +36,24 @@ export default class Logout extends Component {
                 headers: header,
 
             }).then(response => {
-                if (response.data.status === 'error') {
+                if (response.data.status === 'error')
+                {
                     toast.warning('Something went wrong !', {autoClose: 3000});
                 }
-                else {
-                    localStorage.clear();
+                else
+                {
                     toast.success('Logged out !', {autoClose: 3000});
+                    localStorage.clear();
                     window.location = '/';
                 }
             });
         }
     }
 
-    render() {
+    render()
+    {
         return(
-            <div></div>
+            <div> </div>
         )
     }
 }

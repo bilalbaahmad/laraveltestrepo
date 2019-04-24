@@ -15,7 +15,6 @@ class FileExplorerController extends Controller
 {
     public function getFolderContent(Request $request, $parent_id)
     {
-
         $user_id = $request->user()->id;
         $user = User::find($user_id);
 
@@ -91,6 +90,7 @@ class FileExplorerController extends Controller
     {
         $user_id = $request->user()->id;
         $user = User::find($user_id);
+
         if($user->hasPermissionTo('Upload File'))
         {
             $folder_id = $request->folder_id;
@@ -136,16 +136,32 @@ class FileExplorerController extends Controller
 
     public function renameFileFolder(Request $request)
     {
-        $folder_id = $request->folder_id;
-        $rename_id = $request->rename_id;
-        $new_name = $request->new_name;
+        $user_id = $request->user()->id;
+        $user = User::find($user_id);
 
-        $file_folder = fileFolder::find($rename_id);
-        $file_folder->display_text = ucfirst($new_name);
-        $file_folder->save();
+        if($user->hasPermissionTo('Update Explorer Content Name'))
+        {
+            $folder_id = $request->folder_id;
+            $rename_id = $request->rename_id;
+            $new_name = $request->new_name;
 
-        $content = fileFolder::where('parent',$folder_id)->get();
-        return $content;
+            $file_folder = fileFolder::find($rename_id);
+            $file_folder->display_text = ucfirst($new_name);
+            $file_folder->save();
+
+            $content = DB::table('file_folder')
+                ->join('user_file_folder','user_file_folder.file_folder_id','=','file_folder.id')
+                ->select('file_folder.*')
+                ->where([['parent',$folder_id],['user_file_folder.user_id',$user_id]])
+                ->orderBy('type', 'ASC')
+                ->get();
+
+            return $content;
+        }
+        else
+        {
+            return "Access Denied";
+        }
     }
 
     public function downloadFile(Request $request, $id)

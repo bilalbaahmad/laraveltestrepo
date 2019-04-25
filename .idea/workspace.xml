@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="408b3572-bbcc-467a-8ab9-86733664fcd0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/fileFolder.php" afterPath="$PROJECT_DIR$/app/fileFolder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/rolePermissions.jsx" afterPath="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/rolePermissions.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,9 +23,31 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="68" lean-forward="true" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
+            <state relative-caret-position="528">
+              <caret line="44" column="42" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="42" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileExplorerController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1123">
+              <caret line="207" column="24" lean-forward="false" selection-start-line="207" selection-start-column="24" selection-end-line="207" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fileFolder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/fileFolder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="151" column="5" lean-forward="false" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+              <folding>
+                <element signature="e#23#62#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -31,8 +55,8 @@
       <file leaf-file-name="explorer.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="207" column="5" lean-forward="true" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
+            <state relative-caret-position="86">
+              <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,9 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updatePermission</find>
-      <find>allRoles</find>
-      <find>addPermission</find>
       <find>addRole</find>
       <find>allroles</find>
       <find>updateRole</find>
@@ -72,6 +93,9 @@
       <find>/user/permissions</find>
       <find>download</find>
       <find>console.log</find>
+      <find>filefolder</find>
+      <find>storage_path</find>
+      <find>getStorageFilePath</find>
     </findStrings>
     <replaceStrings>
       <replace>Api/RolesPermissionsController</replace>
@@ -84,7 +108,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="artisan make:migration create_user_file_folder" />
       <command text="artisan migrate" />
       <command text="artisan make:migration create_user_file_folder" />
       <command text="artisan migrate" />
@@ -109,6 +132,7 @@
       <command text="artisan config:cache" />
       <command text="php artisan cache:forget spatie.permission.cache" />
       <command text="artisan serve" />
+      <command text="artisan config:cache" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -121,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_19_043326_create_user_file_folder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_19_053411_create_user_file_folder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_19_053902_create_user_file_folder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_19_060913_create_user_file_folder.php" />
@@ -139,10 +162,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_04_22_052105_create_files.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_22_051918_create_file_folder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_22_052207_create_file_folder.php" />
-        <option value="$PROJECT_DIR$/app/fileFolder.php" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/deletePermission.jsx" />
         <option value="$PROJECT_DIR$/config/auth.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" />
         <option value="$PROJECT_DIR$/resources/js/styles/contextMenu.css" />
         <option value="$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFile.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/fileExplorerComponents/addFolder.jsx" />
@@ -168,10 +189,13 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/mainComponents/navBar.jsx" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/rolePermissions.jsx" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" />
+        <option value="$PROJECT_DIR$/app/fileFolder.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" />
       </list>
     </option>
   </component>
@@ -299,7 +323,7 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mgln" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../posts" />
     <property name="SearchEverywhereHistoryKey" value="kernel.ph&#9;FILE&#9;file://C:/xampp/htdocs/test_laravel/app/Console/Kernel.php&#10;kernal.php&#9;null&#9;null&#10;babel&#9;null&#9;null&#10;Illuminate\Support\Collection&#9;null&#9;null&#10;Spatie\Permission\Contracts\Role&#9;null&#9;null&#10;webpack.config&#9;FILE&#9;file://C:/xampp/htdocs/test_laravel/node_modules/joi-browser/webpack.config.js&#10;babelrc&#9;null&#9;null&#10;webpack.mix.js&#9;FILE&#9;file://C:/xampp/htdocs/test_laravel/webpack.mix.js&#10;web.php&#9;FILE&#9;file://C:/xampp/htdocs/test_laravel/routes/web.php&#10;test.xlsx&#9;FILE&#9;file://C:/xampp/htdocs/test_laravel/vendor/phpoffice/phpexcel/Examples/templates/32readwriteStockChart1.xlsx" />
   </component>
   <component name="RecentsManager">
@@ -375,7 +399,7 @@
       <workItem from="1555905415445" duration="21910000" />
       <workItem from="1555991877036" duration="26888000" />
       <workItem from="1556078409491" duration="25819000" />
-      <workItem from="1556164974407" duration="1403000" />
+      <workItem from="1556164974407" duration="21855000" />
     </task>
     <task id="LOCAL-00001" summary="2nd">
       <created>1553682099649</created>
@@ -699,11 +723,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556110049645</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="roles and permissions completed with protected routes">
+      <created>1556166390362</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1556166390362</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="510201000" />
+    <option name="totallyTimeSpent" value="530653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -712,7 +743,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32506528" sideWeight="0.5025" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32506528" sideWeight="0.4975" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3381201" sideWeight="0.4975" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -763,14 +794,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/files.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_19_064215_create_user_file_folder.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_22_043501_create_user_file_folder.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -798,27 +821,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/user_file_folder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/fileFolder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/rolePermissionComponents/deletePermission.jsx" />
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="272" column="13" lean-forward="false" selection-start-line="272" selection-start-column="13" selection-end-line="272" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -826,6 +834,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
           <caret line="109" column="50" lean-forward="true" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -847,6 +856,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1767">
           <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -854,14 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="46" column="10" lean-forward="false" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="162" column="35" lean-forward="true" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -891,22 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1725">
           <caret line="121" column="43" lean-forward="false" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="176" column="4" lean-forward="false" selection-start-line="176" selection-start-column="4" selection-end-line="176" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="68" lean-forward="true" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -1084,7 +1070,7 @@
         <state relative-caret-position="678">
           <caret line="216" column="1" lean-forward="false" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1102,15 +1088,65 @@
         <state relative-caret-position="-9">
           <caret line="79" column="50" lean-forward="false" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/user_file_folder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="44" column="42" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1123">
+          <caret line="207" column="24" lean-forward="false" selection-start-line="207" selection-start-column="24" selection-end-line="207" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/fileFolder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="151" column="5" lean-forward="false" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="207" column="5" lean-forward="true" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
+        <state relative-caret-position="86">
+          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
           <folding />
         </state>
       </provider>

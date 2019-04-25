@@ -69981,19 +69981,69 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Explorer).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "onFolderClick", function (e, data) {
-      var file_folder_rename_id = data.value;
+      var file_folder_id = data.value;
       var action = data.action;
-      var file_folder_rename = data.name;
+      var file_folder_name = data.name;
 
       if (action == 'rename') {
         _this.setState({
-          file_folder_rename: file_folder_rename,
-          file_folder_rename_id: file_folder_rename_id
+          file_folder_name: file_folder_name,
+          file_folder_id: file_folder_id
         });
 
         $(_this.modal).modal('show');
-      } else {
-        console.log('in delete', file_folder_rename_id);
+      } else if (action == 'delete') {
+        var token = '';
+
+        if (localStorage.hasOwnProperty('access_token')) {
+          token = localStorage.getItem('access_token');
+        }
+
+        if (token == '') {
+          react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
+            autoClose: 3000
+          });
+        } else {
+          var header = {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer ".concat(token),
+            'Cache-Control': 'no-cache'
+          };
+          axios__WEBPACK_IMPORTED_MODULE_4___default()({
+            method: 'delete',
+            url: '/api/filefolder/' + file_folder_id + '/delete',
+            headers: header
+          }).then(function (response) {
+            var resp = response.data.message;
+
+            if (response.data.status === 'error') {
+              react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
+                autoClose: 3000
+              });
+            } else {
+              if (resp == 'Access Denied') {
+                react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
+                  autoClose: 3000
+                });
+              } else {
+                if (resp == 'Deleted' || resp == 'File Deleted' || resp == 'Folder Content Deleted') {
+                  react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success(resp, {
+                    autoClose: 3000
+                  });
+
+                  _this.setState({
+                    content: response.data.content
+                  });
+                } else {
+                  react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something Went Wrong !', {
+                    autoClose: 3000
+                  });
+                  console.log(resp);
+                }
+              }
+            }
+          });
+        }
       }
     });
 

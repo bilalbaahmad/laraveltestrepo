@@ -192,18 +192,68 @@ export default class Explorer extends Component
 
     onFolderClick = (e, data) => {
 
-        var file_folder_rename_id = data.value;
+        var file_folder_id = data.value;
         var action = data.action;
-        var file_folder_rename = data.name;
+        var file_folder_name = data.name;
 
         if (action == 'rename')
         {
-            this.setState({file_folder_rename,file_folder_rename_id});
+            this.setState({file_folder_name,file_folder_id});
             $(this.modal).modal('show');
         }
-        else
+        else if (action == 'delete')
         {
-            console.log('in delete', file_folder_rename_id);
+            var token = '';
+            if(localStorage.hasOwnProperty('access_token'))
+            {
+                token = localStorage.getItem('access_token');
+            }
+
+            if(token == '')
+            {
+                toast.error("You are not logged in !", {  autoClose: 3000 });
+            }
+            else
+            {
+                var header = {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                    'Cache-Control': 'no-cache'
+                };
+
+                axios({
+                    method: 'delete',
+                    url:'/api/filefolder/' + file_folder_id + '/delete',
+                    headers: header,
+
+                }).then(response => {
+                    const resp = response.data.message;
+                    if (response.data.status === 'error')
+                    {
+                        toast.warning('Something went wrong !', {autoClose: 3000});
+                    }
+                    else
+                    {
+                        if (resp == 'Access Denied')
+                        {
+                            toast.warning(resp, {autoClose: 3000});
+                        }
+                        else
+                        {
+                            if(resp == 'Deleted' || resp == 'File Deleted' || resp == 'Folder Content Deleted')
+                            {
+                                toast.success(resp, {autoClose: 3000});
+                                this.setState({content: response.data.content});
+                            }
+                            else
+                            {
+                                toast.warning('Something Went Wrong !', {autoClose: 3000});
+                                console.log(resp);
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
 

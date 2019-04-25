@@ -174,7 +174,7 @@ class FileExplorerController extends Controller
             $file = files::find($file_folder->file_id);
             if($file != null)
             {
-                return response()->download(storage_path('app/'.$file->path),$file_folder->name);
+                return response()->download(storage_path('app/').$file->path,$file_folder->name);
             }
             else
             {
@@ -185,6 +185,42 @@ class FileExplorerController extends Controller
         {
             return "Access Denied";
         }
+    }
+
+    public function deleteFileFolder(Request $request, $id)
+    {
+        $user_id = $request->user()->id;
+        $user = User::find($user_id);
+
+        if($user->hasPermissionTo('Delete Explorer Content'))
+        {
+            $currentFileFolder = fileFolder::where('id',$id)->first();
+            $parent = $currentFileFolder->parent;
+
+            $obj = new fileFolder();
+            $message = $obj->deleteDirectoryContent($id);
+        }
+        else
+        {
+            $message = "Access Denied";
+        }
+
+        if($parent == '#')
+        {
+            $content = fileFolder::where('parent',$parent)->orderBy('type', 'ASC')->get();
+        }
+        else
+        {
+            $content = DB::table('file_folder')
+                ->join('user_file_folder','user_file_folder.file_folder_id','=','file_folder.id')
+                ->select('file_folder.*')
+                ->where([['parent',$parent],['user_file_folder.user_id',$user_id]])
+                ->orderBy('type', 'ASC')
+                ->get();
+        }
+
+        $response = array('message' => $message, 'content' => $content, 'parent' => $parent);
+        return $response;
     }
 
 }

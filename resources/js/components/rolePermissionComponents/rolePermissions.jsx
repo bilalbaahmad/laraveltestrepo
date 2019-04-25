@@ -47,7 +47,6 @@ export default class RolePermissions extends Component
 
             }).then(response => {
                 const resp = response.data;
-                console.log(resp);
                 if (response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {autoClose: 3000});
@@ -100,7 +99,6 @@ export default class RolePermissions extends Component
 
             }).then(response => {
                 const resp = response.data;
-                console.log(resp);
                 if (response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {autoClose: 3000});

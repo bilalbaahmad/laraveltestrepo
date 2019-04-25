@@ -142,7 +142,6 @@ export default class AddRolePermissions extends Component {
 
             }).then(response => {
                 const resp = response.data;
-                console.log(resp);
                 if (response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {autoClose: 3000});

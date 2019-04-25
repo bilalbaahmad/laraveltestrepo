@@ -69986,8 +69986,6 @@ function (_Component) {
       var file_folder_rename = data.name;
 
       if (action == 'rename') {
-        console.log('in rename', file_folder_rename_id);
-
         _this.setState({
           file_folder_rename: file_folder_rename,
           file_folder_rename_id: file_folder_rename_id
@@ -72672,7 +72670,6 @@ function (_Component) {
           data: FD
         }).then(function (response) {
           var resp = response.data;
-          console.log(resp);
 
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
@@ -73476,7 +73473,6 @@ function (_Component) {
           headers: header
         }).then(function (response) {
           var resp = response.data;
-          console.log(resp);
 
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
@@ -73530,7 +73526,6 @@ function (_Component) {
           headers: header
         }).then(function (response) {
           var resp = response.data;
-          console.log(resp);
 
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {

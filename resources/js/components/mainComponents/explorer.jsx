@@ -190,15 +190,14 @@ export default class Explorer extends Component
         }
     }
 
-    onFolderClick = (e, data) =>
-    {
+    onFolderClick = (e, data) => {
+
         var file_folder_rename_id = data.value;
         var action = data.action;
         var file_folder_rename = data.name;
 
         if (action == 'rename')
         {
-            console.log('in rename', file_folder_rename_id);
             this.setState({file_folder_rename,file_folder_rename_id});
             $(this.modal).modal('show');
         }

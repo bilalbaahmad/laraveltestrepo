@@ -46,12 +46,14 @@ export default class Permissions extends Component
                 if (response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {autoClose: 3000});
+                    this.setState({loading: false});
                 }
                 else
                 {
                     if (resp == 'Access Denied')
                     {
                         toast.warning(resp, {autoClose: 3000});
+                        this.setState({loading: false});
                     }
                     else
                     {

@@ -26,8 +26,8 @@ export default class Explorer extends Component
             upper_level_id: 0,
             directory_path: '',
             folder_id: this.props.location.state.folder_id,
-            file_folder_rename: '',
-            file_folder_rename_id: '',
+            file_folder_name: '',
+            file_folder_id: '',
             loading: true,
         }
     }
@@ -43,6 +43,7 @@ export default class Explorer extends Component
         if(token == '')
         {
             toast.error("You are not logged in !", {  autoClose: 3000 });
+            this.setState({loading: false});
         }
         else
         {
@@ -64,12 +65,14 @@ export default class Explorer extends Component
                 if (response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {autoClose: 3000});
+                    this.setState({loading: false});
                 }
                 else
                 {
                     if (resp == 'Access Denied')
                     {
                         toast.warning(resp, {autoClose: 3000});
+                        this.setState({loading: false});
                     }
                     else
                     {
@@ -271,8 +274,8 @@ export default class Explorer extends Component
 
     onRenameInputChange = ({ currentTarget: input }) => {
 
-        var file_folder_rename = input.value;
-        this.setState({ file_folder_rename });
+        var file_folder_name = input.value;
+        this.setState({ file_folder_name });
     }
 
     onRenameSubmit = e => {
@@ -290,8 +293,8 @@ export default class Explorer extends Component
         else
         {
             const folder_id = this.state.folder_id;
-            const new_name = this.state.file_folder_rename;
-            const rename_id = this.state.file_folder_rename_id;
+            const new_name = this.state.file_folder_name;
+            const rename_id = this.state.file_folder_id;
 
             if(new_name == '')
             {
@@ -415,8 +418,8 @@ export default class Explorer extends Component
                                 <Input
                                     name="file_folder_rename"
                                     type="text"
-                                    label="Enter Name"
-                                    value={this.state.file_folder_rename}
+                                    label="Update Name"
+                                    value={this.state.file_folder_name}
                                     onChange={this.onRenameInputChange}
                                 />
                             </div>

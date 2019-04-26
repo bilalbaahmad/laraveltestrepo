@@ -46,6 +46,7 @@ export default class Roles extends Component
                 if (response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {autoClose: 3000});
+                    this.setState({loading: false});
                 }
                 else
                 {

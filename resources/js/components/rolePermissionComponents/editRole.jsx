@@ -3,6 +3,7 @@ import { Redirect, Link } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Joi from "joi-browser";
+import Loading from 'react-loading-spinkit';
 
 import Input from "../sharedComponents/input";
 
@@ -18,6 +19,7 @@ export default class EditRole extends Component
             },
             redirect: false,
             role_id: this.props.location.role_id,
+            loading: true,
             errors: {}
         }
     }
@@ -39,6 +41,7 @@ export default class EditRole extends Component
         if(token == '')
         {
             toast.error("You are not logged in !", {  autoClose: 3000 });
+            this.setState({loading: false});
         }
         else
         {
@@ -61,6 +64,7 @@ export default class EditRole extends Component
                 if (response.data.status === 'error')
                 {
                     toast.warning('Something went wrong !', {autoClose: 3000});
+                    this.setState({loading: false});
                 }
                 else
                 {
@@ -73,6 +77,7 @@ export default class EditRole extends Component
                         oldState.role = response.data.name;
                         this.setState({new_role:oldState});
                     }
+                    this.setState({loading: false});
                 }
             });
         }
@@ -191,6 +196,7 @@ export default class EditRole extends Component
         }
 
         return (
+            this.state.loading ? <div style={{ height: '45vh', width: '60vw' }}><Loading show={true} /> </div> :
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">

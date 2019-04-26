@@ -192,11 +192,11 @@ class FileExplorerController extends Controller
         $user_id = $request->user()->id;
         $user = User::find($user_id);
 
+        $currentFileFolder = fileFolder::where('id',$id)->first();
+        $parent = $currentFileFolder->parent;
+
         if($user->hasPermissionTo('Delete Explorer Content'))
         {
-            $currentFileFolder = fileFolder::where('id',$id)->first();
-            $parent = $currentFileFolder->parent;
-
             $obj = new fileFolder();
             $message = $obj->deleteDirectoryContent($id);
         }

@@ -70347,10 +70347,10 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "onRenameInputChange", function (_ref) {
       var input = _ref.currentTarget;
-      var file_folder_rename = input.value;
+      var file_folder_name = input.value;
 
       _this.setState({
-        file_folder_rename: file_folder_rename
+        file_folder_name: file_folder_name
       });
     });
 
@@ -70367,8 +70367,8 @@ function (_Component) {
         });
       } else {
         var folder_id = _this.state.folder_id;
-        var new_name = _this.state.file_folder_rename;
-        var rename_id = _this.state.file_folder_rename_id;
+        var new_name = _this.state.file_folder_name;
+        var rename_id = _this.state.file_folder_id;
 
         if (new_name == '') {
           react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning("New name cannot be empty !", {
@@ -70425,8 +70425,8 @@ function (_Component) {
       upper_level_id: 0,
       directory_path: '',
       folder_id: _this.props.location.state.folder_id,
-      file_folder_rename: '',
-      file_folder_rename_id: '',
+      file_folder_name: '',
+      file_folder_id: '',
       loading: true
     };
     return _this;
@@ -70447,6 +70447,9 @@ function (_Component) {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
+        this.setState({
+          loading: false
+        });
       } else {
         var folder_id = this.state.folder_id;
         var header = {
@@ -70465,10 +70468,18 @@ function (_Component) {
             react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
               autoClose: 3000
             });
+
+            _this2.setState({
+              loading: false
+            });
           } else {
             if (resp == 'Access Denied') {
               react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
                 autoClose: 3000
+              });
+
+              _this2.setState({
+                loading: false
               });
             } else {
               _this2.setState({
@@ -70740,8 +70751,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_6__["default"], {
         name: "file_folder_rename",
         type: "text",
-        label: "Enter Name",
-        value: this.state.file_folder_rename,
+        label: "Update Name",
+        value: this.state.file_folder_name,
         onChange: this.onRenameInputChange
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-footer"
@@ -71421,10 +71432,18 @@ function (_Component) {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
               autoClose: 3000
             });
+
+            _this2.setState({
+              loading: false
+            });
           } else {
             if (resp == 'Access Denied') {
               react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
                 autoClose: 3000
+              });
+
+              _this2.setState({
+                loading: false
               });
             } else {
               _this2.setState({
@@ -71932,6 +71951,10 @@ function (_Component) {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
               autoClose: 3000
             });
+
+            _this2.setState({
+              loading: false
+            });
           } else {
             if (resp == 'Access Denied') {
               react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning(resp, {
@@ -72193,6 +72216,10 @@ function (_Component) {
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
               autoClose: 3000
+            });
+
+            _this2.setState({
+              loading: false
             });
           } else {
             if (resp == 'Access Denied') {
@@ -72916,6 +72943,9 @@ function (_Component) {
         react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
+        this.setState({
+          loading: false
+        });
       } else {
         var role_id = this.state.role_id;
         var header = {
@@ -72933,6 +72963,10 @@ function (_Component) {
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
               autoClose: 3000
+            });
+
+            _this2.setState({
+              loading: false
             });
           } else {
             if (resp == 'Access Denied') {
@@ -73129,7 +73163,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -73151,6 +73187,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -73315,6 +73352,7 @@ function (_Component) {
       },
       redirect: false,
       permission_id: _this.props.location.permission_id,
+      loading: true,
       errors: {}
     };
     return _this;
@@ -73334,6 +73372,9 @@ function (_Component) {
       if (token == '') {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
           autoClose: 3000
+        });
+        this.setState({
+          loading: false
         });
       } else {
         var oldState = _objectSpread({}, this.state.new_permission);
@@ -73355,6 +73396,10 @@ function (_Component) {
             react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
               autoClose: 3000
             });
+
+            _this2.setState({
+              loading: false
+            });
           } else {
             if (resp == 'Access Denied') {
               react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
@@ -73367,6 +73412,10 @@ function (_Component) {
                 new_permission: oldState
               });
             }
+
+            _this2.setState({
+              loading: false
+            });
           }
         });
       }
@@ -73382,7 +73431,14 @@ function (_Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          height: '45vh',
+          width: '60vw'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        show: true
+      }), " ") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-head"
@@ -73396,7 +73452,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_6__["default"], {
         name: "permission",
         type: "text",
         label: "Permission Name",
@@ -73439,7 +73495,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! joi-browser */ "./node_modules/joi-browser/dist/joi-browser.js");
 /* harmony import */ var joi_browser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(joi_browser__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-loading-spinkit */ "./node_modules/react-loading-spinkit/index.js");
+/* harmony import */ var react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _sharedComponents_input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../sharedComponents/input */ "./resources/js/components/sharedComponents/input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -73461,6 +73519,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -73625,6 +73684,7 @@ function (_Component) {
       },
       redirect: false,
       role_id: _this.props.location.role_id,
+      loading: true,
       errors: {}
     };
     return _this;
@@ -73644,6 +73704,9 @@ function (_Component) {
       if (token == '') {
         react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("You are not logged in !", {
           autoClose: 3000
+        });
+        this.setState({
+          loading: false
         });
       } else {
         var oldState = _objectSpread({}, this.state.new_role);
@@ -73665,6 +73728,10 @@ function (_Component) {
             react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning('Something went wrong !', {
               autoClose: 3000
             });
+
+            _this2.setState({
+              loading: false
+            });
           } else {
             if (resp == 'Access Denied') {
               react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warning(resp, {
@@ -73677,6 +73744,10 @@ function (_Component) {
                 new_role: oldState
               });
             }
+
+            _this2.setState({
+              loading: false
+            });
           }
         });
       }
@@ -73692,7 +73763,14 @@ function (_Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          height: '45vh',
+          width: '60vw'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loading_spinkit__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        show: true
+      }), " ") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-head"
@@ -73706,7 +73784,7 @@ function (_Component) {
         className: "card-body card-dashboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sharedComponents_input__WEBPACK_IMPORTED_MODULE_6__["default"], {
         name: "role",
         type: "text",
         label: "Role Name",
@@ -73808,6 +73886,9 @@ function (_Component) {
         react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
+        this.setState({
+          loading: false
+        });
       } else {
         var role_id = this.state.role_id;
         var header = {
@@ -73825,6 +73906,10 @@ function (_Component) {
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
               autoClose: 3000
+            });
+
+            _this2.setState({
+              loading: false
             });
           } else {
             if (resp == 'Access Denied') {
@@ -74243,6 +74328,9 @@ function (_Component) {
         react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
+        this.setState({
+          loading: false
+        });
       } else {
         var user_id = this.state.user_id;
         var header = {
@@ -74261,6 +74349,10 @@ function (_Component) {
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
               autoClose: 3000
+            });
+
+            _this2.setState({
+              loading: false
             });
           } else {
             if (resp == 'Access Denied') {
@@ -74514,6 +74606,9 @@ function (_Component) {
         react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].error("You are not logged in !", {
           autoClose: 3000
         });
+        this.setState({
+          loading: false
+        });
       } else {
         var user_id = this.state.user_id;
         var header = {
@@ -74532,6 +74627,10 @@ function (_Component) {
           if (response.data.status === 'error') {
             react_toastify__WEBPACK_IMPORTED_MODULE_2__["toast"].warning('Something went wrong !', {
               autoClose: 3000
+            });
+
+            _this2.setState({
+              loading: false
             });
           } else {
             if (resp == 'Access Denied') {

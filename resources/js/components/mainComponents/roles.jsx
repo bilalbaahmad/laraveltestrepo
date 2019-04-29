@@ -27,6 +27,7 @@ export default class Roles extends Component
         if(token == '')
         {
             toast.error("You are not logged in !", {  autoClose: 3000 });
+            this.setState({loading: false});
         }
         else
         {

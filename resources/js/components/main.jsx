@@ -22,6 +22,7 @@ import AddRolePermissions from './rolePermissionComponents/addRolePermissions';
 import Users from './mainComponents/users';
 import UserRoles from './userComponents/userRoles';
 import UserPermissions from './userComponents/userPermissions';
+import Chart from './mainComponents/chart';
 import Explorer from './mainComponents/explorer';
 import AddFolder from './fileExplorerComponents/addFolder';
 import AddFile from './fileExplorerComponents/addFile';
@@ -131,6 +132,7 @@ export default class MainComponent extends Component
                         <ProtectedRoute exact path="/users" permissions={permissions} name={'View Users'} component={Users} />
                         <ProtectedRoute exact path="/user/roles" permissions={permissions} name={'Manage User Roles'} component={UserRoles} />
                         <ProtectedRoute exact path="/user/permissions" permissions={permissions} name={'Manage User Permissions'} component={UserPermissions} />
+                        <ProtectedRoute exact path="/chart" permissions={permissions} name={'View Directory'} component={Chart} />
                         <ProtectedRoute exact path="/explorer" permissions={permissions} name={'View Directory'} component={Explorer} />
                         <ProtectedRoute exact path="/folder/add" permissions={permissions} name={'Create Folder'} component={AddFolder} />
                         <ProtectedRoute exact path="/file/add" permissions={permissions} name={'Upload File'} component={AddFile} />

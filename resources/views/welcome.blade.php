@@ -122,27 +122,27 @@
         </div>
 
         <div class="col-md-12 row mt-3">
-            @can('export pdf')
+            {{--@can('export pdf')--}}
                 <div>
                     <button class="btn btn-success" id="export-pdf">Export to PDF</button>
                 </div>
-            @endcan
+            {{--@endcan--}}
 
 
-            @can('export pdf')
+            {{--@can('export pdf')--}}
                 &nbsp &nbsp
                 <div>
                     <button class="btn btn-success" onclick="exportpng()">Export PNG to PDF</button>
                 </div>
-            @endcan
+            {{--@endcan--}}
 
 
-            @can('export excel')
+            {{--@can('export excel')--}}
                 &nbsp &nbsp
                 <div>
                     <a class="btn btn-success" href="/viewexcel">Generate Excel</a>
                 </div>
-            @endcan
+           {{-- @endcan--}}
         </div>
     </div>
 @endsection

@@ -24,7 +24,7 @@ class Chart extends Component
         location: "City"
     };
 
-    componentWillMount()
+    componentDidMount()
     {
         this.getChartData();
         this.setState({loading: false});
@@ -64,11 +64,36 @@ class Chart extends Component
         });
     }
 
+    downloadPdf = () => {
+        var element = $("#wid")[0];
+
+        html2canvas(element).then(function (canvas) {
+            var myImage = canvas.toDataURL();
+
+            var margin_right = 20;
+            var margin_top = 20;
+
+            var divHeight = $('#wid').height();
+            var divWidth = $('#wid').width();
+            var ratio = divHeight / divWidth;
+
+            var doc = new jsPDF('p', 'pt', 'a4');
+
+            var width = doc.internal.pageSize.getWidth();
+            var height = ratio * width;
+
+            doc.addImage(myImage, 'JPEG', margin_right, margin_top, width - 50, height - 10);
+            doc.save('sample-file.pdf');
+        });
+    };
+
+
+
     render()
     {
         return (
             this.state.loading ? <div style={{ height: '45vh', width: '60vw' }}><Loading show={true} /> </div> :
-            <div className="chart">
+            <div className="chart" id="wid">
                 <Bar
                     data={this.state.chartData}
                     options={{
@@ -113,6 +138,8 @@ class Chart extends Component
                         }
                     }}
                 />
+
+                <button onClick={this.downloadPdf}>Download</button>
             </div>
         );
     }

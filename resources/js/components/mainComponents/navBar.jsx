@@ -42,6 +42,12 @@ export default class NavBar extends Component
                         </li>
 
                         <li className="nav-item">
+                            <NavLink className="nav-link" to="/highCharts">
+                                High Charts
+                            </NavLink>
+                        </li>
+
+                        <li className="nav-item">
                             <Link className="nav-link" to={{ pathname: '/explorer', state: { folder_id: '0'} }}>Explorer</Link> {/*folder id = 0 for root folder*/}
                         </li>
 

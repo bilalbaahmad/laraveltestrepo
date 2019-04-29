@@ -32,11 +32,11 @@ class ChartController extends Controller
         /*$permission = Permission::create(['name' => 'export pdf']);
         $permission = Permission::create(['name' => 'export excel']);*/
 
-        $all_permissions = Permission::all();
+       /* $all_permissions = Permission::all();
         $excel_perm = Permission::findByName('export excel');
-        $pdf_perm = Permission::findByName('Export Pdf');
+        $pdf_perm = Permission::findByName('Export Pdf');*/
 
-        $admin_role = Role::findByName('admin');
+        /*$admin_role = Role::findByName('admin');*/
         /*$excel_role = Role::findByName('excel downloader');
         $pdf_role = Role::findByName('pdf downloader');*/
 

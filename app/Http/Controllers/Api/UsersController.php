@@ -8,6 +8,8 @@ use Lcobucci\JWT\Parser;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
+use App;
+use DB;
 use App\User;
 use Illuminate\Support\Facades\File as File;
 
@@ -156,7 +158,7 @@ class UsersController extends Controller
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-        ],
+            ],
             [   'name.required' => 'Name Is Required.',
                 'email.required' => 'Email Is Required.',
                 'email.unique'      => 'Sorry, This Email Address Is Already Used By Another User. Please Try With Different One.',
@@ -173,6 +175,59 @@ class UsersController extends Controller
         $token = $user->createToken('')->accessToken;
 
         return response()->json(['access_token' => $token], 200);
+    }
+
+    public function forecastData(Request $request)
+    {
+        $startDate = $request->startDate;
+        $endDate = $request->endDate;
+        $data[] = '';
+        $count = 0;
+
+
+       /* error_log('start '.$startDate.' end'.$endDate);*/
+
+        $forecast_data = DB::table('forecast_data')
+            ->select('id','country as name','color')
+            ->get();
+
+        if($startDate == '' && $endDate == '')
+        {
+            foreach ($forecast_data as $forecast)
+            {
+                $yearly_data = App\forecast_yearly_data::where('forecast_data_id',$forecast->id)->pluck('data');
+                $data[$count] = array_merge((array) $forecast ,array('data'=> $yearly_data));
+                $count++;
+            }
+        }
+        else
+        {
+            $start_arr = explode(' ',$startDate);
+            $start_day = $start_arr[2];
+            $start_month = $start_arr[1];
+            $start_year = $start_arr[3];
+            $start_date = $start_day.' '.$start_month.' '.$start_year;
+            $new_start_date = strtotime($start_date);
+            $converted_start_date = date('Y-m-d', $new_start_date);
+
+            $end_arr = explode(' ',$endDate);
+            $end_day = $end_arr[2];
+            $end_month = $end_arr[1];
+            $end_year = $end_arr[3];
+            $end_date = $end_day.' '.$end_month.' '.$end_year;
+            $new_end_date = strtotime($end_date);
+            $converted_end_date = date('Y-m-d', $new_end_date);
+
+            foreach ($forecast_data as $forecast)
+            {
+                error_log($forecast->id.'  '.$converted_start_date.'  '.$converted_end_date);
+                $yearly_data = App\forecast_yearly_data::where('forecast_data_id',$forecast->id)->whereBetween('date', array($converted_start_date, $converted_end_date))->pluck('data');
+                $data[$count] = array_merge((array) $forecast ,array('data'=> $yearly_data));
+                $count++;
+            }
+        }
+
+        return $data;
     }
 
 }

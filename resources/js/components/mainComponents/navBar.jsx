@@ -42,7 +42,7 @@ export default class NavBar extends Component
                         </li>
 
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/highCharts">
+                            <NavLink className="nav-link" to="/highcharts">
                                 High Charts
                             </NavLink>
                         </li>

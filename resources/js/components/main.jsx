@@ -134,7 +134,7 @@ export default class MainComponent extends Component
                         <ProtectedRoute exact path="/user/roles" permissions={permissions} name={'Manage User Roles'} component={UserRoles} />
                         <ProtectedRoute exact path="/user/permissions" permissions={permissions} name={'Manage User Permissions'} component={UserPermissions} />
                         <ProtectedRoute exact path="/chart" permissions={permissions} name={'View Directory'} component={Chart} />
-                        <ProtectedRoute exact path="/highCharts" permissions={permissions} name={'View Directory'} component={HighCharts} />
+                        <ProtectedRoute exact path="/highcharts" permissions={permissions} name={'View Directory'} component={HighCharts} />
                         <ProtectedRoute exact path="/explorer" permissions={permissions} name={'View Directory'} component={Explorer} />
                         <ProtectedRoute exact path="/folder/add" permissions={permissions} name={'Create Folder'} component={AddFolder} />
                         <ProtectedRoute exact path="/file/add" permissions={permissions} name={'Upload File'} component={AddFile} />

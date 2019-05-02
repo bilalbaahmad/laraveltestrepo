@@ -10,6 +10,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/user/permissions', 'Api\UsersController@getUserPermissions');
     Route::get('/user/{id}/permissions', 'Api\UsersController@userDirectPermissions');
     Route::get('/user/{id}/roles', 'Api\UsersController@userRoles');
+    Route::post('/forecastdata', 'Api\UsersController@forecastData');
 
     Route::get('/allpermissions', 'Api\RolesPermissionsController@allPermissions');
     Route::get('/permission/{id}/view', 'Api\RolesPermissionsController@viewPermission');

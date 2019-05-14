@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import Loading from 'react-loading-spinkit';
@@ -9,7 +8,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'rc-color-picker/assets/index.css';
 
 require ('highcharts/modules/exporting.js')(Highcharts);
-
 
 class HighCharts extends Component
 {
@@ -78,7 +76,6 @@ class HighCharts extends Component
         this.updateChartData = this.updateChartData.bind(this);
         this.handlecolorChange = this.handlecolorChange.bind(this);
     }
-
 
     componentDidMount()
     {

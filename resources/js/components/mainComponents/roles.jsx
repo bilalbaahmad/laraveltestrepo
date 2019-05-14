@@ -155,7 +155,7 @@ export default class Roles extends Component
                             </thead>
 
                             <tbody>
-                            { this.state.roles.map((role, index)=>{
+                            { this.state.roles.map((role, index) => {
                                 return(
                                     <tr key={role.id}>
                                         <th>{index+1}</th>

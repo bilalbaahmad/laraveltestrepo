@@ -24,6 +24,7 @@ import UserRoles from './userComponents/userRoles';
 import UserPermissions from './userComponents/userPermissions';
 import Chart from './mainComponents/chart';
 import HighCharts from './mainComponents/highCharts';
+import Form from './mainComponents/form';
 import Explorer from './mainComponents/explorer';
 import AddFolder from './fileExplorerComponents/addFolder';
 import AddFile from './fileExplorerComponents/addFile';
@@ -135,6 +136,7 @@ export default class MainComponent extends Component
                         <ProtectedRoute exact path="/user/permissions" permissions={permissions} name={'Manage User Permissions'} component={UserPermissions} />
                         <ProtectedRoute exact path="/chart" permissions={permissions} name={'View Directory'} component={Chart} />
                         <ProtectedRoute exact path="/highcharts" permissions={permissions} name={'View Directory'} component={HighCharts} />
+                        <ProtectedRoute exact path="/form" permissions={permissions} name={'View Directory'} component={Form} />
                         <ProtectedRoute exact path="/explorer" permissions={permissions} name={'View Directory'} component={Explorer} />
                         <ProtectedRoute exact path="/folder/add" permissions={permissions} name={'Create Folder'} component={AddFolder} />
                         <ProtectedRoute exact path="/file/add" permissions={permissions} name={'Upload File'} component={AddFile} />

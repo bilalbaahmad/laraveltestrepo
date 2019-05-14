@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Lcobucci\JWT\Parser;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -147,9 +146,7 @@ class UsersController extends Controller
     public function logout(Request $request)
     {
         $request->user()->token()->revoke();
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ]);
+        return response()->json([ 'message' => 'Successfully logged out' ]);
     }
 
     public function register(Request $request)
@@ -183,9 +180,6 @@ class UsersController extends Controller
         $endDate = $request->endDate;
         $data[] = '';
         $count = 0;
-
-
-       /* error_log('start '.$startDate.' end'.$endDate);*/
 
         $forecast_data = DB::table('forecast_data')
             ->select('id','country as name','color')

@@ -10,7 +10,6 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/user/permissions', 'Api\UsersController@getUserPermissions');
     Route::get('/user/{id}/permissions', 'Api\UsersController@userDirectPermissions');
     Route::get('/user/{id}/roles', 'Api\UsersController@userRoles');
-    Route::post('/forecastdata', 'Api\UsersController@forecastData');
 
     Route::get('/allpermissions', 'Api\RolesPermissionsController@allPermissions');
     Route::get('/permission/{id}/view', 'Api\RolesPermissionsController@viewPermission');
@@ -27,6 +26,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/user/logout', 'Api\UsersController@logout');
     Route::post('/user/permissions/update', 'Api\UsersController@updateUserDirectPermissions');
     Route::post('/user/roles/update', 'Api\UsersController@updateUserRoles');
+    Route::post('/forecastdata', 'Api\UsersController@forecastData');
 
     Route::post('/permissions/add', 'Api\RolesPermissionsController@addPermission');
     Route::post('/permissions/update', 'Api\RolesPermissionsController@updatePermission');
@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/folder/add', 'Api\FileExplorerController@addFolder');
     Route::post('/file/add', 'Api\FileExplorerController@addFile');
     Route::post('/update/filefolder/name', 'Api\FileExplorerController@renameFileFolder');
+
 
 
     //Delete Routes

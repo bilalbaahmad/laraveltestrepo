@@ -47,44 +47,56 @@ export default class Form extends Component
 
         if(state.user_name == '')
         {
-            swal("Warning!", "Name Field Is Required", "warning")
+            swal("Warning!", "Name Field Is Required", "warning");
+            return false;
         }
         else if(state.email == '')
         {
-            swal("Warning!", "Email Field Is Required", "warning")
+            swal("Warning!", "Email Field Is Required", "warning");
+            return false;
         }
         else if(state.password == '')
         {
-            swal("Warning!", "Passowrd Field Is Required", "warning")
+            swal("Warning!", "Passowrd Field Is Required", "warning");
+            return false;
         }
         else if(state.password.length < 6)
         {
-            swal("Warning!", "Passowrd Minimum Length Must Be Greater Than 6 Characters", "warning")
+            swal("Warning!", "Passowrd Minimum Length Must Be Greater Than 6 Characters", "warning");
+            return false;
         }
         else if(state.password.length > 12)
         {
-            swal("Warning!", "Passowrd Minimum Length Must Be Smaller Than 13 Characters", "warning")
+            swal("Warning!", "Passowrd Minimum Length Must Be Smaller Than 13 Characters", "warning");
+            return false;
         }
         else if(state.city == '' || state.city == '0')
         {
-            swal("Warning!", "City Field Is Required", "warning")
+            swal("Warning!", "City Field Is Required", "warning");
+            return false;
         }
         else if(state.future_date == '')
         {
-            swal("Warning!", "Date Field Is Required", "warning")
+            swal("Warning!", "Date Field Is Required", "warning");
+            return false;
         }
         else if(state.future_date <= curr_date)
         {
-            swal("Warning!", "Select Future Date", "warning")
+            swal("Warning!", "Select Future Date", "warning");
+            return false;
         }
         else if(state.text_area == '')
         {
-            swal("Warning!", "Text Area Field Is Required", "warning")
+            swal("Warning!", "Text Area Field Is Required", "warning");
+            return false;
         }
         else if(state.radio == null)
         {
-            swal("Warning!", "Radio Selection Is Required", "warning")
+            swal("Warning!", "Radio Selection Is Required", "warning");
+            return false;
         }
+
+        console.log('form submitted');
     };
 
     render()

@@ -376,7 +376,7 @@ export default class Explorer extends Component
                     <div className="card-body card-dashboard row">
                         { this.state.upper_level_id != '0' ? <div className="col-md-2 mb-4" style={{marginRight: '-70px'}}><a onClick={this.onFolderChange.bind(this,this.state.upper_level_id)} style={{cursor: 'pointer'}}><i className='fas fa-level-up-alt fa-2x col-md-12' style={{color: '#007bff'}}></i> <br/> <label className="col-md-12" style={{color: '#007bff'}} >Level Up</label></a> </div> : '' }
 
-                        { this.state.content.map((cont,i)=>{
+                        { this.state.content.map((cont,i) => {
                             return(
                                 cont.parent == '#' ?
                                     <div className="col-md-12 mb-4" key={i}>

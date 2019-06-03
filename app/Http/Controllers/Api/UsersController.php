@@ -156,8 +156,8 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
             ],
-            [   'name.required' => 'Name Is Required.',
-                'email.required' => 'Email Is Required.',
+            [   'name.required'     => 'Name Is Required.',
+                'email.required'    => 'Email Is Required.',
                 'email.unique'      => 'Sorry, This Email Address Is Already Used By Another User. Please Try With Different One.',
                 'password.required' => 'Password Is Required.',
                 'password.min'      => 'Password Length Should Be More Than 8 Character Or Digit Or Mix.'

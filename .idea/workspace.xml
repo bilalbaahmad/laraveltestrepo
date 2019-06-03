@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="408b3572-bbcc-467a-8ab9-86733664fcd0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/form.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/main.jsx" afterPath="$PROJECT_DIR$/resources/js/components/main.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/mainComponents/highCharts.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/highCharts.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/mainComponents/navBar.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/navBar.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/mainComponents/roles.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/roles.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/sharedComponents/input.jsx" afterPath="$PROJECT_DIR$/resources/js/components/sharedComponents/input.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/components/mainComponents/form.jsx" afterPath="$PROJECT_DIR$/resources/js/components/mainComponents/form.jsx" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,18 +21,78 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="50" column="62" lean-forward="false" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+            <state relative-caret-position="340">
+              <caret line="20" column="78" lean-forward="false" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1122">
+              <caret line="74" column="30" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RolesPermissionsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3451">
+              <caret line="208" column="37" lean-forward="false" selection-start-line="208" selection-start-column="37" selection-end-line="208" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileExplorerController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="highCharts.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/highCharts.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="214" column="10" lean-forward="false" selection-start-line="214" selection-start-column="10" selection-end-line="214" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#649#703#0" expanded="false" />
+                <element signature="e#728#784#0" expanded="false" />
+                <element signature="e#812#884#0" expanded="false" />
+                <element signature="e#2527#2666#0" expanded="false" />
+                <element signature="e#2694#3684#0" expanded="false" />
+                <element signature="e#3711#4363#0" expanded="false" />
+                <element signature="n#!!block;n#handleChangeStart#0;n#HighCharts#0" expanded="false" />
+                <element signature="n#!!block;n#handleChangeEnd#0;n#HighCharts#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="explorer.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2125">
+              <caret line="198" column="40" lean-forward="true" selection-start-line="198" selection-start-column="40" selection-end-line="198" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/form.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="706">
-              <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+            <state relative-caret-position="-1155">
+              <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -49,13 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>userRoles</find>
-      <find>allpermissions</find>
-      <find>downloadFile</find>
-      <find>getFolderContent</find>
-      <find>renameFileFolder</find>
-      <find>getfolder</find>
-      <find>user/permissions</find>
       <find>getUserPermissions</find>
       <find>connect</find>
       <find>register</find>
@@ -67,7 +115,6 @@
       <find>storage_path</find>
       <find>getStorageFilePath</find>
       <find>file_folder_name</find>
-      <find>onRenameInputChange</find>
       <find>colorChangeHandler</find>
       <find>displaySeries</find>
       <find>console.log</find>
@@ -75,10 +122,18 @@
       <find>assignRole</find>
       <find>createToken</find>
       <find>json</find>
-      <find>fileFolder</find>
       <find>attach</find>
       <find>jquery</find>
       <find>slideDown</find>
+      <find>handleRadio</find>
+      <find>handleCheck</find>
+      <find>onDownloadFile</find>
+      <find>FileExplorerController</find>
+      <find>file</find>
+      <find>onRenameInputChange</find>
+      <find>file_folder_id</find>
+      <find>downloadFile</find>
+      <find>fileFolder</find>
     </findStrings>
     <replaceStrings>
       <replace>Api/RolesPermissionsController</replace>
@@ -152,10 +207,8 @@
         <option value="$PROJECT_DIR$/resources/js/components/sharedComponents/protectedRoute.jsx" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
         <option value="$PROJECT_DIR$/app/fileFolder.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/editRole.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/editPermission.jsx" />
-        <option value="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/rolePermissions.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/rolePermissionComponents/addRolePermissions.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/userComponents/userPermissions.jsx" />
@@ -171,14 +224,16 @@
         <option value="$PROJECT_DIR$/app/forecast_data.php" />
         <option value="$PROJECT_DIR$/app/forecast_yearly_data.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/mainComponents/highCharts.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/mainComponents/roles.jsx" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/mainComponents/navBar.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/main.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/sharedComponents/input.jsx" />
         <option value="$PROJECT_DIR$/resources/js/components/mainComponents/form.jsx" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/mainComponents/highCharts.jsx" />
+        <option value="$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx" />
       </list>
     </option>
   </component>
@@ -298,6 +353,14 @@
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="fileExplorerComponents" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="test_laravel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="mainComponents" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -337,8 +400,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,14 +499,22 @@
       <workItem from="1557374562546" duration="11379000" />
       <workItem from="1557460421216" duration="5921000" />
       <workItem from="1557719943044" duration="2753000" />
-      <workItem from="1557807955714" duration="17708000" />
-    </task>
-    <task id="LOCAL-00005" summary="28-3-18">
-      <created>1553768232427</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1553768232427</updated>
+      <workItem from="1557807955714" duration="21606000" />
+      <workItem from="1557892611477" duration="2567000" />
+      <workItem from="1557979127070" duration="2238000" />
+      <workItem from="1558065673702" duration="1239000" />
+      <workItem from="1558071674747" duration="3014000" />
+      <workItem from="1558324768693" duration="861000" />
+      <workItem from="1558327127666" duration="6534000" />
+      <workItem from="1558411445065" duration="19613000" />
+      <workItem from="1558584245387" duration="6354000" />
+      <workItem from="1558670959708" duration="8673000" />
+      <workItem from="1558930076989" duration="8560000" />
+      <workItem from="1559016727346" duration="3748000" />
+      <workItem from="1559102448095" duration="6314000" />
+      <workItem from="1559189435444" duration="6274000" />
+      <workItem from="1559275806285" duration="6972000" />
+      <workItem from="1559534717880" duration="7237000" />
     </task>
     <task id="LOCAL-00006" summary="28-3-18">
       <created>1553768365141</created>
@@ -781,21 +852,27 @@
       <option name="project" value="LOCAL" />
       <updated>1556797858991</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="from testing added">
+      <created>1557831177555</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1557831177556</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="693086000" />
+    <option name="totallyTimeSpent" value="787182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32506528" sideWeight="0.5025" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25718015" sideWeight="0.4975" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -808,6 +885,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -840,7 +918,8 @@
     <MESSAGE value="charts included in react" />
     <MESSAGE value="charts and download pdf completed in react" />
     <MESSAGE value="charts with date change and color change completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="charts with date change and color change completed" />
+    <MESSAGE value="from testing added" />
+    <option name="LAST_COMMIT_MESSAGE" value="from testing added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -916,7 +995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2754">
           <caret line="163" column="9" lean-forward="false" selection-start-line="163" selection-start-column="9" selection-end-line="163" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -973,20 +1051,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/highcharts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1020">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/exporting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -1023,7 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,7 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,7 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1461">
           <caret line="11" column="62" lean-forward="false" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,7 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,7 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,26 +1159,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1241">
-          <caret line="327" column="24" lean-forward="true" selection-start-line="327" selection-start-column="24" selection-end-line="327" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Models/Role.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">
           <caret line="80" column="6" lean-forward="true" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2617">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,25 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="681">
           <caret line="122" column="26" lean-forward="false" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="46" column="56" lean-forward="false" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="173" column="65" lean-forward="true" selection-start-line="173" selection-start-column="65" selection-end-line="173" selection-end-column="65" />
-          <folding>
-            <element signature="e#44#72#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1147,7 +1177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1155,9 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="50" column="67" lean-forward="false" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1165,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,7 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2006">
           <caret line="158" column="39" lean-forward="false" selection-start-line="158" selection-start-column="39" selection-end-line="158" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,7 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1189,9 +1212,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="108" column="24" lean-forward="false" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1199,7 +1219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
           <caret line="103" column="55" lean-forward="true" selection-start-line="103" selection-start-column="55" selection-end-line="103" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,28 +1226,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-401">
           <caret line="67" column="8" lean-forward="false" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="27" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/exporting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="50" column="62" lean-forward="false" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+        <state relative-caret-position="340">
+          <caret line="20" column="78" lean-forward="false" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/RolesPermissionsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3451">
+          <caret line="208" column="37" lean-forward="false" selection-start-line="208" selection-start-column="37" selection-end-line="208" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FileExplorerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="74" column="30" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/highCharts.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-237">
-          <caret line="216" column="16" lean-forward="false" selection-start-line="216" selection-start-column="16" selection-end-line="216" selection-end-column="16" />
+        <state relative-caret-position="17">
+          <caret line="214" column="10" lean-forward="false" selection-start-line="214" selection-start-column="10" selection-end-line="214" selection-end-column="10" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#649#703#0" expanded="false" />
             <element signature="e#728#784#0" expanded="false" />
             <element signature="e#812#884#0" expanded="false" />
-            <element signature="e#1417#1561#0" expanded="false" />
             <element signature="e#2527#2666#0" expanded="false" />
             <element signature="e#2694#3684#0" expanded="false" />
             <element signature="e#3711#4363#0" expanded="false" />
@@ -1240,11 +1288,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/form.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+        <state relative-caret-position="-1155">
+          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/mainComponents/explorer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2125">
+          <caret line="198" column="40" lean-forward="true" selection-start-line="198" selection-start-column="40" selection-end-line="198" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

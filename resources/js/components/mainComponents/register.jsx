@@ -24,6 +24,27 @@ export default class Register extends Component
         conf_password: Joi.string().valid(Joi.ref('password')).required().options({ language: { any: { allowOnly: 'must match password' } } })
     };
 
+    /*componentDidMount()
+    {
+        axios({
+            method: 'get',
+            url: '/api/allroles',
+
+        }).then(response => {
+            const resp = response.data;
+            if (response.data.status === 'error')
+            {
+                toast.warning('Something went wrong !', {autoClose: 3000});
+                this.setState({loading: false});
+            }
+            else
+            {
+                console.log(response.data);
+            }
+        });
+    }*/
+
+
     handleChange = ({ currentTarget: input }) => {
 
         const errors = { ...this.state.errors };

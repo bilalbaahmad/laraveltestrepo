@@ -394,8 +394,8 @@ export default class Explorer extends Component
                                             </a>
                                         </div>
                                     </ContextMenuTrigger>
-                            )
-                        }) }
+                                )
+                        })  }
                     </div>
                 </div>
 

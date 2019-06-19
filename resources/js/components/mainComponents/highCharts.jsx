@@ -92,9 +92,9 @@ class HighCharts extends Component
         this.setState({
             chartOptions: {
                 series: [
-                    { data: [Math.random() * 15, Math.random() * 22, Math.random() * 33,Math.random() * 25, Math.random() * 32, Math.random() * 43, Math.random() * 15, Math.random() * 22, Math.random() * 33,Math.random() * 25, Math.random() * 32, Math.random() * 43]},
-                    { data: [Math.random() * 5, Math.random() * 42, Math.random() * 13,Math.random() * 35, Math.random() * 22, Math.random() * 13, Math.random() * 5, Math.random() * 42, Math.random() * 13,Math.random() * 35, Math.random() * 22, Math.random() * 13,]},
-                    { data: [Math.random() * 25, Math.random() * 52, Math.random() * 23,Math.random() * 45, Math.random() * 12, Math.random() * 13, Math.random() * 25, Math.random() * 52, Math.random() * 23,Math.random() * 45, Math.random() * 12, Math.random() * 13,]}
+                    { data: [Math.random() * 15, Math.random() * 22, Math.random() * 33, Math.random() * 25, Math.random() * 32, Math.random() * 43, Math.random() * 15, Math.random() * 22, Math.random() * 33,Math.random() * 25, Math.random() * 32, Math.random() * 43]},
+                    { data: [Math.random() * 5, Math.random() * 42, Math.random() * 13, Math.random() * 35, Math.random() * 22, Math.random() * 13, Math.random() * 5, Math.random() * 42, Math.random() * 13,Math.random() * 35, Math.random() * 22, Math.random() * 13,]},
+                    { data: [Math.random() * 25, Math.random() * 52, Math.random() * 23, Math.random() * 45, Math.random() * 12, Math.random() * 13, Math.random() * 25, Math.random() * 52, Math.random() * 23,Math.random() * 45, Math.random() * 12, Math.random() * 13,]}
                 ]
             }
         });
@@ -153,7 +153,7 @@ class HighCharts extends Component
             }
             else
             {
-                const startDate =this.state.startDate;
+                const startDate = this.state.startDate;
                 const endDate = this.state.endDate;
 
                 const FD = new FormData();

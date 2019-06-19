@@ -31,6 +31,7 @@ import AddFile from './fileExplorerComponents/addFile';
 import Login from './mainComponents/login';
 import Logout from './mainComponents/logout';
 import Register from './mainComponents/register';
+import Payment from './mainComponents/payment';
 import NotFound from './mainComponents/notFound';
 import ProtectedRoute from './sharedComponents/protectedRoute';
 import VerifyLoginRoute from './sharedComponents/verifyLoginRoute';
@@ -140,6 +141,7 @@ export default class MainComponent extends Component
                         <ProtectedRoute exact path="/explorer" permissions={permissions} name={'View Directory'} component={Explorer} />
                         <ProtectedRoute exact path="/folder/add" permissions={permissions} name={'Create Folder'} component={AddFolder} />
                         <ProtectedRoute exact path="/file/add" permissions={permissions} name={'Upload File'} component={AddFile} />
+                        <ProtectedRoute exact path="/payment" permissions={permissions} name={'Upload File'} component={Payment} />
                         <VerifyLoginRoute exact path="/" login_status={login_status} component={Home} />
 
 

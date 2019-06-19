@@ -1,7 +1,6 @@
 <?php
 use Illuminate\Http\Request;
 
-
 Route::group(['middleware' => ['auth:api']], function () {
 
     //Get Routes
@@ -13,12 +12,14 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::get('/allpermissions', 'Api\RolesPermissionsController@allPermissions');
     Route::get('/permission/{id}/view', 'Api\RolesPermissionsController@viewPermission');
-    Route::get('/allroles', 'Api\RolesPermissionsController@allRoles');
+
     Route::get('/role/{id}/view', 'Api\RolesPermissionsController@viewRole');
     Route::get('/role/{id}/permissions', 'Api\RolesPermissionsController@viewRolePermissions');
-
+    Route::get('/allroles', 'Api\RolesPermissionsController@allRoles');
     Route::get('/getfolder/{id}/content', 'Api\FileExplorerController@getFolderContent');
     Route::get('/file/{id}/download', 'Api\FileExplorerController@downloadFile');
+
+    Route::get('paymentstatus', 'PaymentController@getPaymentStatus');
 
 
 
@@ -37,6 +38,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/folder/add', 'Api\FileExplorerController@addFolder');
     Route::post('/file/add', 'Api\FileExplorerController@addFile');
     Route::post('/update/filefolder/name', 'Api\FileExplorerController@renameFileFolder');
+
+    Route::post('/paywithpaypal', 'PaymentController@payWithpaypal');
 
 
 

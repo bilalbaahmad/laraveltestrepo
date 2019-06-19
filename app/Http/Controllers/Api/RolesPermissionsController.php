@@ -100,6 +100,9 @@ class RolesPermissionsController extends Controller
 
     public function allRoles(Request $request)
     {
+        /*$all_roles = Role::all();
+        return $all_roles;*/
+
         $user_id = $request->user()->id;
         $user = User::find($user_id);
 

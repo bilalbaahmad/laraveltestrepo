@@ -29,6 +29,7 @@
         "joi-browser": "^13.4.0",
         "js-file-download": "^0.4.5",
         "rc-color-picker": "^1.2.6",
+        "react-async-script-loader": "^0.3.0",
         "react-chartjs-2": "^2.7.6",
         "react-contextmenu": "^2.11.0",
         "react-datepicker": "^2.5.0",

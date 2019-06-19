@@ -58,6 +58,12 @@ export default class NavBar extends Component
                         </li>
 
                         <li className="nav-item">
+                            <NavLink className="nav-link" to="/payment">
+                                Payment
+                            </NavLink>
+                        </li>
+
+                        <li className="nav-item">
                             <NavLink className="nav-link" to="/register">
                                 Register
                             </NavLink>

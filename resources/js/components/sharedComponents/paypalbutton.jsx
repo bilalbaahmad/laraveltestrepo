@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import scriptLoader from 'react-async-script-loader';
 
-class PaypalButton extends React.Component {
-
-    constructor(props) {
+class PaypalButton extends React.Component
+{
+    constructor(props)
+    {
         super(props);
 
         this.state = {
@@ -15,50 +16,38 @@ class PaypalButton extends React.Component {
         window.ReactDOM = ReactDOM;
     }
 
-    componentDidMount() {
-        const {
-            isScriptLoaded,
-            isScriptLoadSucceed
-        } = this.props;
+    componentDidMount()
+    {
+        const { isScriptLoaded, isScriptLoadSucceed } = this.props;
 
-        if (isScriptLoaded && isScriptLoadSucceed) {
+        if (isScriptLoaded && isScriptLoadSucceed)
+        {
             this.setState({ showButton: true });
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps)
+    {
         const {
             isScriptLoaded,
             isScriptLoadSucceed,
         } = nextProps;
 
-        const isLoadedButWasntLoadedBefore =
-            !this.state.showButton &&
-            !this.props.isScriptLoaded &&
-            isScriptLoaded;
+        const isLoadedButWasntLoadedBefore = !this.state.showButton && !this.props.isScriptLoaded && isScriptLoaded;
 
-        if (isLoadedButWasntLoadedBefore) {
-            if (isScriptLoadSucceed) {
+        if (isLoadedButWasntLoadedBefore)
+        {
+            if (isScriptLoadSucceed)
+            {
                 this.setState({ showButton: true });
             }
         }
     }
 
     render() {
-        const {
-            total,
-            currency,
-            env,
-            commit,
-            client,
-            onSuccess,
-            onError,
-            onCancel,
-        } = this.props;
 
-        const {
-            showButton,
-        } = this.state;
+        const { total, currency, env, commit, client, onSuccess, onError, onCancel } = this.props;
+        const { showButton } = this.state;
 
         const payment = () =>
             paypal.rest.payment.create(env, client, {
@@ -89,7 +78,8 @@ class PaypalButton extends React.Component {
 
         return (
             <div>
-                {showButton && <paypal.Button.react
+                {
+                    showButton && <paypal.Button.react
                     env={env}
                     client={client}
                     commit={commit}
@@ -97,7 +87,8 @@ class PaypalButton extends React.Component {
                     onAuthorize={onAuthorize}
                     onCancel={onCancel}
                     onError={onError}
-                />}
+                    />
+                }
             </div>
         );
     }

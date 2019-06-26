@@ -1,8 +1,17 @@
 import React, { Component, Children } from "react";
+import Recaptcha from 'react-recaptcha';
 import Input from "../sharedComponents/input";
 
 export default class Form extends Component
 {
+    constructor()
+    {
+        super();
+
+        this.onCaptchaLoad = this.onCaptchaLoad.bind(this);
+        this.onCaptchaVerify = this.onCaptchaVerify.bind(this);
+    }
+
     state = {
         user_name:'',
         email: '',
@@ -13,6 +22,7 @@ export default class Form extends Component
         check1: false,
         check2: false,
         radio: null,
+        isvarified: false,
     };
 
     handleChange = ({ currentTarget: input }) => {
@@ -36,6 +46,16 @@ export default class Form extends Component
         let value = e.target.value;
         this.setState({radio:value});
     };
+
+    onCaptchaLoad()
+    {
+        console.log('captcha loaded');
+    }
+
+    onCaptchaVerify()
+    {
+        this.setState({isvarified:true});
+    }
 
     handleSubmit = e => {
 
@@ -93,6 +113,11 @@ export default class Form extends Component
         else if(state.radio == null)
         {
             swal("Warning!", "Radio Selection Is Required", "warning");
+            return false;
+        }
+        else if(state.isvarified == false)
+        {
+            swal("Warning!", "Check Captcha To Verify You Are Human", "warning");
             return false;
         }
 
@@ -193,6 +218,13 @@ export default class Form extends Component
                             }
 
                             <br />
+
+                            <Recaptcha
+                                sitekey="6LdFtaoUAAAAAL5cA-9OzQw-83BGVxCBiyMO--4I"
+                                render="explicit"
+                                verifyCallback={this.onCaptchaVerify}
+                                onloadCallback={this.onCaptchaLoad}
+                            />
 
                             <button className="btn btn-primary"> Submit </button>
                         </form>

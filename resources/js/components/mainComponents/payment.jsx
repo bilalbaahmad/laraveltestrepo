@@ -11,7 +11,6 @@ const ENV = 'production';
 
 export default class Payment extends Component
 {
-
     state = {
         amount:'',
     };
@@ -95,7 +94,6 @@ export default class Payment extends Component
 
         return (
 
-
             <div className="card">
                 <div className="card-head">
                     <div className="card-header">
@@ -112,7 +110,6 @@ export default class Payment extends Component
                                 label="Total Amount"
                                 onChange={this.handleChange}
                             />
-
                             {/*<button className="btn btn-primary"> Submit </button>*/}
                         </form>
 

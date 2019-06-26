@@ -36,11 +36,8 @@ class PaymentController extends Controller
     {
         /** PayPal api context **/
         $paypal_conf = \Config::get('paypal');
-        $this->_api_context = new ApiContext(new OAuthTokenCredential(
-                $paypal_conf['client_id'],
-                $paypal_conf['secret'])
-        );
-        $this->_api_context->setConfig($paypal_conf['settings']);
+        $this->_api_context = new ApiContext( new OAuthTokenCredential( $paypal_conf['client_id'], $paypal_conf['secret']));
+        $this->_api_context->setConfig( $paypal_conf['settings']);
     }
 
     public function payWithpaypal(Request $request)
@@ -57,7 +54,7 @@ class PaymentController extends Controller
 
             $item_1 = new Item();
             $item_1->setName('test user') /** item name **/
-            ->setCurrency('USD')
+                ->setCurrency('USD')
                 ->setQuantity(1)
                 ->setPrice($total_amount); /** unit price **/
 
@@ -75,7 +72,7 @@ class PaymentController extends Controller
 
             $redirect_urls = new RedirectUrls();
             $redirect_urls->setReturnUrl(URL::to('api/paymentstatus')) /** Specify return URL **/
-            ->setCancelUrl(URL::to('paymentstatus'));
+                ->setCancelUrl(URL::to('paymentstatus'));
 
             $payment = new Payment();
             $payment->setIntent('Sale')
@@ -118,6 +115,7 @@ class PaymentController extends Controller
                 /** redirect to paypal **/
                 return Redirect::away($redirect_url);
             }
+
             Session::put('error', 'Unknown error occurred');
             return Redirect::to('/payment');
         }

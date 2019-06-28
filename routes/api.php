@@ -1,6 +1,10 @@
 <?php
 use Illuminate\Http\Request;
 
+Route::post('checkpaymentstatus', 'PaymentController@CheckPaymentStatus');
+Route::post('refundpayment', 'PaymentController@RefundPayment');
+
+
 Route::group(['middleware' => ['auth:api']], function () {
 
     //Get Routes

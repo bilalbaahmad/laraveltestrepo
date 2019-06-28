@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Input;
+
+
+/** All Paypal Details class **/
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
 use PayPal\Api\Item;
-
-/** All Paypal Details class **/
 use PayPal\Api\ItemList;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
@@ -18,10 +18,14 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
+use PayPal\Api\Refund;
+use PayPal\Api\Sale;
+
 use Redirect;
 use Session;
 use URL;
 use DB;
+
 
 class PaymentController extends Controller
 {
@@ -163,5 +167,79 @@ class PaymentController extends Controller
 
         Session::put('error', 'Payment failed');
         return Redirect::to('/payment');
+    }
+
+    function CheckPaymentStatus(Request $request)
+    {
+        $payment = '';
+
+        try
+        {
+            $payment = Payment::get($request->paymentId, $this->_api_context);
+        }
+        catch (\PayPal\Exception\PayPalConnectionException $ex)
+        {
+            $message = $ex->getMessage();
+            return $message;
+        }
+
+        return $payment;
+    }
+
+    function RefundPayment(Request $request)
+    {
+        /*$refund_amount = $this->input->post('refund_amount');*/
+        $refund_amount = 50;
+        $paymentId = $request->refundPaymentId;
+
+        $paymentValue =  (string) round($refund_amount,2); ;
+
+        try
+        {
+            $payment = Payment::get($paymentId, $this->_api_context);
+            $transactions = $payment->getTransactions();
+            $resources = $transactions[0]->getRelatedResources();//This DOESN'T work for PayPal transactions.
+
+            $sale = $resources[0]->getSale();
+            $saleID = $sale->getId();
+        }
+        catch (\PayPal\Exception\PayPalConnectionException $ex)
+        {
+            $message = $ex->getMessage();
+            return $message;
+        }
+
+        // ### Refund amount
+        // Includes both the refunded amount (to Payer)
+        // and refunded fee (to Payee). Use the $amt->details
+        // field to mention fees refund details.
+        $amt = new Amount();
+        $amt->setCurrency('USD')
+            ->setTotal($paymentValue);
+
+        // ### Refund object
+        $refundRequest = new Refund();
+        $refundRequest->setAmount($amt);
+
+        // ###Sale
+        // A sale transaction.
+        // Create a Sale object with the
+        // given sale transaction id.
+        $sale = new Sale();
+        $sale->setId($saleID);
+
+        try
+        {
+            // Refund the sale
+            // (See bootstrap.php for more on `ApiContext`)
+            $refundedSale = $sale->refundSale($refundRequest, $this->_api_context);
+        }
+        catch (\PayPal\Exception\PayPalConnectionException $ex)
+        {
+            $message = $ex->getData();
+            return 'in refund ex';
+        }
+
+        return $refundedSale;
     }
 }

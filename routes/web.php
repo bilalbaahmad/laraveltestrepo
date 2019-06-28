@@ -23,6 +23,8 @@ Route::any('{all}', function(){
 
 Auth::routes();
 Route::get('/excel', 'ChartController@index');
+
+
 /*
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');

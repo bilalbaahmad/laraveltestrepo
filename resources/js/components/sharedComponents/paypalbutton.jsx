@@ -62,6 +62,9 @@ class PaypalButton extends React.Component
             });
 
         const onAuthorize = (data, actions) =>
+        {
+            console.log("save data", data);
+
             actions.payment.execute()
                 .then(() => {
                     const payment = {
@@ -74,7 +77,10 @@ class PaypalButton extends React.Component
                     };
 
                     onSuccess(payment);
+
                 });
+        }
+
 
         return (
             <div>
